@@ -1,7 +1,6 @@
 {
 	"name": "quark",
   "author": "Alec Aivazis",
-	"private": true,
   "description": "a react component library",
   "scripts": {
 		"bootstrap": "lerna boostrap",
