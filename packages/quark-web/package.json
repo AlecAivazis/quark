@@ -1,12 +1,12 @@
 {
     "name": "quark-web",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "module": "build/index.js",
     "scripts": {
-      "build": "quark-build"
+        "build": "quark-build"
     },
     "devDependencies": {
-        "quark-core": "^0.0.0",
-        "quark-build": "^0.0.0"
+        "quark-build": "^0.0.1",
+        "quark-core": "^0.0.1"
     }
 }
