@@ -4,7 +4,10 @@
 	"private": true,
   "description": "a react component library",
   "scripts": {
-    "test": "lerna run test"
+		"test": "lerna run test",
+		"publish": "lerna publish",
+		"build:module": "pwd",
+		"build": "lerna exec --parallel -- npm run build"
   },
 	"license": "MIT",
   "devDependencies": {
