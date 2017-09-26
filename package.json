@@ -6,7 +6,6 @@
   "scripts": {
 		"bootstrap": "lerna boostrap",
 		"build": "lerna exec -- npm run build",
-		"build:module": "pwd",
 		"publish": "lerna publish",
 		"test": "lerna run test"
   },
