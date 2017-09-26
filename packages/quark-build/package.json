@@ -3,9 +3,16 @@
   "description": "an internal package with the scripts to build quark",
   "version": "0.0.0",
   "scripts": {
-    "build": "echo building build..."
+    "build": "echo building quark..."
   },
   "bin": {
     "quark-build": "./index.js"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "mkdirp": "^0.5.1",
+    "walk": "^2.3.9"
   }
 }

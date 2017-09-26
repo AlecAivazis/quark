@@ -3,6 +3,11 @@ import { baseDim } from './dims'
 const reset = {
     margin: 0,
 }
+
+export const primaryFont = {
+
+}
+
 export const h1 = {
     ...primaryFont,
     ...reset,

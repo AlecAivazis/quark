@@ -1,6 +1,7 @@
 {
     "name": "quark-native",
     "version": "0.0.0",
+    "module": "build/index.js",
     "scripts": {
       "build": "quark-build"
     },
