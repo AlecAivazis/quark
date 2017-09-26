@@ -1,0 +1,7 @@
+{
+    "name": "quark-web",
+    "version": "0.0.0",
+    "dependencies": {
+        "quark-core": "^0.0.0"
+    }
+}
