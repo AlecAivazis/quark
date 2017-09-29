@@ -5,8 +5,10 @@
     "scripts": {
         "build": "quark-build"
     },
-    "devDependencies": {
-        "quark-build": "^0.0.2",
+    "dependencies": {
         "quark-core": "^0.0.2"
+    },
+    "devDependencies": {
+        "quark-build": "^0.0.2"
     }
 }
