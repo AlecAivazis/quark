@@ -1,6 +1,6 @@
 {
     "name": "quark-native",
-    "version": "0.0.8-beta.2",
+    "version": "0.0.8-beta.3",
     "module": "index.js",
     "main": "index.js",
     "scripts": {
