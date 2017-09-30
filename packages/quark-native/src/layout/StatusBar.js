@@ -9,7 +9,7 @@ const StatusBar = ({style, ...unused}) => {
     // render the native bar
     return (
         <View style={elementStyle}>
-            <NativeBar backgroundColor="blue" {...unused} />
+            <NativeBar backgroundColor={style.backgroundColor} {...unused} />
         </View>
     )
 }
