@@ -3,7 +3,7 @@ import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 // local imports
 import { StatusBar } from '.'
-import { baseDim, grey2 } from '../../styles'
+import { baseDim, grey2 } from 'quark-core/styles'
 
 const AppBar = ({style, statusBarStyle, ...unused}) => (
     <View style={styles.container}>

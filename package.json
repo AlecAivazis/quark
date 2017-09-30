@@ -2,15 +2,15 @@
 	"name": "quark",
 	"author": "Alec Aivazis",
 	"version": "0.0.2",
-  "description": "a react component library",
-  "scripts": {
+	"description": "a react component library",
+	"scripts": {
 		"bootstrap": "lerna boostrap",
 		"build": "lerna exec -- npm run build",
 		"publish": "lerna publish",
 		"test": "lerna run test"
-  },
+	},
 	"license": "MIT",
-  "devDependencies": {
-    "lerna": "^2.0.0"
-  }
+	"devDependencies": {
+		"lerna": "^2.0.0"
+	}
 }
