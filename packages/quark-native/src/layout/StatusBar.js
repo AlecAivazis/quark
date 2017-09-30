@@ -8,7 +8,7 @@ const StatusBar = ({style, ...unused}) => {
 
     // render the native bar
     return (
-        <NativeBar backgroundColor={elementStyle.backgroundColor} barStyle={elementStyle.barStyle} />
+        <NativeBar backgroundColor="red" {...elementStyle} />
     )
 }
 
