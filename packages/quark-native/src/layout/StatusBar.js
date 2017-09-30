@@ -5,10 +5,10 @@ import { View, StatusBar as NativeBar, StyleSheet, Platform } from 'react-native
 const StatusBar = ({style, ...unused}) => {
     // merge the given style with the default one
     const elementStyle = {...style, ...styles.container}
-    console.log(elementStyle)
+
     // render the native bar
     return (
-        <NativeBar backgroundColor={style.backgroundColor} barStyle={elementStyle.barStyle} />
+        <NativeBar backgroundColor={elementStyle.backgroundColor} barStyle={elementStyle.barStyle} />
     )
 }
 
