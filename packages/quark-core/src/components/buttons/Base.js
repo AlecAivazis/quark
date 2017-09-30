@@ -2,8 +2,8 @@
 import React from 'react'
 import { Text, StyleSheet, Animated, Easing, TouchableWithoutFeedback } from 'react-native'
 import PropTypes from 'prop-types'
-import { baseDim } from '../../../quark'
 // local imports
+import { baseDim } from '~/styles'
 import { styles, containerSizes, textSizes, sizeConstraints } from './styles'
 
 

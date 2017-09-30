@@ -1,2 +1,3 @@
-export * from './components'
-export * as styles from './styles'
+export * from './components';
+import * as _styles from './styles';
+export { _styles as styles };

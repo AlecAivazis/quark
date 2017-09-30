@@ -1,4 +1,10 @@
 /packages/*/node_modules/
 /packages/*/build/
+/packages/*/index.js
 lerna-debug.log
 .DS_Store
+/packages/quark-core/components/
+/packages/quark-core/styles/
+/packages/quark-native/layout/
+/packages/quark-native/tabs/
+/packages/quark-native/styles.js

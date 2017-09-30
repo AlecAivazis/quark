@@ -4,7 +4,7 @@ import { TextInput as NativeInput, View, Text, StyleSheet, Modal } from 'react-n
 // local imports
 import { primaryColor, secondaryColor, grey2, grey4, baseDim } from '../../styles'
 import { Button, PrimaryButton, SecondaryButton } from '../buttons'
-import { StatusBar } from '../../native'
+import { StatusBar } from 'quark-native'
 
 class TextInput extends Component{
 

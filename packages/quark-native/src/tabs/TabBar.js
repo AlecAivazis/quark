@@ -2,8 +2,8 @@
 import React from 'react'
 import { ScrollView, View, StyleSheet, Text, FlatList } from 'react-native'
 // local imports
-import { Button } from '../../components'
-import { baseDim, grey5, primaryColor } from '../../styles'
+import { Button } from 'quark-core'
+import { baseDim, grey5, primaryColor } from 'quark-core/styles'
 
 // the margin between tabs
 const tabMargin = 12

@@ -9,7 +9,7 @@ const StatusBar = ({style, ...unused}) => {
     // render the native bar
     return (
         <View style={elementStyle}>
-            <NativeBar backgroundColor={elementStyle.backgroundColor} {...unused} />
+            <NativeBar backgroundColor="blue" {...unused} />
         </View>
     )
 }
@@ -18,7 +18,6 @@ const StatusBar = ({style, ...unused}) => {
 // figure out which to send to the native element
 const styles = {
     container: {
-        height: Platform.OS === 'ios' ? 20 : 0
     }
 }
 

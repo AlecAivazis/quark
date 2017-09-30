@@ -1,7 +1,7 @@
 // external imports
 import React from 'react'
 // local imports
-import { red, darkRed } from '../../styles'
+import { red, darkRed } from '~/styles'
 import BaseButton from './Base'
 
 const Button = ({...unused}) => (

@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
 import { H2 } from '..'
-import { baseDim, grey5 } from '../../styles'
+import { baseDim, grey5 } from '~/styles'
 
 const Breadcrumbs = ({style, children, ...unused}) => {
     // add the divider after every child

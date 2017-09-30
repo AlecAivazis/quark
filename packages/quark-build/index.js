@@ -8,7 +8,7 @@ const { walk } = require('walk')
 const mkdirp = require('mkdirp')
 
 // the directory to build to
-const buildDir = './build'
+const buildDir = '.'
 // the source directory
 const sourceDir = './src'
 
@@ -17,13 +17,18 @@ walk(sourceDir, {}).on('file', (root, {name}, next) => {
   // the full path of the source file
   const source = `./${path.join(root, name)}`
   // the full path of the target file
-  const target= `./build/${path.relative(sourceDir, source)}`
+  const target= `${buildDir}/${path.relative(sourceDir, source)}`
 
   // run babel on the source
   babel.transformFile(source, {
     presets: [
       require.resolve('babel-preset-stage-1'),
       require.resolve('babel-preset-react'),
+    ],
+    plugins: [
+      [require.resolve('babel-plugin-root-import'), {
+        "rootPathSuffix": "src"
+      }]
     ]
   }, (err, result) => {
     if (err) {

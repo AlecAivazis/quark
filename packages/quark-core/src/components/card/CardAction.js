@@ -3,7 +3,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
 import { BaseButtonWithText } from '../buttons'
-import { primaryColor, grey1, grey2 } from '../../styles'
+import { primaryColor, grey1, grey2 } from '~/styles'
 
 const CardAction = ({style, ...unused}) => (
     <BaseButtonWithText

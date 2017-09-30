@@ -2,7 +2,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 // local imports
-import { grey3 } from '../../styles'
+import { grey3 } from '~/styles'
 import {styles as rowStyles} from './TableRow'
 
 const TableHeader = ({style, ...unused}) => (

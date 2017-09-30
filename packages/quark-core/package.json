@@ -1,11 +1,12 @@
 {
     "name": "quark-core",
-    "version": "0.0.3",
+    "version": "0.0.6",
     "module": "build/index.js",
+    "main": "build/index.js",
     "scripts": {
         "build": "quark-build"
     },
     "devDependencies": {
-        "quark-build": "^0.0.3"
+        "quark-build": "^0.0.6"
     }
 }
