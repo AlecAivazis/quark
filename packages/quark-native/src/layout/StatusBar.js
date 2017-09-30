@@ -1,16 +1,13 @@
 // external imports
 import React from 'react'
 import { View, StatusBar as NativeBar, StyleSheet, Platform } from 'react-native'
-// local imports
 
 const StatusBar = ({style, ...unused}) => {
     // merge the given style with the default one
     const elementStyle = {...style, ...styles.container}
     // render the native bar
     return (
-        <View style={elementStyle}>
-            <NativeBar backgroundColor={style.backgroundColor} {...unused} />
-        </View>
+        <NativeBar backgroundColor={style.backgroundColor} barStyle={elementStyle.barStyle} />
     )
 }
 
