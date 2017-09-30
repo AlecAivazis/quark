@@ -6,9 +6,10 @@ const StatusBar = ({style, ...unused}) => {
     // merge the given style with the default one
     const elementStyle = {...style, ...styles.container}
 
+    console.log(elementStyle)
     // render the native bar
     return (
-        <NativeBar backgroundColor="red" {...elementStyle} />
+        <NativeBar {...elementStyle} />
     )
 }
 
