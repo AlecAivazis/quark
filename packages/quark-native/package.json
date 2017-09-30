@@ -1,8 +1,8 @@
 {
     "name": "quark-native",
     "version": "0.0.8-beta.2",
-    "module": "build/index.js",
-    "main": "build/index.js",
+    "module": "index.js",
+    "main": "index.js",
     "scripts": {
         "build": "quark-build"
     },
