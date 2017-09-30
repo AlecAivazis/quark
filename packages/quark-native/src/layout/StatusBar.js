@@ -3,14 +3,9 @@ import React from 'react'
 import { View, StatusBar as NativeBar, StyleSheet, Platform } from 'react-native'
 
 const StatusBar = ({style, ...unused}) => {
-    // merge the given style with the default one
-    const elementStyle = {...style, ...styles.container}
-
-    console.log(elementStyle)
+    console.log(style)
     // render the native bar
-    return (
-        <NativeBar {...elementStyle} />
-    )
+    return <NativeBar {...{...style, ...styles.container}} />
 }
 
 // not using StyleSheet here so we can merge the provided backgroundColor with a default and
