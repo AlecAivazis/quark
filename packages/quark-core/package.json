@@ -4,8 +4,7 @@
     "module": "build/index.js",
     "main": "build/index.js",
     "scripts": {
-        "build": "quark-build",
-        "prepublish": "npm run build"
+        "build": "quark-build"
     },
     "devDependencies": {
         "quark-build": "^0.0.6"

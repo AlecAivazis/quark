@@ -6,7 +6,7 @@
 	"scripts": {
 		"bootstrap": "lerna boostrap",
 		"build": "lerna exec -- npm run build",
-		"publish": "lerna publish",
+		"publish": "npm run build && lerna publish",
 		"test": "lerna run test"
 	},
 	"license": "MIT",
