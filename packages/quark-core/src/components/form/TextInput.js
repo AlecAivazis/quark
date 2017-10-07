@@ -1,16 +1,27 @@
 // external imports
 import React, { Component } from 'react'
-import { TextInput as NativeInput, View, Text, StyleSheet, Modal } from 'react-native'
+import {
+    TextInput as NativeInput,
+    View,
+    Text,
+    StyleSheet,
+    Modal
+} from 'react-native'
 // local imports
-import { primaryColor, secondaryColor, grey2, grey4, baseDim } from '../../styles'
+import {
+    primaryColor,
+    secondaryColor,
+    grey2,
+    grey4,
+    baseDim
+} from '../../styles'
 import { Button, PrimaryButton, SecondaryButton } from '../buttons'
 import { StatusBar } from 'quark-native'
 
-class TextInput extends Component{
-
+class TextInput extends Component {
     state = {
         showModal: false,
-        value: '',
+        value: ''
     }
 
     componentWillMount() {
@@ -23,7 +34,7 @@ class TextInput extends Component{
         }
     }
 
-    componentWillReceiveProps({children}) {
+    componentWillReceiveProps({ children }) {
         // if we are getting a new value
         if (typeof children !== 'undefined') {
             // copy it to the internal state
@@ -35,13 +46,13 @@ class TextInput extends Component{
 
     _showModal() {
         this.setState({
-            showModal: true,
+            showModal: true
         })
     }
 
     _cancel() {
         this.setState({
-            showModal: false,
+            showModal: false
         })
     }
 
@@ -52,7 +63,7 @@ class TextInput extends Component{
             this.props.onChange(this.state.value)
         }
         this.setState({
-            showModal: false,
+            showModal: false
         })
     }
 
@@ -66,47 +77,51 @@ class TextInput extends Component{
     }
 
     render() {
-        const {style, children, content, onChange, ...unused} = this.props
+        const { style, children, content, onChange, ...unused } = this.props
 
         // the content of the input
-        const value =  typeof children === 'undefined' ? this.state.value : children
+        const value =
+            typeof children === 'undefined' ? this.state.value : children
 
         return (
             <View style={[styles.container, style]}>
                 <Button
-                    style={[
-                        styles.inputPlaceholder,
-                        styles.inactive,
-                    ]}
+                    style={[styles.inputPlaceholder, styles.inactive]}
                     onPress={this._showModal}
                     constrainSize={false}
                 >
                     {value}
                 </Button>
-                    {this.state.showModal && (
-                        <Modal style={{backgroundColor: "white"}}>
-                            <StatusBar/>
-                            <View style={styles.content}>
-                                <NativeInput
-                                    autoFocus
-                                    style={styles.input}
-                                    selectionColor={primaryColor}
-                                    returnKeyType="done"
-                                    onSubmitEditing={this._submitModal}
-                                    value={this.state.value}
-                                    onChangeText={value => this.setState({ value })}
-                                />
-                                <View style={styles.modalControls}>
-                                    <SecondaryButton onPress={this._cancel} style={[styles.button, styles.leftButton]}>
-                                        Cancel
-                                    </SecondaryButton>
-                                    <PrimaryButton onPress={this._submitModal} style={[styles.button, styles.rightButton]}>
-                                        Submit
-                                    </PrimaryButton>
-                                </View>
+                {this.state.showModal && (
+                    <Modal style={{ backgroundColor: 'white' }}>
+                        <StatusBar />
+                        <View style={styles.content}>
+                            <NativeInput
+                                autoFocus
+                                style={styles.input}
+                                selectionColor={primaryColor}
+                                returnKeyType="done"
+                                onSubmitEditing={this._submitModal}
+                                value={this.state.value}
+                                onChangeText={value => this.setState({ value })}
+                            />
+                            <View style={styles.modalControls}>
+                                <SecondaryButton
+                                    onPress={this._cancel}
+                                    style={[styles.button, styles.leftButton]}
+                                >
+                                    Cancel
+                                </SecondaryButton>
+                                <PrimaryButton
+                                    onPress={this._submitModal}
+                                    style={[styles.button, styles.rightButton]}
+                                >
+                                    Submit
+                                </PrimaryButton>
                             </View>
-                        </Modal>
-                    )}
+                        </View>
+                    </Modal>
+                )}
             </View>
         )
     }
@@ -114,7 +129,7 @@ class TextInput extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     inputPlaceholder: {
         borderRadius: 2,
@@ -126,20 +141,16 @@ const styles = StyleSheet.create({
         paddingTop: 3 * baseDim,
         paddingBottom: 3 * baseDim,
         paddingLeft: 2 * baseDim,
-        paddingRight: 2 * baseDim,
+        paddingRight: 2 * baseDim
     },
     inactive: {
-        borderColor: grey2,
+        borderColor: grey2
     },
-    active: {
-
-    },
-    disabled: {
-
-    },
+    active: {},
+    disabled: {},
     modalControls: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     input: {
         fontSize: 12 * baseDim,
@@ -149,23 +160,21 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         textAlign: 'center',
         marginTop: 8 * baseDim,
-        marginBottom: 8 * baseDim,
+        marginBottom: 8 * baseDim
     },
     content: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     button: {
-        width: 100,
+        width: 100
     },
     leftButton: {
-        marginRight: 3 * baseDim,
+        marginRight: 3 * baseDim
     },
-    rightButton: {
-
-    },
+    rightButton: {}
 })
 
 export default TextInput

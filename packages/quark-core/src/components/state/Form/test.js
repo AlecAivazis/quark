@@ -9,12 +9,12 @@ describe('State', () => {
         test('can control a component', () => {
             const wrapper = mount(
                 <Form>
-                    {({getValue, setValue}) => (
+                    {({ getValue, setValue }) => (
                         <input
-                        value={getValue('test')}
-                        onChange={evt => {
-                            setValue({test: evt.target.value})
-                        }}
+                            value={getValue('test')}
+                            onChange={evt => {
+                                setValue({ test: evt.target.value })
+                            }}
                         />
                     )}
                 </Form>
@@ -36,12 +36,12 @@ describe('State', () => {
                         test: str => str.toUpperCase()
                     }}
                 >
-                    {({getValue, setValue}) => (
+                    {({ getValue, setValue }) => (
                         <input
-                        value={getValue('test')}
-                        onChange={evt => {
-                            setValue({test: evt.target.value})
-                        }}
+                            value={getValue('test')}
+                            onChange={evt => {
+                                setValue({ test: evt.target.value })
+                            }}
                         />
                     )}
                 </Form>
@@ -60,18 +60,18 @@ describe('State', () => {
             const wrapper = mount(
                 <Form
                     validate={{
-                        test: str => str.length > 0 ? str.toUpperCase() : null
+                        test: str => (str.length > 0 ? str.toUpperCase() : null)
                     }}
                 >
-                    {({getValue, setValue, getError}) => (
+                    {({ getValue, setValue, getError }) => (
                         <div>
-                        <span>{getError('test')}</span>
-                        <input
-                            value={getValue('test')}
-                            onChange={evt => {
-                            setValue({test: evt.target.value})
-                            }}
-                        />
+                            <span>{getError('test')}</span>
+                            <input
+                                value={getValue('test')}
+                                onChange={evt => {
+                                    setValue({ test: evt.target.value })
+                                }}
+                            />
                         </div>
                     )}
                 </Form>
@@ -89,7 +89,6 @@ describe('State', () => {
             expect(wrapper.find('span').props().children).toEqual('AAA')
         })
 
-
         test('transforms before validates', () => {
             const wrapper = mount(
                 <Form
@@ -100,15 +99,15 @@ describe('State', () => {
                         test: str => str !== 'A' && 'error'
                     }}
                 >
-                    {({getValue, setValue, getError}) => (
+                    {({ getValue, setValue, getError }) => (
                         <div>
-                        <span>{getError('test')}</span>
-                        <input
-                            value={getValue('test')}
-                            onChange={evt => {
-                            setValue({test: evt.target.value})
-                            }}
-                        />
+                            <span>{getError('test')}</span>
+                            <input
+                                value={getValue('test')}
+                                onChange={evt => {
+                                    setValue({ test: evt.target.value })
+                                }}
+                            />
                         </div>
                     )}
                 </Form>
@@ -130,19 +129,24 @@ describe('State', () => {
             const wrapper = mount(
                 <Form
                     validate={{
-                        test: str => str.length > 0 ? str.toUpperCase() : null,
-                        test2: str => str.length > 0 ? [str.toUpperCase()] : null
+                        test: str =>
+                            str.length > 0 ? str.toUpperCase() : null,
+                        test2: str =>
+                            str.length > 0 ? [str.toUpperCase()] : null
                     }}
                 >
                     {({ hasErrors, getValue, setValue }) => (
                         <div>
-                        {hasErrors && <span>error</span>}
-                        <input
-                            value={getValue('test')}
-                            onChange={evt => {
-                            setValue({test: evt.target.value, test2: evt.target.value})
-                            }}
-                        />
+                            {hasErrors && <span>error</span>}
+                            <input
+                                value={getValue('test')}
+                                onChange={evt => {
+                                    setValue({
+                                        test: evt.target.value,
+                                        test2: evt.target.value
+                                    })
+                                }}
+                            />
                         </div>
                     )}
                 </Form>
@@ -161,19 +165,24 @@ describe('State', () => {
             const wrapper = mount(
                 <Form
                     validate={{
-                        test: str => str.length > 0 ? str.toUpperCase() : null,
-                        test2: str => str.length > 0 ? [str.toUpperCase()] : null
+                        test: str =>
+                            str.length > 0 ? str.toUpperCase() : null,
+                        test2: str =>
+                            str.length > 0 ? [str.toUpperCase()] : null
                     }}
                 >
                     {({ hasErrors, getValue, setValue }) => (
                         <div>
-                        {hasErrors && <span>error</span>}
-                        <input
-                            value={getValue('test')}
-                            onChange={evt => {
-                            setValue({test: evt.target.value, test2: evt.target.value})
-                            }}
-                        />
+                            {hasErrors && <span>error</span>}
+                            <input
+                                value={getValue('test')}
+                                onChange={evt => {
+                                    setValue({
+                                        test: evt.target.value,
+                                        test2: evt.target.value
+                                    })
+                                }}
+                            />
                         </div>
                     )}
                 </Form>

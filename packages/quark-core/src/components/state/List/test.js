@@ -10,7 +10,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState initial={true}>
-                    {({state}) => (
+                    {({ state }) => (
                         <span>{Array.isArray(state) && state.length}</span>
                     )}
                 </ListState>
@@ -24,8 +24,10 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState initial={[1]}>
-                    {({state}) => (
-                        <span>{Array.isArray(state) && state.length && state[0]}</span>
+                    {({ state }) => (
+                        <span>
+                            {Array.isArray(state) && state.length && state[0]}
+                        </span>
                     )}
                 </ListState>
             )
@@ -38,7 +40,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState>
-                    {({state, append}) => (
+                    {({ state, append }) => (
                         <span onClick={() => append('hello')}>
                             {JSON.stringify(state)}
                         </span>
@@ -60,7 +62,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState initial={[1, 2, 3]}>
-                    {({state, append}) => (
+                    {({ state, append }) => (
                         <span onClick={() => update(1, 'hello')}>
                             {JSON.stringify(state)}
                         </span>

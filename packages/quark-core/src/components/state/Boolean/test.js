@@ -10,7 +10,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <BooleanState initial={true}>
-                    {({state}) => <span>{state && 'hello'}</span>}
+                    {({ state }) => <span>{state && 'hello'}</span>}
                 </BooleanState>
             )
 
@@ -22,7 +22,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <BooleanState initial={false}>
-                    {({state, set}) => (
+                    {({ state, set }) => (
                         <span onClick={() => set(true)}>
                             {state && 'hello'}
                         </span>
@@ -43,10 +43,8 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <BooleanState initial={false}>
-                    {({state, toggle}) => (
-                        <span onClick={toggle}>
-                            {state && 'hello'}
-                        </span>
+                    {({ state, toggle }) => (
+                        <span onClick={toggle}>{state && 'hello'}</span>
                     )}
                 </BooleanState>
             )

@@ -7,10 +7,17 @@
 		"bootstrap": "lerna boostrap",
 		"build": "lerna exec -- npm run build",
 		"publish": "npm run build && lerna publish",
+    "format": "prettier --write '{,!(node_modules)/**/}*.js'",
 		"test": "lerna run test"
+	},
+	"prettier": {
+    "tabWidth": 4,
+		"semi": false,
+    "singleQuote": true
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"lerna": "^2.0.0"
+		"lerna": "^2.0.0",
+		"prettier": "^1.7.4"
 	}
 }

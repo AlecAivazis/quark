@@ -10,7 +10,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <FreeState initial={true}>
-                    {({state}) => <span>{state && 'hello'}</span>}
+                    {({ state }) => <span>{state && 'hello'}</span>}
                 </FreeState>
             )
 
@@ -22,7 +22,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <FreeState initial={true}>
-                    {({state, set}) => (
+                    {({ state, set }) => (
                         <span onClick={() => set(false)}>
                             {state && 'hello'}
                         </span>

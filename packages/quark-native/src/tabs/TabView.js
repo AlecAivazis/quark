@@ -7,9 +7,8 @@ import { baseDim } from 'quark-core/styles'
 import TabBar from './TabBar'
 
 class TabView extends React.Component {
-
     static propTypes = {
-        data: PropTypes.array.isRequired,
+        data: PropTypes.array.isRequired
     }
 
     state = {
@@ -24,7 +23,7 @@ class TabView extends React.Component {
         this._keyCache = {}
 
         // look for the tab with the matching key
-        for (const i = 0; i < props.data.length ; i++) {
+        for (const i = 0; i < props.data.length; i++) {
             // the data point
             const datum = props.data[i]
 
@@ -35,15 +34,18 @@ class TabView extends React.Component {
 
     _selectTab(key) {
         // keep track of the new selection
-        this.setState({selected: this._keyCache[key]})
+        this.setState({ selected: this._keyCache[key] })
     }
 
     render() {
-        const {style, children, data, numTabs, ...unused} = this.props
+        const { style, children, data, numTabs, ...unused } = this.props
 
         return (
             <View style={[styles.container, style]}>
-                <TabBar selected={this.state.selected} selectTab={this._selectTab.bind(this)}>
+                <TabBar
+                    selected={this.state.selected}
+                    selectTab={this._selectTab.bind(this)}
+                >
                     {data}
                 </TabBar>
                 <View style={styles.content}>
@@ -62,15 +64,15 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingLeft: 4 * baseDim,
         paddingRight: 4 * baseDim,
-        paddingBottom: 4 * baseDim,
+        paddingBottom: 4 * baseDim
     },
     tab: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems: 'center'
     },
     content: {
-        flex: 1,
+        flex: 1
     }
 })
 

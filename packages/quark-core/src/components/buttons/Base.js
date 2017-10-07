@@ -1,11 +1,16 @@
 // external imports
 import React from 'react'
-import { Text, StyleSheet, Animated, Easing, TouchableWithoutFeedback } from 'react-native'
+import {
+    Text,
+    StyleSheet,
+    Animated,
+    Easing,
+    TouchableWithoutFeedback
+} from 'react-native'
 import PropTypes from 'prop-types'
 // local imports
 import { baseDim } from '~/styles'
 import { styles, containerSizes, textSizes, sizeConstraints } from './styles'
-
 
 class BaseButton extends React.Component {
     _pressIn(...args) {
@@ -14,18 +19,21 @@ class BaseButton extends React.Component {
             // call it
             this.props.onPressIn(...arg)
         }
-        this.setState({
-            animation: Animated.timing(this.state.opacity, {
-                toValue: 1,
-                duration: 100,
-            })
-        }, () => {
-            // start the animation
-            this.state.animation.start()
-        })
+        this.setState(
+            {
+                animation: Animated.timing(this.state.opacity, {
+                    toValue: 1,
+                    duration: 100
+                })
+            },
+            () => {
+                // start the animation
+                this.state.animation.start()
+            }
+        )
     }
 
-    _pressOut(...arg){
+    _pressOut(...arg) {
         // stop the keypress animation if its running
         // if there is a press handler to deal with
         if (this.props.onPressOut) {
@@ -36,7 +44,7 @@ class BaseButton extends React.Component {
         // start the animation to return to normal state
         Animated.timing(this.state.opacity, {
             toValue: 0,
-            duration: 150,
+            duration: 150
         }).start()
     }
 
@@ -45,7 +53,7 @@ class BaseButton extends React.Component {
 
         // initial state
         this.state = {
-            opacity: new Animated.Value(0),
+            opacity: new Animated.Value(0)
         }
 
         // function binds
@@ -54,10 +62,24 @@ class BaseButton extends React.Component {
     }
 
     render() {
-        const {style, children, size, activeColor, constrainSize, defaultColor, textColor, onPress, ...unused} = this.props
+        const {
+            style,
+            children,
+            size,
+            activeColor,
+            constrainSize,
+            defaultColor,
+            textColor,
+            onPress,
+            ...unused
+        } = this.props
 
         return (
-            <TouchableWithoutFeedback onPressIn={this._pressIn} onPressOut={this._pressOut} onPress={onPress}>
+            <TouchableWithoutFeedback
+                onPressIn={this._pressIn}
+                onPressOut={this._pressOut}
+                onPress={onPress}
+            >
                 <Animated.View
                     {...unused}
                     style={[
@@ -68,9 +90,9 @@ class BaseButton extends React.Component {
                             backgroundColor: this.state.opacity.interpolate({
                                 inputRange: [0, 1],
                                 outputRange: [defaultColor, activeColor]
-                            }),
+                            })
                         },
-                        style,
+                        style
                     ]}
                 >
                     {children}
@@ -81,17 +103,17 @@ class BaseButton extends React.Component {
 }
 
 export const buttonDefaultProps = {
-    size: "medium",
-    constrainSize: true,
+    size: 'medium',
+    constrainSize: true
 }
 
 export const buttonPropTypes = {
     size: PropTypes.string,
-    constrainSize: PropTypes.bool,
+    constrainSize: PropTypes.bool
 }
 
 BaseButton.defaultProps = {
-    ...buttonDefaultProps,
+    ...buttonDefaultProps
 }
 
 BaseButton.propTypes = {
@@ -99,8 +121,7 @@ BaseButton.propTypes = {
     defaultColor: PropTypes.string,
     activeColor: PropTypes.string,
     hoverColor: PropTypes.string,
-    textColor: PropTypes.string,
+    textColor: PropTypes.string
 }
-
 
 export default BaseButton

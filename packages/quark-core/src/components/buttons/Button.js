@@ -4,7 +4,7 @@ import React from 'react'
 import { grey1, grey5 } from '~/styles'
 import BaseWithText from './Text'
 
-const Button = ({...unused}) => (
+const Button = ({ ...unused }) => (
     <BaseWithText
         defaultColor="white"
         activeColor={grey1}

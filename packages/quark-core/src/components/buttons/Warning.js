@@ -4,7 +4,7 @@ import React from 'react'
 import { red, darkRed } from '~/styles'
 import BaseButton from './Base'
 
-const Button = ({...unused}) => (
+const Button = ({ ...unused }) => (
     <BaseButton
         defaultColor={red}
         activeColor={darkRed}

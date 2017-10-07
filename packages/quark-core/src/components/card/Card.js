@@ -4,8 +4,8 @@ import { View, StyleSheet } from 'react-native'
 // local imports
 import { grey2 } from '~/styles'
 
-const Card = ({style, ...unused}) => (
-    <View style={[styles.container, style]} {...unused}/>
+const Card = ({ style, ...unused }) => (
+    <View style={[styles.container, style]} {...unused} />
 )
 
 const styles = StyleSheet.create({
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: grey2,
         shadowColor: grey2,
-        shadowOpacity: .54,
-        shadowOffset: {width: 2, height: 2},
+        shadowOpacity: 0.54,
+        shadowOffset: { width: 2, height: 2 }
     }
 })
 

@@ -10,25 +10,28 @@ export const updateList = (list, i, val) => {
     return copy
 }
 
-const ListState = ({children, ...unused}) => (
+const ListState = ({ children, ...unused }) => (
     <FreeState {...unused}>
-        {({state, set}) => React.Children.only(children({
-            state,
-            append: val => set([...state, val]),
-            prepend: val => set([val, ...state]),
-            slice: (...args) => set(state.slice(...args)),
-            update: (...args) => set(updateList(...args)),
-        }))}
+        {({ state, set }) =>
+            React.Children.only(
+                children({
+                    state,
+                    append: val => set([...state, val]),
+                    prepend: val => set([val, ...state]),
+                    slice: (...args) => set(state.slice(...args)),
+                    update: (...args) => set(updateList(...args))
+                })
+            )}
     </FreeState>
 )
 
 ListState.propTypes = {
     children: PropTypes.func.isRequired,
-    initial: PropTypes.array,
+    initial: PropTypes.array
 }
 
 ListState.defaultProps = {
-    initial: [],
+    initial: []
 }
 
 export default ListState

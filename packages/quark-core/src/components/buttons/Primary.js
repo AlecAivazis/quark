@@ -4,7 +4,7 @@ import React from 'react'
 import { primaryColor, primaryColorDark } from '~/styles'
 import BaseWithText from './Text'
 
-const Button = ({...unused}) => (
+const Button = ({ ...unused }) => (
     <BaseWithText
         defaultColor={primaryColor}
         activeColor={primaryColorDark}

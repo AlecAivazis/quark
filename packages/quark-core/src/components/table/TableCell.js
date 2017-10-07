@@ -2,14 +2,12 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
-const TableCell = ({style, ...unused}) => (
+const TableCell = ({ style, ...unused }) => (
     <View style={[styles.container, style]} {...unused} />
 )
 
 const styles = StyleSheet.create({
-    container: {
-
-    }
+    container: {}
 })
 
 export default TableCell

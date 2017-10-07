@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 class FreeState extends Component {
     static propTypes = {
         children: PropTypes.func.isRequired,
-        initial: PropTypes.any,
+        initial: PropTypes.any
     }
 
     static defaultProps = {
@@ -17,14 +17,14 @@ class FreeState extends Component {
         super(props, ...args)
         // base the state on the initial prop
         this.state = {
-            val: props.initial,
+            val: props.initial
         }
     }
 
     render() {
         return this.props.children({
             state: this.state.val,
-            set: val => this.setState({val}),
+            set: val => this.setState({ val })
         })
     }
 }

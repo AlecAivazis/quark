@@ -5,7 +5,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { BaseButtonWithText } from '../buttons'
 import { primaryColor, grey1, grey2 } from '~/styles'
 
-const CardAction = ({style, ...unused}) => (
+const CardAction = ({ style, ...unused }) => (
     <BaseButtonWithText
         defaultColor="white"
         activeColor={grey1}
@@ -19,11 +19,11 @@ const CardAction = ({style, ...unused}) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignSelf: "flex-end",
+        alignSelf: 'flex-end',
         borderRadius: 0,
         borderStyle: 'solid',
         borderTopWidth: 1,
-        borderTopColor: grey2,
+        borderTopColor: grey2
     }
 })
 
