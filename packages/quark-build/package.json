@@ -1,7 +1,7 @@
 {
   "name": "quark-build",
   "description": "an internal package with the scripts to build quark",
-  "version": "0.0.6",
+  "version": "0.0.9-beta.12",
   "scripts": {
     "build": "echo building quark..."
   },
