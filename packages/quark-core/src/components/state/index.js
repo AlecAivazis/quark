@@ -1,4 +1,4 @@
 export Form from './Form'
-export Free from './Free'
-export Boolean from './Boolean'
+export FreeState from './Free'
+export BooleanState from './Boolean'
 export ListState, { updateList } from './List'
