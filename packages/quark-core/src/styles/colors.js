@@ -24,7 +24,7 @@ export const clementine = '#FFAE00'
 export const supportClementine = '#FFEAC9'
 
 // branding
-export const primaryColor = clementine
-export const secondaryColor = supportClementine
+export const primaryColor = blue
+export const secondaryColor = supportBlue
 export const primaryColorLight = '#FFBE33'
 export const primaryColorDark = '#E49B02'
