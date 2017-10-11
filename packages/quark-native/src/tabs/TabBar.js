@@ -20,52 +20,89 @@ class TabBar extends React.Component {
         // the total width of the bar
         const w = layout.width
 
+        // the width of a single tab
+        const tabWidth = Math.round((w - n * tabMargin) / n)
+        // compute wether we have to scroll to show the tabs
+        const scroll = w < tabWidth * n
+
         // make sure the tabs are wide enough to fit the specified amount
         this.setState({
-            tabWidth: Math.round((w - n * tabMargin) / n)
+            tabWidth,
+            scroll
         })
     }
 
-    render() {
+    get _scrollableBar() {
         const {
-            style,
-            children,
-            numTabs,
-            selectTab,
             selected,
-            ...unused
+            selectTab,
+            children,
+            ...unused,
         } = this.props
+
+        Reflect.deleteProperty(unused, 'numTabs')
+
+        return (
+            <FlatList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={children}
+                extraData={selected}
+                renderItem={({ item: { key }, index }) => (
+                    <this._Tab index={index}>
+                        {key}
+                    </this._Tab>
+                )}
+                {...unused}
+            />
+        )
+    }
+
+    get _fixedBar() {
+        return (
+            <View style={styles.container}>
+                {this.props.children.map(({ key }, i) => (
+                    <this._Tab index={i} key={key}>
+                        {key}
+                    </this._Tab>
+                ))}
+            </View>
+        )
+    }
+
+    _Tab = ({index, children}) => {
+        const { selected, selectTab } = this.props
+
+        return (
+            <Button
+                style={[
+                    { width: this.state.tabWidth },
+                    styles.tab
+                ]}
+                onPress={() => selectTab(children)}
+                disabled={index === selected}
+            >
+                <Text
+                    style={[
+                        styles.tabText,
+                        index === selected && styles.selectedTab
+                    ]}
+                >
+                    {children}
+                </Text>
+            </Button>
+        )
+    }
+
+    render() {
+        const { style } = this.props
+
+        // figure out the right bar to show
+        const bar = this.state.scroll ? this._scrollableBar : this._fixedBar
 
         return (
             <View style={[styles.container, style]} onLayout={this._onLayout}>
-                {this.state.tabWidth && (
-                    <FlatList
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        data={children}
-                        extraData={selected}
-                        renderItem={({ item: { key }, index }) => (
-                            <Button
-                                style={[
-                                    { width: this.state.tabWidth },
-                                    styles.tab
-                                ]}
-                                onPress={() => selectTab(key)}
-                                disabled={index === selected}
-                            >
-                                <Text
-                                    style={[
-                                        styles.tabText,
-                                        index === selected && styles.selectedTab
-                                    ]}
-                                >
-                                    {key}
-                                </Text>
-                            </Button>
-                        )}
-                        {...unused}
-                    />
-                )}
+                {this.state.tabWidth && bar}
             </View>
         )
     }
@@ -83,9 +120,11 @@ TabBar.defaultProps = {
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
+        flexDirection: 'row',
         height: 64,
         alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: 'white',
+        justifyContent: 'flex-start',
         position: 'relative'
     },
     tab: {
