@@ -1,13 +1,13 @@
 {
     "name": "quark-native",
-    "version": "0.0.9-beta.13",
+    "version": "0.0.9-beta.14",
     "module": "index.js",
     "main": "index.js",
     "scripts": {
         "build": "quark-build"
     },
     "dependencies": {
-        "quark-core": "^0.0.9-beta.13"
+        "quark-core": "^0.0.9-beta.14"
     },
     "devDependencies": {
         "quark-build": "^0.0.9-beta.12"
