@@ -33,12 +33,7 @@ class TabBar extends React.Component {
     }
 
     get _scrollableBar() {
-        const {
-            selected,
-            selectTab,
-            children,
-            ...unused,
-        } = this.props
+        const { selected, selectTab, children, ...unused } = this.props
 
         Reflect.deleteProperty(unused, 'numTabs')
 
@@ -49,9 +44,7 @@ class TabBar extends React.Component {
                 data={children}
                 extraData={selected}
                 renderItem={({ item: { key }, index }) => (
-                    <this._Tab index={index}>
-                        {key}
-                    </this._Tab>
+                    <this._Tab index={index}>{key}</this._Tab>
                 )}
                 {...unused}
             />
@@ -70,15 +63,12 @@ class TabBar extends React.Component {
         )
     }
 
-    _Tab = ({index, children}) => {
+    _Tab = ({ index, children }) => {
         const { selected, selectTab } = this.props
 
         return (
             <Button
-                style={[
-                    { width: this.state.tabWidth },
-                    styles.tab
-                ]}
+                style={[{ width: this.state.tabWidth }, styles.tab]}
                 onPress={() => selectTab(children)}
                 disabled={index === selected}
             >

@@ -38,7 +38,14 @@ class TabView extends React.Component {
     }
 
     render() {
-        const { style, children, data, barStyle, numTabs, ...unused } = this.props
+        const {
+            style,
+            children,
+            data,
+            barStyle,
+            numTabs,
+            ...unused
+        } = this.props
 
         return (
             <View style={[styles.container, style]}>
