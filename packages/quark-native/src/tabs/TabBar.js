@@ -52,23 +52,19 @@ class TabBar extends React.Component {
     }
 
     get _fixedBar() {
-        return (
-            <View style={styles.container}>
-                {this.props.children.map(({ key }, i) => (
-                    <this._Tab index={i} key={key}>
-                        {key}
-                    </this._Tab>
-                ))}
-            </View>
-        )
+        return this.props.children.map(({ key }, i) => (
+            <this._Tab index={i} key={key}>
+                {key}
+            </this._Tab>
+        ))
     }
 
     _Tab = ({ index, children }) => {
-        const { selected, selectTab } = this.props
+        const { selected, selectTab, tabStyle } = this.props
 
         return (
             <Button
-                style={[{ width: this.state.tabWidth }, styles.tab]}
+                style={[{ width: this.state.tabWidth }, styles.tab, tabStyle]}
                 onPress={() => selectTab(children)}
                 disabled={index === selected}
             >
@@ -118,10 +114,9 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
     tab: {
-        height: '100%',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     selectedTab: {
         color: primaryColor

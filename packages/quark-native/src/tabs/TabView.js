@@ -42,6 +42,7 @@ class TabView extends React.Component {
             style,
             children,
             data,
+            tabStyle,
             barStyle,
             numTabs,
             ...unused
@@ -53,6 +54,7 @@ class TabView extends React.Component {
                     selected={this.state.selected}
                     selectTab={this._selectTab.bind(this)}
                     style={barStyle}
+                    tabStyle={tabStyle}
                 >
                     {data}
                 </TabBar>
@@ -70,9 +72,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
         flex: 1,
-        paddingLeft: 4 * baseDim,
-        paddingRight: 4 * baseDim,
-        paddingBottom: 4 * baseDim
     },
     tab: {
         display: 'flex',
@@ -80,7 +79,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     content: {
-        flex: 1
+        flex: 1,
+        padding: 4 * baseDim,
     }
 })
 
