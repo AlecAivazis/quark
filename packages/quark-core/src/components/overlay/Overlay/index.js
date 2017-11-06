@@ -1,7 +1,7 @@
 // external imports
 import React from 'react'
 import { Modal, TouchableWithoutFeedback, View } from 'react-native'
-import { Card } from 'quark-native'
+import { Card } from 'quark-core'
 // local imports
 import styles from './styles'
 

@@ -64,7 +64,6 @@ const CardGrid = ({
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F9F9F9',
         padding: 40
     },
     row: {
