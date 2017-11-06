@@ -3,7 +3,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 // local imports
 import { grey1, grey5, primaryColor, baseDim } from '~/styles'
-import { h3 } from '~/styles/text'
+import textStyles from '~/styles/text'
 import { SecondaryButton } from '../buttons'
 
 const BreadcrumbChild = ({ active, ...unused }) => (
@@ -19,7 +19,7 @@ const BreadcrumbChild = ({ active, ...unused }) => (
 
 const styles = StyleSheet.create({
     text: {
-        ...h3,
+        ...textStyles.h3,
         marginLeft: 0,
         marginRight: 0,
         fontSize: 20
