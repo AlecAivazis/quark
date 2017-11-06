@@ -25,9 +25,10 @@ walk(sourceDir, {}).on('file', (root, { name }, next) => {
         {
             presets: [
                 require.resolve('babel-preset-stage-1'),
-                require.resolve('babel-preset-react')
+                require.resolve('babel-preset-react'),
             ],
             plugins: [
+                require.resolve('react-native-web/babel'),
                 [
                     require.resolve('babel-plugin-root-import'),
                     {
