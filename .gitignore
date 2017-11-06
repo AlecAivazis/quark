@@ -7,5 +7,6 @@ lerna-debug.log
 /packages/quark-core/components/
 /packages/quark-core/styles/
 /packages/quark-native/layout/
+/packages/quark-native/navigation/
 /packages/quark-native/tabs/
 /packages/quark-native/styles.js
