@@ -1,7 +1,7 @@
 {
   "name": "quark-build",
   "description": "an internal package with the scripts to build quark",
-  "version": "0.0.9-beta.12",
+  "version": "0.0.9-beta.26",
   "scripts": {
     "build": "echo building quark..."
   },
@@ -13,8 +13,8 @@
     "babel-plugin-root-import": "^5.1.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
-    "react-native-web": "0.1.13",
     "mkdirp": "^0.5.1",
+    "react-native-web": "0.1.13",
     "walk": "^2.3.9"
   }
 }
