@@ -1,5 +1,5 @@
 import { baseDim } from './dims'
-import { grey5 } from './colors'
+import { grey5, primaryColor } from './colors'
 
 export const primaryFont = {
     fontWeight: '300',
@@ -41,4 +41,9 @@ export const link = {
     ...primaryFont,
     fontWeight: 100,
     fontSize: 14
+}
+
+export const linkActive = {
+    ...link,
+    color: primaryColor
 }
