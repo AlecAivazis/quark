@@ -2,7 +2,7 @@
 import React from 'react'
 import { Text as NativeText } from 'react-native'
 // local imports
-import { h1, h2, h3, title, subtitle, test, link } from '~/styles'
+import { h1, h2, h3, title, subtitle, text, link } from '~/styles'
 import styles from './styles'
 
 export const H1 = ({ style, ...unused }) => (
