@@ -6,10 +6,8 @@
     "scripts": {
         "build": "quark-build"
     },
-    "dependencies": {
-        "quark-core": "^0.0.9-beta.33"
-    },
+    "dependencies": {},
     "devDependencies": {
-        "quark-build": "^0.0.9-beta.27"
+        "quark-build": "^0.0.9-beta.26"
     }
 }

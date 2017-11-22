@@ -1,52 +1,42 @@
 import { baseDim } from './dims'
 
-const reset = {
-    margin: 0
-}
+const reset = {}
 
-export const primaryFont = {}
+export const primaryFont = {
+    fontWeight: '300'
+}
 
 export const h1 = {
     ...primaryFont,
     ...reset,
-    fontSize: 45,
-    fontWeight: 400,
-    marginBottom: 4 * baseDim
+    fontSize: 45
 }
 
 export const h2 = {
     ...primaryFont,
     ...reset,
-    fontSize: 30,
-    fontWeight: 400,
-    marginBottom: 3 * baseDim
+    fontSize: 30
 }
 
 export const h3 = {
     ...primaryFont,
     ...reset,
-    fontSize: 24,
-    fontWeight: 400,
-    marginBottom: 2 * baseDim
+    fontSize: 24
 }
 
 export const title = {
     ...primaryFont,
     ...reset,
-    fontSize: 18,
-    fontWeight: 400,
-    marginBottom: 1 * baseDim
+    fontSize: 18
 }
 
 export const subtitle = {
     ...primaryFont,
     ...reset,
-    fontSize: 14,
-    fontWeight: 400,
-    marginBottom: 1 * baseDim
+    fontSize: 14
 }
 
-export const copy = {
+export const text = {
     ...primaryFont,
     fontWeight: 100,
     fontSize: 14

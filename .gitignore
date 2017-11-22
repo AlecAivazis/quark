@@ -10,3 +10,5 @@ lerna-debug.log
 /packages/quark-native/navigation/
 /packages/quark-native/tabs/
 /packages/quark-native/styles.js
+/packages/quark-web/index.js
+/packages/quark-web/styles.js
