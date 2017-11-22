@@ -1,38 +1,33 @@
 import { baseDim } from './dims'
-
-const reset = {}
+import { grey5 } from './colors'
 
 export const primaryFont = {
-    fontWeight: '300'
+    fontWeight: '300',
+    color: grey5
 }
 
 export const h1 = {
     ...primaryFont,
-    ...reset,
     fontSize: 45
 }
 
 export const h2 = {
     ...primaryFont,
-    ...reset,
     fontSize: 30
 }
 
 export const h3 = {
     ...primaryFont,
-    ...reset,
     fontSize: 24
 }
 
 export const title = {
     ...primaryFont,
-    ...reset,
     fontSize: 18
 }
 
 export const subtitle = {
     ...primaryFont,
-    ...reset,
     fontSize: 14
 }
 
