@@ -8,9 +8,8 @@ import {
     Easing,
     TouchableWithoutFeedback
 } from 'react-native'
-import PropTypes from 'prop-types'
 // local imports
-import { baseDim } from '~/styles'
+import { baseDim } from 'quark-core/styles'
 import { styles, containerSizes, sizeConstraints } from './styles'
 
 export type ButtonProps = {

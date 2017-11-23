@@ -13,5 +13,8 @@ flow-typed/
 
 [options]
 unsafe.enable_getters_and_setters=true
+module.name_mapper='^quark-core\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-core/src/\1'
+module.name_mapper='^quark-web\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-web/src/\1'
+module.name_mapper='^quark-native\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-native/src/\1'
 
 [strict]
