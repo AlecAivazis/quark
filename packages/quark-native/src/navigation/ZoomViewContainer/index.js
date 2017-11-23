@@ -1,6 +1,6 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { StyleSheet, View, Text, Animated } from 'react-native'
 
 type BoundingBox = {
@@ -10,29 +10,46 @@ type BoundingBox = {
     height: number
 }
 
-type TransitionHandler = (info: BoundingBox) => void
+// we pass the bounding box information inline with the data
+type BBPayload = BoundingBox & { data?: {} }
+
+type TransitionHandler = BBPayload => void
 
 type Props = {
     children: (transitionTo: TransitionHandler) => null,
     style: {},
-    unused: {}
+    unused: {},
+    loading: ViewPayload => React.Element<*>,
+    view: ViewPayload => React.Element<*>
+}
+
+type State = {
+    showView: boolean,
+    loading: boolean,
+    data: ?{},
+    modal: ?BoundingBox,
+    viewport: ?BoundingBox,
+    origin: ?BoundingBox
+}
+
+export type ViewPayload = {
+    data: {},
+    closeView: () => void,
+    openView: BBPayload => void
 }
 
 const animationDuration = 150
 
-class ZoomGridContainer extends React.Component<Props> {
-    state: {
-        showView: boolean,
-        loading: boolean,
-        data: {},
-        modal: { width: number, height: number, x: number, y: number },
-        viewport: ?BoundingBox,
-        origin: ?BoundingBox
-    } = {
+class ZoomGridContainer extends React.Component<Props, State> {
+    _root: any
+
+    state = {
         showView: false,
         loading: false,
         data: {},
         viewport: null,
+        data: null,
+        modal: null,
         origin: null
     }
 
@@ -46,7 +63,7 @@ class ZoomGridContainer extends React.Component<Props> {
         const { children, style, ...unused } = this.props
         // the payload to pass the view
         const viewPayload = {
-            data: this.state.data,
+            data: this.state.data || {},
             closeView: this._closeView,
             openView: this._openView
         }
@@ -56,38 +73,45 @@ class ZoomGridContainer extends React.Component<Props> {
                 ref={ele => (this._root = ele)}
             >
                 {children(this._openView)}
-                {this.state.showView && (
-                    <Animated.View
-                        style={{
-                            width: this.state.modal.width,
-                            height: this.state.modal.height,
-                            top: this.state.modal.x,
-                            left: this.state.modal.y,
-                            display: 'flex',
-                            flexDirection: 'row',
-                            position: 'absolute',
-                            backgroundColor: 'white'
-                        }}
-                    >
-                        {this.state.loading
-                            ? this.props.loading(viewPayload)
-                            : this.props.view(viewPayload)}
-                    </Animated.View>
-                )}
+                {this.state.showView &&
+                    this.state.modal && (
+                        <Animated.View
+                            style={{
+                                width: this.state.modal.width,
+                                height: this.state.modal.height,
+                                top: this.state.modal.x,
+                                left: this.state.modal.y,
+                                display: 'flex',
+                                flexDirection: 'row',
+                                position: 'absolute',
+                                backgroundColor: 'white'
+                            }}
+                        >
+                            {this.state.loading
+                                ? this.props.loading(viewPayload)
+                                : this.props.view(viewPayload)}
+                        </Animated.View>
+                    )}
             </View>
         )
     }
 
-    _openView: TransitionHandler = ({ data, ...origin }) => {
+    _openView = ({ data, ...origin }: BBPayload): void => {
         // grab the used state
         const { viewport } = this.state
+        // if we haven't computed the viewport yet
+        if (!viewport) {
+            // don't do anything for now
+            // TODO: wait to compute and then execute
+            return
+        }
 
         // shift the origin to accomodate the viewport
         const relOrigin = {
-            x: origin.x - this.state.viewport.x,
-            y: origin.y - this.state.viewport.y,
-            height: origin.height - this.state.viewport.height,
-            width: origin.width - this.state.viewport.width
+            x: origin.x - viewport.x,
+            y: origin.y - viewport.y,
+            height: origin.height - viewport.height,
+            width: origin.width - viewport.width
         }
 
         // save the user's provided data
@@ -105,20 +129,28 @@ class ZoomGridContainer extends React.Component<Props> {
                 }
             },
             () => {
+                const { viewport, modal } = this.state
+                // if we haven't computed the viewport yet
+                if (!viewport || !modal) {
+                    // don't do anything for now
+                    // TODO: wait to compute and then execute
+                    return
+                }
+
                 Animated.parallel([
-                    Animated.timing(this.state.modal.width, {
-                        toValue: this.state.viewport.width,
+                    Animated.timing(modal.width, {
+                        toValue: viewport.width,
                         duration: animationDuration
                     }),
-                    Animated.timing(this.state.modal.height, {
-                        toValue: this.state.viewport.height,
+                    Animated.timing(modal.height, {
+                        toValue: viewport.height,
                         duration: animationDuration
                     }),
-                    Animated.timing(this.state.modal.x, {
+                    Animated.timing(modal.x, {
                         toValue: 0,
                         duration: animationDuration
                     }),
-                    Animated.timing(this.state.modal.y, {
+                    Animated.timing(modal.y, {
                         toValue: 0,
                         duration: animationDuration
                     })
@@ -127,31 +159,39 @@ class ZoomGridContainer extends React.Component<Props> {
         )
     }
 
-    _closeView: () => void = () => {
+    _closeView = () => {
         this.setState({ loading: true }, () => {
+            const { origin, modal } = this.state
+            // if we haven't computed the origin yet
+            if (!origin || !modal) {
+                // don't do anything for now
+                // TODO: wait to compute and then execute
+                return
+            }
+
             // we have a few things we need to animate at once
             Animated.parallel([
-                Animated.timing(this.state.modal.width, {
-                    toValue: this.state.origin.width,
+                Animated.timing(modal.width, {
+                    toValue: origin.width,
                     duration: animationDuration
                 }),
-                Animated.timing(this.state.modal.height, {
-                    toValue: this.state.origin.height,
+                Animated.timing(modal.height, {
+                    toValue: origin.height,
                     duration: animationDuration
                 }),
-                Animated.timing(this.state.modal.x, {
-                    toValue: this.state.origin.x,
+                Animated.timing(modal.x, {
+                    toValue: origin.x,
                     duration: animationDuration
                 }),
-                Animated.timing(this.state.modal.y, {
-                    toValue: this.state.origin.y,
+                Animated.timing(modal.y, {
+                    toValue: origin.y,
                     duration: animationDuration
                 })
             ]).start(() => this.setState({ showView: false }))
         })
     }
 
-    _updateRootMeasure: () => void = () => {
+    _updateRootMeasure = () => () => {
         this._root.measure((_, __, width, height, x, y) => {
             // save the viewport dimensions
             this.setState({

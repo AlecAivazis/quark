@@ -1,6 +1,6 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { ScrollView, View, StyleSheet } from 'react-native'
 import _ from 'lodash'
 // local imports
@@ -11,7 +11,7 @@ type Props = {
     children: React.Element<*>,
     nCols?: number,
     padding?: number,
-    unused: {}
+    unused?: {}
 }
 
 const CardGrid = ({

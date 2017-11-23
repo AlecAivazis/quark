@@ -5,7 +5,7 @@ import { View, Text, StyleSheet } from 'react-native'
 
 type Props = {
     style: number,
-    unused: {}
+    unused?: {}
 }
 
 const CardPlaceholder = ({ style, ...unused }: Props) => (

@@ -7,10 +7,11 @@
         "bootstrap": "lerna boostrap",
         "build": "lerna exec -- npm run build",
         "publish": "npm run build && lerna publish",
-        "__internal__prettier":
-            "prettier --tab-width 4 --no-semi --print-width 100 --single-quote --trailing-comma es5 packages/*/src/**/*.js",
+        "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
         "format": "npm run __internal__prettier -- --write",
-        "test": "lerna run test"
+        "test": "lerna run test",
+        "flow": "flow",
+        "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
     },
     "prettier": {
         "tabWidth": 4,
@@ -19,6 +20,7 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "flow-bin": "^0.59.0",
         "lerna": "^2.0.0",
         "prettier": "^1.7.4"
     }

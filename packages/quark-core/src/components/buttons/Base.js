@@ -1,5 +1,6 @@
+// @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import {
     Text,
     StyleSheet,
@@ -12,12 +13,35 @@ import PropTypes from 'prop-types'
 import { baseDim } from '~/styles'
 import { styles, containerSizes, sizeConstraints } from './styles'
 
-class BaseButton extends React.Component {
-    _pressIn(...args) {
+export type ButtonProps = {
+    size: string,
+    constrainSize: boolean,
+    defaultColor: string,
+    activeColor: string,
+    hoverColor: string,
+    onPress: (...args: Array<any>) => void,
+    onPressIn: (...args: Array<any>) => void,
+    onPressOut: (...args: Array<any>) => void,
+    style: {},
+    children: React.Element<*>
+}
+
+type State = {
+    animation?: Animated.CompositeAnimation,
+    opacity: Animated.Value
+}
+
+class BaseButton extends React.Component<ButtonProps, State> {
+    static defaultProps = {
+        size: 'medium',
+        constrainSize: true
+    }
+
+    _pressIn = (...args: Array<any>) => {
         // if there is a press handler to deal with
         if (this.props.onPressIn) {
             // call it
-            this.props.onPressIn(...arg)
+            this.props.onPressIn(...args)
         }
         this.setState(
             {
@@ -26,14 +50,11 @@ class BaseButton extends React.Component {
                     duration: 100
                 })
             },
-            () => {
-                // start the animation
-                this.state.animation.start()
-            }
+            () => this.state.animation && this.state.animation.start()
         )
     }
 
-    _pressOut(...arg) {
+    _pressOut = (...arg: Array<any>) => {
         // stop the keypress animation if its running
         // if there is a press handler to deal with
         if (this.props.onPressOut) {
@@ -48,17 +69,14 @@ class BaseButton extends React.Component {
         }).start()
     }
 
-    constructor(...args) {
+    constructor(...args: Array<any>) {
         super(...args)
 
         // initial state
         this.state = {
-            opacity: new Animated.Value(0)
+            opacity: new Animated.Value(0),
+            animation: null
         }
-
-        // function binds
-        this._pressIn = this._pressIn.bind(this)
-        this._pressOut = this._pressOut.bind(this)
     }
 
     render() {
@@ -99,27 +117,6 @@ class BaseButton extends React.Component {
             </TouchableWithoutFeedback>
         )
     }
-}
-
-export const buttonDefaultProps = {
-    size: 'medium',
-    constrainSize: true
-}
-
-export const buttonPropTypes = {
-    size: PropTypes.string,
-    constrainSize: PropTypes.bool
-}
-
-BaseButton.defaultProps = {
-    ...buttonDefaultProps
-}
-
-BaseButton.propTypes = {
-    ...buttonPropTypes,
-    defaultColor: PropTypes.string,
-    activeColor: PropTypes.string,
-    hoverColor: PropTypes.string
 }
 
 export default BaseButton
