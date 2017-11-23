@@ -2,10 +2,10 @@
 import React from 'react'
 // local imports
 import { red, darkRed } from '~/styles'
-import BaseButton from './Base'
+import BaseWithText from './Text'
 
 const Button = ({ ...unused }) => (
-    <BaseButton
+    <BaseWithText
         defaultColor={red}
         activeColor={darkRed}
         textColor="white"

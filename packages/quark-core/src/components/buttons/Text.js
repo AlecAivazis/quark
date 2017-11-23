@@ -1,8 +1,8 @@
 // external imports
 import React from 'react'
-import { Text } from 'react-native'
 // local imports
 import Base from './Base'
+import { Text } from '../typography'
 import { textSizes } from './styles'
 
 const ButtonWithText = ({

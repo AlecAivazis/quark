@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types'
 // local imports
 import { baseDim } from '~/styles'
-import { styles, containerSizes, textSizes, sizeConstraints } from './styles'
+import { styles, containerSizes, sizeConstraints } from './styles'
 
 class BaseButton extends React.Component {
     _pressIn(...args) {
@@ -69,7 +69,6 @@ class BaseButton extends React.Component {
             activeColor,
             constrainSize,
             defaultColor,
-            textColor,
             onPress,
             ...unused
         } = this.props
@@ -120,8 +119,7 @@ BaseButton.propTypes = {
     ...buttonPropTypes,
     defaultColor: PropTypes.string,
     activeColor: PropTypes.string,
-    hoverColor: PropTypes.string,
-    textColor: PropTypes.string
+    hoverColor: PropTypes.string
 }
 
 export default BaseButton
