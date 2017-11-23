@@ -1,11 +1,13 @@
+// @flow
 // external imports
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 // local imports
 import { grey3 } from 'quark-core/styles'
 import TableRow, { styles as rowStyles } from './TableRow'
+import type { TableRowProps } from './TableRow'
 
-const TableHeader = ({ style, ...unused }) => (
+const TableHeader = ({ style, ...unused }: TableRowProps) => (
     <TableRow style={[styles.container, style]} {...unused} />
 )
 

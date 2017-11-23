@@ -1,10 +1,15 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewProperties } from 'react-native'
 // local imports
 import { grey2, baseDim } from 'quark-core/styles'
 
-const TableRow = ({ style, last, ...unused }) => (
+export type TableRowProps = ViewProperties & {
+    last?: boolean
+}
+
+const TableRow = ({ style, last, ...unused }: TableRowProps) => (
     <View style={[styles.container, last && styles.last, style]} {...unused} />
 )
 

@@ -1,12 +1,22 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
+import {
+    View,
+    StyleSheet,
+    Text,
+    TouchableWithoutFeedback,
+    ViewProperties
+} from 'react-native'
 // local imports
 import { baseDim, grey2 } from 'quark-core/styles'
 
-const AppBar = ({ style, statusBarStyle, onPress, ...unused }) => (
-    <View style={[styles.container, style]} {...unused} />
-)
+const AppBar = ({
+    style,
+    statusBarStyle,
+    onPress,
+    ...unused
+}: ViewProperties) => <View style={[styles.container, style]} {...unused} />
 
 const styles = StyleSheet.create({
     container: {

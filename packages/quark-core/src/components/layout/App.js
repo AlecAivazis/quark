@@ -1,8 +1,9 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewProperties } from 'react-native'
 
-const App = ({ style, ...unused }) => (
+const App = ({ style, ...unused }: ViewProperties) => (
     <View style={[style, styles.container]} {...unused} />
 )
 

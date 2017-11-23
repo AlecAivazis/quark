@@ -1,8 +1,11 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, ViewProperties } from 'react-native'
 
-const TableCell = ({ style, textStyle, ...unused }) => (
+export type TableCellProps = ViewProperties
+
+const TableCell = ({ style, ...unused }: TableCellProps) => (
     <View style={[styles.container, style]} {...unused} />
 )
 

@@ -1,11 +1,12 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ViewProperties } from 'react-native'
 // local imports
 import { BaseButtonWithText } from '../buttons'
-import { primaryColor, grey1, grey2 } from '~/styles'
+import { primaryColor, grey1, grey2 } from 'quark-core/styles'
 
-const CardAction = ({ style, ...unused }) => (
+const CardAction = ({ style, ...unused }: ViewProperties) => (
     <BaseButtonWithText
         defaultColor="white"
         activeColor={grey1}

@@ -1,10 +1,32 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableWithoutFeedback,
+    ViewProperties,
+    TouchableWithoutFeedbackProperties
+} from 'react-native'
 // local imports
-import { primaryColor, secondaryColor, grey1, grey3, baseDim } from '~/styles'
+import {
+    primaryColor,
+    secondaryColor,
+    grey1,
+    grey3,
+    baseDim
+} from 'quark-core/styles'
 
-const Checkbox = ({ style, children, content, onPress, ...unused }) => (
+type CheckboxProperties = ViewProperties & TouchableWithoutFeedbackProperties
+
+const Checkbox = ({
+    style,
+    children,
+    content,
+    onPress,
+    ...unused
+}: CheckboxProperties) => (
     <TouchableWithoutFeedback onPress={onPress}>
         <View
             {...unused}

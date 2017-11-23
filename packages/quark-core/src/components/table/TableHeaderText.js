@@ -1,10 +1,11 @@
+// @flow
 // external imports
 import React from 'react'
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, TextProperties } from 'react-native'
 // local imports
 import { grey4 } from 'quark-core/styles'
 
-const TableHeaderText = ({ style, ...unused }) => (
+const TableHeaderText = ({ style, ...unused }: TextProperties) => (
     <Text style={[styles.container, style]} {...unused} />
 )
 

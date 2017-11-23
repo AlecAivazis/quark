@@ -1,10 +1,11 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewProperties } from 'react-native'
 // local imports
-import { grey2 } from '~/styles'
+import { grey2 } from 'quark-core/styles'
 
-const Card = ({ style, ...unused }) => (
+const Card = ({ style, ...unused }: ViewProperties) => (
     <View style={[styles.container, style]} {...unused} />
 )
 

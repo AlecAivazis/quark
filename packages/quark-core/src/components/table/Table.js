@@ -1,8 +1,9 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ViewProperties } from 'react-native'
 
-const Table = ({ style, ...unused }) => (
+const Table = ({ style, ...unused }: ViewProperties) => (
     <View style={[styles.container, style]} {...unused} />
 )
 

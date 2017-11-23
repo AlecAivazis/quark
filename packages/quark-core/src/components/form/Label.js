@@ -1,8 +1,14 @@
+// @flow
 // external imports
 import React from 'react'
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet, ViewProperties } from 'react-native'
 
-const Label = ({ children, value, textStyle, ...unused}) => (
+type Props = ViewProperties & {
+    textStyle?: {},
+    value: string
+}
+
+const Label = ({ children, value, textStyle, ...unused }: Props) => (
     <View {...unused}>
         <View style={styles.labelContainer}>
             <Text style={[styles.labelText, textStyle]}>{value}</Text>
@@ -18,7 +24,7 @@ const styles = StyleSheet.create({
     },
     labelText: {
         fontWeight: '100',
-        fontSize: 18,
+        fontSize: 18
     }
 })
 
