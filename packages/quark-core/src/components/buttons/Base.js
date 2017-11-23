@@ -13,16 +13,16 @@ import { baseDim } from 'quark-core/styles'
 import { styles, containerSizes, sizeConstraints } from './styles'
 
 export type ButtonProps = {
-    size: string,
-    constrainSize: boolean,
-    defaultColor: string,
-    activeColor: string,
-    hoverColor: string,
-    onPress: (...args: Array<any>) => void,
-    onPressIn: (...args: Array<any>) => void,
-    onPressOut: (...args: Array<any>) => void,
-    style: {},
-    children: React.Element<*>
+    size?: string,
+    constrainSize?: boolean,
+    defaultColor?: string,
+    activeColor?: string,
+    hoverColor?: string,
+    onPress?: (...args: Array<any>) => void,
+    onPressIn?: (...args: Array<any>) => void,
+    onPressOut?: (...args: Array<any>) => void,
+    style?: {},
+    children?: React.Element<*>
 }
 
 type State = {
