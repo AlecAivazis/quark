@@ -8,5 +8,8 @@
     },
     "devDependencies": {
         "quark-build": "^0.0.9-beta.26"
+    },
+    "dependencies": {
+        "react-measure": "^2.0.2"
     }
 }

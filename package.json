@@ -1,27 +1,32 @@
 {
-    "name": "quark",
-    "author": "Alec Aivazis",
-    "version": "0.0.2",
-    "description": "a react component library",
-    "scripts": {
-        "bootstrap": "lerna boostrap",
-        "build": "lerna exec -- npm run build",
-        "publish": "npm run build && lerna publish",
-        "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
-        "format": "npm run __internal__prettier -- --write",
-        "test": "lerna run test",
-        "flow": "flow",
-        "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
-    },
-    "prettier": {
-        "tabWidth": 4,
-        "semi": false,
-        "singleQuote": true
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "flow-bin": "^0.59.0",
-        "lerna": "^2.0.0",
-        "prettier": "^1.7.4"
-    }
+  "name": "quark",
+  "author": "Alec Aivazis",
+  "version": "0.0.2",
+  "description": "a react component library",
+  "scripts": {
+    "bootstrap": "lerna boostrap",
+    "build": "lerna exec -- npm run build",
+    "publish": "npm run build && lerna publish",
+    "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
+    "format": "npm run __internal__prettier -- --write",
+    "test": "jest",
+    "flow": "flow",
+    "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "jest": {
+    "testRegex": " (test)\\.jsx?$"
+  },
+  "devDependencies": {
+    "enzyme": "^3.2.0",
+    "flow-bin": "^0.59.0",
+    "jest": "^21.2.1",
+    "lerna": "^2.0.0",
+    "prettier": "^1.7.4"
+  }
 }
