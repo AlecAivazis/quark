@@ -13,3 +13,5 @@ lerna-debug.log
 /packages/quark-web/index.js
 /packages/quark-web/styles.js
 /packages/quark-web/form
+/packages/quark-web/layout
+/packages/quark-web/window
