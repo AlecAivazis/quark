@@ -1,10 +1,8 @@
 export default {
-    anchor: {
-        display: 'flex',
-        flexGrow: 1
-    },
+    anchor: {},
     toggle: {
         display: 'flex',
         flexGrow: 1
-    }
+    },
+    dropdown: {}
 }

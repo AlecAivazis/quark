@@ -3,11 +3,14 @@
 import React from 'react'
 import { View, StyleSheet, ViewProperties } from 'react-native'
 
-const App = ({ style, ...unused }: ViewProperties) => <View style={[style, styles.container]} {...unused} />
+const App = ({ style, ...unused }: ViewProperties) => (
+    <View style={[style, styles.container]} {...unused} />
+)
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        overflow: 'auto'
     }
 })
 

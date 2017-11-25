@@ -2,28 +2,22 @@
 // external imports
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import Measure from 'react-measure'
+import { View } from 'react-native-web'
 // local imports
-import { WithPortal, ClickAway } from 'quark-web'
+import { WithPortal, ClickAway, Card, Measure } from 'quark-web'
+import type { MeasurePayload } from 'quark-web'
 import styles from './styles'
 
 type Props = {
     active: boolean,
     closeDropdown: (?Event) => void,
     children: number => React.Node,
-    toggle: React.Node
+    toggle: React.Node,
+    style?: {}
 }
 
 type State = {
-    active: boolean,
-    dimensions: {
-        top: number,
-        left: number,
-        bottom: number,
-        right: number,
-        width: number,
-        height: number
-    }
+    active: boolean
 }
 
 // needs to be a class to hold references
@@ -31,15 +25,7 @@ class Dropdown extends React.Component<Props, State> {
     _toggle: ?HTMLDivElement
 
     state = {
-        active: false,
-        dimensions: {
-            width: -1,
-            height: -1,
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0
-        }
+        active: false
     }
 
     _toggleDropdown = () =>
@@ -47,44 +33,39 @@ class Dropdown extends React.Component<Props, State> {
             active: !this.state.active
         })
 
-    get _content() {
-        return (
-            <ClickAway
-                active={this.state.active}
-                onClick={this._toggleDropdown}
-                filter={(evt: any) => (this._toggle ? !this._toggle.contains(evt.target) : false)}
+    _content = (dimensions: { width: number, height: number, top: number, left: number }) => (
+        <ClickAway
+            active={this.state.active}
+            onClick={this._toggleDropdown}
+            filter={(evt: any) => (this._toggle ? !this._toggle.contains(evt.target) : false)}
+        >
+            <Card
+                style={{
+                    ...styles.dropdown,
+                    position: 'absolute',
+                    ...dimensions,
+                    top: dimensions.top + dimensions.height,
+                    height: 100
+                }}
             >
-                <div
-                    style={{
-                        width: 100,
-                        position: 'absolute',
-                        ...this.state.dimensions,
-                        top: this.state.dimensions.top + this.state.dimensions.height,
-                        height: 100
-                    }}
-                >
-                    {this.props.children(-1)}
-                </div>
-            </ClickAway>
-        )
-    }
+                {this.props.children(-1)}
+            </Card>
+        </ClickAway>
+    )
 
     render() {
         return (
             <WithPortal id="dropdown">
                 {element => (
-                    <Measure
-                        bounds
-                        onResize={contentRect => {
-                            this.setState({ dimensions: contentRect.bounds })
-                        }}
-                    >
-                        {({ measureRef, contentRect }) => (
-                            <div style={styles.anchor}>
+                    <Measure>
+                        {({ measureRef, ...dimensions }) => (
+                            <View style={{ ...styles.anchor, ...this.props.style }}>
                                 <div
                                     onClick={this._toggleDropdown}
                                     ref={ele => {
                                         this._toggle = ele
+                                        // this._toggle.onscroll = () => console.log('scrolling')
+                                        // console.log(ele)
                                         measureRef(ele)
                                     }}
                                     style={styles.toggle}
@@ -93,8 +74,8 @@ class Dropdown extends React.Component<Props, State> {
                                 </div>
                                 {this.state.active &&
                                     element &&
-                                    ReactDOM.createPortal(this._content, element)}
-                            </div>
+                                    ReactDOM.createPortal(this._content(dimensions), element)}
+                            </View>
                         )}
                     </Measure>
                 )}

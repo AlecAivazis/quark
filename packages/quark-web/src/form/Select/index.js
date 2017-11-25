@@ -5,36 +5,47 @@ import * as React from 'react'
 import { Dropdown } from '..'
 import styles from './styles'
 import type { OptionValue } from '../Option'
+import { Text } from 'quark-web'
 
 type Props = {
-  value: OptionValue
+    value: OptionValue
 }
 
 type State = {
-  active: boolean
+    active: boolean
 }
 
 // needs to be a class to hold references
 class Select extends React.Component<Props, State> {
-  state = {
-    active: false
-  }
+    state = {
+        active: false
+    }
 
-  _toggle = () =>
-    this.setState({
-      active: !this.state.active
-    })
+    _toggle = () =>
+        this.setState({
+            active: !this.state.active
+        })
 
-  render() {
-    return (
-      <div style={styles.container}>
-        {/* the Dropdown ClickAway will handle the close, toggle should only happen */}
-        <Dropdown active={this.state.active} closeDropdown={this._toggle} toggle="toggle">
-          {() => <div>hello</div>}
-        </Dropdown>
-      </div>
-    )
-  }
+    get _toggleElement() {
+        return (
+            <div style={styles.toggle}>
+                <Text>toggle</Text>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <Dropdown
+                active={this.state.active}
+                closeDropdown={this._toggle}
+                toggle={this._toggleElement}
+                style={{ width: 200 }}
+            >
+                {() => <div>hello</div>}
+            </Dropdown>
+        )
+    }
 }
 
 export default Select

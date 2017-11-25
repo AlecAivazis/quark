@@ -8,7 +8,7 @@ export const primaryFont = {
 
 export const h1 = {
     ...primaryFont,
-    fontSize: 24
+    fontSize: 23
 }
 
 export const h2 = {
