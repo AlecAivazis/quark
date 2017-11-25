@@ -44,17 +44,24 @@ class Measure extends React.Component<Props, State> {
         }
 
         // grab the location of the node
-        const { top, height, left, width } = this.state.node.getBoundingClientRect()
+        const current = this.state.node.getBoundingClientRect()
+        // and the last we knew about it
+        const last = this.state.lastDimensions
+
         // if the scroll height has changed
-        if (this.state.dimensions.top === -1 || top !== this.state.lastTop) {
+        if (
+            this.state.dimensions.top === -1 ||
+            current.top !== last.top ||
+            current.left !== last.left
+        ) {
             // update the component state
             this.setState({
-                lastTop: top,
+                lastDimensions: current,
                 dimensions: {
-                    height,
-                    width,
-                    top,
-                    left
+                    height: current.height,
+                    width: current.width,
+                    top: current.top,
+                    left: current.left
                 }
             })
         }
@@ -67,7 +74,7 @@ class Measure extends React.Component<Props, State> {
         if (!this.state.node) {
             // save the node in state
             this.setState(
-                { node, running: true, lastTop: node.getBoundingClientRect().top },
+                { node, running: true, lastDimensions: node.getBoundingClientRect() },
                 // start updating the position of the element when we've saved the current value
                 this._updateDimensions
             )
