@@ -8,8 +8,8 @@ type Props = {
 
 type State = {
     node: ?HTMLElement,
+    lastDimensions: ?BoundingBox,
     dimensions: BoundingBox,
-    lastTop: number,
     running: boolean
 }
 
@@ -28,7 +28,7 @@ class Measure extends React.Component<Props, State> {
     state = {
         node: null,
         running: false,
-        lastTop: -1,
+        lastDimensions: null,
         dimensions: {
             height: -1,
             width: -1,
@@ -39,7 +39,7 @@ class Measure extends React.Component<Props, State> {
 
     _updateDimensions = () => {
         // if we're supposed to stop running
-        if (!this.state.running) {
+        if (!this.state.running || !this.state.node) {
             return
         }
 
@@ -47,6 +47,10 @@ class Measure extends React.Component<Props, State> {
         const current = this.state.node.getBoundingClientRect()
         // and the last we knew about it
         const last = this.state.lastDimensions
+
+        if (!last) {
+            return
+        }
 
         // if the scroll height has changed
         if (
