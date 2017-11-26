@@ -38,8 +38,8 @@ class Measure extends React.Component<Props, State> {
     }
 
     _updateDimensions = () => {
-        // if we're supposed to stop running
-        if (!this.state.running || !this.state.node) {
+        // guards
+        if (!this.state.node) {
             return
         }
 
@@ -84,11 +84,6 @@ class Measure extends React.Component<Props, State> {
             )
         }
     }
-
-    componentWillUnMount() {
-        this.setState({ running: false })
-    }
-
     render = () => {
         return this.props.children({
             measureRef: this._ref,
