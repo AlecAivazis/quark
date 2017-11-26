@@ -4,20 +4,28 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 import { View } from 'react-native-web'
 // local imports
-import { WithPortal, ClickAway, Card, Measure } from 'quark-web'
+import { WithPortal, ClickAway, Card, Measure, EventListener } from 'quark-web'
 import type { MeasurePayload } from 'quark-web'
 import styles from './styles'
 
 type Props = {
-    active: boolean,
-    closeDropdown: (?Event) => void,
-    children: number => React.Node,
+    children: DropdownPayload => React.Node,
     toggle: React.Node,
-    style?: {}
+    style?: {},
+    dropdownStyle?: {},
+    min?: number,
+    max?: number
+}
+
+type DropdownPayload = {
+    index: number,
+    setIndex: number => void,
+    toggle: () => void
 }
 
 type State = {
-    active: boolean
+    active: boolean,
+    index: number
 }
 
 // needs to be a class to hold references
@@ -25,12 +33,14 @@ class Dropdown extends React.Component<Props, State> {
     _toggle: ?HTMLDivElement
 
     state = {
-        active: false
+        active: false,
+        index: -1
     }
 
     _toggleDropdown = () =>
         this.setState({
-            active: !this.state.active
+            active: !this.state.active,
+            index: -1
         })
 
     _content = (dimensions: { width: number, height: number, top: number, left: number }) => (
@@ -43,19 +53,44 @@ class Dropdown extends React.Component<Props, State> {
                 style={{
                     ...styles.dropdown,
                     position: 'absolute',
-                    ...dimensions,
+                    left: dimensions.left,
+                    width: dimensions.width,
                     top: dimensions.top + dimensions.height,
-                    height: 100
+                    ...this.props.dropdownStyle
                 }}
             >
-                {this.props.children(-1)}
+                {this.props.children({
+                    index: this.state.index,
+                    setIndex: index => this.setState({ index }),
+                    toggle: this._toggleDropdown
+                })}
             </Card>
         </ClickAway>
     )
 
+    _keyDown = (event: Event) => {
+        // if the user pressed ↑
+        if (event.which === 38) {
+            event.preventDefault()
+            // increment the counter
+            this.setState({
+                // make sure we're always over the minimum
+                index: Math.max(this.state.index - 1, this.props.min || 0)
+            })
+            // otherwise if the user pressed ↓
+        } else if (event.which === 40) {
+            event.preventDefault()
+            // decrement the counter
+            this.setState({
+                // make sure we're always under the maximum value
+                index: Math.min(this.state.index + 1, (this.props.max || Infinity) - 1)
+            })
+        }
+    }
+
     render() {
-        return (
-            <WithPortal id="dropdown">
+        return [
+            <WithPortal id="dropdown" key="portal">
                 {element => (
                     <Measure>
                         {({ measureRef, ...dimensions }) => (
@@ -79,8 +114,13 @@ class Dropdown extends React.Component<Props, State> {
                         )}
                     </Measure>
                 )}
-            </WithPortal>
-        )
+            </WithPortal>,
+            this.state.active && (
+                <EventListener event="keydown" key="events">
+                    {this._keyDown}
+                </EventListener>
+            )
+        ]
     }
 }
 

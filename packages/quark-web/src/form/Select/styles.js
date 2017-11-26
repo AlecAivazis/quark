@@ -9,6 +9,6 @@ export default {
         flexDirection: 'row',
         justifyContent: 'flex-end',
         padding: 8,
-        border: '1px solid black'
+        cursor: 'pointer'
     }
 }

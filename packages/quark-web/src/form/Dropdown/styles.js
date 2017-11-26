@@ -4,5 +4,7 @@ export default {
         display: 'flex',
         flexGrow: 1
     },
-    dropdown: {}
+    dropdown: {
+        overflow: 'auto'
+    }
 }
