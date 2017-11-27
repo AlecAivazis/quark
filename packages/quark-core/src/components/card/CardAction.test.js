@@ -3,16 +3,16 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import { Card } from 'quark-core'
+import { CardAction } from 'quark-core'
 
 import renderer from 'react-test-renderer'
 
 it('renders', () => {
-    const rendered = mount(
-        <Card>
-            <Text>hello</Text>
-        </Card>
-    )
-
-    expect(rendered).toMatchSnapshot()
+    expect(
+        mount(
+            <CardAction>
+                <Text>hello</Text>
+            </CardAction>
+        )
+    ).toMatchSnapshot()
 })

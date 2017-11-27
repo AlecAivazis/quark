@@ -3,15 +3,15 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import { Card } from 'quark-core'
+import { BaseButton } from 'quark-core'
 
 import renderer from 'react-test-renderer'
 
 it('renders', () => {
     const rendered = mount(
-        <Card>
+        <BaseButton>
             <Text>hello</Text>
-        </Card>
+        </BaseButton>
     )
 
     expect(rendered).toMatchSnapshot()
