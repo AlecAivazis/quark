@@ -100,7 +100,7 @@ async function buildPackage(name) {
         })
 }
 
-const mkdir = async path =>
+const mkdir = path =>
     new Promise((resolve, reject) =>
         mkdirp(path, err => {
             if (err) return reject(err)
