@@ -29,11 +29,9 @@ const Subject = ({ ...unused }) => (
 )
 
 it('defaults to 3 columns', () => {
-    const rendered = renderer.create(<Subject />).toJSON()
-    expect(rendered).toMatchSnapshot()
+    expect(mount(<Subject />)).toMatchSnapshot()
 })
 
 it('supports specifying number of columns', () => {
-    const rendered = renderer.create(<Subject nCols={2} />).toJSON()
-    expect(rendered).toMatchSnapshot()
+    expect(mount(<Subject nCols={2} />)).toMatchSnapshot()
 })

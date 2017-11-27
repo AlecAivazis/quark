@@ -1,7 +1,7 @@
 // external imports
 import { StyleSheet } from 'react-native'
 // local imports
-import { baseDim } from '~/styles'
+import { baseDim } from 'quark-core/styles'
 
 export default StyleSheet.create({
     reset: {

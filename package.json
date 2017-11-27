@@ -12,6 +12,7 @@
         "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
         "format": "npm run __internal__prettier -- --write",
         "test": "jest",
+        "test:watch": "npm run test -- --watch",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
     },
@@ -23,8 +24,16 @@
     },
     "jest": {
         "testRegex": "(test)\\.jsx?$",
-        "setupFiles": ["<rootDir>/config/enzyme.js"],
-        "modulePaths": ["<rootDir>/packages"]
+        "setupFiles": [
+            "<rootDir>/config/enzyme.js"
+        ],
+        "modulePaths": [
+            "<rootDir>/packages"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer",
+            "react-native-web/jest/serializer"
+        ]
     },
     "devDependencies": {
         "babel-jest": "^21.2.0",
@@ -34,6 +43,7 @@
         "browser-env": "^3.2.3",
         "enzyme": "^3.2.0",
         "enzyme-adapter-react-16": "^1.1.0",
+        "enzyme-to-json": "^3.2.2",
         "flow-bin": "^0.59.0",
         "jest": "^21.2.1",
         "lerna": "^2.0.0",
