@@ -22,8 +22,7 @@ describe('State', () => {
 
             // save a reference to the input
             const input = wrapper.find('input')
-            input.node.value = 'a'
-            input.simulate('change', input)
+            input.simulate('change', { target: { value: 'a' } })
 
             // make sure the input updated
             expect(wrapper.find('input').props().value).toEqual('a')
@@ -49,8 +48,7 @@ describe('State', () => {
 
             // save a reference to the input
             const input = wrapper.find('input')
-            input.node.value = 'aaa'
-            input.simulate('change', input)
+            input.simulate('change', { target: { value: 'aaa' } })
 
             // make sure the input updated
             expect(wrapper.find('input').props().value).toEqual('AAA')
@@ -82,8 +80,7 @@ describe('State', () => {
 
             // save a reference to the input
             const input = wrapper.find('input')
-            input.node.value = 'aaa'
-            input.simulate('change', input)
+            input.simulate('change', { target: { value: 'aaa' } })
 
             // make sure there is an error reported (and that we passed the handler the string)
             expect(wrapper.find('span').props().children).toEqual('AAA')
@@ -116,10 +113,8 @@ describe('State', () => {
             // make sure there is no error reported
             expect(wrapper.find('span').props().children).toEqual(null)
 
-            // save a reference to the input
-            const input = wrapper.find('input')
-            input.node.value = 'aaa'
-            input.simulate('change', input)
+            // simulate the change value of the input
+            wrapper.find('input').simulate('change', { target: { value: 'aaa' } })
 
             // make sure there is an error reported (and that we passed the handler the string)
             expect(wrapper.find('span').props().children).toEqual(null)
@@ -129,10 +124,8 @@ describe('State', () => {
             const wrapper = mount(
                 <Form
                     validate={{
-                        test: str =>
-                            str.length > 0 ? str.toUpperCase() : null,
-                        test2: str =>
-                            str.length > 0 ? [str.toUpperCase()] : null
+                        test: str => (str.length > 0 ? str.toUpperCase() : null),
+                        test2: str => (str.length > 0 ? [str.toUpperCase()] : null)
                     }}
                 >
                     {({ hasErrors, getValue, setValue }) => (
@@ -154,8 +147,7 @@ describe('State', () => {
 
             // save a reference to the input
             const input = wrapper.find('input')
-            input.node.value = 'aaa'
-            input.simulate('change', input)
+            input.simulate('change', { target: { value: 'aaa' } })
 
             // make sure there is an error reported
             expect(wrapper.find('span')).toHaveLength(1)
@@ -165,10 +157,8 @@ describe('State', () => {
             const wrapper = mount(
                 <Form
                     validate={{
-                        test: str =>
-                            str.length > 0 ? str.toUpperCase() : null,
-                        test2: str =>
-                            str.length > 0 ? [str.toUpperCase()] : null
+                        test: str => (str.length > 0 ? str.toUpperCase() : null),
+                        test2: str => (str.length > 0 ? [str.toUpperCase()] : null)
                     }}
                 >
                     {({ hasErrors, getValue, setValue }) => (

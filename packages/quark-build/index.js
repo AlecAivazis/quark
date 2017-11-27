@@ -52,7 +52,7 @@ walk(sourceDir, {}).on('file', (root, { name }, next) => {
                 }
 
                 // ignore test files
-                if (path.basename.match(/test\.js/)) {
+                if (path.basename(target).match(/test\.js/)) {
                     return
                 }
 

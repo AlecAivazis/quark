@@ -23,7 +23,7 @@ class TabView extends React.Component {
         this._keyCache = {}
 
         // look for the tab with the matching key
-        for (const i = 0; i < props.data.length; i++) {
+        for (let i = 0; i < props.data.length; i++) {
             // the data point
             const datum = props.data[i]
 
@@ -38,15 +38,7 @@ class TabView extends React.Component {
     }
 
     render() {
-        const {
-            style,
-            children,
-            data,
-            tabStyle,
-            barStyle,
-            numTabs,
-            ...unused
-        } = this.props
+        const { style, children, data, tabStyle, barStyle, numTabs, ...unused } = this.props
 
         return (
             <View style={[styles.container, style]}>
@@ -58,9 +50,7 @@ class TabView extends React.Component {
                 >
                     {data}
                 </TabBar>
-                <View style={styles.content}>
-                    {children(this.props.data[this.state.selected])}
-                </View>
+                <View style={styles.content}>{children(this.props.data[this.state.selected])}</View>
             </View>
         )
     }
@@ -71,7 +61,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        flex: 1,
+        flex: 1
     },
     tab: {
         display: 'flex',
@@ -80,7 +70,7 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        padding: 4 * baseDim,
+        padding: 4 * baseDim
     }
 })
 

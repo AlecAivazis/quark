@@ -19,9 +19,10 @@ const ListState = ({ children, ...unused }) => (
                     append: val => set([...state, val]),
                     prepend: val => set([val, ...state]),
                     slice: (...args) => set(state.slice(...args)),
-                    update: (...args) => set(updateList(...args))
+                    update: (...args) => set(updateList(state, ...args))
                 })
-            )}
+            )
+        }
     </FreeState>
 )
 

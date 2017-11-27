@@ -40,8 +40,7 @@ class Form extends React.Component {
     get _hasErrors() {
         // figure out if the form has been updated
         const updated = Object.values(this.state._updated)
-        const hasUpdated =
-            updated.length > 0 && updated.filter(val => val).length > 0
+        const hasUpdated = updated.length > 0 && updated.filter(val => val).length > 0
 
         // if we have updated the form
         return (

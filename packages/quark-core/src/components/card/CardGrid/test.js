@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 // local imports
 import CardGrid from './'
-import Card from 'quark-core'
+import { Card } from 'quark-core'
 
 import renderer from 'react-test-renderer'
 
@@ -34,6 +34,6 @@ it('defaults to 3 columns', () => {
 })
 
 it('supports specifying number of columns', () => {
-    const rendered = renderer.create(<Subject nCols={2} />).toJson()
+    const rendered = renderer.create(<Subject nCols={2} />).toJSON()
     expect(rendered).toMatchSnapshot()
 })

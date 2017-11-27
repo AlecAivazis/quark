@@ -9,10 +9,8 @@ describe('State', () => {
         test('starts off as an empty list', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
-                <ListState initial={true}>
-                    {({ state }) => (
-                        <span>{Array.isArray(state) && state.length}</span>
-                    )}
+                <ListState>
+                    {({ state }) => <span>{Array.isArray(state) && state.length}</span>}
                 </ListState>
             )
 
@@ -24,11 +22,7 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState initial={[1]}>
-                    {({ state }) => (
-                        <span>
-                            {Array.isArray(state) && state.length && state[0]}
-                        </span>
-                    )}
+                    {({ state }) => <span>{Array.isArray(state) && state.length && state[0]}</span>}
                 </ListState>
             )
 
@@ -41,9 +35,7 @@ describe('State', () => {
             const wrapper = mount(
                 <ListState>
                     {({ state, append }) => (
-                        <span onClick={() => append('hello')}>
-                            {JSON.stringify(state)}
-                        </span>
+                        <span onClick={() => append('hello')}>{JSON.stringify(state)}</span>
                     )}
                 </ListState>
             )
@@ -62,22 +54,20 @@ describe('State', () => {
             // for this test, assume the initial state is false
             const wrapper = mount(
                 <ListState initial={[1, 2, 3]}>
-                    {({ state, append }) => (
-                        <span onClick={() => update(1, 'hello')}>
-                            {JSON.stringify(state)}
-                        </span>
+                    {({ state, append, update }) => (
+                        <span onClick={() => update(1, 'hello')}>{JSON.stringify(state)}</span>
                     )}
                 </ListState>
             )
 
             // sanity check
-            expect(wrapper.text()).toEqual('[]')
+            expect(wrapper.text()).toEqual('[1,2,3]')
 
             // click on the element to add the entry to the list
             wrapper.find('span').simulate('click')
 
             // there should be the string 'hello' in the span
-            expect(wrapper.text()).toEqual('[1, "hello", 3]')
+            expect(wrapper.text()).toEqual(JSON.stringify([1, 'hello', 3]))
         })
     })
 })
