@@ -26,7 +26,7 @@ export type MeasurePayload = BoundingBox & {
 
 class Measure extends React.Component<Props, State> {
     // track if the instance is mounted
-    mounted: boolean
+    _mounted: boolean
 
     state = {
         node: null,
@@ -42,7 +42,7 @@ class Measure extends React.Component<Props, State> {
 
     _updateDimensions = () => {
         // guards
-        if (!this.state.node || !this.mounted) {
+        if (!this.state.node || !this._mounted) {
             return
         }
 
@@ -90,11 +90,10 @@ class Measure extends React.Component<Props, State> {
 
     // gross hack to terminate the animation frame when this unmounts
     componentDidMount() {
-        this.mounted = true
+        this._mounted = true
     }
-
     componentWillUnmount() {
-        this.mounted = false
+        this._mounted = false
     }
 
     render = () => {

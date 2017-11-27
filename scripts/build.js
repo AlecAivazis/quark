@@ -22,9 +22,11 @@ const transformOptions = JSON.parse(
 transformOptions.babelrc = false
 
 function run() {
-    buildPackage('quark-native')
-    buildPackage('quark-core')
-    buildPackage('quark-web')
+    return Promise.all([
+        buildPackage('quark-native'),
+        buildPackage('quark-core'),
+        buildPackage('quark-web')
+    ])
 }
 
 async function buildPackage(name) {

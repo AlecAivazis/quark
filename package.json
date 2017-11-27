@@ -23,17 +23,20 @@
         "printWidth": 100
     },
     "jest": {
-        "testRegex": "(test)\\.jsx?$",
-        "setupFiles": [
-            "<rootDir>/scripts/initEnzyme.js"
+        "testRegex": "test.js$",
+        "setupFiles": ["<rootDir>/scripts/initEnzyme.js"],
+        "snapshotSerializers": ["enzyme-to-json/serializer", "react-native-web/jest/serializer"],
+        "modulePathIgnorePatterns": [
+            "<rootDir>/packages/quark-core/build/",
+            "<rootDir>/packages/quark-web/build/",
+            "<rootDir>/packages/quark-native/build/"
         ],
-        "modulePaths": [
-            "<rootDir>/packages"
-        ],
-        "snapshotSerializers": [
-            "enzyme-to-json/serializer",
-            "react-native-web/jest/serializer"
-        ]
+        "moduleNameMapper": {
+            "quark-core": "<rootDir>/packages/quark-core/src",
+            "quark-core/styles": "<rootDir>/packages/quark-core/src/styles",
+            "quark-web": "<rootDir>/packages/quark-web/src",
+            "quark-web/styles": "<rootDir>/packages/quark-web/src/styles"
+        }
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.32",
@@ -42,6 +45,7 @@
         "@babel/preset-flow": "^7.0.0-beta.32",
         "@babel/preset-react": "^7.0.0-beta.32",
         "@babel/preset-stage-1": "^7.0.0-beta.32",
+        "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^21.2.0",
         "babel-preset-react-native": "^4.0.0",
         "browser-env": "^3.2.3",
@@ -59,6 +63,5 @@
         "react-dom": "^16.1.1",
         "react-native-web": "^0.1.14",
         "walk": "^2.3.9"
-    },
-    "dependencies": {}
+    }
 }

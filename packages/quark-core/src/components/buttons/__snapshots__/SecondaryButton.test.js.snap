@@ -3,13 +3,10 @@
 exports[`accepts raw text as a child 1`] = `
 <SecondaryButton>
   <ButtonWithText
-    activeColor="#F9F9F9"
     defaultColor="white"
     size="medium"
-    textColor="#48484D"
   >
     <BaseButton
-      activeColor="#F9F9F9"
       constrainSize={true}
       defaultColor="white"
       size="medium"
@@ -44,7 +41,7 @@ exports[`accepts raw text as a child 1`] = `
                               Array [
                                 74,
                                 Object {
-                                  "color": "#48484D",
+                                  "color": undefined,
                                 },
                                 undefined,
                               ]
@@ -146,7 +143,7 @@ exports[`accepts raw text as a child 1`] = `
               <Text
                 style={
                   Object {
-                    "color": "#48484D",
+                    "color": undefined,
                     "fontSize": 16,
                   }
                 }
@@ -154,15 +151,14 @@ exports[`accepts raw text as a child 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#48484D",
+                      "color": undefined,
                       "fontSize": 16,
-                      "fontWeight": "300",
                       "margin": 0,
                     }
                   }
                 >
                   <div
-                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-119y1q0 rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-fontWeight-1od2jal rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
                     dir="auto"
                   >
                     hello
@@ -181,13 +177,10 @@ exports[`accepts raw text as a child 1`] = `
 exports[`renders 1`] = `
 <SecondaryButton>
   <ButtonWithText
-    activeColor="#F9F9F9"
     defaultColor="white"
     size="medium"
-    textColor="#48484D"
   >
     <BaseButton
-      activeColor="#F9F9F9"
       constrainSize={true}
       defaultColor="white"
       size="medium"
@@ -222,7 +215,7 @@ exports[`renders 1`] = `
                               Array [
                                 74,
                                 Object {
-                                  "color": "#48484D",
+                                  "color": undefined,
                                 },
                                 undefined,
                               ]
@@ -326,7 +319,7 @@ exports[`renders 1`] = `
               <Text
                 style={
                   Object {
-                    "color": "#48484D",
+                    "color": undefined,
                     "fontSize": 16,
                   }
                 }
@@ -334,15 +327,14 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
-                      "color": "#48484D",
+                      "color": undefined,
                       "fontSize": 16,
-                      "fontWeight": "300",
                       "margin": 0,
                     }
                   }
                 >
                   <div
-                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-119y1q0 rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-fontWeight-1od2jal rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
                     dir="auto"
                   >
                     <Text>

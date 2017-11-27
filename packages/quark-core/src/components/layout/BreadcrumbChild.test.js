@@ -14,16 +14,3 @@ it('renders', () => {
 
     expect(rendered).toMatchSnapshot()
 })
-
-it('accepts press handlers', () => {
-    // create a spy to test press handlers
-    const spy = jest.fn()
-
-    const rendered = mount(
-        <BreadcrumbChild onPresOut={() => spy()}>
-            <Text>hello</Text>
-        </BreadcrumbChild>
-    )
-
-    rendered.find('BreadcrumbChild').simulate('pressIn')
-})

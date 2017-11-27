@@ -1,13 +1,7 @@
 // @flow
 // external imports
 import * as React from 'react'
-import {
-    Text,
-    StyleSheet,
-    Animated,
-    Easing,
-    TouchableWithoutFeedback
-} from 'react-native'
+import { Text, StyleSheet, Animated, Easing, TouchableWithoutFeedback } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
 import { styles, containerSizes, sizeConstraints } from './styles'
@@ -89,7 +83,6 @@ class BaseButton extends React.Component<ButtonProps, State> {
             onPress,
             ...unused
         } = this.props
-
         return (
             <TouchableWithoutFeedback
                 onPressIn={this._pressIn}
@@ -105,7 +98,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
                         {
                             backgroundColor: this.state.opacity.interpolate({
                                 inputRange: [0, 1],
-                                outputRange: [defaultColor, activeColor]
+                                outputRange: [defaultColor, activeColor || defaultColor]
                             })
                         },
                         style
