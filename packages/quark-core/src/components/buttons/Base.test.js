@@ -5,8 +5,6 @@ import { mount } from 'enzyme'
 // local imports
 import { BaseButton } from 'quark-core'
 
-import renderer from 'react-test-renderer'
-
 it('renders', () => {
     const rendered = mount(
         <BaseButton>
