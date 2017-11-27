@@ -1,1 +1,0 @@
-export default ((list, fn) => [].concat(...list.map(fn)));

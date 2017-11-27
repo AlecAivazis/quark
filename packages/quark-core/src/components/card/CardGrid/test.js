@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 // local imports
 import CardGrid from './'
-import { Card } from 'quark-core/components/card'
+import Card from 'quark-core'
 
 import renderer from 'react-test-renderer'
 

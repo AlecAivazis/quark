@@ -25,7 +25,7 @@ walk(sourceDir, {}).on('file', (root, { name }, next) => {
         {
             presets: [
                 require.resolve('babel-preset-stage-1'),
-                require.resolve('babel-preset-react'),
+                require.resolve('babel-preset-react')
             ],
             plugins: [
                 require.resolve('react-native-web/babel'),
@@ -49,6 +49,11 @@ walk(sourceDir, {}).on('file', (root, { name }, next) => {
                 // if something went wrong
                 if (err) {
                     throw new Error(err)
+                }
+
+                // ignore test files
+                if (path.basename.match(/test\.js/)) {
+                    return
                 }
 
                 // write the resuting code to the file

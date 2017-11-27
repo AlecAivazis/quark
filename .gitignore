@@ -6,6 +6,7 @@ lerna-debug.log
 .DS_Store
 /packages/quark-core/components/
 /packages/quark-core/styles/
+/packages/quark-core/util/
 /packages/quark-native/layout/
 /packages/quark-native/navigation/
 /packages/quark-native/tabs/

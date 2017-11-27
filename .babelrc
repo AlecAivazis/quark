@@ -1,0 +1,4 @@
+{
+    "presets": ["es2015", "babel-preset-stage-1", "babel-preset-react"],
+    "plugins": ["react-native-web/babel"]
+}
