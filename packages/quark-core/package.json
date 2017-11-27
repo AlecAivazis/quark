@@ -2,7 +2,7 @@
     "name": "quark-core",
     "version": "0.1.0-beta.0",
     "module": "index.js",
-    "main": "index.js",
+    "main": "build/index.js",
     "scripts": {
         "build": "quark-build"
     },
