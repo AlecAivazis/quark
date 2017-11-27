@@ -3,13 +3,7 @@
     "version": "0.1.0-beta.0",
     "module": "index.js",
     "main": "index.js",
-    "scripts": {
-        "build": "quark-build"
-    },
     "dependencies": {
         "quark-core": "^0.1.0-beta.0"
-    },
-    "devDependencies": {
-        "quark-build": "^0.0.9-beta.26"
     }
 }
