@@ -35,7 +35,9 @@
             "quark-core": "<rootDir>/packages/quark-core/src",
             "quark-core/styles": "<rootDir>/packages/quark-core/src/styles",
             "quark-web": "<rootDir>/packages/quark-web/src",
-            "quark-web/styles": "<rootDir>/packages/quark-web/src/styles"
+            "quark-web/styles": "<rootDir>/packages/quark-web/src/styles",
+            "quark-native": "<rootDir>/packages/quark-native/src",
+            "quark-native/styles": "<rootDir>/packages/quark-native/src/styles"
         }
     },
     "devDependencies": {
