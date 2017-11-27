@@ -8,6 +8,7 @@
         "install": "npm run __internal__lerna -- exec -- npm install",
         "bootstrap": "npm run __internal__lerna -- bootstrap",
         "build": "babel-node scripts/build",
+        "version": "npm run __internal__lerna -- publish --skip-git --skip-npm",
         "publish": "npm run build && lerna publish",
         "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
         "format": "npm run __internal__prettier -- --write",
