@@ -1,4 +1,9 @@
 {
-    "presets": ["env", "stage-1", "react"],
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-stage-1",
+        "@babel/preset-react",
+        "@babel/preset-flow"
+    ],
     "plugins": ["react-native-web/babel"]
 }

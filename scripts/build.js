@@ -1,8 +1,9 @@
 #! /usr/bin/env node
 
 // external imports
-const babel = require('babel-core')
+const babel = require('@babel/core')
 const fs = require('fs')
+const fsExtra = require('fs-extra')
 const path = require('path')
 const { walk } = require('walk')
 const mkdirp = require('mkdirp')

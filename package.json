@@ -24,17 +24,32 @@
     },
     "jest": {
         "testRegex": "(test)\\.jsx?$",
-        "setupFiles": ["<rootDir>/scripts/initEnzyme.js"],
-        "modulePaths": ["<rootDir>/packages"],
-        "snapshotSerializers": ["enzyme-to-json/serializer", "react-native-web/jest/serializer"]
+        "setupFiles": [
+            "<rootDir>/scripts/initEnzyme.js"
+        ],
+        "modulePaths": [
+            "<rootDir>/packages"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer",
+            "react-native-web/jest/serializer"
+        ]
     },
     "devDependencies": {
+        "@babel/core": "^7.0.0-beta.32",
+        "@babel/node": "^7.0.0-beta.32",
+        "@babel/preset-env": "^7.0.0-beta.32",
+        "@babel/preset-flow": "^7.0.0-beta.32",
+        "@babel/preset-react": "^7.0.0-beta.32",
+        "@babel/preset-stage-1": "^7.0.0-beta.32",
         "babel-jest": "^21.2.0",
+        "babel-preset-react-native": "^4.0.0",
         "browser-env": "^3.2.3",
         "enzyme": "^3.2.0",
         "enzyme-adapter-react-16": "^1.1.0",
         "enzyme-to-json": "^3.2.2",
         "flow-bin": "^0.59.0",
+        "fs-extra": "^4.0.2",
         "jest": "^21.2.1",
         "lerna": "^2.0.0",
         "mkdirp": "^0.5.1",

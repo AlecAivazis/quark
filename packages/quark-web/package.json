@@ -2,7 +2,7 @@
     "name": "quark-web",
     "version": "0.1.0-0",
     "module": "index.js",
-    "main": "build/index.js",
+    "main": "index.js",
     "scripts": {
         "build": "quark-build"
     },
