@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import { AppBar } from 'quark-core'
+import AppBar from './AppBar'
 
 it('renders', () => {
     const rendered = mount(

@@ -8,7 +8,7 @@ const { walk } = require('walk')
 const mkdirp = require('mkdirp')
 
 // the directory to build to
-const buildDir = '.'
+const buildDir = './lib'
 // the source directory
 const sourceDir = './src'
 
@@ -23,12 +23,10 @@ walk(sourceDir, {}).on('file', (root, { name }, next) => {
     babel.transformFile(
         source,
         {
-            presets: [
-                require.resolve('babel-preset-stage-1'),
-                require.resolve('babel-preset-react')
-            ],
+            presets: [require.resolve('babel-preset-react-native')],
             plugins: [
                 require.resolve('react-native-web/babel'),
+                require.resolve('babel-plugin-transform-es2015-modules-umd'),
                 [
                     require.resolve('babel-plugin-root-import'),
                     {

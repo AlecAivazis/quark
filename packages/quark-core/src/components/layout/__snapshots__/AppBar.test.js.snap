@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<AppBar>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "borderBottomColor": "#EAEAEE",
+        "borderBottomWidth": 1,
+        "borderStyle": "solid",
+        "display": "flex",
+        "height": 64,
+        "justifyContent": "center",
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="rn-alignItems-1habvwh rn-borderBottomColor-156pb2y rn-borderBottomWidth-qklmqi rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-sga3zk rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingBottom-1mdbw0j rn-paddingLeft-b5h31w rn-paddingRight-1ah4tor rn-position-bnwqim rn-width-13qz1uu rn-zIndex-1lgpqti"
+    >
+      <Text>
+        <div
+          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+          dir="auto"
+        >
+          hello
+        </div>
+      </Text>
+    </div>
+  </View>
+</AppBar>
+`;
