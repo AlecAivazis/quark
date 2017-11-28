@@ -1,0 +1,15 @@
+# system setup
+sudo: required
+dist: trusty
+
+# language setup
+language: node_js
+node_js:
+  - "8"
+
+# command to run tests
+script:
+  - npm i
+  - npm run bootstrap
+  - npm run flow
+  - npm run test:coverage:report
