@@ -91,11 +91,14 @@ async function buildPackage(name) {
             // copy the package.json from the package directory to the build
             const packageJson = path.join(path.join(packageDir, name), 'package.json')
             const buildPackageJson = path.join(targetDir, 'package.json')
+
             // if the package file has already been copied
             if (fs.existsSync(buildPackageJson)) {
                 // remove the file
                 fs.unlinkSync(buildPackageJson)
             }
+
+            // copy the new package.json contents over
             fs.createReadStream(packageJson).pipe(fs.createWriteStream(buildPackageJson))
         })
 }

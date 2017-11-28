@@ -5,14 +5,17 @@
     "description": "a react component library",
     "scripts": {
         "__internal__lerna": "lerna",
-        "install": "npm run __internal__lerna -- exec -- npm install",
         "bootstrap": "npm run __internal__lerna -- bootstrap",
         "build": "babel-node scripts/build",
-        "publish": "npm run build && lerna publish",
+        "version": "npm run __internal__lerna -- publish --skip-git --skip-npm",
+        "publish": "npm run __internal__lerna -- exec -- \"cd build && npm publish\"",
+        "release": "npm run version && npm run build && npm run publish",
         "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
         "format": "npm run __internal__prettier -- --write",
         "test": "jest",
         "test:watch": "npm run test -- --watch",
+        "test:coverage": "npm run test -- --coverage",
+        "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
     },
@@ -24,8 +27,13 @@
     },
     "jest": {
         "testRegex": "test.js$",
-        "setupFiles": ["<rootDir>/scripts/initEnzyme.js"],
-        "snapshotSerializers": ["enzyme-to-json/serializer", "react-native-web/jest/serializer"],
+        "setupFiles": [
+            "<rootDir>/scripts/initEnzyme.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer",
+            "react-native-web/jest/serializer"
+        ],
         "modulePathIgnorePatterns": [
             "<rootDir>/packages/quark-core/build/",
             "<rootDir>/packages/quark-web/build/",
@@ -51,6 +59,7 @@
         "babel-jest": "^21.2.0",
         "babel-preset-react-native": "^4.0.0",
         "browser-env": "^3.2.3",
+        "coveralls": "^3.0.0",
         "enzyme": "^3.2.0",
         "enzyme-adapter-react-16": "^1.1.0",
         "enzyme-to-json": "^3.2.2",
@@ -65,5 +74,8 @@
         "react-dom": "^16.1.1",
         "react-native-web": "^0.1.14",
         "walk": "^2.3.9"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.0.0-beta.32"
     }
 }
