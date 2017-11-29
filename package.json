@@ -39,7 +39,8 @@
             "quark-core": "<rootDir>/packages/quark-core/src",
             "quark-web": "<rootDir>/packages/quark-web/src",
             "quark-native": "<rootDir>/packages/quark-native/src"
-        }
+        },
+        "collectCoverageFrom": ["packages/*/src/**/*.{js,jsx}"]
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.32",
