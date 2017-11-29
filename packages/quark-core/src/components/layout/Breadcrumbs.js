@@ -1,21 +1,26 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { View, Text, StyleSheet, ViewProperties } from 'react-native'
 // local imports
 import { H2 } from '..'
 import { baseDim, grey5 } from 'quark-core/styles'
 
-const Breadcrumbs = ({ style, children, ...unused }: ViewProperties) => {
+type Props = {
+    divider: React.Node
+}
+
+const Breadcrumbs = ({
+    style,
+    children,
+    divider = <Text style={styles.divider}>></Text>,
+    ...unused
+}: ViewProperties & Props) => {
     // add the divider after every child
-    let childs = children.map((child, i) => (
+    let childs = React.Children.map(children, (child, i) => (
         <View style={styles.level} key={i}>
             <View>{child}</View>
-            <View style={styles.dividerContainer}>
-                {i !== children.length - 1 && (
-                    <Text style={styles.divider}>></Text>
-                )}
-            </View>
+            <View style={styles.dividerContainer}>{i !== children.length - 1 && divider}</View>
         </View>
     ))
     return (
