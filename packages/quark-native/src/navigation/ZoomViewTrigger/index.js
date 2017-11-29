@@ -17,7 +17,7 @@ class ZoomViewTrigger extends React.Component<Props> {
         )
     }
 
-    _trigger = (data: any) => {
+    _trigger = (data: { [key: string]: any }) => {
         this._ele.measure((_, __, width, height, x, y) => {
             // this.props.transitionTo(data)
             this.props.transitionTo({ x, y, width, height, data })
