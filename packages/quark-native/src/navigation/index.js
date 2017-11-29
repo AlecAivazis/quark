@@ -1,2 +1,3 @@
-export ZoomViewContainer from './ZoomViewContainer'
-export ZoomViewTrigger from './ZoomViewTrigger'
+// @flow
+export { default as ZoomViewContainer } from './ZoomViewContainer'
+export { default as ZoomViewTrigger } from './ZoomViewTrigger'

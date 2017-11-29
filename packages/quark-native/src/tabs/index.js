@@ -1,2 +1,3 @@
-export TabView from './TabView'
-export TabBar from './TabBar'
+// @flow
+export { default as TabView } from './TabView'
+export { default as TabBar } from './TabBar'

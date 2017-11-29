@@ -1,3 +1,3 @@
-export StatusBar from './StatusBar'
-export AppBar from './AppBar'
-export App from './App'
+// @flow
+export { default as StatusBar } from './StatusBar'
+export { default as App } from './App'

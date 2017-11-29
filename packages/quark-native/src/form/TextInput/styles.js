@@ -1,3 +1,4 @@
+// @flow
 // external imports
 import { StyleSheet } from 'react-native'
 // local imports
@@ -11,6 +12,6 @@ export default StyleSheet.create({
         backgroundColor: 'white',
         height: 36,
         paddingLeft: 12,
-        fontSize: 14,
+        fontSize: 14
     }
 })

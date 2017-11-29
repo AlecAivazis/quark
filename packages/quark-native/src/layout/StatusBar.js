@@ -1,14 +1,13 @@
+// @flow
 // external imports
 import React from 'react'
-import {
-    View,
-    StatusBar as NativeBar,
-    StyleSheet,
-    Platform
-} from 'react-native'
+import { View, StatusBar as NativeBar, StyleSheet, Platform } from 'react-native'
+import type { StatusBarProperties } from 'react-native'
 
-const StatusBar = ({ style, ...unused }) => (
-    <NativeBar {...{ ...style, ...styles.container }} />
+type StatusBarProps = StatusBarProperties & { style: { [x: string]: any } }
+
+const StatusBar = ({ style, ...unused }: StatusBarProps) => (
+    <NativeBar {...{ ...style, ...styles.container }} {...unused} />
 )
 
 // not using StyleSheet here so we can merge the provided backgroundColor with a default and

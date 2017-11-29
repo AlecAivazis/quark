@@ -1,1 +1,2 @@
-export TextInput from './TextInput'
+// @flow
+export { default as TextInput } from './TextInput'
