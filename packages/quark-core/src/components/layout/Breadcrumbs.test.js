@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import Breadcrumbs from './Breadcrumbs'
+import { Breadcrumbs } from 'quark-core'
 
 it('renders with single child', () =>
     expect(

@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import BreadcrumbChild from './BreadcrumbChild'
+import { BreadcrumbChild } from 'quark-core'
 
 it('renders', () => {
     const rendered = mount(

@@ -42,7 +42,7 @@ exports[`renders 1`] = `
                             "children": <Text
                               style={
                                 Array [
-                                  75,
+                                  74,
                                   Object {
                                     "color": undefined,
                                   },
