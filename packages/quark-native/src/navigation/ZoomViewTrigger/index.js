@@ -1,6 +1,7 @@
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { View } from 'react-native'
+import type { ViewProperties } from 'react-native'
 
 type Props = {
     transitionTo: (data: any) => void,
@@ -9,6 +10,8 @@ type Props = {
 }
 
 class ZoomViewTrigger extends React.Component<Props> {
+    _ele: React.Component<ViewProperties, React.ComponentState>
+
     render() {
         return (
             <View ref={ele => (this._ele = ele)}>

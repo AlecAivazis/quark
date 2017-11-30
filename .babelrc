@@ -1,9 +1,53 @@
 {
-    "presets": [
-        "@babel/preset-env",
-        "@babel/preset-stage-1",
-        "@babel/preset-react",
-        "@babel/preset-flow"
-    ],
-    "plugins": ["react-native-web/babel"]
+    "plugins": ["react-native-web/babel"],
+    "env": {
+        "production": {
+            "presets": [
+                "@babel/preset-stage-1",
+                "@babel/preset-react",
+                "@babel/preset-flow",
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "browsers": "last 2 versions"
+                        }
+                    }
+                ]
+            ]
+        },
+
+        "development": {
+            "presets": [
+                "@babel/preset-stage-1",
+                "@babel/preset-react",
+                "@babel/preset-flow",
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "node": "current",
+                            "browsers": "last 1 chrome version"
+                        }
+                    }
+                ]
+            ]
+        },
+
+        "test": {
+            "presets": [
+                "@babel/preset-stage-1",
+                "@babel/preset-react",
+                "@babel/preset-flow",
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": {
+                            "node": "current"
+                        }
+                    }
+                ]
+            ]
+        }
+    }
 }

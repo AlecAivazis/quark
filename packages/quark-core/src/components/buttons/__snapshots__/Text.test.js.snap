@@ -140,22 +140,33 @@ exports[`accepts raw text as a child 1`] = `
                 }
               }
             >
-              <Text
+              <InnerText
                 style={
                   Object {
                     "color": undefined,
                     "fontSize": 16,
-                    "margin": 0,
                   }
                 }
               >
-                <div
-                  className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
-                  dir="auto"
-                >
-                  hello
-                </div>
-              </Text>
+                <GetTheme>
+                  <Text
+                    style={
+                      Object {
+                        "color": undefined,
+                        "fontSize": 16,
+                        "margin": 0,
+                      }
+                    }
+                  >
+                    <div
+                      className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                      dir="auto"
+                    >
+                      hello
+                    </div>
+                  </Text>
+                </GetTheme>
+              </InnerText>
             </Text>
           </div>
         </View>
@@ -307,29 +318,40 @@ exports[`renders 1`] = `
                 }
               }
             >
-              <Text
+              <InnerText
                 style={
                   Object {
                     "color": undefined,
                     "fontSize": 16,
-                    "margin": 0,
                   }
                 }
               >
-                <div
-                  className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
-                  dir="auto"
-                >
-                  <Text>
-                    <span
-                      className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
+                <GetTheme>
+                  <Text
+                    style={
+                      Object {
+                        "color": undefined,
+                        "fontSize": 16,
+                        "margin": 0,
+                      }
+                    }
+                  >
+                    <div
+                      className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
                       dir="auto"
                     >
-                      hello
-                    </span>
+                      <Text>
+                        <span
+                          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
+                          dir="auto"
+                        >
+                          hello
+                        </span>
+                      </Text>
+                    </div>
                   </Text>
-                </div>
-              </Text>
+                </GetTheme>
+              </InnerText>
             </Text>
           </div>
         </View>

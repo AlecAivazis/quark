@@ -9,12 +9,8 @@ export default {
         paddingLeft: 2.5 * baseDim,
         cursor: 'pointer'
     },
-    selected: {
-        color: primaryColor
-    },
-    active: {
-        backgroundColor: grey1
-    },
+    selected: {},
+    active: {},
     disabled: {
         color: grey2
     }

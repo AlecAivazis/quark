@@ -42,6 +42,5 @@ export const link = {
 }
 
 export const linkActive = {
-    ...link,
-    color: primaryColor
+    ...link
 }

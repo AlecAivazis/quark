@@ -63,20 +63,21 @@ class TabBar extends React.Component {
         const { selected, selectTab, tabStyle } = this.props
 
         return (
-            <Button
-                style={[{ width: this.state.tabWidth }, styles.tab, tabStyle]}
-                onPress={() => selectTab(children)}
-                disabled={index === selected}
-            >
-                <Text
-                    style={[
-                        styles.tabText,
-                        index === selected && styles.selectedTab
-                    ]}
-                >
-                    {children}
-                </Text>
-            </Button>
+            <GetTheme>
+                {({ primaryColor }) => (
+                    <Button
+                        style={[{ width: this.state.tabWidth }, styles.tab, tabStyle]}
+                        onPress={() => selectTab(children)}
+                        disabled={index === selected}
+                    >
+                        <Text
+                            style={[styles.tabText, index === selected && { color: primaryColor }]}
+                        >
+                            {children}
+                        </Text>
+                    </Button>
+                )}
+            </GetTheme>
         )
     }
 
@@ -116,10 +117,7 @@ const styles = StyleSheet.create({
     tab: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-    },
-    selectedTab: {
-        color: primaryColor
+        justifyContent: 'center'
     }
 })
 

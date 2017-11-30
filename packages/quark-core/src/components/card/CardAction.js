@@ -4,17 +4,21 @@ import React from 'react'
 import { View, Text, StyleSheet, ViewProperties } from 'react-native'
 // local imports
 import { BaseButtonWithText } from '../buttons'
-import { primaryColor, grey1, grey2 } from 'quark-core/styles'
+import { GetTheme } from 'quark-core'
 
 const CardAction = ({ style, ...unused }: ViewProperties) => (
-    <BaseButtonWithText
-        defaultColor="white"
-        activeColor={grey1}
-        textColor={primaryColor}
-        style={[styles.container, style]}
-        constrainSize={false}
-        {...unused}
-    />
+    <GetTheme>
+        {({ grey2, grey1, primaryColor }) => (
+            <BaseButtonWithText
+                defaultColor="white"
+                activeColor={grey1}
+                textColor={primaryColor}
+                style={[styles.container, { borderTopColor: grey2 }, style]}
+                constrainSize={false}
+                {...unused}
+            />
+        )}
+    </GetTheme>
 )
 
 const styles = StyleSheet.create({
@@ -23,8 +27,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         borderRadius: 0,
         borderStyle: 'solid',
-        borderTopWidth: 1,
-        borderTopColor: grey2
+        borderTopWidth: 1
     }
 })
 

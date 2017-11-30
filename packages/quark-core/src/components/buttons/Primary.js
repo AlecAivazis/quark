@@ -2,17 +2,21 @@
 // external imports
 import React from 'react'
 // local imports
-import { primaryColor, primaryColorDark } from 'quark-core/styles'
+import { GetTheme } from 'quark-core'
 import BaseWithText from './Text'
 import type { TextButtonProps } from './Text'
 
-const Button = ({ ...unused }: TextButtonProps) => (
-    <BaseWithText
-        defaultColor={primaryColor}
-        activeColor={primaryColorDark}
-        textColor="white"
-        {...unused}
-    />
+const Button = (props: TextButtonProps) => (
+    <GetTheme>
+        {({ primaryColor, primaryColorDark, white }) => (
+            <BaseWithText
+                defaultColor={primaryColor}
+                activeColor={primaryColorDark}
+                textColor={white}
+                {...props}
+            />
+        )}
+    </GetTheme>
 )
 
 export default Button

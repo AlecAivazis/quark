@@ -2,22 +2,9 @@
 
 exports[`renders 1`] = `
 <CardAction>
-  <ButtonWithText
-    constrainSize={false}
-    defaultColor="white"
-    size="medium"
-    style={
-      Object {
-        "alignSelf": "flex-end",
-        "borderRadius": 0,
-        "borderStyle": "solid",
-        "borderTopColor": undefined,
-        "borderTopWidth": 1,
-        "flex": 1,
-      }
-    }
-  >
-    <BaseButton
+  <GetTheme>
+    <ButtonWithText
+      activeColor="#F9F9F9"
       constrainSize={false}
       defaultColor="white"
       size="medium"
@@ -26,108 +13,34 @@ exports[`renders 1`] = `
           "alignSelf": "flex-end",
           "borderRadius": 0,
           "borderStyle": "solid",
-          "borderTopColor": undefined,
+          "borderTopColor": "#EAEAEE",
           "borderTopWidth": 1,
           "flex": 1,
         }
       }
+      textColor="#4A90E2"
     >
-      <TouchableWithoutFeedback
-        onPressIn={[Function]}
-        onPressOut={[Function]}
-      >
-        <AnimatedComponent
-          accessible={true}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "alignSelf": "flex-end",
-              "backgroundColor": AnimatedInterpolation {
-                "_children": Array [
-                  AnimatedStyle {
-                    "_children": Array [
-                      AnimatedProps {
-                        "_callback": [Function],
-                        "_props": Object {
-                          "accessible": true,
-                          "children": <Text
-                            style={
-                              Array [
-                                74,
-                                Object {
-                                  "color": undefined,
-                                },
-                                undefined,
-                              ]
-                            }
-                          >
-                            <Text>
-                              hello
-                            </Text>
-                          </Text>,
-                          "onKeyDown": [Function],
-                          "onKeyUp": [Function],
-                          "onResponderGrant": [Function],
-                          "onResponderMove": [Function],
-                          "onResponderRelease": [Function],
-                          "onResponderTerminate": [Function],
-                          "onResponderTerminationRequest": [Function],
-                          "onStartShouldSetResponder": [Function],
-                          "style": [Circular],
-                        },
-                      },
-                    ],
-                    "_style": Object {
-                      "alignItems": "center",
-                      "alignSelf": "flex-end",
-                      "backgroundColor": [Circular],
-                      "borderRadius": 0,
-                      "borderStyle": "solid",
-                      "borderTopColor": undefined,
-                      "borderTopWidth": 1,
-                      "cursor": "pointer",
-                      "flex": 1,
-                      "height": 40,
-                      "justifyContent": "center",
-                      "overflow": "hidden",
-                      "touchAction": "manipulate",
-                    },
-                  },
-                ],
-                "_interpolation": [Function],
-                "_listeners": Object {},
-                "_parent": AnimatedValue {
-                  "_animation": null,
-                  "_children": Array [
-                    [Circular],
-                  ],
-                  "_listeners": Object {},
-                  "_offset": 0,
-                  "_value": 0,
-                },
-              },
-              "borderRadius": 0,
-              "borderStyle": "solid",
-              "borderTopColor": undefined,
-              "borderTopWidth": 1,
-              "cursor": "pointer",
-              "flex": 1,
-              "height": 40,
-              "justifyContent": "center",
-              "overflow": "hidden",
-              "touchAction": "manipulate",
-            }
+      <BaseButton
+        activeColor="#F9F9F9"
+        constrainSize={false}
+        defaultColor="white"
+        size="medium"
+        style={
+          Object {
+            "alignSelf": "flex-end",
+            "borderRadius": 0,
+            "borderStyle": "solid",
+            "borderTopColor": "#EAEAEE",
+            "borderTopWidth": 1,
+            "flex": 1,
           }
+        }
+      >
+        <TouchableWithoutFeedback
+          onPressIn={[Function]}
+          onPressOut={[Function]}
         >
-          <View
+          <AnimatedComponent
             accessible={true}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
@@ -141,10 +54,73 @@ exports[`renders 1`] = `
               Object {
                 "alignItems": "center",
                 "alignSelf": "flex-end",
-                "backgroundColor": "rgba(255, 255, 255, 1)",
+                "backgroundColor": AnimatedInterpolation {
+                  "_children": Array [
+                    AnimatedStyle {
+                      "_children": Array [
+                        AnimatedProps {
+                          "_callback": [Function],
+                          "_props": Object {
+                            "accessible": true,
+                            "children": <Text
+                              style={
+                                Array [
+                                  74,
+                                  Object {
+                                    "color": "#4A90E2",
+                                  },
+                                  undefined,
+                                ]
+                              }
+                            >
+                              <Text>
+                                hello
+                              </Text>
+                            </Text>,
+                            "onKeyDown": [Function],
+                            "onKeyUp": [Function],
+                            "onResponderGrant": [Function],
+                            "onResponderMove": [Function],
+                            "onResponderRelease": [Function],
+                            "onResponderTerminate": [Function],
+                            "onResponderTerminationRequest": [Function],
+                            "onStartShouldSetResponder": [Function],
+                            "style": [Circular],
+                          },
+                        },
+                      ],
+                      "_style": Object {
+                        "alignItems": "center",
+                        "alignSelf": "flex-end",
+                        "backgroundColor": [Circular],
+                        "borderRadius": 0,
+                        "borderStyle": "solid",
+                        "borderTopColor": "#EAEAEE",
+                        "borderTopWidth": 1,
+                        "cursor": "pointer",
+                        "flex": 1,
+                        "height": 40,
+                        "justifyContent": "center",
+                        "overflow": "hidden",
+                        "touchAction": "manipulate",
+                      },
+                    },
+                  ],
+                  "_interpolation": [Function],
+                  "_listeners": Object {},
+                  "_parent": AnimatedValue {
+                    "_animation": null,
+                    "_children": Array [
+                      [Circular],
+                    ],
+                    "_listeners": Object {},
+                    "_offset": 0,
+                    "_value": 0,
+                  },
+                },
                 "borderRadius": 0,
                 "borderStyle": "solid",
-                "borderTopColor": undefined,
+                "borderTopColor": "#EAEAEE",
                 "borderTopWidth": 1,
                 "cursor": "pointer",
                 "flex": 1,
@@ -155,8 +131,8 @@ exports[`renders 1`] = `
               }
             }
           >
-            <div
-              className="rn-alignItems-1awozwy rn-alignSelf-173mn98 rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
+            <View
+              accessible={true}
               onKeyDown={[Function]}
               onKeyUp={[Function]}
               onResponderGrant={[Function]}
@@ -167,48 +143,94 @@ exports[`renders 1`] = `
               onStartShouldSetResponder={[Function]}
               style={
                 Object {
+                  "alignItems": "center",
+                  "alignSelf": "flex-end",
                   "backgroundColor": "rgba(255, 255, 255, 1)",
+                  "borderRadius": 0,
+                  "borderStyle": "solid",
+                  "borderTopColor": "#EAEAEE",
+                  "borderTopWidth": 1,
+                  "cursor": "pointer",
+                  "flex": 1,
+                  "height": 40,
+                  "justifyContent": "center",
+                  "overflow": "hidden",
+                  "touchAction": "manipulate",
                 }
               }
-              tabIndex="0"
             >
-              <Text
+              <div
+                className="rn-alignItems-1awozwy rn-alignSelf-173mn98 rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "color": undefined,
-                    "fontSize": 16,
+                    "backgroundColor": "rgba(255, 255, 255, 1)",
+                    "borderTopColor": "rgba(234,234,238,1)",
                   }
                 }
+                tabIndex="0"
               >
                 <Text
                   style={
                     Object {
-                      "color": undefined,
+                      "color": "#4A90E2",
                       "fontSize": 16,
-                      "margin": 0,
                     }
                   }
                 >
-                  <div
-                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
-                    dir="auto"
+                  <InnerText
+                    style={
+                      Object {
+                        "color": "#4A90E2",
+                        "fontSize": 16,
+                      }
+                    }
                   >
-                    <Text>
-                      <span
-                        className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
-                        dir="auto"
+                    <GetTheme>
+                      <Text
+                        style={
+                          Object {
+                            "color": "#4A90E2",
+                            "fontSize": 16,
+                            "margin": 0,
+                          }
+                        }
                       >
-                        hello
-                      </span>
-                    </Text>
-                  </div>
+                        <div
+                          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                          dir="auto"
+                          style={
+                            Object {
+                              "color": "rgba(74,144,226,1)",
+                            }
+                          }
+                        >
+                          <Text>
+                            <span
+                              className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
+                              dir="auto"
+                            >
+                              hello
+                            </span>
+                          </Text>
+                        </div>
+                      </Text>
+                    </GetTheme>
+                  </InnerText>
                 </Text>
-              </Text>
-            </div>
-          </View>
-        </AnimatedComponent>
-      </TouchableWithoutFeedback>
-    </BaseButton>
-  </ButtonWithText>
+              </div>
+            </View>
+          </AnimatedComponent>
+        </TouchableWithoutFeedback>
+      </BaseButton>
+    </ButtonWithText>
+  </GetTheme>
 </CardAction>
 `;

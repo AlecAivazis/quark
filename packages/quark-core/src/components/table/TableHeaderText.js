@@ -3,16 +3,17 @@
 import React from 'react'
 import { Text, StyleSheet, TextProperties } from 'react-native'
 // local imports
-import { grey4 } from 'quark-core/styles'
+import { GetTheme } from 'quark-core'
 
 const TableHeaderText = ({ style, ...unused }: TextProperties) => (
-    <Text style={[styles.container, style]} {...unused} />
+    <GetTheme>
+        {({ grey4 }) => <Text style={[styles.container, { color: grey4 }, style]} {...unused} />}
+    </GetTheme>
 )
 
 const styles = StyleSheet.create({
     container: {
-        fontSize: 16,
-        color: grey4
+        fontSize: 16
     }
 })
 

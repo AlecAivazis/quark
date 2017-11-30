@@ -3,18 +3,20 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 // local imports
-import { grey3 } from 'quark-core/styles'
+import { GetTheme } from 'quark-core'
 import TableRow, { styles as rowStyles } from './TableRow'
 import type { TableRowProps } from './TableRow'
 
 const TableHeader = ({ style, ...unused }: TableRowProps) => (
-    <TableRow style={[styles.container, style]} {...unused} />
+    <GetTheme>
+        {({ grey3 }) => (
+            <TableRow style={[styles.container, { borderColor: grey3 }, style]} {...unused} />
+        )}
+    </GetTheme>
 )
 
 const styles = StyleSheet.create({
-    container: {
-        borderColor: grey3
-    }
+    container: {}
 })
 
 export default TableHeader

@@ -99,8 +99,6 @@ class Dropdown extends React.Component<Props, State> {
                                     onClick={this._toggleDropdown}
                                     ref={ele => {
                                         this._toggle = ele
-                                        // this._toggle.onscroll = () => console.log('scrolling')
-                                        // console.log(ele)
                                         measureRef(ele)
                                     }}
                                     style={styles.toggle}
