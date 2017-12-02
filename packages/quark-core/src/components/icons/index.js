@@ -1,7 +1,7 @@
 // @flow
 
 export type IconProps = {
-    style: CSSStyleDeclaration
+    style?: CSSStyleDeclaration
 }
 
 export { default as IconActivity } from './Activity'
