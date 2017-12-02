@@ -6,7 +6,15 @@ exports[`defaults to 3 columns 1`] = `
     <Component
       style={
         Object {
-          "padding": 40,
+          "WebkitOverflowScrolling": "touch",
+          "flex": 1,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "transform": Array [
+            Object {
+              "translateZ": 0,
+            },
+          ],
         }
       }
     >
@@ -31,10 +39,10 @@ exports[`defaults to 3 columns 1`] = `
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
+            "backgroundSize": "auto",
             "flex": 1,
             "overflowX": "hidden",
             "overflowY": "auto",
-            "padding": 40,
             "transform": Array [
               Object {
                 "translateZ": 0,
@@ -59,10 +67,10 @@ exports[`defaults to 3 columns 1`] = `
           style={
             Object {
               "WebkitOverflowScrolling": "touch",
+              "backgroundSize": "auto",
               "flex": 1,
               "overflowX": "hidden",
               "overflowY": "auto",
-              "padding": 40,
               "transform": Array [
                 Object {
                   "translateZ": 0,
@@ -102,9 +110,9 @@ exports[`defaults to 3 columns 1`] = `
                   key="row-0"
                   style={
                     Object {
-                      "flex": 1,
                       "flexDirection": "row",
-                      "justifyContent": "space-around",
+                      "overflowX": "auto",
+                      "overflowY": "hidden",
                     }
                   }
                 >
@@ -115,9 +123,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
                           "marginRight": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -133,17 +152,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -178,9 +187,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
                           "marginRight": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -196,17 +216,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -241,8 +251,19 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-2"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -258,17 +279,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -305,9 +316,9 @@ exports[`defaults to 3 columns 1`] = `
                   key="row-1"
                   style={
                     Object {
-                      "flex": 1,
                       "flexDirection": "row",
-                      "justifyContent": "space-around",
+                      "overflowX": "auto",
+                      "overflowY": "hidden",
                     }
                   }
                 >
@@ -318,9 +329,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
                           "marginRight": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -336,17 +358,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -381,8 +393,19 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -398,17 +421,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -443,18 +456,15 @@ exports[`defaults to 3 columns 1`] = `
                       key="placeholder-0"
                       style={
                         Object {
-                          "flex": 1,
-                          "marginBottom": 40,
-                          "marginRight": 40,
+                          "flexDirection": "row",
                         }
                       }
                     >
                       <View
                         style={
                           Object {
-                            "flex": 1,
-                            "marginBottom": 40,
-                            "marginRight": 40,
+                            "flexDirection": "row",
+                            "touchAction": "none",
                           }
                         }
                       >
@@ -485,7 +495,15 @@ exports[`supports specifying number of columns 1`] = `
     <Component
       style={
         Object {
-          "padding": 40,
+          "WebkitOverflowScrolling": "touch",
+          "flex": 1,
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "transform": Array [
+            Object {
+              "translateZ": 0,
+            },
+          ],
         }
       }
     >
@@ -510,10 +528,10 @@ exports[`supports specifying number of columns 1`] = `
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
+            "backgroundSize": "auto",
             "flex": 1,
             "overflowX": "hidden",
             "overflowY": "auto",
-            "padding": 40,
             "transform": Array [
               Object {
                 "translateZ": 0,
@@ -538,10 +556,10 @@ exports[`supports specifying number of columns 1`] = `
           style={
             Object {
               "WebkitOverflowScrolling": "touch",
+              "backgroundSize": "auto",
               "flex": 1,
               "overflowX": "hidden",
               "overflowY": "auto",
-              "padding": 40,
               "transform": Array [
                 Object {
                   "translateZ": 0,
@@ -581,9 +599,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-0"
                   style={
                     Object {
-                      "flex": 1,
                       "flexDirection": "row",
-                      "justifyContent": "space-around",
+                      "overflowX": "auto",
+                      "overflowY": "hidden",
                     }
                   }
                 >
@@ -594,9 +612,20 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
                           "marginRight": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -612,17 +641,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -657,8 +676,19 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -674,17 +704,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -721,9 +741,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-1"
                   style={
                     Object {
-                      "flex": 1,
                       "flexDirection": "row",
-                      "justifyContent": "space-around",
+                      "overflowX": "auto",
+                      "overflowY": "hidden",
                     }
                   }
                 >
@@ -734,9 +754,20 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
                           "marginRight": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -752,17 +783,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -797,8 +818,19 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -814,17 +846,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -861,9 +883,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-2"
                   style={
                     Object {
-                      "flex": 1,
                       "flexDirection": "row",
-                      "justifyContent": "space-around",
+                      "overflowX": "auto",
+                      "overflowY": "hidden",
                     }
                   }
                 >
@@ -874,8 +896,19 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "flex": 1,
+                          "borderWidth": 0,
+                          "boxSizing": "border-box",
+                          "color": "inherit",
+                          "display": "inline",
+                          "font": "inherit",
+                          "fontFamily": "System",
+                          "fontSize": 14,
+                          "margin": 0,
                           "marginBottom": 40,
+                          "padding": 0,
+                          "textDecorationLine": "none",
+                          "whiteSpace": "pre-wrap",
+                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -891,17 +924,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
-                                  "borderRadius": 2,
-                                  "borderStyle": "solid",
-                                  "borderWidth": 1,
-                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
-                                  "shadowOffset": Object {
-                                    "height": 2,
-                                    "width": 2,
-                                  },
-                                  "shadowOpacity": 0.54,
-                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -936,18 +959,15 @@ exports[`supports specifying number of columns 1`] = `
                       key="placeholder-0"
                       style={
                         Object {
-                          "flex": 1,
-                          "marginBottom": 40,
-                          "marginRight": 40,
+                          "flexDirection": "row",
                         }
                       }
                     >
                       <View
                         style={
                           Object {
-                            "flex": 1,
-                            "marginBottom": 40,
-                            "marginRight": 40,
+                            "flexDirection": "row",
+                            "touchAction": "none",
                           }
                         }
                       >

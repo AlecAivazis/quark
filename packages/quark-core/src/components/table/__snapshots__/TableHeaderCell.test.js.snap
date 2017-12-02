@@ -5,10 +5,10 @@ exports[`renders 1`] = `
   <TableCell>
     <View
       style={
-        Object {
-          "flex": 1,
-          "flexDirection": "row",
-        }
+        Array [
+          97,
+          undefined,
+        ]
       }
     >
       <div

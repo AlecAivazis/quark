@@ -42,9 +42,7 @@ exports[`shows when visible 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "backgroundColor": "rgba(55, 55, 58, .67)",
                 "cursor": "pointer",
-                "flex": 1,
                 "touchAction": "manipulate",
               }
             }
@@ -62,41 +60,15 @@ exports[`shows when visible 1`] = `
               tabIndex="0"
             >
               <Card
-                style={
-                  Object {
-                    "backgroundColor": undefined,
-                    "flex": 0,
-                    "height": 600,
-                    "marginLeft": "auto",
-                    "marginRight": "auto",
-                    "marginTop": 50,
-                    "shadowColor": undefined,
-                    "width": "80%",
-                  }
-                }
+                style={114}
               >
                 <GetTheme>
                   <View
                     style={
                       Object {
-                        "backgroundColor": undefined,
+                        "backgroundColor": "#ffffff",
                         "borderColor": "#EAEAEE",
-                        "borderRadius": 2,
-                        "borderStyle": "solid",
-                        "borderWidth": 1,
-                        "flex": 0,
-                        "height": 600,
-                        "marginLeft": "auto",
-                        "marginRight": "auto",
-                        "marginTop": 50,
-                        "shadowColor": undefined,
-                        "shadowOffset": Object {
-                          "height": 2,
-                          "width": 2,
-                        },
-                        "shadowOpacity": 0.54,
-                        "shadowRadius": 4,
-                        "width": "80%",
+                        "shadowColor": "#EAEAEE",
                       }
                     }
                   >

@@ -10,12 +10,7 @@ exports[`renders 1`] = `
       size="medium"
       style={
         Object {
-          "alignSelf": "flex-end",
-          "borderRadius": 0,
-          "borderStyle": "solid",
           "borderTopColor": "#EAEAEE",
-          "borderTopWidth": 1,
-          "flex": 1,
         }
       }
       textColor="#4A90E2"
@@ -27,12 +22,7 @@ exports[`renders 1`] = `
         size="medium"
         style={
           Object {
-            "alignSelf": "flex-end",
-            "borderRadius": 0,
-            "borderStyle": "solid",
             "borderTopColor": "#EAEAEE",
-            "borderTopWidth": 1,
-            "flex": 1,
           }
         }
       >
@@ -52,8 +42,6 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "alignSelf": "flex-end",
                 "backgroundColor": AnimatedInterpolation {
                   "_children": Array [
                     AnimatedStyle {
@@ -118,15 +106,8 @@ exports[`renders 1`] = `
                     "_value": 0,
                   },
                 },
-                "borderRadius": 0,
-                "borderStyle": "solid",
                 "borderTopColor": "#EAEAEE",
-                "borderTopWidth": 1,
                 "cursor": "pointer",
-                "flex": 1,
-                "height": 40,
-                "justifyContent": "center",
-                "overflow": "hidden",
                 "touchAction": "manipulate",
               }
             }
@@ -181,7 +162,6 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "color": "#4A90E2",
-                      "fontSize": 16,
                     }
                   }
                 >
@@ -189,7 +169,6 @@ exports[`renders 1`] = `
                     style={
                       Object {
                         "color": "#4A90E2",
-                        "fontSize": 16,
                       }
                     }
                   >
@@ -198,8 +177,6 @@ exports[`renders 1`] = `
                         style={
                           Object {
                             "color": "#4A90E2",
-                            "fontSize": 16,
-                            "margin": 0,
                           }
                         }
                       >

@@ -4,9 +4,11 @@ exports[`H1 renders 1`] = `
 <H1>
   <InnerText
     style={
-      Object {
-        "marginBottom": NaN,
-      }
+      Array [
+        undefined,
+        78,
+        undefined,
+      ]
     }
   >
     <GetTheme>
@@ -14,8 +16,6 @@ exports[`H1 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -40,9 +40,11 @@ exports[`H2 renders 1`] = `
 <H2>
   <InnerText
     style={
-      Object {
-        "marginBottom": NaN,
-      }
+      Array [
+        undefined,
+        79,
+        undefined,
+      ]
     }
   >
     <GetTheme>
@@ -50,8 +52,6 @@ exports[`H2 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -76,9 +76,11 @@ exports[`H3 renders 1`] = `
 <H3>
   <InnerText
     style={
-      Object {
-        "marginBottom": NaN,
-      }
+      Array [
+        undefined,
+        80,
+        undefined,
+      ]
     }
   >
     <GetTheme>
@@ -86,8 +88,6 @@ exports[`H3 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -124,7 +124,6 @@ exports[`Link renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
           }
         }
       >
@@ -161,7 +160,6 @@ exports[`Monospace renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
           }
         }
       >
@@ -198,7 +196,6 @@ exports[`Subtitle renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
           }
         }
       >
@@ -235,7 +232,6 @@ exports[`Title renders 1`] = `
         style={
           Object {
             "color": "#48484D",
-            "margin": 0,
           }
         }
       >

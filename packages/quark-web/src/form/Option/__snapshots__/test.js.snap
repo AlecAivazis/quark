@@ -21,7 +21,6 @@ exports[`mixes active and selected styles 1`] = `
             style={
               Object {
                 "color": "#48484D",
-                "margin": 0,
               }
             }
           >
@@ -76,7 +75,6 @@ exports[`renders active style 1`] = `
             style={
               Object {
                 "color": "#48484D",
-                "margin": 0,
               }
             }
           >
@@ -128,7 +126,6 @@ exports[`renders default style 1`] = `
             style={
               Object {
                 "color": "#48484D",
-                "margin": 0,
               }
             }
           >
@@ -181,7 +178,6 @@ exports[`renders selected style 1`] = `
             style={
               Object {
                 "color": "#48484D",
-                "margin": 0,
               }
             }
           >

@@ -7,7 +7,6 @@ exports[`renders 1`] = `
       style={
         Object {
           "color": "#48484D",
-          "fontSize": 14,
         }
       }
     >
