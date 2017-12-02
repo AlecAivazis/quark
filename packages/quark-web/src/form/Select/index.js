@@ -6,7 +6,7 @@ import { View } from 'react-native-web'
 import { Dropdown } from '..'
 import styles from './styles'
 import type { OptionValue } from '../Option'
-import { Text, EventListener } from 'quark-web'
+import { Text, EventListener, ChevronDownIcon } from 'quark-web'
 
 type Props = {
     value: OptionValue,
@@ -110,6 +110,7 @@ class Select extends React.Component<Props, State> {
         return (
             <View style={styles.toggle}>
                 <Text>{content}</Text>
+                <ChevronDownIcon style={{ marginLeft: 4 }} />
             </View>
         )
     }
