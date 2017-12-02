@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path, Circle } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const Share2 = props => (
+const Share2 = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

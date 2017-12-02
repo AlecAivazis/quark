@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path, Rect } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const Battery = props => (
+const Battery = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

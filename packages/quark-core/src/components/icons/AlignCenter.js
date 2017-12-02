@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const AlignCenter = props => (
+const AlignCenter = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

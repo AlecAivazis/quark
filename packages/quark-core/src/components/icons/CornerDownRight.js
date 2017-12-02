@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const CornerDownRight = props => (
+const CornerDownRight = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

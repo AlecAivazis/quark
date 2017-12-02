@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const Cast = props => (
+const Cast = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

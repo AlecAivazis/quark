@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path, Rect } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const Film = props => (
+const Film = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"

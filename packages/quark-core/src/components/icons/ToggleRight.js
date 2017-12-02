@@ -2,8 +2,10 @@
 // external imports
 import React from 'react'
 import { Svg, Path, Rect, Circle } from 'svgs'
+// internal imports
+import type { IconProps } from '.'
 
-const ToggleRight = props => (
+const ToggleRight = (props: IconProps) => (
     <Svg
         width="1em"
         height="1em"
