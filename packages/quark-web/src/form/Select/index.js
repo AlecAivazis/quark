@@ -109,8 +109,8 @@ class Select extends React.Component<Props, State> {
 
         return (
             <View style={styles.toggle}>
-                <Text>{content}</Text>
-                <ChevronDownIcon style={{ marginLeft: 4 }} />
+                <Text style={{ marginRight: 4 }}>{content}</Text>
+                <ChevronDownIcon />
             </View>
         )
     }
