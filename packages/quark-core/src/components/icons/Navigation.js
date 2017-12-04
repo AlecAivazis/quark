@@ -16,7 +16,7 @@ const Navigation = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-navigation"
-        {...props}
+        {...props.style}
     >
         <Path d="M3 11l19-9-9 19-2-8-8-2z" />
     </Svg>

@@ -16,7 +16,7 @@ const HelpCircle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-help-circle"
-        {...props}
+        {...props.style}
     >
         <Path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
         <Circle cx={12} cy={12} r={10} />

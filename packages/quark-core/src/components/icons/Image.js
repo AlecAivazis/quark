@@ -16,7 +16,7 @@ const Image = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-image"
-        {...props}
+        {...props.style}
     >
         <Rect x={3} y={3} width={18} height={18} rx={2} ry={2} />
         <Circle cx={8.5} cy={8.5} r={1.5} />

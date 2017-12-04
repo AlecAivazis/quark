@@ -16,7 +16,7 @@ const Download = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-download"
-        {...props}
+        {...props.style}
     >
         <Path d="M3 17v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3M8 12l4 4 4-4M12 2v14" />
     </Svg>

@@ -16,7 +16,7 @@ const Compass = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-compass"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />

@@ -16,7 +16,7 @@ const Instagram = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-instagram"
-        {...props}
+        {...props.style}
     >
         <Rect x={2} y={2} width={20} height={20} rx={5} ry={5} />
         <Path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5" />

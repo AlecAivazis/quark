@@ -16,7 +16,7 @@ const AlignLeft = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-align-left"
-        {...props}
+        {...props.style}
     >
         <Path d="M17 10H3M21 6H3M21 14H3M17 18H3" />
     </Svg>

@@ -16,7 +16,7 @@ const CheckCircle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-check-circle"
-        {...props}
+        {...props.style}
     >
         <Path d="M22 11.07V12a10 10 0 1 1-5.93-9.14" />
         <Path d="M23 3L12 14l-3-3" />

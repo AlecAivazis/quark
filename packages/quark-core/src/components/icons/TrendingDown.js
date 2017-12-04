@@ -16,7 +16,7 @@ const TrendingDown = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-trending-down"
-        {...props}
+        {...props.style}
     >
         <Path d="M23 18l-9.5-9.5-5 5L1 6" />
         <Path d="M17 18h6v-6" />

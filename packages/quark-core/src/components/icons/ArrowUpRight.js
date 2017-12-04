@@ -16,7 +16,7 @@ const ArrowUpRight = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-arrow-up-right"
-        {...props}
+        {...props.style}
     >
         <Path d="M6 18L18 6M9 6h9v9" />
     </Svg>

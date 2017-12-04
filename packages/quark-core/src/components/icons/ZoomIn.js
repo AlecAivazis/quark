@@ -16,7 +16,7 @@ const ZoomIn = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-zoom-in"
-        {...props}
+        {...props.style}
     >
         <Circle cx={11} cy={11} r={8} />
         <Path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />

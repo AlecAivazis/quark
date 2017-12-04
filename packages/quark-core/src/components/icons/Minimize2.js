@@ -16,7 +16,7 @@ const Minimize2 = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-minimize-2"
-        {...props}
+        {...props.style}
     >
         <Path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7" />
     </Svg>

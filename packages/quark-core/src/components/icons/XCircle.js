@@ -16,7 +16,7 @@ const XCircle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-x-circle"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Path d="M15 9l-6 6M9 9l6 6" />

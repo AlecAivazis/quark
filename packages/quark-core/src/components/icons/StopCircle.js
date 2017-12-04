@@ -16,7 +16,7 @@ const StopCircle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-stop-circle"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Path d="M9 9h6v6H9z" />

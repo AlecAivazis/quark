@@ -16,7 +16,7 @@ const BarChart = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-bar-chart"
-        {...props}
+        {...props.style}
     >
         <Path d="M18 3h4v18h-4zM10 8h4v13h-4zM2 13h4v8H2z" />
     </Svg>

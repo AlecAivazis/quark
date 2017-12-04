@@ -16,7 +16,7 @@ const AlertCircle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-alert-circle"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Path d="M12 8v4M12 16" />

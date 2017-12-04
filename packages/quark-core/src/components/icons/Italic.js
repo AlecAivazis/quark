@@ -16,7 +16,7 @@ const Italic = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-italic"
-        {...props}
+        {...props.style}
     >
         <Path d="M19 4h-9M14 20H5M15 4L9 20" />
     </Svg>

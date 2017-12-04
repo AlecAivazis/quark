@@ -16,7 +16,7 @@ const CornerDownLeft = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-corner-down-left"
-        {...props}
+        {...props.style}
     >
         <Path d="M9 10l-5 5 5 5" />
         <Path d="M20 4v7a4 4 0 0 1-4 4H4" />

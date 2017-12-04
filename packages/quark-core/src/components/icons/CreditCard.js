@@ -16,7 +16,7 @@ const CreditCard = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-credit-card"
-        {...props}
+        {...props.style}
     >
         <Rect x={1} y={4} width={22} height={16} rx={2} ry={2} />
         <Path d="M1 10h22" />

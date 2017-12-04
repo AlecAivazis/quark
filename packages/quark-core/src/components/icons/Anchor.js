@@ -16,7 +16,7 @@ const Anchor = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-anchor"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={5} r={3} />
         <Path d="M12 22V8M5 12H2a10 10 0 0 0 20 0h-3" />

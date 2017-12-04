@@ -16,7 +16,7 @@ const Share2 = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-share-2"
-        {...props}
+        {...props.style}
     >
         <Circle cx={18} cy={5} r={3} />
         <Circle cx={6} cy={12} r={3} />

@@ -16,7 +16,7 @@ const Rewind = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-rewind"
-        {...props}
+        {...props.style}
     >
         <Path d="M11 19l-9-7 9-7v14zM22 19l-9-7 9-7v14z" />
     </Svg>

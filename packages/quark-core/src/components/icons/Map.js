@@ -16,7 +16,7 @@ const Map = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-map"
-        {...props}
+        {...props.style}
     >
         <Path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4zM8 2v16M16 6v16" />
     </Svg>

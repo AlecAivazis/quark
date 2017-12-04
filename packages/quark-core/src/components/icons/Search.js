@@ -16,7 +16,7 @@ const Search = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-search"
-        {...props}
+        {...props.style}
     >
         <Circle cx={10.5} cy={10.5} r={7.5} />
         <Path d="M21 21l-5.2-5.2" />

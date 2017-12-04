@@ -16,7 +16,7 @@ const ChevronDown = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-chevron-down"
-        {...props}
+        {...props.style}
     >
         <Path d="M6 9l6 6 6-6" />
     </Svg>

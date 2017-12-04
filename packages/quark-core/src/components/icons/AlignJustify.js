@@ -16,7 +16,7 @@ const AlignJustify = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-align-justify"
-        {...props}
+        {...props.style}
     >
         <Path d="M21 10H3M21 6H3M21 14H3M21 18H3" />
     </Svg>

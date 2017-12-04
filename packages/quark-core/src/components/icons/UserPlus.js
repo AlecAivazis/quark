@@ -16,7 +16,7 @@ const UserPlus = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-user-plus"
-        {...props}
+        {...props.style}
     >
         <Path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <Circle cx={8.5} cy={7} r={4} />

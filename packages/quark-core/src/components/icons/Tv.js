@@ -16,7 +16,7 @@ const Tv = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-tv"
-        {...props}
+        {...props.style}
     >
         <Rect x={2} y={7} width={20} height={15} rx={2} ry={2} />
         <Path d="M17 2l-5 5-5-5" />

@@ -16,7 +16,7 @@ const RotateCcw = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-rotate-ccw"
-        {...props}
+        {...props.style}
     >
         <Path d="M1 4v6h6" />
         <Path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />

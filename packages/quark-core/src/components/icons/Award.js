@@ -16,7 +16,7 @@ const Award = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-award"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={8} r={7} />
         <Path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />

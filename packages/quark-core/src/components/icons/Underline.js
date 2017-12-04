@@ -16,7 +16,7 @@ const Underline = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-underline"
-        {...props}
+        {...props.style}
     >
         <Path d="M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3M4 21h16" />
     </Svg>

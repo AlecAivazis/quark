@@ -16,7 +16,7 @@ const CornerRightUp = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-corner-right-up"
-        {...props}
+        {...props.style}
     >
         <Path d="M10 9l5-5 5 5" />
         <Path d="M4 20h7a4 4 0 0 0 4-4V4" />

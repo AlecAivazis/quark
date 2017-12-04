@@ -16,7 +16,7 @@ const Check = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-check"
-        {...props}
+        {...props.style}
     >
         <Path d="M20 6L9 17l-5-5" />
     </Svg>

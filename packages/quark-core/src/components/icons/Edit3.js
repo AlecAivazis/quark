@@ -16,7 +16,7 @@ const Edit3 = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-edit-3"
-        {...props}
+        {...props.style}
     >
         <Path d="M14 2l4 4L7 17H3v-4L14 2zM3 22h18" />
     </Svg>

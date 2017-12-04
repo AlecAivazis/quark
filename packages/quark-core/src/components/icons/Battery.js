@@ -16,7 +16,7 @@ const Battery = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-battery"
-        {...props}
+        {...props.style}
     >
         <Rect x={1} y={6} width={18} height={12} rx={2} ry={2} />
         <Path d="M23 13v-2" />

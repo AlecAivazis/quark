@@ -16,7 +16,7 @@ const Smartphone = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-smartphone"
-        {...props}
+        {...props.style}
     >
         <Rect x={5} y={2} width={14} height={20} rx={2} ry={2} />
         <Path d="M12 18" />

@@ -16,7 +16,7 @@ const Video = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-video"
-        {...props}
+        {...props.style}
     >
         <Path d="M23 7l-7 5 7 5V7z" />
         <Rect x={1} y={5} width={15} height={14} rx={2} ry={2} />

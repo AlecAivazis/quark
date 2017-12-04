@@ -16,7 +16,7 @@ const Sidebar = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-sidebar"
-        {...props}
+        {...props.style}
     >
         <Rect x={3} y={3} width={18} height={18} rx={2} ry={2} />
         <Path d="M9 3v18" />

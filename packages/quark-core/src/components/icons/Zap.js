@@ -16,7 +16,7 @@ const Zap = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-zap"
-        {...props}
+        {...props.style}
     >
         <Path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
     </Svg>

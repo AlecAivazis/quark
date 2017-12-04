@@ -16,7 +16,7 @@ const Voicemail = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-voicemail"
-        {...props}
+        {...props.style}
     >
         <Circle cx={5.5} cy={11.5} r={4.5} />
         <Circle cx={18.5} cy={11.5} r={4.5} />

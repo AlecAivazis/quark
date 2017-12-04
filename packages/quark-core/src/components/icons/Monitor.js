@@ -16,7 +16,7 @@ const Monitor = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-monitor"
-        {...props}
+        {...props.style}
     >
         <Rect x={2} y={3} width={20} height={14} rx={2} ry={2} />
         <Path d="M8 21h8M12 17v4" />

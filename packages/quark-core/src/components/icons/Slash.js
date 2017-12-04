@@ -16,7 +16,7 @@ const Slash = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-slash"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Path d="M4.93 4.93l14.14 14.14" />

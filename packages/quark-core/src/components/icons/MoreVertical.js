@@ -16,7 +16,7 @@ const MoreVertical = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-more-vertical"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={2} />
         <Circle cx={12} cy={4} r={2} />

@@ -16,7 +16,7 @@ const Percent = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-percent"
-        {...props}
+        {...props.style}
     >
         <Path d="M19 5L5 19" />
         <Circle cx={6.5} cy={6.5} r={2.5} />

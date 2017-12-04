@@ -16,7 +16,7 @@ const Scissors = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-scissors"
-        {...props}
+        {...props.style}
     >
         <Circle cx={6} cy={6} r={3} />
         <Circle cx={6} cy={18} r={3} />

@@ -16,7 +16,7 @@ const Speaker = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-speaker"
-        {...props}
+        {...props.style}
     >
         <Rect x={4} y={2} width={16} height={20} rx={2} ry={2} />
         <Circle cx={12} cy={14} r={4} />

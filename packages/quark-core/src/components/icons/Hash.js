@@ -16,7 +16,7 @@ const Hash = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-hash"
-        {...props}
+        {...props.style}
     >
         <Path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" />
     </Svg>

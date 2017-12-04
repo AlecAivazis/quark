@@ -16,7 +16,7 @@ const Circle = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-circle"
-        {...props}
+        {...props.style}
     >
         <SVGCircle cx={12} cy={12} r={10} />
     </Svg>

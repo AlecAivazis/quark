@@ -16,7 +16,7 @@ const Activity = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-activity"
-        {...props}
+        {...props.style}
     >
         <Path d="M22 12h-4l-3 9L9 3l-3 9H2" />
     </Svg>

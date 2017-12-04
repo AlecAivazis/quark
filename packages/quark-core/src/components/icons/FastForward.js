@@ -16,7 +16,7 @@ const FastForward = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-fast-forward"
-        {...props}
+        {...props.style}
     >
         <Path d="M13 19l9-7-9-7v14zM2 19l9-7-9-7v14z" />
     </Svg>

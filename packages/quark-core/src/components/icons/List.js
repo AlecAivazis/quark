@@ -16,7 +16,7 @@ const List = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-list"
-        {...props}
+        {...props.style}
     >
         <Path d="M8 6h13M8 12h13M8 18h13M3 18" />
     </Svg>

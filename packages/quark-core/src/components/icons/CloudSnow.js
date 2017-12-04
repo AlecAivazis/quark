@@ -16,7 +16,7 @@ const CloudSnow = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-cloud-snow"
-        {...props}
+        {...props.style}
     >
         <Path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25M16 20" />
     </Svg>

@@ -16,7 +16,7 @@ const LogOut = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-log-out"
-        {...props}
+        {...props.style}
     >
         <Path d="M10 22H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h5M17 16l4-4-4-4M21 12H9" />
     </Svg>

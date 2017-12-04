@@ -16,7 +16,7 @@ const SkipBack = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-skip-back"
-        {...props}
+        {...props.style}
     >
         <Path d="M19 20L9 12l10-8v16zM5 19V5" />
     </Svg>

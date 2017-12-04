@@ -16,7 +16,7 @@ const LogIn = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-log-in"
-        {...props}
+        {...props.style}
     >
         <Path d="M14 22h5a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-5" />
         <Path d="M11 16l4-4-4-4M15 12H3" />

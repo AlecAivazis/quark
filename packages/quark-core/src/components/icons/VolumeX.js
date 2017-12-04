@@ -16,7 +16,7 @@ const VolumeX = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-volume-x"
-        {...props}
+        {...props.style}
     >
         <Path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" />
     </Svg>

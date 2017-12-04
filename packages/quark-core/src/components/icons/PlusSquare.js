@@ -16,7 +16,7 @@ const PlusSquare = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-plus-square"
-        {...props}
+        {...props.style}
     >
         <Rect x={3} y={3} width={18} height={18} rx={2} ry={2} />
         <Path d="M12 8v8M8 12h8" />

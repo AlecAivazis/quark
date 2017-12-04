@@ -16,7 +16,7 @@ const Bluetooth = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-bluetooth"
-        {...props}
+        {...props.style}
     >
         <Path d="M6.5 6.5l11 11L12 23V1l5.5 5.5-11 11" />
     </Svg>

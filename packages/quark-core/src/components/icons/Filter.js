@@ -16,7 +16,7 @@ const Filter = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-filter"
-        {...props}
+        {...props.style}
     >
         <Path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
     </Svg>

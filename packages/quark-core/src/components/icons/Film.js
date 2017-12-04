@@ -16,7 +16,7 @@ const Film = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-film"
-        {...props}
+        {...props.style}
     >
         <Rect x={2} y={2} width={20} height={20} rx={2.18} ry={2.18} />
         <Path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5" />

@@ -16,7 +16,7 @@ const Menu = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-menu"
-        {...props}
+        {...props.style}
     >
         <Path d="M3 12h18M3 6h18M3 18h18" />
     </Svg>

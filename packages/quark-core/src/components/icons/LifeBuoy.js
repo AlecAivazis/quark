@@ -16,7 +16,7 @@ const LifeBuoy = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-life-buoy"
-        {...props}
+        {...props.style}
     >
         <Circle cx={12} cy={12} r={10} />
         <Circle cx={12} cy={12} r={4} />

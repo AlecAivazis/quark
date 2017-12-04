@@ -16,7 +16,7 @@ const Eye = (props: IconProps) => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="feather feather-eye"
-        {...props}
+        {...props.style}
     >
         <Path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
         <Circle cx={12} cy={12} r={3} />
