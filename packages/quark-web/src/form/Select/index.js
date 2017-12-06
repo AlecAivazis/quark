@@ -111,7 +111,7 @@ class Select extends React.Component<Props, State> {
         }
 
         return (
-            <View style={styles.toggle}>
+            <View style={{ ...styles.toggle, ...this.props.style }}>
                 <Text style={{ marginRight: 4 }}>{content}</Text>
                 <IconChevronDown />
             </View>
