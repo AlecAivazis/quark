@@ -80,13 +80,16 @@ class Select extends React.Component<Props, State> {
     _onChange = ({ toggle, index }: { index: number, toggle: () => void }) => {
         // the value of the appropriate option
         const { value } = this._options[index].props
-        // save the value
-        this.setState({ value })
 
         // if there is a callback to trigger
         if (this.props.onChange) {
             // pass the value to the parent
             this.props.onChange(value)
+        }
+        // if there is no value prop then update the component state
+        if (typeof this.props.value === 'undefined' || this.props.value === 'null') {
+            // save the value
+            this.setState({ value })
         }
 
         // close the dropdown
