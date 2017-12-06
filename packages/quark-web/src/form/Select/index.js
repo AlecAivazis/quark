@@ -12,7 +12,8 @@ type Props = {
     value: OptionValue,
     placeholder: React.Node,
     children: React.Node,
-    onChange?: OptionValue => void
+    onChange?: OptionValue => void,
+    style?: {}
 }
 
 type State = {
