@@ -21,7 +21,6 @@ class WithPortal extends React.Component<Props, State> {
     componentDidMount() {
         // look for an element with the designated id
         let element = document.getElementById(this._portalID)
-
         // the style to apply to the portal container
         let elementStyle = this.props.style || {}
 
@@ -48,8 +47,8 @@ class WithPortal extends React.Component<Props, State> {
         return this.props.id ? `portal-${this.props.id}` : 'portal'
     }
 
-    render() {
-        return this.props.children(this.state.element)
+    render = () => {
+        return this.state.element && this.props.children(this.state.element)
     }
 }
 
