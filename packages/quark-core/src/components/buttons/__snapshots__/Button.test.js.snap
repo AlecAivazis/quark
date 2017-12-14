@@ -7,6 +7,12 @@ exports[`renders 1`] = `
       activeColor="#F9F9F9"
       defaultColor="#ffffff"
       size="medium"
+      style={
+        Object {
+          "borderColor": "#48484D",
+          "borderWidth": 1,
+        }
+      }
       textColor="#48484D"
     >
       <BaseButton
@@ -14,6 +20,12 @@ exports[`renders 1`] = `
         constrainSize={true}
         defaultColor="#ffffff"
         size="medium"
+        style={
+          Object {
+            "borderColor": "#48484D",
+            "borderWidth": 1,
+          }
+        }
       >
         <TouchableWithoutFeedback
           onPressIn={[Function]}
@@ -69,7 +81,9 @@ exports[`renders 1`] = `
                       "_style": Object {
                         "alignItems": "center",
                         "backgroundColor": [Circular],
+                        "borderColor": "#48484D",
                         "borderRadius": 2,
+                        "borderWidth": 1,
                         "cursor": "pointer",
                         "height": 40,
                         "justifyContent": "center",
@@ -92,6 +106,8 @@ exports[`renders 1`] = `
                     "_value": 0,
                   },
                 },
+                "borderColor": "#48484D",
+                "borderWidth": 1,
                 "cursor": "pointer",
                 "touchAction": "manipulate",
               }
@@ -111,7 +127,9 @@ exports[`renders 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "rgba(255, 255, 255, 1)",
+                  "borderColor": "#48484D",
                   "borderRadius": 2,
+                  "borderWidth": 1,
                   "cursor": "pointer",
                   "height": 40,
                   "justifyContent": "center",
@@ -123,7 +141,7 @@ exports[`renders 1`] = `
               }
             >
               <div
-                className="rn-alignItems-1awozwy rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-maxWidth-1fnot1l rn-minHeight-ifefl9 rn-minWidth-ggk5by rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
+                className="rn-alignItems-1awozwy rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-maxWidth-1fnot1l rn-minHeight-ifefl9 rn-minWidth-ggk5by rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
                 onResponderGrant={[Function]}
@@ -135,6 +153,10 @@ exports[`renders 1`] = `
                 style={
                   Object {
                     "backgroundColor": "rgba(255, 255, 255, 1)",
+                    "borderBottomColor": "rgba(72,72,77,1)",
+                    "borderLeftColor": "rgba(72,72,77,1)",
+                    "borderRightColor": "rgba(72,72,77,1)",
+                    "borderTopColor": "rgba(72,72,77,1)",
                   }
                 }
                 tabIndex="0"
