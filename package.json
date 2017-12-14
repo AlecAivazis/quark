@@ -15,8 +15,7 @@
         "test": "NODE_ENV=test jest",
         "test:watch": "npm run test -- --watch",
         "test:coverage": "npm run test -- --coverage",
-        "test:coverage:report":
-            "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+        "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
     },
@@ -28,8 +27,13 @@
     },
     "jest": {
         "testRegex": "test.js$",
-        "setupFiles": ["<rootDir>/scripts/initEnzyme.js"],
-        "snapshotSerializers": ["enzyme-to-json/serializer", "react-native-web/jest/serializer"],
+        "setupFiles": [
+            "<rootDir>/scripts/initEnzyme.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer",
+            "react-native-web/jest/serializer"
+        ],
         "modulePathIgnorePatterns": [
             "<rootDir>/packages/quark-core/build/",
             "<rootDir>/packages/quark-web/build/",
@@ -40,7 +44,9 @@
             "quark-web": "<rootDir>/packages/quark-web/src",
             "quark-native": "<rootDir>/packages/quark-native/src"
         },
-        "collectCoverageFrom": ["packages/*/src/**/*.{js,jsx}"]
+        "collectCoverageFrom": [
+            "packages/*/src/**/*.{js,jsx}"
+        ]
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.32",
@@ -71,5 +77,6 @@
         "react-dom": "^16.1.1",
         "react-native-web": "^0.1.14",
         "walk": "^2.3.9"
-    }
+    },
+    "dependencies": {}
 }
