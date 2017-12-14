@@ -8,18 +8,15 @@ import type { TextButtonProps } from './Text'
 
 const Button = ({ style, ...unused }: TextButtonProps) => (
     <GetTheme>
-        {({ white, grey1, grey5 }) => {
-            console.log('blue')
-            return (
-                <BaseWithText
-                    defaultColor={white}
-                    activeColor={grey1}
-                    textColor={grey5}
-                    style={{ ...style, borderColor: grey5, borderWidth: 1 }}
-                    {...unused}
-                />
-            )
-        }}
+        {({ white, grey1, grey5 }) => (
+            <BaseWithText
+                defaultColor={white}
+                activeColor={grey1}
+                textColor={grey5}
+                style={{ ...style, borderColor: grey5, borderWidth: 1 }}
+                {...unused}
+            />
+        )}
     </GetTheme>
 )
 
