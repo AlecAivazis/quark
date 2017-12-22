@@ -78,8 +78,7 @@ async function buildPackage(name) {
                         throw new Error(err)
                     }
 
-                    // tell the user what we're doing
-                    // notify the user we finished
+                    // tell the user what we're building
                     console.log(`${source} -> ${target}`)
                 })
             })
