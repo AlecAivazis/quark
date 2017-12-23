@@ -13,6 +13,7 @@ export type ButtonProps = {
     activeColor?: string,
     hoverColor?: string,
     disabledColor: string,
+    disabled: boolean,
     onPress?: (...args: Array<any>) => void,
     onPressIn?: (...args: Array<any>) => void,
     onPressOut?: (...args: Array<any>) => void,
@@ -82,26 +83,32 @@ class BaseButton extends React.Component<ButtonProps, State> {
             constrainSize,
             defaultColor,
             onPress,
+            disabled,
+            disabledColor,
             ...unused
         } = this.props
+
         return (
             <TouchableWithoutFeedback
-                onPressIn={this._pressIn}
-                onPressOut={this._pressOut}
-                onPress={onPress}
+                onPressIn={!disabled ? this._pressIn : null}
+                onPressOut={!disabled ? this._pressOut : null}
+                onPress={!disabled ? onPress : null}
+                accessible={!disabled}
             >
                 <Animated.View
-                    tabIndex={0}
                     {...unused}
                     style={[
                         styles.container,
                         containerSizes[size],
                         constrainSize && sizeConstraints[size],
+                        disabled && styles.disabled,
                         {
-                            backgroundColor: this.state.opacity.interpolate({
-                                inputRange: [0, 1],
-                                outputRange: [defaultColor, activeColor || defaultColor]
-                            })
+                            backgroundColor: disabled
+                                ? disabledColor
+                                : this.state.opacity.interpolate({
+                                      inputRange: [0, 1],
+                                      outputRange: [defaultColor, activeColor || defaultColor]
+                                  })
                         },
                         style
                     ]}

@@ -8,10 +8,11 @@ import type { TextButtonProps } from './Text'
 
 const Button = (props: TextButtonProps) => (
     <GetTheme>
-        {({ primaryColor, primaryColorDark, white }) => (
+        {({ primaryColor, primaryColorDark, white, grey2 }) => (
             <BaseWithText
                 defaultColor={primaryColor}
                 activeColor={primaryColorDark}
+                disabledColor={grey2}
                 textColor={white}
                 {...props}
             />

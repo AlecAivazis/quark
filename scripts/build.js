@@ -37,6 +37,9 @@ async function buildPackage(name) {
     // make sure the build directory exists
     await mkdir(targetDir)
 
+    // the errors that we have accmulated
+    const errors = []
+
     // walk over every file in the src directory
     walk(sourceDir, {})
         .on('file', (root, { name }, next) => {
@@ -53,6 +56,7 @@ async function buildPackage(name) {
             // run babel on the source
             babel.transformFile(source, transformOptions, async (err, result) => {
                 if (err) {
+                    errors.push({ path: source, error: err })
                     throw new Error(err)
                 }
                 // we trasnformed the file so pull out the results
@@ -60,11 +64,6 @@ async function buildPackage(name) {
 
                 // make sure the target directory exists
                 await mkdir(path.dirname(target))
-
-                // if something went wrong
-                if (err) {
-                    throw new Error(err)
-                }
 
                 // ignore test files
                 if (path.basename(target).match(/test\.js/)) {
@@ -75,6 +74,7 @@ async function buildPackage(name) {
                 fs.writeFile(target, code, (err, data) => {
                     // if something went wrong
                     if (err) {
+                        errors.push({ path: source, error: err })
                         throw new Error(err)
                     }
 
@@ -87,6 +87,15 @@ async function buildPackage(name) {
             next()
         })
         .on('end', () => {
+            // if we encountered errors
+            if (errors.length > 0) {
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                console.log('!!! encountered error while building !!!')
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                for (const { path, error } of errors) {
+                    console.log(path, error)
+                }
+            }
             // copy the package.json from the package directory to the build
             const packageJson = path.join(path.join(packageDir, name), 'package.json')
             const buildPackageJson = path.join(targetDir, 'package.json')

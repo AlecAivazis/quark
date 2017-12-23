@@ -48,5 +48,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 2,
         overflow: 'hidden'
+    },
+    disabled: {
+        cursor: 'default'
     }
 })

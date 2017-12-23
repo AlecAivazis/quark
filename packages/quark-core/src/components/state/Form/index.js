@@ -1,12 +1,15 @@
 // external imports
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
+import lodash from 'lodash'
 
 class Form extends React.Component {
     static propTypes = {
         children: PropTypes.func.isRequired,
+        onChange: PropTypes.func,
         validate: PropTypes.object,
         transform: PropTypes.object,
+        value: PropTypes.object,
         initialErrors: PropTypes.bool,
         initialData: PropTypes.object
     }
@@ -14,8 +17,7 @@ class Form extends React.Component {
     static defaultProps = {
         validate: {},
         transform: {},
-        initialErrors: false,
-        initialData: {}
+        initialErrors: false
     }
 
     render() {
@@ -24,6 +26,7 @@ class Form extends React.Component {
             getValue: this._getValue,
             setValue: this._updateValue,
             getError: this._getErrors,
+            data: this.state.data,
             hasErrors: this._hasErrors,
             clear: this._clear
         })
@@ -37,59 +40,59 @@ class Form extends React.Component {
         return child
     }
 
-    get _hasErrors() {
-        // figure out if the form has been updated
-        const updated = Object.values(this.state._updated)
-        const hasUpdated = updated.length > 0 && updated.filter(val => val).length > 0
+    // A field counts as having been updated if it had initial data
+    _isUpdated = key =>
+        this.state._updated[key] ||
+        (this.props.initialData &&
+            (this.props.initialData[key] !== null &&
+                typeof this.props.initialData[key] !== 'undefined'))
 
-        // if we have updated the form
+    get _hasErrors() {
         return (
-            !hasUpdated ||
-            // and we have registered an error for one of the keys
             Object.values(this.state.errors).filter(
                 err => (Array.isArray(err) ? err.length > 0 : err)
             ).length > 0
         )
     }
 
-    _updateValue(newValues) {
+    _updateValue = newValues => {
         // the state after updating the value
         const state = { ...this.state }
         // for each value we want to change
         for (const key of Object.keys(newValues)) {
             // grab the transform if it exists
             const transform = this.props.transform[key] || (str => str)
-            // and apply it to the new value
-            const newValue = transform(newValues[key])
-
-            // if we have a validator for the field
-            if (this.props.validate[key]) {
-                // pass the value onto the validator and store the result
-                state.errors[key] = this.props.validate[key](newValue)
-            }
-
-            // update the key to the value
-            state.data[key] = newValue
+            // and apply it to the new value and update the key to the value
+            state.data[key] = transform(newValues[key])
             state._updated = {
-                ...this.state._updated,
+                ...state._updated,
                 [key]: true
             }
         }
 
-        // the onchange handler we were passed
-        const onChange = this.props.onChange || (() => {})
-
+        // Run validation over all the fields if one exists for the field
+        for (const key of Object.keys(this.props.validate)) {
+            // Pass the updated and transformed value onto the validator and store the error result
+            // Also pass all of the current values if the validator needs to validate based on other values
+            state.errors[key] = this.props.validate[key](state.data[key], state.data)
+        }
         // update the component state
-        this.setState(state, () => onChange(this.state.data))
+        this.setState(state, () => {
+            // if we have an onchange handler to call
+            if (this.props.onChange) {
+                // pass the form data to the handler
+                this.props.onChange(this.state.data)
+            }
+        })
     }
 
-    _getValue(key) {
+    _getValue = key => {
         return this.state.data[key]
     }
 
-    _getErrors(key) {
-        // if we aren't supposed to calcuate initial errors and we haven't been updated
-        if (!this.props.initialErrors && !this.state._updated[key]) {
+    _getErrors = key => {
+        // if we aren't supposed to calculate initial errors and we haven't been updated
+        if (!this.props.initialErrors && !this._isUpdated(key)) {
             // return the empty error value
             return null
         }
@@ -97,36 +100,45 @@ class Form extends React.Component {
         return this.state.errors[key] || null
     }
 
-    _clear() {
-        this.setState({
-            errs: {},
-            data: {},
-            _updated: {}
-        })
+    _resetStates(resetData) {
+        const initialData = resetData || this.props.initialData || this.props.value || {}
+        return {
+            _updated: {},
+            data: { ...initialData },
+            // we could start off with errors
+            errors: lodash.mapValues(
+                this.props.validate,
+                // if the validator doesn't like empty strings
+                (validator, key) => validator(initialData[key] || '', initialData)
+            )
+        }
+    }
+
+    _clear = resetData => {
+        this.setState(this._resetStates(resetData))
+    }
+
+    _didValueUpdate = (newValue, oldValue) =>
+        (newValue && !oldValue) || JSON.stringify(newValue) !== JSON.stringify(oldValue)
+
+    componentWillReceiveProps(nextProps) {
+        const { value: newValue, initialData: newInitialData } = nextProps
+        const { value: oldValue, initialData: oldInitialData } = this.props
+        // if we were given a new value or initial data
+        if (newInitialData && this._didValueUpdate(newInitialData, oldInitialData)) {
+            this._clear(newInitialData)
+        }
+        // value have the last say
+        if (newValue && this._didValueUpdate(newValue, oldValue)) {
+            // update the internal tracker
+            this._updateValue(newValue)
+        }
     }
 
     constructor(props, ...args) {
         super(props, ...args)
 
-        // grab the important props
-        const { initialData } = props
-
-        // set the initial state
-        this.state = {
-            _updated: {},
-            data: initialData,
-            // we could start off with errors
-            errors: Object.keys(this.props.validate).map(
-                // if the validator doesn't like empty strings
-                key => this.props.validate[key](initialData[key] || '')
-            )
-        }
-
-        // function binds
-        this._clear = this._clear.bind(this)
-        this._getErrors = this._getErrors.bind(this)
-        this._getValue = this._getValue.bind(this)
-        this._updateValue = this._updateValue.bind(this)
+        this.state = this._resetStates()
     }
 }
 
