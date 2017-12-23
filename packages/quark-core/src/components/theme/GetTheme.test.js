@@ -17,5 +17,5 @@ it('can retrieve the theme from context', () =>
 
 it('provides default theme', () =>
     expect(
-        mount(<GetTheme>{({ primaryColor }) => <Text>{primaryColor}</Text>}</GetTheme>).text()
+        mount(<GetTheme>{({ primaryColor: color }) => <Text>{color}</Text>}</GetTheme>).text()
     ).toEqual(primaryColor))
