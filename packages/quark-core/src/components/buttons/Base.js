@@ -12,6 +12,7 @@ export type ButtonProps = {
     defaultColor?: string,
     activeColor?: string,
     hoverColor?: string,
+    disabledColor: string,
     onPress?: (...args: Array<any>) => void,
     onPressIn?: (...args: Array<any>) => void,
     onPressOut?: (...args: Array<any>) => void,
@@ -90,6 +91,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
                 onPress={onPress}
             >
                 <Animated.View
+                    tabIndex={0}
                     {...unused}
                     style={[
                         styles.container,

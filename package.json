@@ -17,7 +17,9 @@
         "test:coverage": "npm run test -- --coverage",
         "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
-        "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow"
+        "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
     },
     "prettier": {
         "tabWidth": 4,
@@ -49,13 +51,13 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.0.0-beta.32",
-        "@babel/node": "^7.0.0-beta.32",
-        "@babel/polyfill": "^7.0.0-beta.32",
-        "@babel/preset-env": "^7.0.0-beta.32",
-        "@babel/preset-flow": "^7.0.0-beta.32",
-        "@babel/preset-react": "^7.0.0-beta.32",
-        "@babel/preset-stage-1": "^7.0.0-beta.32",
+        "@babel/core": "^7.0.0-beta.34",
+        "@babel/node": "^7.0.0-beta.34",
+        "@babel/polyfill": "^7.0.0-beta.34",
+        "@babel/preset-env": "^7.0.0-beta.34",
+        "@babel/preset-flow": "^7.0.0-beta.34",
+        "@babel/preset-react": "^7.0.0-beta.34",
+        "@babel/preset-stage-1": "^7.0.0-beta.34",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^21.2.0",
         "babel-plugin-flow-runtime": "^0.15.0",
@@ -76,7 +78,10 @@
         "react": "^16.1.1",
         "react-dom": "^16.1.1",
         "react-native-web": "^0.1.14",
-        "walk": "^2.3.9"
+        "walk": "^2.3.9",
+        "@storybook/react": "^3.2.18",
+        "@storybook/addon-actions": "^3.2.18",
+        "@storybook/addon-links": "^3.2.18"
     },
     "dependencies": {}
 }

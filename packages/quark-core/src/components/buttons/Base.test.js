@@ -14,3 +14,5 @@ it('renders', () => {
 
     expect(rendered).toMatchSnapshot()
 })
+
+it("doesn't accept clicks when disabled", () => {})

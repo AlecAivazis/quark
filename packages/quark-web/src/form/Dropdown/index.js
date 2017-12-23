@@ -90,29 +90,24 @@ class Dropdown extends React.Component<Props, State> {
 
     render() {
         return [
-            <WithPortal id="dropdown" key="portal">
-                {element => (
-                    <Measure>
-                        {({ measureRef, ...dimensions }) => (
-                            <View style={{ ...styles.anchor, ...this.props.style }}>
-                                <div
-                                    onClick={this._toggleDropdown}
-                                    ref={ele => {
-                                        this._toggle = ele
-                                        measureRef(ele)
-                                    }}
-                                    style={styles.toggle}
-                                >
-                                    {this.props.toggle}
-                                </div>
-                                {this.state.active &&
-                                    element &&
-                                    ReactDOM.createPortal(this._content(dimensions), element)}
-                            </View>
-                        )}
-                    </Measure>
+            <Measure>
+                {({ measureRef, ...dimensions }) => (
+                    <View style={{ ...styles.anchor, ...this.props.style }}>
+                        <div
+                            onClick={this._toggleDropdown}
+                            ref={ele => {
+                                this._toggle = ele
+                                measureRef(ele)
+                            }}
+                            style={styles.toggle}
+                        >
+                            {this.props.toggle}
+                        </div>
+                        {this.state.active &&
+                            element && <Portal id="dropdown">{this._content(dimensions)}</Portal>}
+                    </View>
                 )}
-            </WithPortal>,
+            </Measure>,
             this.state.active && (
                 <EventListener event="keydown" key="events">
                     {this._keyDown}
