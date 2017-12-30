@@ -16,6 +16,7 @@ exports[`accepts raw text as a child 1`] = `
         size="medium"
       >
         <TouchableWithoutFeedback
+          accessible={true}
           onPressIn={[Function]}
           onPressOut={[Function]}
         >
@@ -31,6 +32,7 @@ exports[`accepts raw text as a child 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
                 "backgroundColor": AnimatedInterpolation {
                   "_children": Array [
                     AnimatedStyle {
@@ -90,7 +92,13 @@ exports[`accepts raw text as a child 1`] = `
                     "_value": 0,
                   },
                 },
+                "borderRadius": 2,
                 "cursor": "pointer",
+                "height": 40,
+                "justifyContent": "center",
+                "maxWidth": 240,
+                "minWidth": 120,
+                "overflow": "hidden",
                 "touchAction": "manipulate",
               }
             }
@@ -141,6 +149,7 @@ exports[`accepts raw text as a child 1`] = `
                   style={
                     Object {
                       "color": "#48484D",
+                      "fontSize": 16,
                     }
                   }
                 >
@@ -148,6 +157,7 @@ exports[`accepts raw text as a child 1`] = `
                     style={
                       Object {
                         "color": "#48484D",
+                        "fontSize": 16,
                       }
                     }
                   >
@@ -156,6 +166,8 @@ exports[`accepts raw text as a child 1`] = `
                         style={
                           Object {
                             "color": "#48484D",
+                            "fontSize": 16,
+                            "margin": 0,
                           }
                         }
                       >
@@ -200,6 +212,7 @@ exports[`renders 1`] = `
         size="medium"
       >
         <TouchableWithoutFeedback
+          accessible={true}
           onPressIn={[Function]}
           onPressOut={[Function]}
         >
@@ -215,6 +228,7 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
                 "backgroundColor": AnimatedInterpolation {
                   "_children": Array [
                     AnimatedStyle {
@@ -276,7 +290,13 @@ exports[`renders 1`] = `
                     "_value": 0,
                   },
                 },
+                "borderRadius": 2,
                 "cursor": "pointer",
+                "height": 40,
+                "justifyContent": "center",
+                "maxWidth": 240,
+                "minWidth": 120,
+                "overflow": "hidden",
                 "touchAction": "manipulate",
               }
             }
@@ -327,6 +347,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "color": "#48484D",
+                      "fontSize": 16,
                     }
                   }
                 >
@@ -334,6 +355,7 @@ exports[`renders 1`] = `
                     style={
                       Object {
                         "color": "#48484D",
+                        "fontSize": 16,
                       }
                     }
                   >
@@ -342,6 +364,8 @@ exports[`renders 1`] = `
                         style={
                           Object {
                             "color": "#48484D",
+                            "fontSize": 16,
+                            "margin": 0,
                           }
                         }
                       >

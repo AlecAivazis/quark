@@ -14,7 +14,13 @@ exports[`renders 1`] = `
         <View
           style={
             Object {
+              "borderBottomWidth": 1,
               "borderColor": "#C2C2C2",
+              "display": "flex",
+              "flexDirection": "row",
+              "height": 40,
+              "paddingBottom": NaN,
+              "paddingTop": NaN,
             }
           }
         >

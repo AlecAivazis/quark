@@ -28,6 +28,7 @@ exports[`renders 1`] = `
         }
       >
         <TouchableWithoutFeedback
+          accessible={true}
           onPressIn={[Function]}
           onPressOut={[Function]}
         >
@@ -43,6 +44,7 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "alignItems": "center",
                 "backgroundColor": AnimatedInterpolation {
                   "_children": Array [
                     AnimatedStyle {
@@ -107,8 +109,14 @@ exports[`renders 1`] = `
                   },
                 },
                 "borderColor": "#48484D",
+                "borderRadius": 2,
                 "borderWidth": 1,
                 "cursor": "pointer",
+                "height": 40,
+                "justifyContent": "center",
+                "maxWidth": 240,
+                "minWidth": 120,
+                "overflow": "hidden",
                 "touchAction": "manipulate",
               }
             }
@@ -165,6 +173,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "color": "#48484D",
+                      "fontSize": 16,
                     }
                   }
                 >
@@ -172,6 +181,7 @@ exports[`renders 1`] = `
                     style={
                       Object {
                         "color": "#48484D",
+                        "fontSize": 16,
                       }
                     }
                   >
@@ -180,6 +190,8 @@ exports[`renders 1`] = `
                         style={
                           Object {
                             "color": "#48484D",
+                            "fontSize": 16,
+                            "margin": 0,
                           }
                         }
                       >

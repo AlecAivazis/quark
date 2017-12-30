@@ -16,11 +16,8 @@ exports[`renders 1`] = `
         Object {
           "backgroundColor": "#ffffff",
           "borderColor": "#EAEAEE",
-          "borderRadius": 2,
-          "borderWidth": 1,
-          "fontSize": 14,
-          "height": 36,
-          "paddingLeft": 12,
+          "maxWidth": 210,
+          "minWidth": 100,
         }
       }
     >

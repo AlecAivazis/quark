@@ -5,7 +5,9 @@ exports[`renders 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
       }
     }
   >

@@ -4,11 +4,9 @@ exports[`H1 renders 1`] = `
 <H1>
   <InnerText
     style={
-      Array [
-        undefined,
-        78,
-        undefined,
-      ]
+      Object {
+        "marginBottom": NaN,
+      }
     }
   >
     <GetTheme>
@@ -16,6 +14,8 @@ exports[`H1 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
+            "marginBottom": NaN,
           }
         }
       >
@@ -40,11 +40,9 @@ exports[`H2 renders 1`] = `
 <H2>
   <InnerText
     style={
-      Array [
-        undefined,
-        79,
-        undefined,
-      ]
+      Object {
+        "marginBottom": NaN,
+      }
     }
   >
     <GetTheme>
@@ -52,6 +50,8 @@ exports[`H2 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
+            "marginBottom": NaN,
           }
         }
       >
@@ -76,11 +76,9 @@ exports[`H3 renders 1`] = `
 <H3>
   <InnerText
     style={
-      Array [
-        undefined,
-        80,
-        undefined,
-      ]
+      Object {
+        "marginBottom": NaN,
+      }
     }
   >
     <GetTheme>
@@ -88,6 +86,8 @@ exports[`H3 renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
+            "marginBottom": NaN,
           }
         }
       >
@@ -114,7 +114,7 @@ exports[`Link renders 1`] = `
     style={
       Array [
         undefined,
-        84,
+        85,
         undefined,
       ]
     }
@@ -124,6 +124,7 @@ exports[`Link renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
           }
         }
       >
@@ -150,7 +151,7 @@ exports[`Monospace renders 1`] = `
     style={
       Array [
         undefined,
-        84,
+        85,
         undefined,
       ]
     }
@@ -160,6 +161,7 @@ exports[`Monospace renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
           }
         }
       >
@@ -186,7 +188,7 @@ exports[`Subtitle renders 1`] = `
     style={
       Array [
         undefined,
-        82,
+        83,
         undefined,
       ]
     }
@@ -196,6 +198,7 @@ exports[`Subtitle renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
           }
         }
       >
@@ -222,7 +225,7 @@ exports[`Title renders 1`] = `
     style={
       Array [
         undefined,
-        81,
+        82,
         undefined,
       ]
     }
@@ -232,6 +235,7 @@ exports[`Title renders 1`] = `
         style={
           Object {
             "color": "#48484D",
+            "margin": 0,
           }
         }
       >

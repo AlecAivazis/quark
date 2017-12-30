@@ -54,12 +54,12 @@ class Measure extends React.Component<Props, State> {
         if (!last) {
             return
         }
-
         // if the scroll height has changed
         if (
-            this.state.dimensions.top === -1 ||
             current.top !== last.top ||
-            current.left !== last.left
+            current.left !== last.left ||
+            current.right !== last.right ||
+            current.bottom !== last.bottom
         ) {
             // update the component state
             this.setState({

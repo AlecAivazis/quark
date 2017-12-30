@@ -7,12 +7,12 @@ import type { ViewPropTypes } from 'react-native-web'
 // local imports
 import styles from './styles'
 
-type Props = {
+export type OverlayProps = {
     toggle: () => void,
     visible: boolean
 } & ViewPropTypes
 
-const Overlay = ({ toggle, visible, ...unused }: Props) =>
+export const Overlay = ({ toggle, visible, ...unused }: Props) =>
     visible ? (
         <Portal id="overlay" style={styles.container}>
             <ClickAway onClick={toggle} style={styles.content}>

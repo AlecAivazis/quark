@@ -1,1 +1,1 @@
-export Overlay from './Overlay'
+export * from './Overlay'

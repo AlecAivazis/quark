@@ -41,7 +41,7 @@ const Input = ({ value, onChange, error, ...unused }: Props) => (
                                 onFocus={toggleFocus}
                                 onBlur={toggleFocus}
                                 value={value || (onChange ? '' : undefined)}
-                                onChange={evt => onChange(evt.target.value, evt)}
+                                onChange={onChange ? evt => onChange(evt.target.value, evt) : null}
                                 style={styles.input}
                             />
                         </View>

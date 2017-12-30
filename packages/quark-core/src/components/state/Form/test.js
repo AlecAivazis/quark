@@ -152,33 +152,5 @@ describe('State', () => {
             // make sure there is an error reported
             expect(wrapper.find('span')).toHaveLength(1)
         })
-
-        test('there is an error if no updates have been made', () => {
-            const wrapper = mount(
-                <Form
-                    validate={{
-                        test: str => (str.length > 0 ? str.toUpperCase() : null),
-                        test2: str => (str.length > 0 ? [str.toUpperCase()] : null)
-                    }}
-                >
-                    {({ hasErrors, getValue, setValue }) => (
-                        <div>
-                            {hasErrors && <span>error</span>}
-                            <input
-                                value={getValue('test')}
-                                onChange={evt => {
-                                    setValue({
-                                        test: evt.target.value,
-                                        test2: evt.target.value
-                                    })
-                                }}
-                            />
-                        </div>
-                    )}
-                </Form>
-            )
-
-            expect(wrapper.find('span')).toHaveLength(1)
-        })
     })
 })
