@@ -1,5 +1,5 @@
 {
-    "plugins": ["react-native-web/babel"],
+    "plugins": ["babel-plugin-react-native-web"],
     "env": {
         "production": {
             "presets": [

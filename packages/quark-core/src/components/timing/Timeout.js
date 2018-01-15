@@ -8,6 +8,8 @@ type Props = {
 }
 
 class Timeout extends React.Component<Props> {
+    _timeout = null
+
     componentDidMount() {
         this._timeout = setTimeout(this.props.children, this.props.delay)
     }

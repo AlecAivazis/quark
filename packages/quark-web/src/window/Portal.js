@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 type Props = {
     id: string,
-    children: (?HTMLElement) => React.Node,
+    children: React.Element<*>,
     style?: {}
 }
 
@@ -35,15 +35,19 @@ class WithPortal extends React.Component<Props, State> {
         }
 
         // apply any styles
-        Object.keys(elementStyle).forEach(style => element && element.style.setProperty(style, elementStyle[style]))
+        Object.keys(elementStyle).forEach(
+            style => element && element.style.setProperty(style, elementStyle[style])
+        )
 
         // save the element in the component's state
         this.setState({ element })
     }
 
     componentWillUnmount() {
-        // remove the styling on the element
-        this.state.element.setAttribute('style', '')
+        if (this.state.element) {
+            // remove the styling on the element
+            this.state.element.setAttribute('style', '')
+        }
     }
 
     get _portalID(): string {

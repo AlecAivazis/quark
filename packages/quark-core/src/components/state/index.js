@@ -1,4 +1,5 @@
-export Form from './Form'
-export FreeState from './Free'
-export BooleanState from './Boolean'
-export ListState, { updateList } from './List'
+// @flow
+export { default as Form } from './Form'
+export { default as FreeState } from './Free'
+export { default as BooleanState } from './Boolean'
+export { default as ListState, updateList } from './List'

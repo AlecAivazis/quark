@@ -1,4 +1,4 @@
-// flow-typed signature: 38e309c6c45f36ea89f0a50d462ce9a2
+// flow-typed signature: a76a527ede401d7dc7c64fbd799fe0b2
 // flow-typed version: <<STUB>>/prettier_v^1.7.4/flow_v0.59.0
 
 /**
@@ -54,6 +54,10 @@ declare module 'prettier/parser-typescript' {
   declare module.exports: any;
 }
 
+declare module 'prettier/third-party' {
+  declare module.exports: any;
+}
+
 // Filename aliases
 declare module 'prettier/bin/prettier.js' {
   declare module.exports: $Exports<'prettier/bin/prettier'>;
@@ -84,4 +88,7 @@ declare module 'prettier/parser-postcss.js' {
 }
 declare module 'prettier/parser-typescript.js' {
   declare module.exports: $Exports<'prettier/parser-typescript'>;
+}
+declare module 'prettier/third-party.js' {
+  declare module.exports: $Exports<'prettier/third-party'>;
 }

@@ -1,9 +1,10 @@
 // @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, ViewProperties } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import type { ViewPropTypes } from 'react-native-web'
 
-const App = ({ style, ...unused }: ViewProperties) => (
+const App = ({ style, ...unused }: ViewPropTypes) => (
     <View style={[style, styles.container]} {...unused} />
 )
 

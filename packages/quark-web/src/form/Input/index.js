@@ -2,15 +2,14 @@
 // external imports
 import * as React from 'react'
 import { View, TextInput } from 'react-native-web'
-import type { TextInputProps } from 'react-native-web'
 import { GetTheme, BooleanState } from 'quark-web'
 // local imports
-import styles from './styles'
+import styles, { placeholderColor } from './styles'
 
 type Props = {
     value: string,
-    onChange: (val, Event) => void
-} & TextInputProps
+    onChange: (string, Event) => void
+} & { [key: string]: string }
 
 const Input = ({ value, onChange, error, ...unused }: Props) => (
     <BooleanState>
@@ -40,7 +39,8 @@ const Input = ({ value, onChange, error, ...unused }: Props) => (
                                 {...unused}
                                 onFocus={toggleFocus}
                                 onBlur={toggleFocus}
-                                value={value || (onChange ? '' : undefined)}
+                                value={value}
+                                placeholderTextColor={placeholderColor}
                                 onChange={onChange ? evt => onChange(evt.target.value, evt) : null}
                                 style={styles.input}
                             />

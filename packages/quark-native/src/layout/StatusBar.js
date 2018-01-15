@@ -2,9 +2,8 @@
 // external imports
 import React from 'react'
 import { View, StatusBar as NativeBar, StyleSheet, Platform } from 'react-native'
-import type { StatusBarProperties } from 'react-native'
 
-type StatusBarProps = StatusBarProperties & { style: { [x: string]: any } }
+type StatusBarProps = { style: { [x: string]: any } }
 
 const StatusBar = ({ style, ...unused }: StatusBarProps) => (
     <NativeBar {...{ ...style, ...styles.container }} {...unused} />

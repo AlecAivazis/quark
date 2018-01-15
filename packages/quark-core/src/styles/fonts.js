@@ -23,7 +23,7 @@ export const h3 = {
 
 export const title = {
     ...primaryFont,
-    fontSize: 18
+    fontSize: 16
 }
 
 export const subtitle = {

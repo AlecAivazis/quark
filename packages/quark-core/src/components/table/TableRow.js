@@ -1,12 +1,12 @@
 // @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, ViewProperties } from 'react-native'
+import { View, StyleSheet, ViewPropTypes } from 'react-native'
 // local imports
 import { grey2, baseDim } from 'quark-core/styles'
 import { GetTheme } from 'quark-core'
 
-export type TableRowProps = ViewProperties & {
+export type TableRowProps = ViewPropTypes & {
     last?: boolean
 }
 

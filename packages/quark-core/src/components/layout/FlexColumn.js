@@ -2,8 +2,9 @@
 // external imports
 import React from 'react'
 //local imports
-import { Flex, FlexViewProps } from './Flex'
+import { Flex } from './Flex'
+import type { FlexViewPropTypes } from './Flex'
 
-const FlexColumn = ({ ...unused }: FlexViewProps) => <Flex direction="column" {...unused} />
+const FlexColumn = ({ ...unused }: FlexViewPropTypes) => <Flex direction="column" {...unused} />
 
 export default FlexColumn

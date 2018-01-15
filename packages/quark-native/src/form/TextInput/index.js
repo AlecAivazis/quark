@@ -1,12 +1,14 @@
 // @flow
 // external imports
 import React from 'react'
-import { TextInput, TextInputProperties } from 'react-native'
+import { TextInput } from 'react-native'
 // local imports
 import styles from './styles'
 import { GetTheme } from 'quark-core'
 
-const Input = ({ style, ...unused }: TextInputProperties) => (
+type Props = { [key: string]: string }
+
+const Input = ({ style, ...unused }: Props) => (
     <GetTheme>
         {({ grey2, white }) => (
             <TextInput

@@ -4,7 +4,7 @@ import * as React from 'react'
 import ReactDOM from 'react-dom'
 import { View } from 'react-native-web'
 // local imports
-import { WithPortal, ClickAway, Card, Measure, EventListener } from 'quark-web'
+import { Portal, ClickAway, Card, Measure, EventListener } from 'quark-web'
 import type { MeasurePayload } from 'quark-web'
 import styles from './styles'
 
@@ -103,8 +103,9 @@ class Dropdown extends React.Component<Props, State> {
                         >
                             {this.props.toggle}
                         </div>
-                        {this.state.active &&
-                            element && <Portal id="dropdown">{this._content(dimensions)}</Portal>}
+                        {this.state.active && (
+                            <Portal id="dropdown">{this._content(dimensions)}</Portal>
+                        )}
                     </View>
                 )}
             </Measure>,

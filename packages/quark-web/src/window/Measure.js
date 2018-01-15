@@ -56,10 +56,11 @@ class Measure extends React.Component<Props, State> {
         }
         // if the scroll height has changed
         if (
+            this.state.dimensions.top === -1 ||
             current.top !== last.top ||
             current.left !== last.left ||
-            current.right !== last.right ||
-            current.bottom !== last.bottom
+            current.width !== last.width ||
+            current.height !== last.height
         ) {
             // update the component state
             this.setState({

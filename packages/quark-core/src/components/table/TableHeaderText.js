@@ -1,11 +1,11 @@
 // @flow
 // external imports
 import React from 'react'
-import { Text, StyleSheet, TextProperties } from 'react-native'
+import { Text, StyleSheet, ViewPropTypes } from 'react-native'
 // local imports
 import { GetTheme } from 'quark-core'
 
-const TableHeaderText = ({ style, ...unused }: TextProperties) => (
+const TableHeaderText = ({ style, ...unused }: ViewPropTypes) => (
     <GetTheme>
         {({ grey4 }) => <Text style={[styles.container, { color: grey4 }, style]} {...unused} />}
     </GetTheme>

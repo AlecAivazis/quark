@@ -12,7 +12,7 @@ export type OverlayProps = {
     visible: boolean
 } & ViewPropTypes
 
-export const Overlay = ({ toggle, visible, ...unused }: Props) =>
+export const Overlay = ({ toggle, visible, ...unused }: OverlayProps) =>
     visible ? (
         <Portal id="overlay" style={styles.container}>
             <ClickAway onClick={toggle} style={styles.content}>

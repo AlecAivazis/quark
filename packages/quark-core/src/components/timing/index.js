@@ -1,2 +1,2 @@
 // @flow
-export Timeout from './Timeout'
+export { default as Timeout } from './Timeout'

@@ -1,9 +1,11 @@
 // @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, ViewProperties } from 'react-native'
+import { View, StyleSheet, ViewPropTypes } from 'react-native'
 
-const App = ({ style, ...unused }: ViewProperties) => <View style={[style, styles.container]} {...unused} />
+const App = ({ style, ...unused }: ViewPropTypes) => (
+    <View style={[style, styles.container]} {...unused} />
+)
 
 const styles = StyleSheet.create({
     container: {

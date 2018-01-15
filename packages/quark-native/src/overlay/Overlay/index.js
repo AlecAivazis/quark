@@ -1,13 +1,15 @@
 // @flow
 // external imports
-import React from 'react'
-import { Modal, TouchableWithoutFeedback, View, ViewProperties } from 'react-native'
+import * as React from 'react'
+import { Modal, TouchableWithoutFeedback, View } from 'react-native'
 import { Card } from 'quark-core'
 // local imports
 import styles from './styles'
 
-type Props = ViewProperties & {
-    visible: boolean
+type Props = {
+    visible: boolean,
+    children: React.Element<*>,
+    toggle: () => void
 }
 
 const Overlay = ({ toggle, children, visible }: Props) =>

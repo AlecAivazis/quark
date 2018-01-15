@@ -1,11 +1,13 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { Text as NativeText, TextProperties } from 'react-native'
+import { Text as NativeText, TextPropTypes } from 'react-native'
 // local imports
 import { GetTheme } from 'quark-core'
 import { h1, h2, h3, title, subtitle, text, link } from 'quark-core/styles'
 import styles from './styles'
+
+type TextProperties = TextPropTypes
 
 // this component assigns the default value to text based on theme
 const InnerText = ({ style, ...unused }: { style: TextProperties }) => (

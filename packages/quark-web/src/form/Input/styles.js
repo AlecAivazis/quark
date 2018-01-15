@@ -1,4 +1,6 @@
-import { text } from 'quark-web/styles'
+import { grey2 } from 'quark-web/styles'
+
+export const placeholderColor = grey2
 
 export default {
     container: {

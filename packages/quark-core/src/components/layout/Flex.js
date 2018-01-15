@@ -4,7 +4,7 @@ import * as React from 'react'
 import { View } from 'react-native-web'
 import type { ViewPropTypes } from 'react-native-web'
 
-export type FlexViewProps = {
+export type FlexViewPropTypes = {
     direction: 'row' | 'column',
     wrap?: 'nowrap' | 'wrap' | 'wrap-reverse',
     justifyContent?:
@@ -30,7 +30,7 @@ export const Flex = ({
     alignSelf,
     style,
     ...unused
-}: FlexViewProps) => (
+}: FlexViewPropTypes) => (
     <View
         style={{
             display: 'flex',
