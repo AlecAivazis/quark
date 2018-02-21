@@ -19,17 +19,12 @@ class Cycle extends React.Component<Props, State> {
         index: 0
     }
 
-    _next = (): void =>
-        this.setState(({ index }) => ({
-            index: index === this.props.items.length - 1 ? 0 : index + 1
-        }))
-
-    _prev = () =>
-        this.setState(({ index }) => ({
-            index: index === 0 ? this.props.items.length - 1 : index - 1
-        }))
-
-    _goTo = index => this.setState({ index })
+    componentWillReceiveProps({ items: items1 }, { items: items2 }) {
+        if (JSON.stringify(items1) !== JSON.stringify(items2)) {
+            // reset the cycle to the first element
+            this._goTo(0)
+        }
+    }
 
     render = () => (
         <React.Fragment>
@@ -42,6 +37,21 @@ class Cycle extends React.Component<Props, State> {
             })}
         </React.Fragment>
     )
+
+    _next = (): void =>
+        this.setState(({ index }) => ({
+            index: index === this.props.items.length - 1 ? 0 : index + 1
+        }))
+
+    _prev = () =>
+        this.setState(({ index }) => ({
+            index: index === 0 ? this.props.items.length - 1 : index - 1
+        }))
+
+    _goTo = index =>
+        this.setState(() => ({
+            index
+        }))
 }
 
 export default Cycle
