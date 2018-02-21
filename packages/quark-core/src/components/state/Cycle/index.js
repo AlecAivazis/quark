@@ -29,15 +29,6 @@ class Cycle extends React.Component<Props, State> {
         incrementCount: 0
     }
 
-    componentWillReceiveProps({ items: items1 }: Props, { items: items2 }: Props) {
-        if (JSON.stringify(items1) !== JSON.stringify(items2)) {
-            // reset the cycle to the first element
-            this._goTo(0)
-            // bump the increment count to reset the interval
-            this.setState(({ incrementCount }) => ({ incrementCount: incrementCount + 1 }))
-        }
-    }
-
     render = () => (
         <React.Fragment>
             <Interval interval={this.props.interval} key={this.state.incrementCount}>
@@ -53,12 +44,23 @@ class Cycle extends React.Component<Props, State> {
         </React.Fragment>
     )
 
-    _next = (): void => {
-        console.log(this.state.index, this.props.items)
+    componentWillReceiveProps = ({ items: items1 }: Props) => {
+        // grab the current list of items
+        const { items: items2 } = this.props
+        // check if the items are the same
+        if (JSON.stringify(items1) !== JSON.stringify(items2)) {
+            // reset the cycle to the first element
+            this._goTo(0)
+            // bump the increment count to reset the interval
+            this.setState(({ incrementCount }) => ({ incrementCount: incrementCount + 1 }))
+        }
+    }
+
+    _next = (): void =>
         this.setState(({ index }) => ({
             index: index === this.props.items.length - 1 ? 0 : index + 1
         }))
-    }
+
     _prev = (): void =>
         this.setState(({ index }) => ({
             index: index === 0 ? this.props.items.length - 1 : index - 1
