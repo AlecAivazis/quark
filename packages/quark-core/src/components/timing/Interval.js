@@ -16,6 +16,10 @@ class Interval extends React.Component<IntervalProps, State> {
         interval: 0
     }
 
+    static defaultProps = {
+        interval: 5000
+    }
+
     componentDidMount = () =>
         this.setState({ interval: setInterval(this.props.children, this.props.interval) })
 
