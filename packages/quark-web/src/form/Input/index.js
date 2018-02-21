@@ -11,7 +11,7 @@ type Props = {
     onChange: (string, Event) => void
 } & { [key: string]: string }
 
-const Input = ({ value, onChange, error, ...unused }: Props) => (
+const Input = ({ value, onChange, error, style, ...unused }: Props) => (
     <BooleanState>
         {({ state: focused, toggle: toggleFocus }) => (
             <GetTheme>
@@ -34,7 +34,7 @@ const Input = ({ value, onChange, error, ...unused }: Props) => (
 
                     // render a stylable input
                     return (
-                        <View style={containerStyle}>
+                        <View style={{ ...containerStyle, ...style }}>
                             <TextInput
                                 {...unused}
                                 onFocus={toggleFocus}

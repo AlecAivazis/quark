@@ -1,6 +1,6 @@
-import { grey2 } from 'quark-web/styles'
+import { grey1 } from 'quark-web/styles'
 
-export const placeholderColor = grey2
+export const placeholderColor = grey1
 
 export default {
     container: {
@@ -20,6 +20,7 @@ export default {
         outline: 'none',
         padding: 10,
         resize: 'none',
-        fontFamily: 'Helvetica Neue'
+        fontFamily: 'Helvetica Neue',
+        width: '100%'
     }
 }

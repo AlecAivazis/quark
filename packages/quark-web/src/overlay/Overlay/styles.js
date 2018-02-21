@@ -19,7 +19,7 @@ export default {
         boxShadow,
         borderRadius: 3,
         padding: 30,
-        marginTop: 150,
+        marginTop: 50,
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column'

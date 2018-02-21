@@ -13,6 +13,7 @@ type Props = {
     placeholder: React.Node,
     children: React.Node,
     onChange?: OptionValue => void,
+    toggleStyle?: {},
     style?: {}
 }
 
@@ -35,7 +36,7 @@ class Select extends React.Component<Props, State> {
         <Dropdown
             toggle={this._toggleElement}
             max={this._options.length}
-            style={{ width: 200 }}
+            style={{ width: 200, ...this.props.style }}
             dropdownStyle={{ maxHeight: 280 }}
         >
             {({ index: keyIdx, setIndex, toggle }) => [
@@ -112,7 +113,7 @@ class Select extends React.Component<Props, State> {
         }
 
         return (
-            <View style={{ ...styles.toggle, ...this.props.style }}>
+            <View style={{ ...styles.toggle, ...this.props.toggleStyle }}>
                 <Text style={{ marginRight: 4 }}>{content}</Text>
                 <IconChevronDown />
             </View>
