@@ -6,7 +6,8 @@ import { Interval } from '.'
 
 type Props = {
     items: any[],
-    children: number => void
+    children: number => void,
+    interval: number
 }
 
 type State = {
@@ -14,7 +15,7 @@ type State = {
 }
 
 class Cycle extends React.Component<Props, State> {
-    state: State = {
+    state = {
         index: 0
     }
 
