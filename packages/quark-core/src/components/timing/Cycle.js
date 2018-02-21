@@ -23,7 +23,7 @@ class Cycle extends React.Component<Props, State> {
         const { index } = this.state
 
         // cycle back to zero if we are passed the last item
-        return this.state.index === this.props.items.length - 1 ? 0 : index + 1
+        return index === this.props.items.length - 1 ? 0 : index + 1
     }
 
     render = () => (
