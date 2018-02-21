@@ -3,9 +3,8 @@
 import * as React from 'react'
 // local imports
 import { Interval } from '.'
-import type { IntervalProps } from './Interval'
 
-type Props = IntervalProps & {
+type Props = {
     items: any[],
     children: number => void
 }
