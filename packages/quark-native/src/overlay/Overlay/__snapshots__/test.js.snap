@@ -19,13 +19,16 @@ exports[`shows when visible 1`] = `
       }
     >
       <div
-        className="rn-alignItems-1oszu61 rn-alignSelf-k200y rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
         style={
           Object {
+            "WebkitAlignSelf": "flex-start",
+            "alignSelf": "flex-start",
             "borderBottomColor": "red",
             "borderLeftColor": "red",
             "borderRightColor": "red",
             "borderTopColor": "red",
+            "msFlexItemAlign": "start",
           }
         }
       >
@@ -42,10 +45,10 @@ exports[`shows when visible 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "backgroundColor": "#2196F3",
+                "borderRadius": 2,
                 "cursor": "pointer",
-                "maxWidth": 240,
-                "minWidth": 120,
-                "touchAction": "manipulate",
+                "touchAction": "manipulation",
               }
             }
           >
@@ -64,8 +67,11 @@ exports[`shows when visible 1`] = `
               <Card
                 style={
                   Object {
-                    "maxWidth": 260,
-                    "minWidth": 150,
+                    "color": "#fff",
+                    "fontWeight": "500",
+                    "padding": 8,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   }
                 }
               >
@@ -78,9 +84,10 @@ exports[`shows when visible 1`] = `
                         "borderRadius": 2,
                         "borderStyle": "solid",
                         "borderWidth": 1,
+                        "color": "#fff",
                         "flex": 1,
-                        "maxWidth": 260,
-                        "minWidth": 150,
+                        "fontWeight": "500",
+                        "padding": 8,
                         "shadowColor": "#EAEAEE",
                         "shadowOffset": Object {
                           "height": 2,
@@ -88,11 +95,13 @@ exports[`shows when visible 1`] = `
                         },
                         "shadowOpacity": 0.54,
                         "shadowRadius": 4,
+                        "textAlign": "center",
+                        "textTransform": "uppercase",
                       }
                     }
                   >
                     <div
-                      className="rn-alignItems-1oszu61 rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-maxWidth-cediw7 rn-minHeight-ifefl9 rn-minWidth-bgnin rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                      className="rn-alignItems-1oszu61 rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-color-1qtguxu rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-fontWeight-majxgm rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-tskmnb rn-paddingRight-1pyaxff rn-paddingBottom-xd6kpl rn-paddingLeft-1m04atk rn-position-bnwqim rn-textAlign-q4m81j rn-textTransform-tsynxw rn-zIndex-1lgpqti"
                       style={
                         Object {
                           "backgroundColor": "rgba(255,255,255,1)",
@@ -119,7 +128,7 @@ exports[`shows when visible 1`] = `
                             Object {
                               "cursor": "pointer",
                               "flex": 1,
-                              "touchAction": "manipulate",
+                              "touchAction": "manipulation",
                             }
                           }
                         >

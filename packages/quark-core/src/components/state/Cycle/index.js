@@ -15,7 +15,8 @@ type CyclePayload = {
 type Props = {
     items: any[],
     children: CyclePayload => void,
-    interval: number
+    interval: number,
+    active: boolean
 }
 
 type State = {
@@ -24,6 +25,10 @@ type State = {
 }
 
 class Cycle extends React.Component<Props, State> {
+    static defaultProps = {
+        active: true
+    }
+
     state = {
         index: 0,
         incrementCount: 0
@@ -31,13 +36,15 @@ class Cycle extends React.Component<Props, State> {
 
     render = () => (
         <React.Fragment>
-            <Interval interval={this.props.interval} key={this.state.incrementCount}>
-                {this._next}
-            </Interval>
+            {this.props.active && (
+                <Interval interval={this.props.interval} key={this.state.incrementCount}>
+                    {this._next(false)}
+                </Interval>
+            )}
             {this.props.children({
                 item: this.props.items[this.state.index],
                 index: this.state.index,
-                next: this._next,
+                next: this._next(true),
                 previous: this._prev,
                 goTo: this._goTo
             })}
@@ -56,19 +63,22 @@ class Cycle extends React.Component<Props, State> {
         }
     }
 
-    _next = (): void =>
-        this.setState(({ index }) => ({
-            index: index === this.props.items.length - 1 ? 0 : index + 1
+    _next = (increment: boolean) => (): void =>
+        this.setState(({ index, incrementCount }) => ({
+            index: index === this.props.items.length - 1 ? 0 : index + 1,
+            incrementCount: incrementCount + 1
         }))
 
     _prev = (): void =>
         this.setState(({ index }) => ({
-            index: index === 0 ? this.props.items.length - 1 : index - 1
+            index: index === 0 ? this.props.items.length - 1 : index - 1,
+            incrementCount: incrementCount + 1
         }))
 
     _goTo = (index: number): void =>
         this.setState(() => ({
-            index
+            index,
+            incrementCount: incrementCount + 1
         }))
 }
 

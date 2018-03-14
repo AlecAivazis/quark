@@ -16,8 +16,9 @@ exports[`renders 1`] = `
         Object {
           "backgroundColor": "#ffffff",
           "borderColor": "#EAEAEE",
-          "maxWidth": 210,
-          "minWidth": 100,
+          "transitionDuration": "0.15s",
+          "transitionProperty": "opacity",
+          "userSelect": "none",
         }
       }
     >

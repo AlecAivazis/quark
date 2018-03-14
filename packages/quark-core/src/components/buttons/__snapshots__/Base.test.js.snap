@@ -23,55 +23,7 @@ exports[`renders 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": AnimatedInterpolation {
-            "_children": Array [
-              AnimatedStyle {
-                "_children": Array [
-                  AnimatedProps {
-                    "_callback": [Function],
-                    "_props": Object {
-                      "accessible": true,
-                      "children": <Text>
-                        hello
-                      </Text>,
-                      "onKeyDown": [Function],
-                      "onKeyUp": [Function],
-                      "onResponderGrant": [Function],
-                      "onResponderMove": [Function],
-                      "onResponderRelease": [Function],
-                      "onResponderTerminate": [Function],
-                      "onResponderTerminationRequest": [Function],
-                      "onStartShouldSetResponder": [Function],
-                      "style": [Circular],
-                    },
-                  },
-                ],
-                "_style": Object {
-                  "alignItems": "center",
-                  "backgroundColor": [Circular],
-                  "borderRadius": 2,
-                  "cursor": "pointer",
-                  "height": 40,
-                  "justifyContent": "center",
-                  "maxWidth": 240,
-                  "minWidth": 120,
-                  "overflow": "hidden",
-                  "touchAction": "manipulate",
-                },
-              },
-            ],
-            "_interpolation": [Function],
-            "_listeners": Object {},
-            "_parent": AnimatedValue {
-              "_animation": null,
-              "_children": Array [
-                [Circular],
-              ],
-              "_listeners": Object {},
-              "_offset": 0,
-              "_value": 0,
-            },
-          },
+          "backgroundColor": undefined,
           "borderRadius": 2,
           "cursor": "pointer",
           "height": 40,
@@ -79,7 +31,7 @@ exports[`renders 1`] = `
           "maxWidth": 240,
           "minWidth": 120,
           "overflow": "hidden",
-          "touchAction": "manipulate",
+          "touchAction": "manipulation",
         }
       }
     >
@@ -104,12 +56,12 @@ exports[`renders 1`] = `
             "maxWidth": 240,
             "minWidth": 120,
             "overflow": "hidden",
-            "touchAction": "manipulate",
+            "touchAction": "manipulation",
           }
         }
       >
         <div
-          className="rn-alignItems-1awozwy rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-maxWidth-1fnot1l rn-minHeight-ifefl9 rn-minWidth-ggk5by rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
+          className="rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
           onKeyDown={[Function]}
           onKeyUp={[Function]}
           onResponderGrant={[Function]}
@@ -118,6 +70,30 @@ exports[`renders 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "WebkitAlignItems": "center",
+              "WebkitBoxAlign": "center",
+              "WebkitBoxPack": "center",
+              "WebkitJustifyContent": "center",
+              "alignItems": "center",
+              "borderBottomLeftRadius": "2px",
+              "borderBottomRightRadius": "2px",
+              "borderTopLeftRadius": "2px",
+              "borderTopRightRadius": "2px",
+              "cursor": "pointer",
+              "height": "40px",
+              "justifyContent": "center",
+              "maxWidth": "240px",
+              "minWidth": "120px",
+              "msFlexAlign": "center",
+              "msFlexPack": "center",
+              "msTouchAction": "manipulation",
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "touchAction": "manipulation",
+            }
+          }
           tabIndex="0"
         >
           <Text>
