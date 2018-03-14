@@ -76,7 +76,7 @@ class Cycle extends React.Component<Props, State> {
         }))
 
     _goTo = (index: number): void =>
-        this.setState(() => ({
+        this.setState(({ incrementCount }) => ({
             index,
             incrementCount: incrementCount + 1
         }))
