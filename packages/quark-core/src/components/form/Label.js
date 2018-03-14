@@ -6,15 +6,30 @@ import type { ViewPropTypes } from 'react-native'
 
 type Props = ViewPropTypes & {
     textStyle?: {},
-    value: string
+    value: string,
+    description?: string,
+    error?: boolean
 }
 
-const Label = ({ children, value, textStyle, ...unused }: Props) => (
+// a context component for the error state of a label
+export const ErrorLabelContext = React.createContext('errorLabel')
+
+export const Label = ({
+    children,
+    value,
+    textStyle,
+    description,
+    error = false,
+    ...unused
+}: Props) => (
     <View {...unused}>
         <View style={styles.labelContainer}>
             <Text style={[styles.labelText, textStyle]}>{value}</Text>
         </View>
-        {children}
+        <ErrorLabelContext.Provider value={error}>{children}</ErrorLabelContext.Provider>
+        <View>
+            <Text style={[styles.descriptionText]}>{description}</Text>
+        </View>
     </View>
 )
 
@@ -28,5 +43,3 @@ const styles = StyleSheet.create({
         fontSize: 18
     }
 })
-
-export default Label
