@@ -41,8 +41,6 @@ export const Flex = ({
             flexGrow: grow,
             flexShrink: shrink,
             alignSelf,
-            width: 10,
-            height: 10,
             ...style
         }}
         {...unused}
