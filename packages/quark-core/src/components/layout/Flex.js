@@ -32,17 +32,19 @@ export const Flex = ({
     ...unused
 }: FlexViewPropTypes) => (
     <View
-        style={{
-            display: 'flex',
-            flexDirection: direction,
-            flexWrap: wrap,
-            justifyContent,
-            alignItems,
-            flexGrow: grow,
-            flexShrink: shrink,
-            alignSelf,
-            ...style
-        }}
+        style={[
+            {
+                display: 'flex',
+                flexDirection: direction,
+                flexWrap: wrap,
+                justifyContent,
+                alignItems,
+                flexGrow: grow,
+                flexShrink: shrink,
+                alignSelf
+            },
+            style
+        ]}
         {...unused}
     />
 )

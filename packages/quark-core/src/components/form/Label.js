@@ -1,6 +1,6 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import type { ViewPropTypes } from 'react-native'
 

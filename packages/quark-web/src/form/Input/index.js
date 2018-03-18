@@ -1,21 +1,21 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { View, TextInput } from 'react-native-web'
+import { View, TextInput, StyleSheet } from 'react-native-web'
 import { GetTheme, BooleanState } from 'quark-web'
 // local imports
-import styles, { placeholderColor } from './styles'
+import styles from './styles'
 
 type Props = {
     value: string,
     onChange: (string, Event) => void
 } & { [key: string]: string }
-
+console.log('hello')
 const Input = ({ value, onChange, error, style, ...unused }: Props) => (
     <BooleanState>
         {({ state: focused, toggle: toggleFocus }) => (
             <GetTheme>
-                {({ primaryColor, grey2 }) => {
+                {({ grey3, grey2, primaryColor }) => {
                     // the style to apply to the element
                     const containerStyle = {
                         ...styles.container
@@ -31,16 +31,16 @@ const Input = ({ value, onChange, error, style, ...unused }: Props) => (
                             borderColor: grey2
                         })
                     }
-
+                    console.log('input', style)
                     // render a stylable input
                     return (
-                        <View style={{ ...containerStyle, ...style }}>
+                        <View style={[containerStyle, style]}>
                             <TextInput
                                 {...unused}
                                 onFocus={toggleFocus}
                                 onBlur={toggleFocus}
                                 value={value}
-                                placeholderTextColor={placeholderColor}
+                                placeholderTextColor={grey3}
                                 onChange={onChange ? evt => onChange(evt.target.value, evt) : null}
                                 style={styles.input}
                             />

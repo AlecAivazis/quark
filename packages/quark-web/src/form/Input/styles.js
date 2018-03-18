@@ -1,7 +1,3 @@
-import { grey1 } from 'quark-web/styles'
-
-export const placeholderColor = grey1
-
 export default {
     container: {
         borderRadius: 4,
