@@ -1,6 +1,6 @@
 {
     "name": "quark-core",
-    "version": "0.1.0-alpha.47",
+    "version": "0.1.0-alpha.53",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
