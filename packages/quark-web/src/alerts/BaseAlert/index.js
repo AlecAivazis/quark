@@ -1,7 +1,7 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { FlexRow, Text, IconX, Timeout } from 'quark-core'
+import { FlexRow, Text, IconX, Timeout, IconInfo, GetTheme } from 'quark-core'
 import { View, Animated, TouchableWithoutFeedback } from 'react-native-web'
 import type { FlexContainerProps } from 'quark-core'
 // local imports
@@ -92,52 +92,60 @@ class BaseAlert extends React.Component<AlertProps> {
         // clean up unused props
         Reflect.deleteProperty(unused, 'onDismiss')
 
+        // the icon associated with the alert
+        const alertIcon = icon || <IconInfo />
+
         return (
-            <>
-                <Animated.View
-                    style={{
-                        ...styles.container,
-                        ...style,
-                        opacity: this.state.opacity,
-                        marginTop: this.state.marginTop
-                    }}
-                    {...unused}
-                >
-                    <div
-                        onMouseEnter={() => {
-                            clearTimeout(this.state.timeout)
-                            this.setState({ timeout: null })
-                        }}
-                        onMouseLeave={() => {
-                            if (this.props.dismissable) {
-                                this.setState({
-                                    timeout: setTimeout(this._dismiss, this._delay)
-                                })
-                            }
-                        }}
+            <GetTheme>
+                {({ blue }) => (
+                    <Animated.View
                         style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            width: '100%',
-                            height: '100%'
+                            backgroundColor: blue,
+                            opacity: this.state.opacity,
+                            marginTop: this.state.marginTop,
+                            ...styles.container,
+                            ...style
                         }}
+                        {...unused}
                     >
-                        <View style={{ ...styles.iconContainer, ...iconStyle }}>{icon}</View>
-                        <FlexRow alignItems="center" grow={1} style={styles.contentContainer}>
-                            {message ? (
-                                <Text style={{ ...styles.messageStyle, ...messageStyle }}>
-                                    {message}
-                                </Text>
-                            ) : (
-                                content
-                            )}
-                        </FlexRow>
-                        <div onClick={this._dismiss}>
-                            <IconX style={styles.closeIcon} />
+                        <div
+                            onMouseEnter={() => {
+                                clearTimeout(this.state.timeout)
+                                this.setState({ timeout: null })
+                            }}
+                            onMouseLeave={() => {
+                                if (this.props.dismissable) {
+                                    this.setState({
+                                        timeout: setTimeout(this._dismiss, this._delay)
+                                    })
+                                }
+                            }}
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                width: '100%',
+                                height: '100%'
+                            }}
+                        >
+                            <div style={{ marginRight: 20 }}>
+                                {React.cloneElement(alertIcon, { style: styles.iconContainer })}
+                            </div>
+                            <FlexRow alignItems="center" grow={1} style={styles.contentContainer}>
+                                {message ? (
+                                    <Text style={{ ...styles.messageStyle, ...messageStyle }}>
+                                        {message}
+                                    </Text>
+                                ) : (
+                                    content
+                                )}
+                            </FlexRow>
+                            <div onClick={this._dismiss}>
+                                <IconX style={styles.closeIcon} />
+                            </div>
                         </div>
-                    </div>
-                </Animated.View>
-            </>
+                    </Animated.View>
+                )}
+            </GetTheme>
         )
     }
 }
