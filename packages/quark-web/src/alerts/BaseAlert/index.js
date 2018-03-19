@@ -105,7 +105,6 @@ class BaseAlert extends React.Component<AlertProps> {
                 >
                     <div
                         onMouseEnter={() => {
-                            console.log('hello')
                             clearTimeout(this.state.timeout)
                             this.setState({ timeout: null })
                         }}
