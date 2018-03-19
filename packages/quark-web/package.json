@@ -1,9 +1,9 @@
 {
     "name": "quark-web",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
-        "quark-core": "^0.1.2"
+        "quark-core": "^0.1.4"
     }
 }

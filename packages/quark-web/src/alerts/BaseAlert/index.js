@@ -6,6 +6,7 @@ import { View, Animated, TouchableWithoutFeedback } from 'react-native-web'
 import type { FlexContainerProps } from 'quark-core'
 // local imports
 import styles from './styles'
+import duration from './duration'
 
 export type AlertProps = {
     icon: React.ReactNode,
@@ -74,7 +75,7 @@ class BaseAlert extends React.Component<AlertProps> {
     }
 
     get _delay() {
-        return 10000
+        return this.props.duration || duration(this._content.textContent)
     }
 
     render() {
@@ -131,13 +132,15 @@ class BaseAlert extends React.Component<AlertProps> {
                                 {React.cloneElement(alertIcon, { style: styles.iconContainer })}
                             </div>
                             <FlexRow alignItems="center" grow={1} style={styles.contentContainer}>
-                                {message ? (
-                                    <Text style={{ ...styles.messageStyle, ...messageStyle }}>
-                                        {message}
-                                    </Text>
-                                ) : (
-                                    content
-                                )}
+                                <span ref={ele => (this._content = ele)}>
+                                    {message ? (
+                                        <Text style={{ ...styles.messageStyle, ...messageStyle }}>
+                                            {message}
+                                        </Text>
+                                    ) : (
+                                        content
+                                    )}
+                                </span>
                             </FlexRow>
                             <div onClick={this._dismiss}>
                                 <IconX style={styles.closeIcon} />
