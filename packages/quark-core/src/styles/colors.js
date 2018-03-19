@@ -1,7 +1,7 @@
 // primaries
 export const blue = '#4A90E2'
 export const lightBlue = '#B1D9FF'
-export const green = '#487D51'
+export const green = '#3EB642'
 export const lightGreen = '#97ECA5'
 export const orange = '#D06E02'
 export const lightOrange = '#FDE69D'
