@@ -8,7 +8,12 @@ export default {
         paddingLeft: 5 * baseDim,
         paddingRight: 5 * baseDim,
         borderRadius: 2,
-        backgroundColor: blue
+        backgroundColor: blue,
+        marginBottom: 6,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
     contentContainer: {
         marginRight: 8

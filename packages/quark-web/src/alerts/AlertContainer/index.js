@@ -19,6 +19,12 @@ type State = {
     alerts: Array<AlertConfig>
 }
 
+// the map of alert types to components
+const alertMap = {
+    warning: WarningAlert,
+    success: SuccessAlert
+}
+
 class AlertContainer extends React.Component<Props, State> {
     static defaultProps = {
         namespace: 'default',
@@ -38,14 +44,17 @@ class AlertContainer extends React.Component<Props, State> {
                             {this.state.alerts
                                 .slice(0, this.props.maxAlerts)
                                 .map((alert: AlertConfig) => {
-                                    // if the alert is a warning
-                                    if (alert.type === 'warning') {
-                                        return <WarningAlert key={alert.id} {...alert} />
-                                    } else if (alert.type === 'success') {
-                                        return <SuccessAlert key={alert.id} {...alert} />
-                                    } else {
-                                        return <BaseAlert key={alert.id} {...alert} />
-                                    }
+                                    // grab the appropriate kind of alert
+                                    const AlertComponent = alertMap[alert.type] || BaseAlert
+
+                                    // render the right alert
+                                    return (
+                                        <AlertComponent
+                                            key={alert.id}
+                                            {...alert}
+                                            onDismiss={() => this._removeAlert(alert.id)}
+                                        />
+                                    )
                                 })}
                         </FlexColumn>
                     </FlexColumn>
@@ -54,15 +63,29 @@ class AlertContainer extends React.Component<Props, State> {
                     {({ detail: alert }: { detail: AlertConfig }) => {
                         // if we received an alert that matches this containers namespace
                         if (alert.namespace === this.props.namespace) {
-                            // add it to the list
-                            this.setState(({ alerts }) => ({
-                                alerts: [...alerts, alert]
-                            }))
+                            // add the alert
+                            this._addAlert(alert)
                         }
                     }}
                 </EventListener>
             </>
         )
+    }
+
+    // add an alert to the list
+    _addAlert = alert => {
+        // add it to the list
+        this.setState(({ alerts }) => ({
+            alerts: [...alerts, alert]
+        }))
+    }
+
+    // remove an alert from the list
+    _removeAlert = alertId => {
+        // add it to the list
+        this.setState(({ alerts }) => ({
+            alerts: alerts.filter(({ id }) => id !== alertId)
+        }))
     }
 }
 

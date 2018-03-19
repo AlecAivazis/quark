@@ -5,6 +5,6 @@ import * as React from 'react'
 import BaseAlert from '../BaseAlert'
 import type { AlertProps } from '../BaseAlert'
 
-const MessageAlert = props => <BaseAlert {...props} />
+const MessageAlert = props => <BaseAlert dismissable={true} {...props} />
 
 export default MessageAlert
