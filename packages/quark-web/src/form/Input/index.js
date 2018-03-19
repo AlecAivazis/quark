@@ -10,7 +10,7 @@ type Props = {
     value: string,
     onChange: (string, Event) => void
 } & { [key: string]: string }
-console.log('hello')
+
 const Input = ({ value, onChange, error, style, ...unused }: Props) => (
     <BooleanState>
         {({ state: focused, toggle: toggleFocus }) => (
@@ -31,7 +31,7 @@ const Input = ({ value, onChange, error, style, ...unused }: Props) => (
                             borderColor: grey2
                         })
                     }
-                    console.log('input', style)
+
                     // render a stylable input
                     return (
                         <View style={[containerStyle, style]}>
@@ -39,7 +39,7 @@ const Input = ({ value, onChange, error, style, ...unused }: Props) => (
                                 {...unused}
                                 onFocus={toggleFocus}
                                 onBlur={toggleFocus}
-                                value={value}
+                                value={value || ''}
                                 placeholderTextColor={grey3}
                                 onChange={onChange ? evt => onChange(evt.target.value, evt) : null}
                                 style={styles.input}
