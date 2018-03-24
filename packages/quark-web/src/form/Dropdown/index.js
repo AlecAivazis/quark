@@ -52,7 +52,7 @@ class Dropdown extends React.Component<Props, State> {
             <Card
                 style={{
                     ...styles.dropdown,
-                    position: 'absolute',
+                    position: 'fixed',
                     left: dimensions.left,
                     width: dimensions.width,
                     top: dimensions.top + dimensions.height,
