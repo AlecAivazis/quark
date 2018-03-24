@@ -8,7 +8,7 @@
         "bootstrap": "npm run __internal__lerna -- bootstrap",
         "build": "babel-node scripts/build",
         "version": "npm run __internal__lerna -- publish --skip-npm",
-        "publish": "npm run __internal__lerna -- exec -- \"cd build && npm publish\"",
+        "publish": "babel-node scripts/publish",
         "release": "npm run version && npm run build && npm run publish",
         "__internal__prettier": "prettier 'packages/*/{,!(node_modules)/**/}*.js'",
         "format": "npm run __internal__prettier -- --write",
@@ -76,11 +76,13 @@
         "jest": "^21.2.1",
         "lerna": "^2.0.0",
         "mkdirp": "^0.5.1",
+        "npm-query": "^1.1.0",
         "prettier": "^1.7.4",
         "raf": "^3.4.0",
         "react": "^16.3.0-alpha.1",
         "react-dom": "^16.3.0-alpha.1",
         "react-native-web": "^0.5.3",
+        "semver": "^5.5.0",
         "walk": "^2.3.9"
     },
     "dependencies": {

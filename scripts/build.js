@@ -7,13 +7,8 @@ const fsExtra = require('fs-extra')
 const path = require('path')
 const { walk } = require('walk')
 const mkdirp = require('mkdirp')
-
-// the directory to build to inside of the packages
-const buildDir = 'build'
-// the package directory
-const packageDir = 'packages'
-// the directory within the package with the source
-const src = 'src'
+// local imports
+const { packageDirs } = require('./filepath')
 
 // open up the babel file and read its contents
 const transformOptions = JSON.parse(
@@ -21,21 +16,12 @@ const transformOptions = JSON.parse(
 )
 transformOptions.babelrc = false
 
-function run() {
-    return Promise.all([
-        buildPackage('quark-native'),
-        buildPackage('quark-core'),
-        buildPackage('quark-web')
-    ])
-}
+// build every package
+Promise.all(packageDirs.map(buildPackage))
 
-async function buildPackage(name) {
-    // the source module we're building
-    const sourceDir = path.join(packageDir, name, src)
-    const targetDir = path.join(packageDir, name, buildDir)
-
+async function buildPackage({ sourceDir, buildDir, packageDir }) {
     // make sure the build directory exists
-    await mkdir(targetDir)
+    await mkdir(buildDir)
 
     // the errors that we have accmulated
     const errors = []
@@ -46,7 +32,7 @@ async function buildPackage(name) {
             // the full path of the source file
             const source = path.join(root, name)
             // the full path of the target file
-            const target = path.join(targetDir, path.relative(sourceDir, source))
+            const target = path.join(buildDir, path.relative(sourceDir, source))
 
             // ignore test files
             if (!path.basename(target).match(/!(test)\.js/)) {
@@ -97,8 +83,8 @@ async function buildPackage(name) {
                 }
             }
             // copy the package.json from the package directory to the build
-            const packageJson = path.join(path.join(packageDir, name), 'package.json')
-            const buildPackageJson = path.join(targetDir, 'package.json')
+            const packageJson = path.join(packageDir, 'package.json')
+            const buildPackageJson = path.join(buildDir, 'package.json')
 
             // if the package file has already been copied
             if (fs.existsSync(buildPackageJson)) {
@@ -111,6 +97,7 @@ async function buildPackage(name) {
         })
 }
 
+// promisify mkdirp
 const mkdir = path =>
     new Promise((resolve, reject) =>
         mkdirp(path, err => {
@@ -118,5 +105,3 @@ const mkdir = path =>
             resolve()
         })
     )
-
-run()
