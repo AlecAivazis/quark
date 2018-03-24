@@ -7,6 +7,7 @@ const fsExtra = require('fs-extra')
 const path = require('path')
 const { walk } = require('walk')
 const mkdirp = require('mkdirp')
+import { promisify } from 'util'
 // local imports
 const { packageDirs } = require('./filepath')
 
@@ -21,7 +22,7 @@ Promise.all(packageDirs.map(buildPackage))
 
 async function buildPackage({ sourceDir, buildDir, packageDir }) {
     // make sure the build directory exists
-    await mkdir(buildDir)
+    await promisify(mkdirp)(buildDir)
 
     // the errors that we have accmulated
     const errors = []
@@ -96,12 +97,3 @@ async function buildPackage({ sourceDir, buildDir, packageDir }) {
             fs.createReadStream(packageJson).pipe(fs.createWriteStream(buildPackageJson))
         })
 }
-
-// promisify mkdirp
-const mkdir = path =>
-    new Promise((resolve, reject) =>
-        mkdirp(path, err => {
-            if (err) return reject(err)
-            resolve()
-        })
-    )

@@ -1,7 +1,7 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native-web'
 import type { ViewPropTypes } from 'react-native'
 
 type Props = ViewPropTypes & {
