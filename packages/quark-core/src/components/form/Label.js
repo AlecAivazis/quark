@@ -1,8 +1,10 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { View, Text, StyleSheet } from 'react-native-web'
+import { View, StyleSheet } from 'react-native'
 import type { ViewPropTypes } from 'react-native'
+// local imports
+import { Text } from 'quark-core'
 
 type Props = ViewPropTypes & {
     textStyle?: {},
@@ -10,9 +12,6 @@ type Props = ViewPropTypes & {
     description?: string,
     error?: boolean
 }
-
-// a context component for the error state of a label
-export const ErrorLabelContext = React.createContext('errorLabel')
 
 export const Label = ({
     children,
@@ -26,7 +25,7 @@ export const Label = ({
         <View style={styles.labelContainer}>
             <Text style={[styles.labelText, textStyle]}>{value}</Text>
         </View>
-        <ErrorLabelContext.Provider value={error}>{children}</ErrorLabelContext.Provider>
+        {children}
         <View>
             <Text style={[styles.descriptionText]}>{description}</Text>
         </View>
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     labelText: {
-        fontWeight: '100',
-        fontSize: 18
+        fontWeight: '600',
+        fontSize: 14
     }
 })

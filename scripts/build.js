@@ -21,8 +21,10 @@ transformOptions.babelrc = false
 Promise.all(packageDirs.map(buildPackage))
 
 async function buildPackage({ sourceDir, buildDir, packageDir }) {
+    const mkdir = promisify(mkdirp)
+
     // make sure the build directory exists
-    await promisify(mkdirp)(buildDir)
+    await mkdir(buildDir)
 
     // the errors that we have accmulated
     const errors = []
