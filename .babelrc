@@ -1,5 +1,5 @@
 {
-    "plugins": ["babel-plugin-react-native-web"],
+    "plugins": ["babel-plugin-react-native-web", "transform-class-properties"],
     "env": {
         "production": {
             "presets": [
@@ -10,7 +10,7 @@
                     "@babel/preset-env",
                     {
                         "targets": {
-                            "browsers": "last 2 versions"
+                            "browsers": ["last 2 versions", "ie >= 11"]
                         }
                     }
                 ]

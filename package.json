@@ -6,7 +6,7 @@
     "scripts": {
         "__internal__lerna": "lerna",
         "bootstrap": "npm run __internal__lerna -- bootstrap",
-        "build": "babel-node scripts/build",
+        "build": "NODE_ENV=production babel-node scripts/build",
         "version": "npm run __internal__lerna -- publish --skip-npm",
         "publish": "babel-node scripts/publish",
         "release": "npm run version && npm run build && npm run publish",
@@ -86,7 +86,8 @@
         "walk": "^2.3.9"
     },
     "dependencies": {
-        "babel-plugin-react-native-web": "^0.3.0"
+        "babel-plugin-react-native-web": "^0.3.0",
+        "babel-plugin-transform-class-properties": "^6.24.1"
     },
     "peerDependencies": {
         "react": "^16.3.0-alpha.1"
