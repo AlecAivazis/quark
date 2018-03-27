@@ -42,7 +42,8 @@ class ClickAway extends React.Component<Props> {
                             this._container &&
                             !this._container.contains(evt.target) &&
                             eventFilter(evt) &&
-                            this._callback(evt)}
+                            this._callback(evt)
+                        }
                     </EventListener>
                 )}
             </span>
