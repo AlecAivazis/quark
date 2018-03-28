@@ -1,3 +1,4 @@
 // @flow
-export AlertContainer from './AlertContainer'
-export triggerAlert from './trigger'
+export { default as AlertContainer } from './AlertContainer'
+export { default as triggerAlert } from './trigger'
+export * from './BaseAlert'

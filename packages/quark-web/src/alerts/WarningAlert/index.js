@@ -6,7 +6,7 @@ import { IconAlertTriangle, GetTheme } from 'quark-core'
 import BaseAlert from '../BaseAlert'
 import type { AlertProps } from '../BaseAlert'
 
-const WarningAlert = props => (
+const WarningAlert = (props: AlertProps) => (
     <GetTheme>
         {({ red }) => (
             <BaseAlert

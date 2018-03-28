@@ -3,28 +3,31 @@
 import * as React from 'react'
 import { FlexRow, Text, IconX, Timeout, IconInfo, GetTheme } from 'quark-core'
 import { View, Animated, TouchableWithoutFeedback } from 'react-native-web'
-import type { FlexContainerProps } from 'quark-core'
+import type { FlexViewPropTypes } from 'quark-core'
 // local imports
 import styles from './styles'
 import duration from './duration'
 
 export type AlertProps = {
-    icon: React.ReactNode,
-    content: React.ReactNode,
+    icon: React.Node,
+    content: React.Node,
     message: string,
     iconStyle: { [key: string]: any },
     style: { [key: string]: any },
     messageStyle: { [key: string]: any },
     dismissable?: boolean,
     onDismiss: () => void
-} & FlexContainerProps
+} & FlexViewPropTypes
 
 type State = {
     opacity: any,
-    margin: any
+    timeout: ?number,
+    marginTop: number
 }
 
-class BaseAlert extends React.Component<AlertProps> {
+class BaseAlert extends React.Component<AlertProps, State> {
+    _content: any
+
     static defaultProps = {
         dismissable: true
     }
@@ -74,7 +77,7 @@ class BaseAlert extends React.Component<AlertProps> {
         ]).start(this.props.onDismiss)
     }
 
-    get _delay() {
+    get _delay(): number {
         return this.props.duration || duration(this._content.textContent)
     }
 
@@ -94,7 +97,7 @@ class BaseAlert extends React.Component<AlertProps> {
         Reflect.deleteProperty(unused, 'onDismiss')
 
         // the icon associated with the alert
-        const alertIcon = icon || <IconInfo />
+        const alertIcon: any = icon || <IconInfo />
 
         return (
             <GetTheme>
