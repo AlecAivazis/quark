@@ -5,9 +5,7 @@ exports[`renders with multiple children 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
+        "backgroundSize": "cover",
       }
     }
   >
@@ -18,7 +16,7 @@ exports[`renders with multiple children 1`] = `
         key="0"
         style={
           Object {
-            "flexDirection": "row",
+            "backgroundSize": "auto",
           }
         }
       >
@@ -44,11 +42,8 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "backgroundRepeat": "repeat",
+                "backgroundSize": "auto",
               }
             }
           >
@@ -58,8 +53,7 @@ exports[`renders with multiple children 1`] = `
               <Text
                 style={
                   Object {
-                    "color": undefined,
-                    "fontSize": NaN,
+                    "backgroundSize": "100% 100%",
                   }
                 }
               >
@@ -78,7 +72,7 @@ exports[`renders with multiple children 1`] = `
         key="1"
         style={
           Object {
-            "flexDirection": "row",
+            "backgroundSize": "auto",
           }
         }
       >
@@ -104,11 +98,8 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "backgroundRepeat": "repeat",
+                "backgroundSize": "auto",
               }
             }
           >
@@ -128,9 +119,7 @@ exports[`renders with single child 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
+        "backgroundSize": "cover",
       }
     }
   >
@@ -141,7 +130,7 @@ exports[`renders with single child 1`] = `
         key="0"
         style={
           Object {
-            "flexDirection": "row",
+            "backgroundSize": "auto",
           }
         }
       >
@@ -167,11 +156,8 @@ exports[`renders with single child 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "backgroundRepeat": "repeat",
+                "backgroundSize": "auto",
               }
             }
           >

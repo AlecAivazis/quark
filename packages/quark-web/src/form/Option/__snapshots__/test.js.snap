@@ -9,11 +9,11 @@ exports[`mixes active and selected styles 1`] = `
     <Text>
       <InnerText
         style={
-          Array [
-            undefined,
-            93,
-            undefined,
-          ]
+          Object {
+            "fontFamily": "System",
+            "fontSize": "inherit",
+            "margin": 0,
+          }
         }
       >
         <GetTheme>
@@ -21,6 +21,9 @@ exports[`mixes active and selected styles 1`] = `
             style={
               Object {
                 "color": "#48484D",
+                "cursor": "inherit",
+                "fontFamily": "System",
+                "fontSize": "inherit",
                 "margin": 0,
               }
             }
@@ -64,11 +67,11 @@ exports[`renders active style 1`] = `
     <Text>
       <InnerText
         style={
-          Array [
-            undefined,
-            93,
-            undefined,
-          ]
+          Object {
+            "fontFamily": "System",
+            "fontSize": "inherit",
+            "margin": 0,
+          }
         }
       >
         <GetTheme>
@@ -76,6 +79,9 @@ exports[`renders active style 1`] = `
             style={
               Object {
                 "color": "#48484D",
+                "cursor": "inherit",
+                "fontFamily": "System",
+                "fontSize": "inherit",
                 "margin": 0,
               }
             }
@@ -116,11 +122,11 @@ exports[`renders default style 1`] = `
     <Text>
       <InnerText
         style={
-          Array [
-            undefined,
-            93,
-            undefined,
-          ]
+          Object {
+            "fontFamily": "System",
+            "fontSize": "inherit",
+            "margin": 0,
+          }
         }
       >
         <GetTheme>
@@ -128,6 +134,9 @@ exports[`renders default style 1`] = `
             style={
               Object {
                 "color": "#48484D",
+                "cursor": "inherit",
+                "fontFamily": "System",
+                "fontSize": "inherit",
                 "margin": 0,
               }
             }
@@ -169,11 +178,11 @@ exports[`renders selected style 1`] = `
     <Text>
       <InnerText
         style={
-          Array [
-            undefined,
-            93,
-            undefined,
-          ]
+          Object {
+            "fontFamily": "System",
+            "fontSize": "inherit",
+            "margin": 0,
+          }
         }
       >
         <GetTheme>
@@ -181,6 +190,9 @@ exports[`renders selected style 1`] = `
             style={
               Object {
                 "color": "#48484D",
+                "cursor": "inherit",
+                "fontFamily": "System",
+                "fontSize": "inherit",
                 "margin": 0,
               }
             }

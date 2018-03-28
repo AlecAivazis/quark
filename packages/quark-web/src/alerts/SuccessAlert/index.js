@@ -6,7 +6,7 @@ import { GetTheme, IconCheckCircle } from 'quark-core'
 import BaseAlert from '../BaseAlert'
 import type { AlertProps } from '../BaseAlert'
 
-const MessageAlert = props => (
+const MessageAlert = (props: AlertProps) => (
     <GetTheme>
         {({ green }) => (
             <BaseAlert

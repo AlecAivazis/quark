@@ -70,7 +70,7 @@ class Cycle extends React.Component<Props, State> {
         }))
 
     _prev = (): void =>
-        this.setState(({ index }) => ({
+        this.setState(({ index, incrementCount }) => ({
             index: index === 0 ? this.props.items.length - 1 : index - 1,
             incrementCount: incrementCount + 1
         }))
