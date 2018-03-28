@@ -4,10 +4,20 @@ exports[`renders 1`] = `
 <Table>
   <View
     style={
-      Array [
-        106,
-        undefined,
-      ]
+      Object {
+        "MozAppearance": "textfield",
+        "appearance": "none",
+        "backgroundColor": "transparent",
+        "borderColor": "black",
+        "borderRadius": 0,
+        "borderStyle": "solid",
+        "borderWidth": 0,
+        "boxSizing": "border-box",
+        "fontFamily": "System",
+        "fontSize": 14,
+        "padding": 0,
+        "resize": "none",
+      }
     }
   >
     <div
