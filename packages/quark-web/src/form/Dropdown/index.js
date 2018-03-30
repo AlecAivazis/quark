@@ -8,6 +8,12 @@ import { Portal, ClickAway, Card, Measure, EventListener } from 'quark-web'
 import type { MeasurePayload } from 'quark-web'
 import styles from './styles'
 
+type DropdownPayload = {
+    index: number,
+    setIndex: number => void,
+    toggle: () => void
+}
+
 type Props = {
     children: DropdownPayload => React.Node,
     toggle: React.Node,
@@ -15,12 +21,6 @@ type Props = {
     dropdownStyle?: {},
     min?: number,
     max?: number
-}
-
-type DropdownPayload = {
-    index: number,
-    setIndex: number => void,
-    toggle: () => void
 }
 
 type State = {

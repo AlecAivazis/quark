@@ -28,18 +28,14 @@ function generate(pkg) {
                 return getComponentData({ componentName, sectionName, componentPath })
             } catch (error) {
                 errors.push(
-                    'An error occurred while attempting to generate metadata for ' +
-                        componentName +
-                        '. ' +
-                        error
+                    `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
                 )
             }
         })
     })
-    writeFile(
-        paths.output,
-        'module.exports = ' + JSON.stringify(errors.length ? errors : componentData)
-    )
+    errors.length
+        ? console.log(chalk.red(errors.join('\n')))
+        : writeFile(`module.exports = ${JSON.stringify(componentData)}`)
 }
 
 function getComponentData({ componentName, sectionName, componentPath }) {
@@ -53,8 +49,8 @@ function getComponentData({ componentName, sectionName, componentPath }) {
         section: sectionName,
         description: info.description,
         props: info.props,
-        code: content,
-        examples: getExampleData({ examplesPath, componentName })
+        code: content
+        // examples: getExampleData({ examplesPath, componentName })
     }
 }
 
