@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 type Props = {
     id: string,
-    children: React.Element<*>,
+    children: React.Element<any>,
     style?: {}
 }
 

@@ -3,7 +3,7 @@
 import * as React from 'react'
 
 type Props = {
-    children: MeasurePayload => React.Node
+    children: (vals: MeasurePayload) => React.Node
 }
 
 type State = {
@@ -21,7 +21,7 @@ type BoundingBox = {
 }
 
 export type MeasurePayload = BoundingBox & {
-    measureRef: any => void
+    measureRef: (any: any) => void
 }
 
 class Measure extends React.Component<Props, State> {

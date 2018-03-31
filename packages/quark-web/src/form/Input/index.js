@@ -8,7 +8,7 @@ import styles from './styles'
 
 type Props = {
     value: string,
-    onChange: (string, Event) => void
+    onChange: (str: string, evt: Event) => void
 } & { [key: string]: string }
 
 const Input = ({ value, onChange, error, style, ...unused }: Props) => (

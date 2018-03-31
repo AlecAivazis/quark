@@ -2,7 +2,7 @@
 import * as React from 'react'
 
 export type AlertConfig = {
-    content?: React.ReactNode,
+    content?: React.Node,
     message?: string,
     type?: 'success' | 'warning' | 'alert',
     namespace?: 'default',
@@ -11,7 +11,7 @@ export type AlertConfig = {
 
 export const QUARK_ALERT = 'QUARK_ALERT'
 
-export default function({ ...config }: AlertConfig) {
+export default function Trigger({ ...config }: AlertConfig) {
     // the metadata for the event
     const detail = {
         namespace: 'default',
@@ -24,5 +24,5 @@ export default function({ ...config }: AlertConfig) {
     const alert = new CustomEvent(QUARK_ALERT, { detail })
 
     // dispatch event
-    window.dispatchEvent(alert)
+    return window.dispatchEvent(alert)
 }

@@ -22,20 +22,25 @@ function generate(pkg) {
     const errors = []
     const componentData = getDirectories(pkg).map(sectionName => {
         const sectionPath = path.join(pkg, sectionName)
-        return getDirectories(sectionPath).map(componentName => {
-            try {
-                const componentPath = path.join(sectionPath, componentName)
-                return getComponentData({ componentName, sectionName, componentPath })
-            } catch (error) {
-                errors.push(
-                    `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
-                )
-            }
-        })
+        return (
+            getDirectories(sectionPath)
+                // only gen docs for uppercase dir names inside each section (i.e., react components)
+                .filter(dirName => dirName[0] === dirName[0].toUpperCase())
+                .map(componentName => {
+                    try {
+                        const componentPath = path.join(sectionPath, componentName)
+                        return getComponentData({ componentName, sectionName, componentPath })
+                    } catch (error) {
+                        errors.push(
+                            `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
+                        )
+                    }
+                })
+        )
     })
     errors.length
         ? console.log(chalk.red(errors.join('\n')))
-        : writeFile(`module.exports = ${JSON.stringify(componentData)}`)
+        : writeFile(paths.output, `module.exports = ${JSON.stringify(componentData, null, '')}`)
 }
 
 function getComponentData({ componentName, sectionName, componentPath }) {

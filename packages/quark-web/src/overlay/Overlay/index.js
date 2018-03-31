@@ -20,5 +20,3 @@ export const Overlay = ({ toggle, visible, ...unused }: OverlayProps) =>
             </ClickAway>
         </Portal>
     ) : null
-
-export default Overlay

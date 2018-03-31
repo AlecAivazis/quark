@@ -5,8 +5,8 @@ import * as React from 'react'
 
 type Props = {
     event: string,
-    children: Event => any,
-    filter?: Event => boolean
+    children: (evt: Event) => any,
+    filter?: (evt: Event) => boolean
 }
 
 class EventHandler extends React.Component<Props> {
@@ -32,7 +32,7 @@ class EventHandler extends React.Component<Props> {
     }
 
     // default props
-    get _filter(): Event => boolean {
+    get _filter(): (evt: Event) => boolean {
         return this.props.filter || (evt => true)
     }
 }
