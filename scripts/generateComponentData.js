@@ -20,24 +20,34 @@ if (enableWatchMode) {
 
 function generate(pkg) {
     const errors = []
-    const componentData = getDirectories(pkg).map(sectionName => {
+    const componentData = getDirectories(pkg).reduce((data, sectionName) => {
+        // build path to current section
         const sectionPath = path.join(pkg, sectionName)
-        return (
-            getDirectories(sectionPath)
-                // only gen docs for uppercase dir names inside each section (i.e., react components)
-                .filter(dirName => dirName[0] === dirName[0].toUpperCase())
-                .map(componentName => {
-                    try {
-                        const componentPath = path.join(sectionPath, componentName)
-                        return getComponentData({ componentName, sectionName, componentPath })
-                    } catch (error) {
-                        errors.push(
-                            `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
-                        )
-                    }
-                })
-        )
-    })
+        // get all components from current section
+        const sectionData = getDirectories(sectionPath)
+            // only gen docs for uppercase dir names inside each section (i.e., react components)
+            .filter(dirName => dirName[0] === dirName[0].toUpperCase())
+            // map over components and generate docs for each
+            .map(componentName => {
+                try {
+                    const componentPath = path.join(sectionPath, componentName)
+                    return getComponentData({ componentName, sectionName, componentPath })
+                } catch (error) {
+                    errors.push(
+                        `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
+                    )
+                }
+            })
+
+        return [
+            ...data,
+            {
+                section: sectionName,
+                data: sectionData
+            }
+        ]
+    }, [])
+
     errors.length
         ? console.log(chalk.red(errors.join('\n')))
         : writeFile(paths.output, `module.exports = ${JSON.stringify(componentData, null, '')}`)
