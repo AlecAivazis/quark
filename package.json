@@ -20,7 +20,7 @@
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "gen:docs": "node scripts/generateComponentData.js"
+        "gen:docs": "node scripts/genDocs/index.js"
     },
     "prettier": {
         "tabWidth": 4,

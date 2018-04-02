@@ -8,7 +8,7 @@ import styles from './styles'
 
 type Props = {
     visible: boolean,
-    children: React.Element<*>,
+    children: React.Element<any>,
     toggle: () => void
 }
 

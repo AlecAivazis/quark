@@ -13,14 +13,14 @@ type BoundingBox = {
 // we pass the bounding box information inline with the data
 type BBPayload = BoundingBox & { data?: {} }
 
-type TransitionHandler = BBPayload => void
+type TransitionHandler = (payload: BBPayload) => void
 
 type Props = {
     children: (transitionTo: TransitionHandler) => null,
     style: {},
     unused: {},
-    loading: ViewPayload => React.Element<*>,
-    view: ViewPayload => React.Element<*>
+    loading: (payload: ViewPayload) => React.Element<any>,
+    view: (payload: ViewPayload) => React.Element<any>
 }
 
 type State = {
@@ -35,7 +35,7 @@ type State = {
 export type ViewPayload = {
     data: {},
     closeView: () => void,
-    openView: BBPayload => void
+    openView: (payload: BBPayload) => void
 }
 
 const animationDuration = 150
@@ -68,10 +68,7 @@ class ZoomGridContainer extends React.Component<Props, State> {
             openView: this._openView
         }
         return (
-            <View
-                style={[styles.container, style]}
-                ref={ele => (this._root = ele)}
-            >
+            <View style={[styles.container, style]} ref={ele => (this._root = ele)}>
                 {children(this._openView)}
                 {this.state.showView &&
                     this.state.modal && (
