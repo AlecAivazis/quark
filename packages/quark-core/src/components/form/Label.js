@@ -12,9 +12,9 @@ type Props = ViewPropTypes & {
     description?: string,
     error?: boolean
 }
-
+console.log('foo?')
 // a context provider for the error state of the label
-export const LabelErrorContext = React.createContext(false)
+// export const LabelErrorContext = React.createContext(false)
 
 export const Label = ({
     children,
@@ -28,7 +28,7 @@ export const Label = ({
         <View style={styles.labelContainer}>
             <Text style={[styles.labelText, textStyle]}>{value}</Text>
         </View>
-        <LabelErrorContext.Provider>{children}</LabelErrorContext.Provider>
+        {children}
         <View>
             <Text style={[styles.descriptionText]}>{description}</Text>
         </View>

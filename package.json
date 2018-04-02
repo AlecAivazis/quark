@@ -64,6 +64,8 @@
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^21.2.0",
         "babel-plugin-flow-runtime": "^0.15.0",
+        "babel-plugin-react-native-web": "^0.3.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-react-native": "^4.0.0",
         "browser-env": "^3.2.3",
         "coveralls": "^3.0.0",
@@ -85,11 +87,7 @@
         "semver": "^5.5.0",
         "walk": "^2.3.9"
     },
-    "dependencies": {
-        "babel-plugin-react-native-web": "^0.3.0",
-        "babel-plugin-transform-class-properties": "^6.24.1"
-    },
     "peerDependencies": {
-        "react": "^16.3.0-alpha.1"
+        "react": "^16.3.0"
     }
 }
