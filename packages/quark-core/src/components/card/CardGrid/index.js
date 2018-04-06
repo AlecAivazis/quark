@@ -8,19 +8,13 @@ import CardPlaceholder from './Placeholder'
 
 type Props = {
     style: number,
-    children: React.Element<*>,
+    children: React.Element<any>,
     nCols?: number,
     padding?: number,
     unused?: {}
 }
 
-const CardGrid = ({
-    style,
-    children,
-    nCols = 3,
-    padding = 40,
-    ...unused
-}: Props) => {
+const CardGrid = ({ style, children, nCols = 3, padding = 40, ...unused }: Props) => {
     // the style for cards
     const card = {
         marginBottom: padding,
@@ -42,19 +36,13 @@ const CardGrid = ({
                         // the style to apply to the card
                         const cardStyle = i === row.length - 1 ? lastCard : card
                         return (
-                            <View
-                                style={[styles.card, cardStyle]}
-                                key={`card-${i}`}
-                            >
+                            <View style={[styles.card, cardStyle]} key={`card-${i}`}>
                                 {child}
                             </View>
                         )
                     })}
                     {[...new Array(nCols - row.length)].map((_, i) => (
-                        <CardPlaceholder
-                            style={styles.cardWrapper}
-                            key={`placeholder-${i}`}
-                        />
+                        <CardPlaceholder style={styles.cardWrapper} key={`placeholder-${i}`} />
                     ))}
                 </View>
             ))}

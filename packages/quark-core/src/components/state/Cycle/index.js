@@ -9,12 +9,12 @@ type CyclePayload = {
     index: number,
     next: () => void,
     previous: () => void,
-    goTo: number => void
+    goTo: (num: number) => void
 }
 
 type Props = {
     items: any[],
-    children: CyclePayload => void,
+    children: (payload: CyclePayload) => void,
     interval: number,
     active: boolean
 }

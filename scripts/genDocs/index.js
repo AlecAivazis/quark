@@ -14,3 +14,28 @@ if (enableWatchMode) {
 } else {
     genDocs.init()
 }
+
+/**
+ * Generates metdata structured the following way:
+ *
+ * [
+ *     {
+ *         section: 'foo',
+ *         components: [
+ *             {
+ *                 component: 'asdf',
+ *                 packages: ['quark-core'],
+ *                 description: 'asdf is cool.',
+ *                 props: {
+ *                     ...
+ *                 },
+ *                 examples: [
+ *                     {...}
+ *                 ]
+ *
+ *             }
+ *         ]
+ *     },
+ *     ...
+ * ]
+ */

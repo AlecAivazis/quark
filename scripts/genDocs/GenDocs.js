@@ -1,91 +1,212 @@
 // external imports
 const path = require('path')
 const chalk = require('chalk')
+const fs = require('fs')
 const { parse } = require('react-docgen')
+const _ = require('lodash')
 // local imports
+const filePath = require('../filePath')
 const FSUtils = require('./FSUtils')
 const quarkPaths = require('../filePath')
 
 class GenDocs extends FSUtils {
-    constructor(packageDirs) {
-        super()
+    constructor(packageDirs, ...args) {
+        super(...args)
         this.packageDirs = packageDirs
+        this.quarkCore = packageDirs.find(({ name }) => name === 'quark-core')
+        this.quarkWeb = packageDirs.find(({ name }) => name === 'quark-web')
+        this.quarkNative = packageDirs.find(({ name }) => name === 'quark-native')
         this.errors = []
-        this.componentData = []
+        this.data = []
     }
 
     init() {
-        // iterate over all packages
-        this.packageDirs.forEach(({ sourceDir }) => this.generate(sourceDir))
+        try {
+            // generate metadata
+            this.generate()
+        } catch (err) {
+            this.errors.push(err)
+        }
         // write output
         this.writeResult()
     }
 
-    generate(pkg) {
-        // get all sections inside the package
-        const sections = this.getDirectories(pkg)
-        // get componentData
-        this.componentData = sections.reduce((data, sectionName) => {
-            // build path to current section
-            const sectionPath = path.join(pkg, sectionName)
-            // get all components from current section
-            const sectionData = this.getDirectories(sectionPath)
-                // only gen docs for uppercase dir names inside each section (i.e., react components)
-                .filter(dirName => dirName[0] === dirName[0].toUpperCase())
-                // map over components and generate docs for each
-                .map(componentName => {
-                    try {
-                        const componentPath = path.join(sectionPath, componentName)
-                        const componentData = this.getComponentData({
-                            componentName,
-                            sectionName,
-                            componentPath
-                        })
-                        // if we already have data for this component just add any new examples to existing entry
-                        // else create new entry
-                        return componentData
-                    } catch (error) {
-                        this.errors.push(
-                            `An error occurred while attempting to generate metadata for ${componentName}. ${error}`
-                        )
-                    }
-                })
+    generate(packageDirs) {
+        const sections = this.sections
+        const withComponents = this.addComponentsToSections(sections)
+        const withPackages = this.addTagsToComponents(withComponents)
+        const withProps = this.addPropsToComponents(withPackages)
+        const withExamples = this.addExamplesToComponents(withProps)
+    }
 
-            return [
-                ...data,
-                {
-                    section: sectionName,
-                    data: sectionData
-                }
-            ]
+    get sections() {
+        const sections = this.packageDirs.reduce((accSections, currPkg) => {
+            const sections = this.getDirectories(currPkg.componentsDir)
+            return accSections.concat(sections)
         }, [])
+        // dedupe sections
+        return _.uniq(sections)
+    }
+
+    addComponentsToSections(sections) {
+        return sections.reduce((accComponents, currSection) => {
+            // collect components
+            let components = []
+            // check if the sections exists
+            this.packageDirs.forEach(pkg => {
+                // build path to section in the current pkg
+                const sectionPath = path.join(pkg.componentsDir, currSection)
+                // check if sectionPath is valid in this pkg
+                if (this.pathExists(sectionPath)) {
+                    components = components.concat(this.getDirectories(sectionPath))
+                }
+            })
+            // dedupe and remove all directors that do not follow convention for components
+            const filteredComponents = _.uniq(components).filter(
+                // must be uppercase and cannot started with underscore
+                dir => dir[0] === dir[0].toUpperCase() && dir[0] !== '_'
+            )
+            // return accumulator if no components exist in the section
+            if (filteredComponents.length === 0) {
+                return accComponents
+            }
+            // add to accumulator
+            return accComponents.concat({
+                section: currSection,
+                components: filteredComponents
+            })
+        }, [])
+    }
+
+    addTagsToComponents(sectionsWithComponents) {
+        return sectionsWithComponents.reduce((accSections, currSection) => {
+            const components = currSection.components.map(component => {
+                // the tags for a component
+                let tags = []
+                // check core
+                const pathToCore = path.join(
+                    this.quarkCore.componentsDir,
+                    currSection.section,
+                    component
+                )
+                if (this.pathExists(pathToCore)) {
+                    // no-op
+                    tags.push('quark-core')
+                }
+                // check web
+                const pathToWeb = path.join(
+                    this.quarkWeb.componentsDir,
+                    currSection.section,
+                    component
+                )
+                // check if sectionPath is valid in this pkg
+                if (this.pathExists(pathToWeb)) {
+                    tags.push('quark-web')
+                }
+                // check native
+                const pathToNative = path.join(
+                    this.quarkNative.componentsDir,
+                    currSection.section,
+                    component
+                )
+                if (this.pathExists(pathToNative)) {
+                    tags.push('quark-native')
+                }
+                return {
+                    component,
+                    tags
+                }
+            })
+            // update component field of current section
+            const updatedSection = { ...currSection, components }
+            // add components for section back to accumulator
+            return accSections.concat(updatedSection)
+        }, [])
+    }
+
+    addPropsToComponents(componentsWithTags) {
+        return componentsWithTags.reduce((sections, section) => {
+            const components = section.components.map(component => {
+                // get list of props based on the tags / packages in which component resides
+                const props = []
+                component.tags.forEach(tag => {
+                    const propData = this.getProps(tag, section.section, component.component)
+                    props.push(propData)
+                })
+                // if only one tag then there are no props to compare
+                if (props.length === 1) {
+                    return {
+                        ...component,
+                        props: props[0]
+                    }
+                } else if (props.length === 2) {
+                    // TODO: perform deep comparision here
+                    // NOTE: how deep should the comparision go? Keys? Keys and values?
+                    return component
+                    // if have two sets of props compare the result to make sure consistent
+                } else {
+                    console.log(chalk.red(`No props found for ${component.component}.`))
+                    // throw new Error(`No props found for: ${component}.`)
+                }
+            })
+            // update component field of current section
+            const updatedSection = { ...section, components }
+            // add components for section back to accumulator
+            return sections.concat(updatedSection)
+        }, [])
+    }
+
+    getProps(tag, section, component) {
+        // get packageDir based on tag
+        const { componentsDir } = this.packageDirs.find(({ name }) => tag === name)
+        // build index path
+        const indexPath = path.join(componentsDir, section, component, 'index.js')
+        // get the file's content
+        const content = this.readFile(indexPath)
+        // return the props from file content
+        return parse(content).props
+    }
+
+    addExamplesToComponents(sections) {
+        return sections.reduce((accSections, currSection) => {
+            const components = currSection.components.map(component => {
+                // build examples file path
+                const examplesPath = path.join(
+                    filePath.docs,
+                    'examples',
+                    currSection.section,
+                    component.component
+                )
+                // throw if no examples exist for this section/component
+                if (!this.pathExists(examplesPath)) {
+                    console.log(chalk.red(`No examples provided for ${component.component}.`))
+                }
+                return {
+                    ...component,
+                    // TODO: look for & parse README!
+                    description: 'foo',
+                    examples: this.getExampleData()
+                }
+            })
+        }, [])
+        // update component field of current section
+        const updatedSection = { ...currSection, components }
+        // add components for section back to accumulator
+        return accSections.concat(updatedSection)
     }
 
     writeResult() {
         this.errors.length
             ? console.log(chalk.red(this.errors.join('\n')))
-            : this.writeFile(
-                  path.join(quarkPaths.docs, 'componentData.js'),
-                  `module.exports = ${JSON.stringify(this.componentData, null, '')}`
+            : // : this.writeFile(
+              //       path.join(quarkPaths.docs, 'componentData.js'),
+              //       `module.exports = ${JSON.stringify(this.data, null, '')}`
+              //   )
+              this.writeFile(
+                  path.join(quarkPaths.docs, 'componentData.json'),
+                  JSON.stringify(this.data, null, ''),
+                  'utf8'
               )
-    }
-
-    checkUniqueness({ sectionName, componentName }) {}
-
-    getComponentData({ componentName, sectionName, componentPath }) {
-        const indexPath = path.join(componentPath, 'index.js')
-        const examplesPath = path.join(componentPath, 'examples')
-        const content = this.readFile(indexPath)
-        const info = parse(content)
-
-        return {
-            name: componentName,
-            section: sectionName,
-            description: info.description,
-            props: info.props,
-            code: content
-            // examples: getExampleData({ examplesPath, componentName })
-        }
     }
 
     getExampleData({ examplesPath, componentName }) {

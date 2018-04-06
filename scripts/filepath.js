@@ -8,7 +8,8 @@ const buildDir = 'build'
 const packageDir = 'packages'
 // the directory within the package with the source
 const src = 'src'
-
+// the directory within the package with the components
+const components = 'components'
 // the list of packages
 const packages = ['quark-core', 'quark-web', 'quark-native']
 
@@ -17,8 +18,10 @@ const packageDirs = packages.map(pkg => {
     const dir = path.join(packageDir, pkg)
     return {
         sourceDir: path.join(dir, src),
+        componentsDir: path.join(dir, src, components),
         buildDir: path.join(dir, buildDir),
-        packageDir: dir
+        packageDir: dir,
+        name: pkg
     }
 })
 

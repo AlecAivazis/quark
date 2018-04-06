@@ -29,6 +29,10 @@ class FSUtils {
     readFile(filePath) {
         return fs.readFileSync(filePath, 'utf-8')
     }
+
+    pathExists(filePath) {
+        return fs.existsSync(filePath)
+    }
 }
 
 module.exports = FSUtils
