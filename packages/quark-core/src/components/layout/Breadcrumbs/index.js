@@ -3,13 +3,13 @@
 import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
-import { H2 } from '..'
+import { H2 } from '../..'
 import { baseDim, grey5 } from 'quark-core/styles'
 
 type Props = {
-    divider: React.Element<*>,
+    divider: React.Element<any>,
     style: { [key: string]: string },
-    children: React.Element<*>
+    children: React.Element<any>
 }
 
 const Breadcrumbs = ({

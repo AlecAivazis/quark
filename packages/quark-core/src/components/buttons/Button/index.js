@@ -3,8 +3,8 @@
 import React from 'react'
 // local imports
 import { GetTheme } from 'quark-core'
-import BaseWithText from './Text'
-import type { TextButtonProps } from './Text'
+import BaseWithText from '../Text'
+import type { TextButtonProps } from '../Text'
 
 const Button = ({ style, ...unused }: TextButtonProps) => (
     <GetTheme>

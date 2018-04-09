@@ -4,8 +4,8 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 // local imports
 import { GetTheme } from 'quark-core'
-import TableRow, { styles as rowStyles } from './TableRow'
-import type { TableRowProps } from './TableRow'
+import TableRow, { styles as rowStyles } from '../TableRow'
+import type { TableRowProps } from '../TableRow'
 
 const TableHeader = ({ style, ...unused }: TableRowProps) => (
     <GetTheme>

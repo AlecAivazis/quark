@@ -137,12 +137,21 @@ class GenDocs extends FSUtils {
                         props: props[0]
                     }
                 } else if (props.length === 2) {
-                    // TODO: perform deep comparision here
-                    // NOTE: how deep should the comparision go? Keys? Keys and values?
+                    const hasSameProps = _.isEqual(props[0], props[1])
+                    // compare prop tables if component exists in more than one package
+                    if (!hasSameProps) {
+                        console.log(
+                            chalk.red(
+                                `Prop table is not equal across packages for ${
+                                    component.component
+                                }. Please reconcile.`
+                            )
+                        )
+                    }
                     return component
                     // if have two sets of props compare the result to make sure consistent
                 } else {
-                    console.log(chalk.red(`No props found for ${component.component}.`))
+                    console.log(chalk.red(`Missing props for ${component.component}.`))
                     // throw new Error(`No props found for: ${component}.`)
                 }
             })
@@ -158,10 +167,14 @@ class GenDocs extends FSUtils {
         const { componentsDir } = this.packageDirs.find(({ name }) => tag === name)
         // build index path
         const indexPath = path.join(componentsDir, section, component, 'index.js')
-        // get the file's content
-        const content = this.readFile(indexPath)
-        // return the props from file content
-        return parse(content).props
+        try {
+            // get the file's content
+            const content = this.readFile(indexPath)
+            // return the props from file content
+            return parse(content).props
+        } catch (err) {
+            console.log(chalk.red(`Issue parsing props ${indexPath}: ${err}.`))
+        }
     }
 
     addExamplesToComponents(sections) {
@@ -233,17 +246,17 @@ class GenDocs extends FSUtils {
     }
 
     writeResult(data) {
-        this.errors.length
-            ? console.log(chalk.red(this.errors.join('\n')))
-            : this.writeFile(
-                  path.join(quarkPaths.docs, 'componentData.js'),
-                  `module.exports = ${JSON.stringify(this.data, null, '')}`
-              )
-        //   this.writeFile(
-        //       path.join(quarkPaths.docs, 'componentData.json'),
-        //       JSON.stringify(this.data, null, ''),
-        //       'utf8'
-        //   )
+        if (this.errors.length) {
+            console.log(chalk.red(this.errors.join('\n')))
+        } else {
+            this.writeFile(
+                path.join(quarkPaths.docs, 'componentData.js'),
+                `module.exports = ${JSON.stringify(this.data, null, '')}`
+            )
+            const numOfSections = this.data.length
+            const numOfComponents = this.data.reduce((acc, curr) => acc + curr.components.length, 0)
+            console.log(chalk.green(`${numOfSections} sections\n${numOfComponents} components`))
+        }
     }
 }
 

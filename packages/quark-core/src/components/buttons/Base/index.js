@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Text, StyleSheet, Animated, Easing, TouchableWithoutFeedback } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
-import { styles, containerSizes, sizeConstraints } from './styles'
+import { styles, containerSizes, sizeConstraints } from '../styles'
 
 export type ButtonProps = {
     size?: string,
@@ -19,7 +19,7 @@ export type ButtonProps = {
     onPressIn?: (...args: Array<any>) => void,
     onPressOut?: (...args: Array<any>) => void,
     style?: {},
-    children?: React.Element<*>
+    children?: React.Element<any>
 }
 
 type State = {

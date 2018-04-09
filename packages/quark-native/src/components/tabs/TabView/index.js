@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
-import TabBar from './TabBar'
+import TabBar from '../TabBar'
 
 class TabView extends React.Component {
     static propTypes = {

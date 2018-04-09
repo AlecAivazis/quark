@@ -5,8 +5,8 @@ import { View, StyleSheet } from 'react-native'
 // local imports
 import { grey1, grey5, primaryColor, baseDim } from 'quark-core/styles'
 import { text, h3 } from 'quark-core/styles'
-import { SecondaryButton } from '../buttons'
-import type { TextButtonProps } from '../buttons/Text'
+import { SecondaryButton } from '../../buttons'
+import type { TextButtonProps } from '../../buttons/Text'
 
 type BreadcrumbChildProps = TextButtonProps & {
     active?: boolean
