@@ -21,13 +21,7 @@ class GenDocs extends FSUtils {
     }
 
     init() {
-        try {
-            // generate metadata
-            this.generate()
-        } catch (err) {
-            this.errors.push(err)
-        }
-        // write output
+        this.generate()
         this.writeResult()
     }
 
@@ -37,6 +31,7 @@ class GenDocs extends FSUtils {
         const withPackages = this.addTagsToComponents(withComponents)
         const withProps = this.addPropsToComponents(withPackages)
         const withExamples = this.addExamplesToComponents(withProps)
+        this.data = withExamples
     }
 
     get sections() {
@@ -57,8 +52,11 @@ class GenDocs extends FSUtils {
                 // build path to section in the current pkg
                 const sectionPath = path.join(pkg.componentsDir, currSection)
                 // check if sectionPath is valid in this pkg
-                if (this.pathExists(sectionPath)) {
-                    components = components.concat(this.getDirectories(sectionPath))
+                try {
+                    const newComponents = this.getDirectories(sectionPath)
+                    components = components.concat(newComponents)
+                } catch (err) {
+                    // swallow this exception
                 }
             })
             // dedupe and remove all directors that do not follow convention for components
@@ -90,7 +88,6 @@ class GenDocs extends FSUtils {
                     component
                 )
                 if (this.pathExists(pathToCore)) {
-                    // no-op
                     tags.push('quark-core')
                 }
                 // check web
@@ -169,70 +166,84 @@ class GenDocs extends FSUtils {
 
     addExamplesToComponents(sections) {
         return sections.reduce((accSections, currSection) => {
-            const components = currSection.components.map(component => {
-                // build examples file path
-                const examplesPath = path.join(
-                    filePath.docs,
-                    'examples',
-                    currSection.section,
-                    component.component
-                )
-                // throw if no examples exist for this section/component
-                if (!this.pathExists(examplesPath)) {
-                    console.log(chalk.red(`No examples provided for ${component.component}.`))
-                }
+            const components = currSection.components.map(currComponent => {
+                const { section: sectionName } = currSection
+                const { component: componentName } = currComponent
+
                 return {
-                    ...component,
-                    // TODO: look for & parse README!
-                    description: 'foo',
-                    examples: this.getExampleData()
+                    ...currComponent,
+                    description: this.getReadme({ sectionName, componentName }),
+                    examples: this.getExampleData({ sectionName, componentName })
                 }
             })
+            // update component field of current section
+            const updatedSection = { ...currSection, components }
+            // add components for section back to accumulator
+            return accSections.concat(updatedSection)
         }, [])
-        // update component field of current section
-        const updatedSection = { ...currSection, components }
-        // add components for section back to accumulator
-        return accSections.concat(updatedSection)
     }
 
-    writeResult() {
-        this.errors.length
-            ? console.log(chalk.red(this.errors.join('\n')))
-            : // : this.writeFile(
-              //       path.join(quarkPaths.docs, 'componentData.js'),
-              //       `module.exports = ${JSON.stringify(this.data, null, '')}`
-              //   )
-              this.writeFile(
-                  path.join(quarkPaths.docs, 'componentData.json'),
-                  JSON.stringify(this.data, null, ''),
-                  'utf8'
-              )
+    getReadme({ sectionName, componentName }) {
+        const readmePath = path.join(filePath.examples, sectionName, componentName, 'README.md')
+        let content = ''
+
+        try {
+            content = this.readFile(filePath)
+        } catch (err) {
+            console.log(chalk.red(`No README provided for ${componentName}.`))
+        }
+
+        return content
     }
 
-    getExampleData({ examplesPath, componentName }) {
-        const examples = this.getExampleFiles({ examplesPath, componentName })
+    getExampleData({ sectionName, componentName }) {
+        const examplesPath = path.join(filePath.examples, sectionName, componentName)
+        const examples = this.getExampleFiles({ sectionName, componentName })
+
         return examples.map(file => {
             const filePath = path.join(examplesPath, file)
             const content = this.readFile(filePath)
-            const info = parse(content)
+            let description = ''
+
+            try {
+                description = parse(content).description
+            } catch (err) {
+                console.log(chalk.red(`Could not parse description in ${filePath} due to ${err}`))
+            }
+
             return {
-                // By convention, component name should match the filename.
-                // So remove the .js extension to get the component name.
+                // Remove the .js extension to get the component name.
                 name: file.slice(0, -3),
-                description: info.description,
+                description,
                 code: content
             }
         })
     }
 
-    getExampleFiles({ examplesPath, componentName }) {
+    getExampleFiles({ sectionName, componentName }) {
+        const examplesPath = path.join(filePath.examples, sectionName, componentName)
         let exampleFiles = []
         try {
-            exampleFiles = this.getFiles(path.join(examplesPath, componentName))
+            // get the files and filter out README.md
+            exampleFiles = this.getFiles(examplesPath).filter(file => file !== 'README.md')
         } catch (error) {
             console.log(chalk.red(`No examples found for ${componentName}.`))
         }
         return exampleFiles
+    }
+
+    writeResult(data) {
+        this.errors.length
+            ? console.log(chalk.red(this.errors.join('\n')))
+            : this.writeFile(
+                  path.join(quarkPaths.docs, 'componentData.js'),
+                  `module.exports = ${JSON.stringify(this.data, null, '')}`
+              )
+        //   this.writeFile(
+        //       path.join(quarkPaths.docs, 'componentData.json'),
+        //       JSON.stringify(this.data, null, ''),
+        //       'utf8'
+        //   )
     }
 }
 

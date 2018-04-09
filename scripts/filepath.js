@@ -2,6 +2,10 @@
 const path = require('path')
 // project root
 const root = path.join(__dirname, '..')
+// the directory within root with examples
+const examples = 'examples'
+// the directory within root with docs
+const docs = 'docs'
 // the directory to build to inside of the packages
 const buildDir = 'build'
 // the package directory
@@ -26,7 +30,8 @@ const packageDirs = packages.map(pkg => {
 })
 
 module.exports = {
-    docs: path.join(root, 'docs'),
+    examples: path.join(root, examples),
+    docs: path.join(root, docs),
     packages,
     packageDirs
 }
