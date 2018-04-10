@@ -1,20 +1,3 @@
-// external imports
-const chokidar = require('chokidar')
-// local imports
-const quarkPaths = require('../filePath')
-const GenDocs = require('./GenDocs')
-
-const enableWatchMode = process.argv.slice(2) == '--watch'
-
-const genDocs = new GenDocs(quarkPaths.packageDirs)
-
-if (enableWatchMode) {
-    // Regenerate component metadata when components or examples change.
-    chokidar.watch(packages).on('change', (event, path) => genDocs.init())
-} else {
-    genDocs.init()
-}
-
 /**
  * Generates metdata structured the following way:
  *
@@ -39,3 +22,26 @@ if (enableWatchMode) {
  *     ...
  * ]
  */
+
+// external imports
+const chokidar = require('chokidar')
+// local imports
+const quarkPaths = require('../filePath')
+const GenDocs = require('./GenDocs')
+
+const enableWatchMode = process.argv.slice(2) == '--watch'
+
+const genDocs = new GenDocs(quarkPaths.packageDirs)
+
+if (enableWatchMode) {
+    // initial run
+    genDocs.init()
+    // get list of dirs to keep an eye on
+    const componentsDirs = quarkPaths.packageDirs.map(({ componentsDir }) => componentsDir)
+    // Regenerate component metadata when components or examples change
+    chokidar
+        .watch([...componentsDirs, quarkPaths.examples])
+        .on('change', (event, path) => genDocs.init())
+} else {
+    genDocs.init()
+}

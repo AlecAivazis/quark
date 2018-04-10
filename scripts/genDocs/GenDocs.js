@@ -137,8 +137,8 @@ class GenDocs extends FSUtils {
                         props: props[0]
                     }
                 } else if (props.length === 2) {
+                    // compare props if component exists in more than one package
                     const hasSameProps = _.isEqual(props[0], props[1])
-                    // compare prop tables if component exists in more than one package
                     if (!hasSameProps) {
                         console.log(
                             chalk.red(
@@ -149,7 +149,6 @@ class GenDocs extends FSUtils {
                         )
                     }
                     return component
-                    // if have two sets of props compare the result to make sure consistent
                 } else {
                     console.log(chalk.red(`Missing props for ${component.component}.`))
                     // throw new Error(`No props found for: ${component}.`)
@@ -166,7 +165,8 @@ class GenDocs extends FSUtils {
         // get packageDir based on tag
         const { componentsDir } = this.packageDirs.find(({ name }) => tag === name)
         // build index path
-        const indexPath = path.join(componentsDir, section, component, 'index.js')
+        const index = 'index.js'
+        const indexPath = path.join(componentsDir, section, component, index)
         try {
             // get the file's content
             const content = this.readFile(indexPath)
@@ -197,11 +197,12 @@ class GenDocs extends FSUtils {
     }
 
     getReadme({ sectionName, componentName }) {
-        const readmePath = path.join(filePath.examples, sectionName, componentName, 'README.md')
+        const readme = 'README.md'
+        const readmePath = path.join(filePath.examples, sectionName, componentName, readme)
         let content = ''
 
         try {
-            content = this.readFile(filePath)
+            content = this.readFile(readmePath)
         } catch (err) {
             console.log(chalk.red(`No README provided for ${componentName}.`))
         }
@@ -253,6 +254,7 @@ class GenDocs extends FSUtils {
                 path.join(quarkPaths.docs, 'componentData.js'),
                 `module.exports = ${JSON.stringify(this.data, null, '')}`
             )
+            // log some basic stats
             const numOfSections = this.data.length
             const numOfComponents = this.data.reduce((acc, curr) => acc + curr.components.length, 0)
             console.log(chalk.green(`${numOfSections} sections\n${numOfComponents} components`))
