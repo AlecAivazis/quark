@@ -182,6 +182,7 @@ class GenDocs extends FSUtils {
             const components = currSection.components.map(currComponent => {
                 const { section: sectionName } = currSection
                 const { component: componentName } = currComponent
+                const examplesPath = path.join(filePath.examples, sectionName, componentName)
 
                 return {
                     ...currComponent,
@@ -238,8 +239,12 @@ class GenDocs extends FSUtils {
         const examplesPath = path.join(filePath.examples, sectionName, componentName)
         let exampleFiles = []
         try {
-            // get the files and filter out README.md
+            // get all example files and filter out the README
             exampleFiles = this.getFiles(examplesPath).filter(file => file !== 'README.md')
+            // throw error if no example files exist
+            if (exampleFiles.length === 0) {
+                throw Error
+            }
         } catch (error) {
             console.log(chalk.red(`No examples found for ${componentName}.`))
         }
