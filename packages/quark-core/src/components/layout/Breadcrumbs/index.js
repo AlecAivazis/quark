@@ -9,7 +9,7 @@ import { baseDim, grey5 } from 'quark-core/styles'
 type Props = {
     divider: React.Element<any>,
     style: { [key: string]: string },
-    children: React.Element<any>
+    children: React.Node
 }
 
 const Breadcrumbs = ({
