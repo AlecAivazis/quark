@@ -30,7 +30,7 @@ const packageDirs = packages.map(pkg => {
 })
 
 module.exports = {
-    examples: path.join(root, examples),
+    examples: path.join(root, docs, examples),
     docs: path.join(root, docs),
     packages,
     packageDirs
