@@ -3,7 +3,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 // local imports
-import { EventListener } from '.'
+import { EventListener } from '..'
 
 type Props = {
     active: boolean,
