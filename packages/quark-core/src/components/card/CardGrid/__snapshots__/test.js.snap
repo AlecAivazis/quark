@@ -6,15 +6,7 @@ exports[`defaults to 3 columns 1`] = `
     <ScrollView
       style={
         Object {
-          "WebkitOverflowScrolling": "touch",
-          "flex": 1,
-          "overflowX": "hidden",
-          "overflowY": "auto",
-          "transform": Array [
-            Object {
-              "translateZ": 0,
-            },
-          ],
+          "padding": 40,
         }
       }
     >
@@ -39,10 +31,10 @@ exports[`defaults to 3 columns 1`] = `
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
-            "backgroundSize": "auto",
             "flex": 1,
             "overflowX": "hidden",
             "overflowY": "auto",
+            "padding": 40,
             "transform": Array [
               Object {
                 "translateZ": 0,
@@ -67,10 +59,10 @@ exports[`defaults to 3 columns 1`] = `
           style={
             Object {
               "WebkitOverflowScrolling": "touch",
-              "backgroundSize": "auto",
               "flex": 1,
               "overflowX": "hidden",
               "overflowY": "auto",
+              "padding": 40,
               "transform": Array [
                 Object {
                   "translateZ": 0,
@@ -110,9 +102,9 @@ exports[`defaults to 3 columns 1`] = `
                   key="row-0"
                   style={
                     Object {
+                      "flex": 1,
                       "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "justifyContent": "space-around",
                     }
                   }
                 >
@@ -123,25 +115,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
                           "marginRight": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
                       <div
-                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-marginBottom-8d26hk rn-marginRight-w0va4e rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        style={
+                          Object {
+                            "marginBottom": "40px",
+                            "marginRight": "40px",
+                          }
+                        }
                       >
                         <Card
                           key=".0"
@@ -152,7 +139,17 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -187,25 +184,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
                           "marginRight": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
                       <div
-                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-marginBottom-8d26hk rn-marginRight-w0va4e rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        style={
+                          Object {
+                            "marginBottom": "40px",
+                            "marginRight": "40px",
+                          }
+                        }
                       >
                         <Card
                           key=".1"
@@ -216,7 +208,17 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -251,24 +253,18 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-2"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
                       <div
-                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-8d26hk rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        style={
+                          Object {
+                            "marginBottom": "40px",
+                          }
+                        }
                       >
                         <Card
                           key=".2"
@@ -279,7 +275,17 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -316,9 +322,9 @@ exports[`defaults to 3 columns 1`] = `
                   key="row-1"
                   style={
                     Object {
+                      "flex": 1,
                       "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "justifyContent": "space-around",
                     }
                   }
                 >
@@ -329,25 +335,20 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
                           "marginRight": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
                       <div
-                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-marginBottom-8d26hk rn-marginRight-w0va4e rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        style={
+                          Object {
+                            "marginBottom": "40px",
+                            "marginRight": "40px",
+                          }
+                        }
                       >
                         <Card
                           key=".3"
@@ -358,7 +359,17 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -393,24 +404,18 @@ exports[`defaults to 3 columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
                       <div
-                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-8d26hk rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                        style={
+                          Object {
+                            "marginBottom": "40px",
+                          }
+                        }
                       >
                         <Card
                           key=".4"
@@ -421,7 +426,17 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -456,15 +471,18 @@ exports[`defaults to 3 columns 1`] = `
                       key="placeholder-0"
                       style={
                         Object {
-                          "flexDirection": "row",
+                          "flex": 1,
+                          "marginBottom": 40,
+                          "marginRight": 40,
                         }
                       }
                     >
                       <View
                         style={
                           Object {
-                            "flexDirection": "row",
-                            "touchAction": "none",
+                            "flex": 1,
+                            "marginBottom": 40,
+                            "marginRight": 40,
                           }
                         }
                       >
@@ -495,15 +513,7 @@ exports[`supports specifying number of columns 1`] = `
     <ScrollView
       style={
         Object {
-          "WebkitOverflowScrolling": "touch",
-          "flex": 1,
-          "overflowX": "hidden",
-          "overflowY": "auto",
-          "transform": Array [
-            Object {
-              "translateZ": 0,
-            },
-          ],
+          "padding": 40,
         }
       }
     >
@@ -528,10 +538,10 @@ exports[`supports specifying number of columns 1`] = `
         style={
           Object {
             "WebkitOverflowScrolling": "touch",
-            "backgroundSize": "auto",
             "flex": 1,
             "overflowX": "hidden",
             "overflowY": "auto",
+            "padding": 40,
             "transform": Array [
               Object {
                 "translateZ": 0,
@@ -556,10 +566,10 @@ exports[`supports specifying number of columns 1`] = `
           style={
             Object {
               "WebkitOverflowScrolling": "touch",
-              "backgroundSize": "auto",
               "flex": 1,
               "overflowX": "hidden",
               "overflowY": "auto",
+              "padding": 40,
               "transform": Array [
                 Object {
                   "translateZ": 0,
@@ -599,9 +609,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-0"
                   style={
                     Object {
+                      "flex": 1,
                       "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "justifyContent": "space-around",
                     }
                   }
                 >
@@ -612,20 +622,9 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
                           "marginRight": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -641,7 +640,17 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -676,19 +685,8 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -704,7 +702,17 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -741,9 +749,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-1"
                   style={
                     Object {
+                      "flex": 1,
                       "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "justifyContent": "space-around",
                     }
                   }
                 >
@@ -754,20 +762,9 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
                           "marginRight": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -783,7 +780,17 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -818,19 +825,8 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-1"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -846,7 +842,17 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -883,9 +889,9 @@ exports[`supports specifying number of columns 1`] = `
                   key="row-2"
                   style={
                     Object {
+                      "flex": 1,
                       "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "justifyContent": "space-around",
                     }
                   }
                 >
@@ -896,19 +902,8 @@ exports[`supports specifying number of columns 1`] = `
                       key="card-0"
                       style={
                         Object {
-                          "borderWidth": 0,
-                          "boxSizing": "border-box",
-                          "color": "inherit",
-                          "display": "inline",
-                          "font": "inherit",
-                          "fontFamily": "System",
-                          "fontSize": 14,
-                          "margin": 0,
+                          "flex": 1,
                           "marginBottom": 40,
-                          "padding": 0,
-                          "textDecorationLine": "none",
-                          "whiteSpace": "pre-wrap",
-                          "wordWrap": "break-word",
                         }
                       }
                     >
@@ -924,7 +919,17 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "borderRadius": 2,
+                                  "borderStyle": "solid",
+                                  "borderWidth": 1,
+                                  "flex": 1,
                                   "shadowColor": "#EAEAEE",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 2,
+                                  },
+                                  "shadowOpacity": 0.54,
+                                  "shadowRadius": 4,
                                 }
                               }
                             >
@@ -959,15 +964,18 @@ exports[`supports specifying number of columns 1`] = `
                       key="placeholder-0"
                       style={
                         Object {
-                          "flexDirection": "row",
+                          "flex": 1,
+                          "marginBottom": 40,
+                          "marginRight": 40,
                         }
                       }
                     >
                       <View
                         style={
                           Object {
-                            "flexDirection": "row",
-                            "touchAction": "none",
+                            "flex": 1,
+                            "marginBottom": 40,
+                            "marginRight": 40,
                           }
                         }
                       >

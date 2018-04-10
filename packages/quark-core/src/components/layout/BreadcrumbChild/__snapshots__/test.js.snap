@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<BreadcrumbChild>
+  <SecondaryButton
+    defaultColor="white"
+  >
+    <GetTheme>
+      <ButtonWithText
+        defaultColor="white"
+        size="medium"
+      >
+        <BaseButton
+          constrainSize={true}
+          defaultColor="white"
+          size="medium"
+        >
+          <TouchableWithoutFeedback
+            accessible={true}
+            onPressIn={[Function]}
+            onPressOut={[Function]}
+          >
+            <AnimatedComponent
+              accessible={true}
+              onKeyDown={[Function]}
+              onKeyUp={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "rgba(255, 255, 255, 1)",
+                  "borderRadius": 2,
+                  "cursor": "pointer",
+                  "height": 40,
+                  "justifyContent": "center",
+                  "maxWidth": 240,
+                  "minWidth": 120,
+                  "overflow": "hidden",
+                  "touchAction": "manipulation",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "rgba(255, 255, 255, 1)",
+                    "borderRadius": 2,
+                    "cursor": "pointer",
+                    "height": 40,
+                    "justifyContent": "center",
+                    "maxWidth": 240,
+                    "minWidth": 120,
+                    "overflow": "hidden",
+                    "touchAction": "manipulation",
+                  }
+                }
+              >
+                <div
+                  className="rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "WebkitAlignItems": "center",
+                      "WebkitBoxAlign": "center",
+                      "WebkitBoxPack": "center",
+                      "WebkitJustifyContent": "center",
+                      "alignItems": "center",
+                      "backgroundColor": "rgba(255, 255, 255, 1)",
+                      "borderBottomLeftRadius": "2px",
+                      "borderBottomRightRadius": "2px",
+                      "borderTopLeftRadius": "2px",
+                      "borderTopRightRadius": "2px",
+                      "cursor": "pointer",
+                      "height": "40px",
+                      "justifyContent": "center",
+                      "maxWidth": "240px",
+                      "minWidth": "120px",
+                      "msFlexAlign": "center",
+                      "msFlexPack": "center",
+                      "msTouchAction": "manipulation",
+                      "overflowX": "hidden",
+                      "overflowY": "hidden",
+                      "touchAction": "manipulation",
+                    }
+                  }
+                  tabIndex="0"
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": undefined,
+                        "fontSize": 16,
+                      }
+                    }
+                  >
+                    <InnerText
+                      style={
+                        Object {
+                          "color": undefined,
+                          "fontSize": 16,
+                        }
+                      }
+                    >
+                      <GetTheme>
+                        <Text
+                          style={
+                            Object {
+                              "color": undefined,
+                              "fontSize": 16,
+                              "margin": 0,
+                            }
+                          }
+                        >
+                          <div
+                            className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                            dir="auto"
+                          >
+                            <Text>
+                              <span
+                                className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-fontVariant-ebii48 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
+                                dir="auto"
+                              >
+                                hello
+                              </span>
+                            </Text>
+                          </div>
+                        </Text>
+                      </GetTheme>
+                    </InnerText>
+                  </Text>
+                </div>
+              </View>
+            </AnimatedComponent>
+          </TouchableWithoutFeedback>
+        </BaseButton>
+      </ButtonWithText>
+    </GetTheme>
+  </SecondaryButton>
+</BreadcrumbChild>
+`;

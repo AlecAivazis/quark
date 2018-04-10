@@ -4,7 +4,7 @@ import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
 import { GetTheme, Theme } from 'quark-core'
-import { primaryColor } from '../../styles'
+import { primaryColor } from '../../../styles'
 
 it('can retrieve the theme from context', () =>
     expect(

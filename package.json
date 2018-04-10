@@ -85,11 +85,12 @@
         "npm-query": "^1.1.0",
         "prettier": "^1.7.4",
         "raf": "^3.4.0",
-        "react-docgen": "3.0.0-beta11",
         "react": "^16.3.0",
+        "react-docgen": "3.0.0-beta11",
         "react-dom": "^16.3.0",
         "react-native-web": "^0.5.3",
         "semver": "^5.5.0",
+        "svgs": "^3.2.1",
         "walk": "^2.3.9"
     },
     "peerDependencies": {
