@@ -20,7 +20,7 @@ export type FlexViewPropTypes = {
     alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 } & ViewPropTypes
 
-export const Flex = ({
+const Flex = ({
     direction,
     wrap,
     justifyContent,
