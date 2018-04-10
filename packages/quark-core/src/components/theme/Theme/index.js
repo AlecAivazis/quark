@@ -23,7 +23,7 @@ import {
     lightGreen,
     yellow,
     lightYellow
-} from '../../styles'
+} from '../../../styles'
 // the type that represents a color in the theme
 type Color = string
 

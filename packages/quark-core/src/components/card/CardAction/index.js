@@ -4,7 +4,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import type { ViewPropTypes } from 'react-native'
 // local imports
-import { BaseButtonWithText } from '../buttons'
+import { BaseButtonWithText } from '../../buttons'
 import { GetTheme } from 'quark-core'
 
 const CardAction = ({ style, ...unused }: ViewPropTypes) => (

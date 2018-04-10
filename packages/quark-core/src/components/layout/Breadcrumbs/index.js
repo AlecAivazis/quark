@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
-import { H2 } from '../..'
+import { H2 } from '../../typography'
 import { baseDim, grey5 } from 'quark-core/styles'
 
 type Props = {
