@@ -24,10 +24,10 @@
  */
 
 // external imports
-const chokidar = require('chokidar')
+import chokidar from 'chokidar'
 // local imports
-const quarkPaths = require('../filePath')
-const GenDocs = require('./GenDocs')
+import quarkPaths from '../filePath'
+import GenDocs from './GenDocs'
 
 const enableWatchMode = process.argv.slice(2) == '--watch'
 

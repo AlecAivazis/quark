@@ -1,13 +1,13 @@
 // external imports
-const path = require('path')
-const chalk = require('chalk')
-const fs = require('fs')
-const { parse } = require('react-docgen')
-const _ = require('lodash')
+import path from 'path'
+import chalk from 'chalk'
+import fs from 'fs'
+import { parse } from 'react-docgen'
+import _ from 'lodash'
 // local imports
-const filePath = require('../filePath')
-const FSUtils = require('./FSUtils')
-const quarkPaths = require('../filePath')
+import filePath from '../filePath'
+import FSUtils from './FSUtils'
+import quarkPaths from '../filePath'
 
 class GenDocs extends FSUtils {
     constructor(packageDirs, ...args) {
@@ -267,4 +267,4 @@ class GenDocs extends FSUtils {
     }
 }
 
-module.exports = GenDocs
+export default GenDocs

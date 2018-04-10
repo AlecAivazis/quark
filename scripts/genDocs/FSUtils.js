@@ -1,7 +1,7 @@
 // external imports
-const fs = require('fs')
-const path = require('path')
-const chalk = require('chalk')
+import fs from 'fs'
+import path from 'path'
+import chalk from 'chalk'
 
 class FSUtils {
     getDirectories(filePath) {
@@ -35,4 +35,4 @@ class FSUtils {
     }
 }
 
-module.exports = FSUtils
+export default FSUtils
