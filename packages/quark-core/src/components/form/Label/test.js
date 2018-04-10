@@ -4,7 +4,7 @@ import { Text, View } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
 import { Label } from 'quark-core'
-import { ErrorLabelContext } from './Label'
+import { LabelErrorContext } from './Label'
 
 it('renders', () =>
     expect(
@@ -20,7 +20,7 @@ it('renders', () =>
 it('provides error context to children', () => {
     // the component that consume error context
     const ContextComp = () => (
-        <ErrorLabelContext.Consumer>{JSON.stringify}</ErrorLabelContext.Consumer>
+        <LabelErrorContext.Consumer>{JSON.stringify}</LabelErrorContext.Consumer>
     )
 
     expect(

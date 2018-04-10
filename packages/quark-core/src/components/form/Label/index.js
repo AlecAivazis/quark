@@ -12,6 +12,9 @@ type Props = ViewPropTypes & {
     description?: string,
     error?: boolean
 }
+console.log('foo?')
+// a context provider for the error state of the label
+// export const LabelErrorContext = React.createContext(false)
 
 export const Label = ({
     children,

@@ -15,6 +15,8 @@ test('emitting an alert with the right namespace adds the alert to container', (
         content: 'hello'
     })
 
+    wrapper.update()
+
     // make sure we added the alert to the component state
     expect(wrapper.state().alerts).toMatchObject([{ content: 'hello' }])
 })
@@ -27,6 +29,8 @@ test('the event/container pattern does not need a specific namespace', () => {
     TriggerAlert({
         content: 'hello'
     })
+
+    wrapper.update()
 
     // make sure we added the alert to the component state
     expect(wrapper.state().alerts).toMatchObject([{ content: 'hello' }])
@@ -41,6 +45,8 @@ test('emitting an alert with the wrong namespace does nothing', () => {
         content: 'hello'
     })
 
+    wrapper.update()
+
     // make sure we added the alert to the component state
     expect(wrapper.state().alerts).toEqual([])
 })
@@ -53,6 +59,7 @@ test('passes props to the mounted alert components', () => {
     TriggerAlert({
         content: 'hello'
     })
+    wrapper.update()
 
     // look for a mounted alert
     const alertWrapper = wrapper.find('BaseAlert')
@@ -76,6 +83,8 @@ test('can trigger an warning alert', () => {
         type: 'warning'
     })
 
+    wrapper.update()
+
     // look for a mounted alert
     const alertWrapper = wrapper.find('WarningAlert')
 
@@ -92,6 +101,8 @@ test('can trigger a success alert', () => {
         content: 'hello',
         type: 'success'
     })
+
+    wrapper.update()
 
     // look for a mounted alert
     const alertWrapper = wrapper.find('SuccessAlert')

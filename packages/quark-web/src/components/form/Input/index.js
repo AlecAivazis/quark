@@ -8,10 +8,11 @@ import styles from './styles'
 
 type Props = {
     value: string,
-    onChange: (str: string, evt: Event) => void
+    onChange: (string, Event) => void,
+    icon: React.Node
 } & { [key: string]: string }
 
-const Input = ({ value, onChange, error, style, ...unused }: Props) => (
+const Input = ({ value, onChange, error, style, icon, ...unused }: Props) => (
     <BooleanState>
         {({ state: focused, toggle: toggleFocus }) => (
             <GetTheme>
@@ -35,6 +36,7 @@ const Input = ({ value, onChange, error, style, ...unused }: Props) => (
                     // render a stylable input
                     return (
                         <View style={[containerStyle, style]}>
+                            {icon || null}
                             <TextInput
                                 {...unused}
                                 onFocus={toggleFocus}
