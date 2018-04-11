@@ -21,18 +21,7 @@ exports[`renders content false 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "borderColor": undefined,
-          "borderRadius": 2,
-          "borderWidth": 1,
-          "cursor": "pointer",
-          "display": "flex",
-          "justifyContent": "center",
-          "paddingBottom": NaN,
-          "paddingLeft": NaN,
-          "paddingRight": NaN,
-          "paddingTop": NaN,
-          "touchAction": "manipulate",
+          "color": "#a1a1a1",
         }
       }
     >
@@ -49,11 +38,7 @@ exports[`renders content false 1`] = `
         tabIndex="0"
       >
         <Text
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
+          style={80}
         >
           <div
             className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
@@ -96,19 +81,7 @@ exports[`renders content true 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": undefined,
-          "borderColor": undefined,
-          "borderRadius": 2,
-          "borderWidth": 1,
-          "cursor": "pointer",
-          "display": "flex",
-          "justifyContent": "center",
-          "paddingBottom": NaN,
-          "paddingLeft": NaN,
-          "paddingRight": NaN,
-          "paddingTop": NaN,
-          "touchAction": "manipulate",
+          "color": "#a1a1a1",
         }
       }
     >
@@ -125,11 +98,7 @@ exports[`renders content true 1`] = `
         tabIndex="0"
       >
         <Text
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
+          style={78}
         >
           <div
             className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
@@ -166,16 +135,7 @@ exports[`renders false 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "borderColor": undefined,
-          "borderRadius": 2,
-          "borderWidth": 1,
-          "cursor": "pointer",
-          "display": "flex",
-          "height": NaN,
-          "justifyContent": "center",
-          "touchAction": "manipulate",
-          "width": NaN,
+          "color": "#a1a1a1",
         }
       }
     >
@@ -192,11 +152,7 @@ exports[`renders false 1`] = `
         tabIndex="0"
       >
         <Text
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
+          style={80}
         >
           <div
             className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
@@ -224,17 +180,7 @@ exports[`renders true 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": undefined,
-          "borderColor": undefined,
-          "borderRadius": 2,
-          "borderWidth": 1,
-          "cursor": "pointer",
-          "display": "flex",
-          "height": NaN,
-          "justifyContent": "center",
-          "touchAction": "manipulate",
-          "width": NaN,
+          "color": "#a1a1a1",
         }
       }
     >
@@ -251,11 +197,7 @@ exports[`renders true 1`] = `
         tabIndex="0"
       >
         <Text
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
+          style={78}
         >
           <div
             className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"

@@ -10,12 +10,16 @@ exports[`renders 1`] = `
       size="medium"
       style={
         Object {
-          "alignSelf": "flex-end",
-          "borderRadius": 0,
-          "borderStyle": "solid",
           "borderTopColor": "#EAEAEE",
-          "borderTopWidth": 1,
-          "flex": 1,
+          "bottom": 0,
+          "height": "70%",
+          "left": 0,
+          "margin": "auto",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "transitionDuration": "0.1s",
+          "width": "100%",
         }
       }
       textColor="#4A90E2"
@@ -27,12 +31,16 @@ exports[`renders 1`] = `
         size="medium"
         style={
           Object {
-            "alignSelf": "flex-end",
-            "borderRadius": 0,
-            "borderStyle": "solid",
             "borderTopColor": "#EAEAEE",
-            "borderTopWidth": 1,
-            "flex": 1,
+            "bottom": 0,
+            "height": "70%",
+            "left": 0,
+            "margin": "auto",
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "transitionDuration": "0.1s",
+            "width": "100%",
           }
         }
       >
@@ -53,19 +61,22 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "alignSelf": "flex-end",
                 "backgroundColor": "rgba(255, 255, 255, 1)",
-                "borderRadius": 0,
-                "borderStyle": "solid",
                 "borderTopColor": "#EAEAEE",
-                "borderTopWidth": 1,
-                "cursor": "pointer",
-                "flex": 1,
-                "height": 40,
-                "justifyContent": "center",
+                "bottom": 0,
+                "color": "#a1a1a1",
+                "cursor": "default",
+                "height": "70%",
+                "left": 0,
+                "margin": "auto",
                 "overflow": "hidden",
-                "touchAction": "manipulate",
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "transitionDuration": "0.1s",
+                "userSelect": "none",
+                "width": "100%",
+                "zIndex": 0,
               }
             }
           >
@@ -118,16 +129,37 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
+                      "bottom": 0,
                       "color": "#4A90E2",
-                      "fontSize": 16,
+                      "height": "100%",
+                      "left": 0,
+                      "margin": 0,
+                      "opacity": 0,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": "100%",
                     }
                   }
                 >
                   <InnerText
                     style={
                       Object {
+                        "bottom": 0,
                         "color": "#4A90E2",
-                        "fontSize": 16,
+                        "flexDirection": "row",
+                        "height": "100%",
+                        "left": 0,
+                        "margin": 0,
+                        "opacity": 0,
+                        "overflowX": "auto",
+                        "overflowY": "hidden",
+                        "padding": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                        "width": "100%",
                       }
                     }
                   >
@@ -135,9 +167,21 @@ exports[`renders 1`] = `
                       <Text
                         style={
                           Object {
+                            "backgroundSize": "cover",
+                            "bottom": 0,
                             "color": "#4A90E2",
-                            "fontSize": 16,
+                            "flexDirection": "row",
+                            "height": "100%",
+                            "left": 0,
                             "margin": 0,
+                            "opacity": 0,
+                            "overflowX": "auto",
+                            "overflowY": "hidden",
+                            "padding": 0,
+                            "position": "absolute",
+                            "right": 0,
+                            "top": 0,
+                            "width": "100%",
                           }
                         }
                       >

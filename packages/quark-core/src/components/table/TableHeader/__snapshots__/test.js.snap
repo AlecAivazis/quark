@@ -7,6 +7,8 @@ exports[`renders 1`] = `
       style={
         Object {
           "borderColor": "#C2C2C2",
+          "cursor": "pointer",
+          "touchAction": "manipulate",
         }
       }
     >
@@ -14,13 +16,10 @@ exports[`renders 1`] = `
         <View
           style={
             Object {
-              "borderBottomWidth": 1,
+              "backgroundColor": "transparent",
               "borderColor": "#C2C2C2",
-              "display": "flex",
-              "flexDirection": "row",
-              "height": 40,
-              "paddingBottom": NaN,
-              "paddingTop": NaN,
+              "cursor": "pointer",
+              "touchAction": "manipulate",
             }
           }
         >
