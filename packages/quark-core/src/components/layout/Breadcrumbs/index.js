@@ -7,7 +7,7 @@ import { H2 } from '../../typography'
 import { baseDim, grey5 } from 'quark-core/styles'
 
 type Props = {
-    divider: React.Element<any>,
+    divider: React.Node,
     style: { [key: string]: string },
     children: React.Node
 }
