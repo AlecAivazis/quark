@@ -89,7 +89,7 @@
         "react": "^16.3.0",
         "react-docgen": "3.0.0-beta11",
         "react-dom": "^16.3.0",
-        "react-native-web": "^0.5.3",
+        "react-native-web": "0.3.4",
         "semver": "^5.5.0",
         "svgs": "^3.2.1",
         "walk": "^2.3.9"

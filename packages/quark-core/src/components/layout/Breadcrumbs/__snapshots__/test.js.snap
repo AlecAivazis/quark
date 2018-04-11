@@ -7,9 +7,6 @@ exports[`renders with multiple children 1`] = `
       Object {
         "fontFamily": "inherit",
         "fontSize": "inherit",
-        "fontVariant": Array [
-          "inherit",
-        ],
         "whiteSpace": "inherit",
       }
     }
@@ -127,9 +124,6 @@ exports[`renders with single child 1`] = `
       Object {
         "fontFamily": "inherit",
         "fontSize": "inherit",
-        "fontVariant": Array [
-          "inherit",
-        ],
         "whiteSpace": "inherit",
       }
     }
