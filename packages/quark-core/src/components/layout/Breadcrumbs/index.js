@@ -7,24 +7,22 @@ import { H2 } from '../../typography'
 import { baseDim, grey5 } from 'quark-core/styles'
 
 type Props = {
-    divider: React.Element<any>,
-    style: { [key: string]: string },
+    divider?: React.Node,
+    style?: { [key: string]: string },
     children: React.Node
 }
 
-const Breadcrumbs = ({
-    style,
-    children: childrenProp,
-    divider = <Text style={styles.divider}>></Text>,
-    ...unused
-}: Props) => {
+const Breadcrumbs = ({ style, children: childrenProp, divider, ...unused }: Props) => {
     const children = React.Children.toArray(childrenProp)
+
+    // the divider between elements
+    const divide = divider || <Text style={styles.divider}>></Text>
 
     // add the divider after every child
     let childs = children.map((child, i) => (
         <View style={styles.level} key={i}>
             <View>{child}</View>
-            <View style={styles.dividerContainer}>{i !== children.length - 1 && divider}</View>
+            <View style={styles.dividerContainer}>{i !== children.length - 1 && divide}</View>
         </View>
     ))
 
