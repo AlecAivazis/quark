@@ -37,7 +37,7 @@ class AlertContainer extends React.Component<Props, State> {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 {this.state.alerts.length > 0 && (
                     <FlexColumn style={this.props.style}>
                         <FlexColumn style={styles.contentContainer}>
@@ -68,7 +68,7 @@ class AlertContainer extends React.Component<Props, State> {
                         }
                     }}
                 </EventListener>
-            </React.Fragment>
+            </>
         )
     }
 

@@ -13,14 +13,14 @@ type BoundingBox = {
 // we pass the bounding box information inline with the data
 type BBPayload = BoundingBox & { data?: {} }
 
-type TransitionHandler = (payload: BBPayload) => void
+type TransitionHandler = BBPayload => void
 
 type Props = {
     children: (transitionTo: TransitionHandler) => null,
     style: {},
     unused: {},
-    loading: (payload: ViewPayload) => React.Element<any>,
-    view: (payload: ViewPayload) => React.Element<any>
+    loading: ViewPayload => React.Node,
+    view: ViewPayload => React.Node
 }
 
 type State = {

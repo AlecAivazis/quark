@@ -7,10 +7,10 @@ import { EventListener } from '..'
 
 type Props = {
     active: boolean,
-    onClick: (evt: Event) => void,
+    onClick: Event => void,
     children: React.Node,
     event?: string,
-    filter?: (evt: Event) => boolean
+    filter?: Event => boolean
 }
 
 class ClickAway extends React.Component<Props> {

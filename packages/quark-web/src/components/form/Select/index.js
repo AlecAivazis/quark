@@ -12,7 +12,7 @@ type Props = {
     value: OptionValue,
     placeholder: React.Node,
     children: React.Node,
-    onChange?: (val: OptionValue) => void,
+    onChange?: OptionValue => void,
     toggleStyle?: {},
     style?: {}
 }

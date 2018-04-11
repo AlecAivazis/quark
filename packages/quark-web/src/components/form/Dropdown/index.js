@@ -10,12 +10,12 @@ import styles from './styles'
 
 type DropdownPayload = {
     index: number,
-    setIndex: (num: number) => void,
+    setIndex: number => void,
     toggle: () => void
 }
 
 type Props = {
-    children: (children: DropdownPayload) => React.Node,
+    children: DropdownPayload => React.Node,
     toggle: React.Node,
     style?: {},
     dropdownStyle?: {},

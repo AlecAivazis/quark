@@ -5,8 +5,8 @@ import * as React from 'react'
 
 type Props = {
     event: string,
-    children: (evt: Event) => any,
-    filter?: (evt: Event) => boolean
+    children: Event => any,
+    filter?: Event => boolean
 }
 
 class EventHandler extends React.Component<Props> {

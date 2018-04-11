@@ -11,7 +11,7 @@ export type AlertConfig = {
 
 export const QUARK_ALERT = 'QUARK_ALERT'
 
-export default function Trigger({ ...config }: AlertConfig) {
+export default function({ ...config }: AlertConfig) {
     // the metadata for the event
     const detail = {
         namespace: 'default',
@@ -24,5 +24,5 @@ export default function Trigger({ ...config }: AlertConfig) {
     const alert = new CustomEvent(QUARK_ALERT, { detail })
 
     // dispatch event
-    return window.dispatchEvent(alert)
+    window.dispatchEvent(alert)
 }
