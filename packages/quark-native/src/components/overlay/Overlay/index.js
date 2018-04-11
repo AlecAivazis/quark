@@ -1,18 +1,19 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { Modal, TouchableWithoutFeedback, View } from 'react-native'
+import { Modal, TouchableWithoutFeedbackiew } from 'react-native'
+import { View } from 'react-native-web'
+import type { ViewPropTypes } from 'react-native-web'
 import { Card } from 'quark-core'
 // local imports
 import styles from './styles'
 
 type Props = {
     visible: boolean,
-    children: React.Element<any>,
     toggle: () => void
-}
+} & ViewPropTypes
 
-const Overlay = ({ toggle, children, visible }: Props) =>
+const Overlay = ({ toggle, visible, ...unused }: Props) =>
     visible ? (
         <Modal transparent={true}>
             {/* the click away */}
@@ -20,7 +21,7 @@ const Overlay = ({ toggle, children, visible }: Props) =>
                 <View style={styles.background}>
                     <Card style={styles.content}>
                         <TouchableWithoutFeedback>
-                            <View style={{ flex: 1 }}>{children}</View>
+                            <View style={{ flex: 1 }} {...unused} />
                         </TouchableWithoutFeedback>
                     </Card>
                 </View>
