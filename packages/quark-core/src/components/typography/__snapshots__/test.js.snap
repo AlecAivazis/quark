@@ -5,7 +5,7 @@ exports[`H1 renders 1`] = `
   <InnerText
     style={
       Object {
-        "marginBottom": NaN,
+        "backgroundSize": "auto",
       }
     }
   >
@@ -13,9 +13,8 @@ exports[`H1 renders 1`] = `
       <Text
         style={
           Object {
+            "backgroundSize": "auto",
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -41,7 +40,8 @@ exports[`H2 renders 1`] = `
   <InnerText
     style={
       Object {
-        "marginBottom": NaN,
+        "backgroundRepeat": "repeat",
+        "backgroundSize": "auto",
       }
     }
   >
@@ -49,9 +49,9 @@ exports[`H2 renders 1`] = `
       <Text
         style={
           Object {
+            "backgroundRepeat": "repeat",
+            "backgroundSize": "auto",
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -77,7 +77,7 @@ exports[`H3 renders 1`] = `
   <InnerText
     style={
       Object {
-        "marginBottom": NaN,
+        "backgroundSize": "100% 100%",
       }
     }
   >
@@ -85,9 +85,8 @@ exports[`H3 renders 1`] = `
       <Text
         style={
           Object {
+            "backgroundSize": "100% 100%",
             "color": "#48484D",
-            "margin": 0,
-            "marginBottom": NaN,
           }
         }
       >
@@ -112,19 +111,18 @@ exports[`Link renders 1`] = `
 <Link>
   <InnerText
     style={
-      Array [
-        undefined,
-        79,
-        undefined,
-      ]
+      Object {
+        "flexDirection": "row",
+      }
     }
   >
     <GetTheme>
       <Text
         style={
           Object {
+            "backgroundSize": "cover",
             "color": "#48484D",
-            "margin": 0,
+            "flexDirection": "row",
           }
         }
       >
@@ -149,19 +147,18 @@ exports[`Monospace renders 1`] = `
 <Monospace>
   <InnerText
     style={
-      Array [
-        undefined,
-        79,
-        undefined,
-      ]
+      Object {
+        "flexDirection": "row",
+      }
     }
   >
     <GetTheme>
       <Text
         style={
           Object {
+            "backgroundSize": "cover",
             "color": "#48484D",
-            "margin": 0,
+            "flexDirection": "row",
           }
         }
       >
@@ -186,19 +183,34 @@ exports[`Subtitle renders 1`] = `
 <Subtitle>
   <InnerText
     style={
-      Array [
-        undefined,
-        77,
-        undefined,
-      ]
+      Object {
+        "WebkitOverflowScrolling": "touch",
+        "flex": 1,
+        "overflowX": "hidden",
+        "overflowY": "auto",
+        "transform": Array [
+          Object {
+            "translateZ": 0,
+          },
+        ],
+      }
     }
   >
     <GetTheme>
       <Text
         style={
           Object {
+            "WebkitOverflowScrolling": "touch",
+            "backgroundSize": "cover",
             "color": "#48484D",
-            "margin": 0,
+            "flex": 1,
+            "overflowX": "hidden",
+            "overflowY": "auto",
+            "transform": Array [
+              Object {
+                "translateZ": 0,
+              },
+            ],
           }
         }
       >
@@ -223,19 +235,18 @@ exports[`Title renders 1`] = `
 <Title>
   <InnerText
     style={
-      Array [
-        undefined,
-        76,
-        undefined,
-      ]
+      Object {
+        "touchAction": "none",
+      }
     }
   >
     <GetTheme>
       <Text
         style={
           Object {
+            "backgroundSize": "cover",
             "color": "#48484D",
-            "margin": 0,
+            "touchAction": "none",
           }
         }
       >
