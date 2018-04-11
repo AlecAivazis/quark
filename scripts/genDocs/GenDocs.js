@@ -5,7 +5,6 @@ import fs from 'fs'
 import { parse } from 'react-docgen'
 import _ from 'lodash'
 // local imports
-import filePath from '../filePath'
 import FSUtils from './FSUtils'
 import quarkPaths from '../filePath'
 
@@ -82,7 +81,7 @@ class GenDocs extends FSUtils {
                     component
                 )
                 if (this.pathExists(pathToCore)) {
-                    tags.push('quark-core')
+                    tags.push(this._quarkCore.name)
                 }
                 // check web
                 const pathToWeb = path.join(
@@ -92,7 +91,7 @@ class GenDocs extends FSUtils {
                 )
                 // check if sectionPath is valid in this pkg
                 if (this.pathExists(pathToWeb)) {
-                    tags.push('quark-web')
+                    tags.push(this._quarkWeb.name)
                 }
                 // check native
                 const pathToNative = path.join(
@@ -101,7 +100,7 @@ class GenDocs extends FSUtils {
                     component
                 )
                 if (this.pathExists(pathToNative)) {
-                    tags.push('quark-native')
+                    tags.push(this._quarkNative.name)
                 }
                 return {
                     component,
@@ -178,7 +177,7 @@ class GenDocs extends FSUtils {
             const components = currSection.components.map(currComponent => {
                 const { section: sectionName } = currSection
                 const { component: componentName } = currComponent
-                const examplesPath = path.join(filePath.examples, sectionName, componentName)
+                const examplesPath = path.join(quarkPaths.examples, sectionName, componentName)
 
                 return {
                     ...currComponent,
@@ -194,7 +193,7 @@ class GenDocs extends FSUtils {
 
     getReadme = ({ sectionName, componentName }) => {
         const readme = 'README.md'
-        const readmePath = path.join(filePath.examples, sectionName, componentName, readme)
+        const readmePath = path.join(quarkPaths.examples, sectionName, componentName, readme)
         let content = ''
 
         try {
@@ -207,7 +206,7 @@ class GenDocs extends FSUtils {
     }
 
     getExampleData = ({ sectionName, componentName }) => {
-        const examplesPath = path.join(filePath.examples, sectionName, componentName)
+        const examplesPath = path.join(quarkPaths.examples, sectionName, componentName)
         const examples = this.getExampleFile({ sectionName, componentName })
 
         return examples.map(file => {
@@ -231,7 +230,7 @@ class GenDocs extends FSUtils {
     }
 
     getExampleFile = ({ sectionName, componentName }) => {
-        const examplesPath = path.join(filePath.examples, sectionName, componentName)
+        const examplesPath = path.join(quarkPaths.examples, sectionName, componentName)
         let exampleFiles = []
         try {
             // get all example files and filter out the README
