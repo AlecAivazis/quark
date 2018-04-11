@@ -5,16 +5,7 @@ exports[`renders 1`] = `
   <View
     style={
       Object {
-        "alignItems": "flex-start",
-        "borderBottomColor": undefined,
-        "borderBottomWidth": 1,
-        "borderStyle": "solid",
-        "display": "flex",
-        "height": NaN,
-        "justifyContent": "center",
-        "paddingLeft": NaN,
-        "paddingRight": NaN,
-        "width": "100%",
+        "cursor": "default",
       }
     }
   >

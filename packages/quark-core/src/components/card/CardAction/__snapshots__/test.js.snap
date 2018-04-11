@@ -10,12 +10,16 @@ exports[`renders 1`] = `
       size="medium"
       style={
         Object {
-          "alignSelf": "flex-end",
-          "borderRadius": 0,
-          "borderStyle": "solid",
           "borderTopColor": "#EAEAEE",
-          "borderTopWidth": 1,
-          "flex": 1,
+          "bottom": 0,
+          "height": "70%",
+          "left": 0,
+          "margin": "auto",
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "transitionDuration": "0.1s",
+          "width": "100%",
         }
       }
       textColor="#4A90E2"
@@ -27,12 +31,16 @@ exports[`renders 1`] = `
         size="medium"
         style={
           Object {
-            "alignSelf": "flex-end",
-            "borderRadius": 0,
-            "borderStyle": "solid",
             "borderTopColor": "#EAEAEE",
-            "borderTopWidth": 1,
-            "flex": 1,
+            "bottom": 0,
+            "height": "70%",
+            "left": 0,
+            "margin": "auto",
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "transitionDuration": "0.1s",
+            "width": "100%",
           }
         }
       >
@@ -53,19 +61,22 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "alignSelf": "flex-end",
                 "backgroundColor": "rgba(255, 255, 255, 1)",
-                "borderRadius": 0,
-                "borderStyle": "solid",
                 "borderTopColor": "#EAEAEE",
-                "borderTopWidth": 1,
-                "cursor": "pointer",
-                "flex": 1,
-                "height": 40,
-                "justifyContent": "center",
+                "bottom": 0,
+                "color": "#a1a1a1",
+                "cursor": "default",
+                "height": "70%",
+                "left": 0,
+                "margin": "auto",
                 "overflow": "hidden",
-                "touchAction": "manipulation",
+                "position": "absolute",
+                "right": 0,
+                "top": 0,
+                "transitionDuration": "0.1s",
+                "userSelect": "none",
+                "width": "100%",
+                "zIndex": 0,
               }
             }
           >
@@ -93,12 +104,12 @@ exports[`renders 1`] = `
                   "height": 40,
                   "justifyContent": "center",
                   "overflow": "hidden",
-                  "touchAction": "manipulation",
+                  "touchAction": "manipulate",
                 }
               }
             >
               <div
-                className="rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
+                className="rn-alignItems-1awozwy rn-alignSelf-173mn98 rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flex-13awgt0 rn-flexGrow-1m1wadx rn-flexShrink-1awmn5t rn-flexDirection-eqz5dr rn-height-eu3ka rn-justifyContent-1777fci rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-overflowX-11yh6sk rn-overflowY-buy8e9 rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1gvxusu rn-zIndex-1lgpqti"
                 onKeyDown={[Function]}
                 onKeyUp={[Function]}
                 onResponderGrant={[Function]}
@@ -109,39 +120,8 @@ exports[`renders 1`] = `
                 onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "WebkitAlignItems": "center",
-                    "WebkitAlignSelf": "flex-end",
-                    "WebkitBoxAlign": "center",
-                    "WebkitBoxPack": "center",
-                    "WebkitFlex": 1,
-                    "WebkitFlexGrow": "1 !important",
-                    "WebkitFlexShrink": "1 !important",
-                    "WebkitJustifyContent": "center",
-                    "alignItems": "center",
-                    "alignSelf": "flex-end",
                     "backgroundColor": "rgba(255, 255, 255, 1)",
-                    "borderBottomLeftRadius": "0px",
-                    "borderBottomRightRadius": "0px",
                     "borderTopColor": "rgba(234,234,238,1)",
-                    "borderTopLeftRadius": "0px",
-                    "borderTopRightRadius": "0px",
-                    "borderTopWidth": "1px",
-                    "cursor": "pointer",
-                    "flex": 1,
-                    "flexGrow": "1 !important",
-                    "flexShrink": "1 !important",
-                    "height": "40px",
-                    "justifyContent": "center",
-                    "msFlex": 1,
-                    "msFlexAlign": "center",
-                    "msFlexItemAlign": "end",
-                    "msFlexNegative": "1 !important",
-                    "msFlexPack": "center",
-                    "msFlexPositive": "1 !important",
-                    "msTouchAction": "manipulation",
-                    "overflowX": "hidden",
-                    "overflowY": "hidden",
-                    "touchAction": "manipulation",
                   }
                 }
                 tabIndex="0"
@@ -149,16 +129,37 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
+                      "bottom": 0,
                       "color": "#4A90E2",
-                      "fontSize": 16,
+                      "height": "100%",
+                      "left": 0,
+                      "margin": 0,
+                      "opacity": 0,
+                      "padding": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                      "width": "100%",
                     }
                   }
                 >
                   <InnerText
                     style={
                       Object {
+                        "bottom": 0,
                         "color": "#4A90E2",
-                        "fontSize": 16,
+                        "flexDirection": "row",
+                        "height": "100%",
+                        "left": 0,
+                        "margin": 0,
+                        "opacity": 0,
+                        "overflowX": "auto",
+                        "overflowY": "hidden",
+                        "padding": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                        "width": "100%",
                       }
                     }
                   >
@@ -166,9 +167,21 @@ exports[`renders 1`] = `
                       <Text
                         style={
                           Object {
+                            "backgroundSize": "cover",
+                            "bottom": 0,
                             "color": "#4A90E2",
-                            "fontSize": 16,
+                            "flexDirection": "row",
+                            "height": "100%",
+                            "left": 0,
                             "margin": 0,
+                            "opacity": 0,
+                            "overflowX": "auto",
+                            "overflowY": "hidden",
+                            "padding": 0,
+                            "position": "absolute",
+                            "right": 0,
+                            "top": 0,
+                            "width": "100%",
                           }
                         }
                       >
@@ -183,7 +196,7 @@ exports[`renders 1`] = `
                         >
                           <Text>
                             <span
-                              className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-fontVariant-ebii48 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
+                              className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-homxoj rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-poiln3 rn-fontSize-7cikom rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-irrty rn-wordWrap-qvutc0"
                               dir="auto"
                             >
                               hello

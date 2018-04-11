@@ -5,9 +5,12 @@ exports[`renders with multiple children 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
+        "fontFamily": "inherit",
+        "fontSize": "inherit",
+        "fontVariant": Array [
+          "inherit",
+        ],
+        "whiteSpace": "inherit",
       }
     }
   >
@@ -18,7 +21,7 @@ exports[`renders with multiple children 1`] = `
         key="0"
         style={
           Object {
-            "flexDirection": "row",
+            "userSelect": "none",
           }
         }
       >
@@ -44,11 +47,7 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "cursor": "pointer",
               }
             }
           >
@@ -58,8 +57,10 @@ exports[`renders with multiple children 1`] = `
               <Text
                 style={
                   Object {
-                    "color": undefined,
-                    "fontSize": NaN,
+                    "maxWidth": "100%",
+                    "overflow": "hidden",
+                    "textOverflow": "ellipsis",
+                    "whiteSpace": "nowrap",
                   }
                 }
               >
@@ -78,7 +79,7 @@ exports[`renders with multiple children 1`] = `
         key="1"
         style={
           Object {
-            "flexDirection": "row",
+            "userSelect": "none",
           }
         }
       >
@@ -104,11 +105,7 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "cursor": "pointer",
               }
             }
           >
@@ -128,9 +125,12 @@ exports[`renders with single child 1`] = `
   <View
     style={
       Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "flex-start",
+        "fontFamily": "inherit",
+        "fontSize": "inherit",
+        "fontVariant": Array [
+          "inherit",
+        ],
+        "whiteSpace": "inherit",
       }
     }
   >
@@ -141,7 +141,7 @@ exports[`renders with single child 1`] = `
         key="0"
         style={
           Object {
-            "flexDirection": "row",
+            "userSelect": "none",
           }
         }
       >
@@ -167,11 +167,7 @@ exports[`renders with single child 1`] = `
           <View
             style={
               Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginLeft": NaN,
-                "marginRight": NaN,
+                "cursor": "pointer",
               }
             }
           >
