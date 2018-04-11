@@ -19,7 +19,9 @@
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
         "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "build-storybook": "build-storybook",
+        "docs:gen": "babel-node scripts/genDocs/index.js",
+        "docs:gen:watch": "npm run gen:docs -- --watch"
     },
     "prettier": {
         "tabWidth": 4,
@@ -68,6 +70,8 @@
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-react-native": "^4.0.0",
         "browser-env": "^3.2.3",
+        "chalk": "^2.3.2",
+        "chokidar": "^2.0.3",
         "coveralls": "^3.0.0",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.0",
@@ -76,15 +80,18 @@
         "flow-runtime": "^0.16.0",
         "fs-extra": "^4.0.2",
         "jest": "^21.2.1",
+        "jest-cli": "^22.4.3",
         "lerna": "^2.0.0",
         "mkdirp": "^0.5.1",
         "npm-query": "^1.1.0",
         "prettier": "^1.7.4",
         "raf": "^3.4.0",
         "react": "^16.3.0",
+        "react-docgen": "3.0.0-beta11",
         "react-dom": "^16.3.0",
-        "react-native-web": "^0.5.3",
+        "react-native-web": "0.3.4",
         "semver": "^5.5.0",
+        "svgs": "^3.2.1",
         "walk": "^2.3.9"
     },
     "peerDependencies": {

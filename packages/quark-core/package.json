@@ -4,7 +4,7 @@
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
-        "react-native-web": "^0.3.4",
+        "react-native-web": "0.3.4",
         "svgs": "^3.1.1"
     },
     "peerDependencies": {

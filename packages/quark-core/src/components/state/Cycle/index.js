@@ -35,7 +35,7 @@ class Cycle extends React.Component<Props, State> {
     }
 
     render = () => (
-        <React.Fragment>
+        <>
             {this.props.active && (
                 <Interval interval={this.props.interval} key={this.state.incrementCount}>
                     {this._next(false)}
@@ -48,7 +48,7 @@ class Cycle extends React.Component<Props, State> {
                 previous: this._prev,
                 goTo: this._goTo
             })}
-        </React.Fragment>
+        </>
     )
 
     componentWillReceiveProps = ({ items: items1 }: Props) => {
