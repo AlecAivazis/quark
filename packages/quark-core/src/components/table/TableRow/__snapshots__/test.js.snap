@@ -6,8 +6,13 @@ exports[`renders 1`] = `
     <View
       style={
         Object {
-          "backgroundColor": "transparent",
+          "borderBottomWidth": 1,
           "borderColor": "#EAEAEE",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": 40,
+          "paddingBottom": NaN,
+          "paddingTop": NaN,
         }
       }
     >
