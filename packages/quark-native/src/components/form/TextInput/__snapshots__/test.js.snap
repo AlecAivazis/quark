@@ -28,7 +28,7 @@ exports[`renders 1`] = `
         autoCapitalize="sentences"
         autoComplete="on"
         autoCorrect="on"
-        className="rn-MozAppearance-97bpaa rn-appearance-30o5oe rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-height-1r8g8re rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-f727ji rn-resize-1dz5y72"
+        className="rn-appearance-30o5oe rn-backgroundColor-44z8sh rn-borderTopLeftRadius-1iymjk7 rn-borderTopRightRadius-s2skl2 rn-borderBottomRightRadius-l5bh9y rn-borderBottomLeftRadius-101sy47 rn-borderTopWidth-5kkj8d rn-borderRightWidth-13l2t4g rn-borderBottomWidth-qklmqi rn-borderLeftWidth-1ljd8xs rn-boxSizing-deolkf rn-color-homxoj rn-font-1lw9tu2 rn-fontSize-1b43r93 rn-height-1r8g8re rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-f727ji rn-resize-1dz5y72"
         dir="auto"
         onBlur={[Function]}
         onChange={[Function]}
@@ -40,7 +40,6 @@ exports[`renders 1`] = `
         spellCheck={true}
         style={
           Object {
-            "backgroundColor": "rgba(255,255,255,1)",
             "borderBottomColor": "rgba(234,234,238,1)",
             "borderLeftColor": "rgba(234,234,238,1)",
             "borderRightColor": "rgba(234,234,238,1)",
