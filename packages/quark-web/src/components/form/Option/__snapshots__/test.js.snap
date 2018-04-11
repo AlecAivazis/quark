@@ -9,22 +9,19 @@ exports[`mixes active and selected styles 1`] = `
     <Text>
       <InnerText
         style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
+          Array [
+            undefined,
+            78,
+            undefined,
+          ]
         }
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
+                "margin": 0,
               }
             }
           >
@@ -67,22 +64,19 @@ exports[`renders active style 1`] = `
     <Text>
       <InnerText
         style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
+          Array [
+            undefined,
+            78,
+            undefined,
+          ]
         }
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
+                "margin": 0,
               }
             }
           >
@@ -122,22 +116,19 @@ exports[`renders default style 1`] = `
     <Text>
       <InnerText
         style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
+          Array [
+            undefined,
+            78,
+            undefined,
+          ]
         }
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
+                "margin": 0,
               }
             }
           >
@@ -178,22 +169,19 @@ exports[`renders selected style 1`] = `
     <Text>
       <InnerText
         style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
+          Array [
+            undefined,
+            78,
+            undefined,
+          ]
         }
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
+                "margin": 0,
               }
             }
           >

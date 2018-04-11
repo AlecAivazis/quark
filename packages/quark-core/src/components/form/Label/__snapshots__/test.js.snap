@@ -9,25 +9,28 @@ exports[`renders 1`] = `
       className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
     >
       <View
-        style={82}
+        style={
+          Object {
+            "marginBottom": 8,
+          }
+        }
       >
         <div
           className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-5oul0u rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
         >
           <Text
             style={
-              Array [
-                83,
-                undefined,
-              ]
+              Object {
+                "fontSize": 14,
+                "fontWeight": "600",
+              }
             }
           >
             <InnerText
               style={
                 Object {
-                  "flexDirection": "row",
-                  "overflowX": "auto",
-                  "overflowY": "hidden",
+                  "fontSize": 14,
+                  "fontWeight": "600",
                 }
               }
             >
@@ -35,11 +38,10 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
-                      "backgroundSize": "cover",
                       "color": "#48484D",
-                      "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "fontSize": 14,
+                      "fontWeight": "600",
+                      "margin": 0,
                     }
                   }
                 >
@@ -87,22 +89,21 @@ exports[`renders 1`] = `
           >
             <InnerText
               style={
-                Object {
-                  "flexDirection": "row",
-                  "overflowX": "auto",
-                  "overflowY": "hidden",
-                }
+                Array [
+                  undefined,
+                  78,
+                  Array [
+                    undefined,
+                  ],
+                ]
               }
             >
               <GetTheme>
                 <Text
                   style={
                     Object {
-                      "backgroundSize": "cover",
                       "color": "#48484D",
-                      "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
+                      "margin": 0,
                     }
                   }
                 >

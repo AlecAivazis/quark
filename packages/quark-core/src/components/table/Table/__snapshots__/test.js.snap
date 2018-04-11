@@ -4,18 +4,10 @@ exports[`renders 1`] = `
 <Table>
   <View
     style={
-      Object {
-        "appearance": "none",
-        "backgroundColor": "transparent",
-        "borderColor": "black",
-        "borderRadius": 0,
-        "borderWidth": 0,
-        "boxSizing": "border-box",
-        "color": "inherit",
-        "font": "inherit",
-        "padding": 0,
-        "resize": "none",
-      }
+      Array [
+        106,
+        undefined,
+      ]
     }
   >
     <div

@@ -5,9 +5,9 @@ exports[`renders with multiple children 1`] = `
   <View
     style={
       Object {
-        "fontFamily": "inherit",
-        "fontSize": "inherit",
-        "whiteSpace": "inherit",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
       }
     }
   >
@@ -18,7 +18,7 @@ exports[`renders with multiple children 1`] = `
         key="0"
         style={
           Object {
-            "userSelect": "none",
+            "flexDirection": "row",
           }
         }
       >
@@ -44,7 +44,11 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "cursor": "pointer",
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginLeft": NaN,
+                "marginRight": NaN,
               }
             }
           >
@@ -54,10 +58,8 @@ exports[`renders with multiple children 1`] = `
               <Text
                 style={
                   Object {
-                    "maxWidth": "100%",
-                    "overflow": "hidden",
-                    "textOverflow": "ellipsis",
-                    "whiteSpace": "nowrap",
+                    "color": undefined,
+                    "fontSize": NaN,
                   }
                 }
               >
@@ -76,7 +78,7 @@ exports[`renders with multiple children 1`] = `
         key="1"
         style={
           Object {
-            "userSelect": "none",
+            "flexDirection": "row",
           }
         }
       >
@@ -102,7 +104,11 @@ exports[`renders with multiple children 1`] = `
           <View
             style={
               Object {
-                "cursor": "pointer",
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginLeft": NaN,
+                "marginRight": NaN,
               }
             }
           >
@@ -122,9 +128,9 @@ exports[`renders with single child 1`] = `
   <View
     style={
       Object {
-        "fontFamily": "inherit",
-        "fontSize": "inherit",
-        "whiteSpace": "inherit",
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-start",
       }
     }
   >
@@ -135,7 +141,7 @@ exports[`renders with single child 1`] = `
         key="0"
         style={
           Object {
-            "userSelect": "none",
+            "flexDirection": "row",
           }
         }
       >
@@ -161,7 +167,11 @@ exports[`renders with single child 1`] = `
           <View
             style={
               Object {
-                "cursor": "pointer",
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "center",
+                "marginLeft": NaN,
+                "marginRight": NaN,
               }
             }
           >
