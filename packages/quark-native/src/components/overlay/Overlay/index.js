@@ -1,8 +1,7 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { Modal, TouchableWithoutFeedbackiew } from 'react-native'
-import { View } from 'react-native-web'
+import { Modal, TouchableWithoutFeedback, View } from 'react-native'
 import type { ViewPropTypes } from 'react-native-web'
 import { Card } from 'quark-core'
 // local imports

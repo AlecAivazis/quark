@@ -12,30 +12,18 @@ import quarkPaths from '../filePath'
 class GenDocs extends FSUtils {
     constructor(packageDirs, ...args) {
         super(...args)
-        this.packageDirs = packageDirs
-        this.quarkCore = packageDirs.find(({ name }) => name === 'quark-core')
-        this.quarkWeb = packageDirs.find(({ name }) => name === 'quark-web')
-        this.quarkNative = packageDirs.find(({ name }) => name === 'quark-native')
-        this.errors = []
-        this.data = []
+        this._quarkCore = packageDirs.find(({ name }) => name === 'quark-core')
+        this._quarkWeb = packageDirs.find(({ name }) => name === 'quark-web')
+        this._quarkNative = packageDirs.find(({ name }) => name === 'quark-native')
+        this._errors = []
     }
 
-    init() {
-        this.generate()
-        this.writeResult()
+    get _packageDirs() {
+        return [this._quarkCore, this._quarkWeb, this._quarkNative]
     }
 
-    generate(packageDirs) {
-        const sections = this.sections
-        const withComponents = this.addComponentsToSections(sections)
-        const withPackages = this.addTagsToComponents(withComponents)
-        const withProps = this.addPropsToComponents(withPackages)
-        const withExamples = this.addExamplesToComponents(withProps)
-        this.data = withExamples
-    }
-
-    get sections() {
-        const sections = this.packageDirs.reduce((accSections, currPkg) => {
+    get _sections() {
+        const sections = this._packageDirs.reduce((accSections, currPkg) => {
             const sections = this.getDirectories(currPkg.componentsDir)
             return accSections.concat(sections)
         }, [])
@@ -43,12 +31,19 @@ class GenDocs extends FSUtils {
         return _.uniq(sections)
     }
 
-    addComponentsToSections(sections) {
-        return sections.reduce((accComponents, currSection) => {
+    generateData = () => {
+        const withComponents = this.addComponentsToSections(this._sections)
+        const withPackages = this.addTagsToComponents(withComponents)
+        const withProps = this.addPropsToComponents(withPackages)
+        return this.addExamplesToComponents(withProps)
+    }
+
+    addComponentsToSections = sections =>
+        sections.reduce((accComponents, currSection) => {
             // collect components
             let components = []
             // check if the sections exists
-            this.packageDirs.forEach(pkg => {
+            this._packageDirs.forEach(pkg => {
                 // build path to section in the current pkg
                 const sectionPath = path.join(pkg.componentsDir, currSection)
                 // check if sectionPath is valid in this pkg
@@ -61,7 +56,7 @@ class GenDocs extends FSUtils {
             })
             // dedupe and remove all directors that do not follow convention for components
             const filteredComponents = _.uniq(components).filter(
-                // must be uppercase and cannot started with underscore
+                // must be uppercase and cannot started with underscore in order to ignore snapshots
                 dir => dir[0] === dir[0].toUpperCase() && dir[0] !== '_'
             )
             // return accumulator if no components exist in the section
@@ -74,16 +69,15 @@ class GenDocs extends FSUtils {
                 components: filteredComponents
             })
         }, [])
-    }
 
-    addTagsToComponents(sectionsWithComponents) {
-        return sectionsWithComponents.reduce((accSections, currSection) => {
+    addTagsToComponents = sectionsWithComponents =>
+        sectionsWithComponents.reduce((accSections, currSection) => {
             const components = currSection.components.map(component => {
                 // the tags for a component
                 let tags = []
                 // check core
                 const pathToCore = path.join(
-                    this.quarkCore.componentsDir,
+                    this._quarkCore.componentsDir,
                     currSection.section,
                     component
                 )
@@ -92,7 +86,7 @@ class GenDocs extends FSUtils {
                 }
                 // check web
                 const pathToWeb = path.join(
-                    this.quarkWeb.componentsDir,
+                    this._quarkWeb.componentsDir,
                     currSection.section,
                     component
                 )
@@ -102,7 +96,7 @@ class GenDocs extends FSUtils {
                 }
                 // check native
                 const pathToNative = path.join(
-                    this.quarkNative.componentsDir,
+                    this._quarkNative.componentsDir,
                     currSection.section,
                     component
                 )
@@ -119,15 +113,18 @@ class GenDocs extends FSUtils {
             // add components for section back to accumulator
             return accSections.concat(updatedSection)
         }, [])
-    }
 
-    addPropsToComponents(componentsWithTags) {
-        return componentsWithTags.reduce((sections, section) => {
+    addPropsToComponents = componentsWithTags =>
+        componentsWithTags.reduce((sections, section) => {
             const components = section.components.map(component => {
                 // get list of props based on the tags / packages in which component resides
                 const props = []
                 component.tags.forEach(tag => {
-                    const propData = this.getProps(tag, section.section, component.component)
+                    const propData = this.getProps({
+                        tag,
+                        section: section.section,
+                        component: component.component
+                    })
                     props.push(propData)
                 })
                 // if only one tag then there are no props to compare
@@ -159,11 +156,10 @@ class GenDocs extends FSUtils {
             // add components for section back to accumulator
             return sections.concat(updatedSection)
         }, [])
-    }
 
-    getProps(tag, section, component) {
+    getProps = ({ tag, section, component }) => {
         // get packageDir based on tag
-        const { componentsDir } = this.packageDirs.find(({ name }) => tag === name)
+        const { componentsDir } = this._packageDirs.find(({ name }) => tag === name)
         // build index path
         const index = 'index.js'
         const indexPath = path.join(componentsDir, section, component, index)
@@ -173,12 +169,12 @@ class GenDocs extends FSUtils {
             // return the props from file content
             return parse(content).props
         } catch (err) {
-            console.log(chalk.red(`Issue parsing props ${indexPath}: ${err}.`))
+            this._errors.push(`Issue parsing props ${indexPath}: ${err}.`)
         }
     }
 
-    addExamplesToComponents(sections) {
-        return sections.reduce((accSections, currSection) => {
+    addExamplesToComponents = sections =>
+        sections.reduce((accSections, currSection) => {
             const components = currSection.components.map(currComponent => {
                 const { section: sectionName } = currSection
                 const { component: componentName } = currComponent
@@ -195,9 +191,8 @@ class GenDocs extends FSUtils {
             // add components for section back to accumulator
             return accSections.concat(updatedSection)
         }, [])
-    }
 
-    getReadme({ sectionName, componentName }) {
+    getReadme = ({ sectionName, componentName }) => {
         const readme = 'README.md'
         const readmePath = path.join(filePath.examples, sectionName, componentName, readme)
         let content = ''
@@ -205,15 +200,15 @@ class GenDocs extends FSUtils {
         try {
             content = this.readFile(readmePath)
         } catch (err) {
-            console.log(chalk.red(`No README provided for ${componentName}.`))
+            this._errors.push(`No README provided for ${componentName}.`)
         }
 
         return content
     }
 
-    getExampleData({ sectionName, componentName }) {
+    getExampleData = ({ sectionName, componentName }) => {
         const examplesPath = path.join(filePath.examples, sectionName, componentName)
-        const examples = this.getExampleFiles({ sectionName, componentName })
+        const examples = this.getExampleFile({ sectionName, componentName })
 
         return examples.map(file => {
             const filePath = path.join(examplesPath, file)
@@ -223,7 +218,7 @@ class GenDocs extends FSUtils {
             try {
                 description = parse(content).description
             } catch (err) {
-                console.log(chalk.red(`Could not parse description in ${filePath} due to ${err}`))
+                this._errors.push(`Could not parse description in ${filePath} due to ${err}`)
             }
 
             return {
@@ -235,7 +230,7 @@ class GenDocs extends FSUtils {
         })
     }
 
-    getExampleFiles({ sectionName, componentName }) {
+    getExampleFile = ({ sectionName, componentName }) => {
         const examplesPath = path.join(filePath.examples, sectionName, componentName)
         let exampleFiles = []
         try {
@@ -245,25 +240,27 @@ class GenDocs extends FSUtils {
             if (exampleFiles.length === 0) {
                 throw Error
             }
-        } catch (error) {
-            console.log(chalk.red(`No examples found for ${componentName}.`))
+        } catch (err) {
+            this._errors.push(`No examples found for ${componentName}.`)
         }
         return exampleFiles
     }
 
-    writeResult(data) {
-        if (this.errors.length) {
-            console.log(chalk.red(this.errors.join('\n')))
-        } else {
-            this.writeFile(
-                path.join(quarkPaths.docs, 'componentData.js'),
-                `module.exports = ${JSON.stringify(this.data, null, '')}`
-            )
-            // log some basic stats
-            const numOfSections = this.data.length
-            const numOfComponents = this.data.reduce((acc, curr) => acc + curr.components.length, 0)
-            console.log(chalk.green(`${numOfSections} sections\n${numOfComponents} components`))
+    writeResult = () => {
+        const data = this.generateData()
+
+        // yell loudly if there are errors
+        if (this._errors.length > 0) {
+            console.log(chalk.red(this._errors.join('\n')))
+            return
         }
+
+        const file = 'data.json'
+        this.writeFile(path.join(quarkPaths.docs, file), JSON.stringify(data, null, ''))
+        // log some basic stats
+        const numOfSections = data.length
+        const numOfComponents = data.reduce((acc, curr) => acc + curr.components.length, 0)
+        console.log(chalk.green(`${numOfSections} sections\n${numOfComponents} components`))
     }
 }
 
