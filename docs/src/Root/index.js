@@ -2,7 +2,7 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { FlexRow, FlexColumn } from 'quark-web'
+import { App as AppContainer, FlexRow, FlexColumn } from 'quark-web'
 // local imports
 import GettingStarted from '../GettingStarted'
 import Design from '../Design'
@@ -13,7 +13,7 @@ import styles from './styles'
 import './reset.css'
 
 const App = () => (
-    <FlexColumn style={styles.container}>
+    <AppContainer style={styles.container}>
         <Header />
         <FlexRow grow={1}>
             <Sidebar />
@@ -26,7 +26,7 @@ const App = () => (
                 </Switch>
             </FlexColumn>
         </FlexRow>
-    </FlexColumn>
+    </AppContainer>
 )
 
 export default hot(module)(App)

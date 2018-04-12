@@ -1,7 +1,5 @@
 export default {
-    container: {
-        flex: 1
-    },
+    container: {},
     content: {
         backgroundColor: 'white',
         paddingTop: 44,
