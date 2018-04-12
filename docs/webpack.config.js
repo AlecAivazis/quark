@@ -24,5 +24,14 @@ module.exports = {
             template: './docs/src/index.html',
             path: path.resolve(__dirname, 'build', 'index.html')
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+            'quark-web': path.resolve(__dirname, '../packages/quark-web/build'),
+            'quark-core': path.resolve(__dirname, '../packages/quark-core/build')
+        }
+    },
+    devServer: {
+        historyApiFallback: true
+    }
 }

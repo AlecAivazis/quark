@@ -103,6 +103,7 @@
         "react": "^16.3.0"
     },
     "dependencies": {
-        "react-hot-loader": "^4.0.1"
+        "react-hot-loader": "^4.0.1",
+        "react-router-dom": "^4.2.2"
     }
 }
