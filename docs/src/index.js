@@ -1,12 +1,7 @@
+// external imports
 import React from 'react'
 import ReactDOM from 'react-dom'
-const App = () => {
-    return (
-        <div>
-            <p>React here!</p>
-        </div>
-    )
-}
-export default App
+// local imports
+import { Root } from './views'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<Root />, document.getElementById('app'))

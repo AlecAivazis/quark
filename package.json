@@ -23,7 +23,7 @@
         "docs:gen": "babel-node scripts/genDocs/index.js",
         "docs:gen:watch": "npm run gen:docs -- --watch",
         "docs:build": "webpack --config docs/webpack.config.js",
-        "docs:build:watch": "webpack-dev-server --mode development --config docs/webpack.config.js --open"
+        "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"
     },
     "prettier": {
         "tabWidth": 4,
@@ -103,5 +103,8 @@
     },
     "peerDependencies": {
         "react": "^16.3.0"
+    },
+    "dependencies": {
+        "react-hot-loader": "^4.0.1"
     }
 }
