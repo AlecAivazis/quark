@@ -6,7 +6,7 @@ import styles from './styles'
 
 const Sidebar = () => (
     <FlexColumn style={styles.container}>
-        <Text>Sidebar</Text>
+        <Text style={{ color: 'white' }}>Sidebar</Text>
     </FlexColumn>
 )
 

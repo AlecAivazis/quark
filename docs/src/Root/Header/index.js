@@ -6,7 +6,7 @@ import styles from './styles'
 
 const Header = () => (
     <FlexRow style={styles.container} alignItems="center">
-        <Text>header</Text>
+        <Text style={{ color: 'white' }}>Header</Text>
     </FlexRow>
 )
 
