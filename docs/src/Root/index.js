@@ -10,13 +10,14 @@ import ComponentDetails from '../ComponentDetails'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import styles from './styles'
+import './reset.css'
 
 const App = () => (
-    <FlexColumn>
-        <div>hot World!</div>
-        <FlexRow>
+    <FlexColumn style={styles.container}>
+        <Header />
+        <FlexRow grow={1}>
             <Sidebar />
-            <FlexColumn style={styles.content}>
+            <FlexColumn style={styles.content} grow={1}>
                 <Switch>
                     <Route path="/getting-started" component={GettingStarted} />
                     <Route path="/design" component={Design} />
