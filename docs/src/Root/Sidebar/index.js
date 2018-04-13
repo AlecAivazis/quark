@@ -8,8 +8,8 @@ import ComponentLink from './ComponentLink'
 import ComponentSection from './ComponentSection'
 import data from 'data.json'
 
-const Sidebar = () => (
-    <FlexColumn style={styles.container}>
+const Sidebar = ({ style }) => (
+    <FlexColumn style={{ ...styles.container, ...style }}>
         <PageLink to="/getting-started" title="Getting Started" />
         <PageLink to="/design" title="Design">
             <ComponentLink to="/design/pallete">Color Pallete</ComponentLink>
