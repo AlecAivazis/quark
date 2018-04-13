@@ -4,6 +4,6 @@ export default {
         paddingTop: 32,
         paddingLeft: 40,
         paddingRight: 40,
-        backgroundColor: 'blue'
+        overflow: 'auto'
     }
 }

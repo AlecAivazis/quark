@@ -13,7 +13,7 @@ import styles from './styles'
 import './reset.css'
 
 const App = () => (
-    <AppContainer style={styles.container}>
+    <AppContainer>
         <Header />
         <FlexRow grow={1}>
             <Sidebar />

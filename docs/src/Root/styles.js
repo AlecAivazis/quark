@@ -1,5 +1,4 @@
 export default {
-    container: {},
     content: {
         backgroundColor: 'white',
         paddingTop: 44,

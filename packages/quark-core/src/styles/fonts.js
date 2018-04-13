@@ -8,17 +8,20 @@ export const primaryFont = {
 
 export const h1 = {
     ...primaryFont,
-    fontSize: 23
+    fontSize: 23,
+    fontWeight: '500'
 }
 
 export const h2 = {
     ...primaryFont,
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: '500'
 }
 
 export const h3 = {
     ...primaryFont,
-    fontSize: 18
+    fontSize: 18,
+    fontWeight: '500'
 }
 
 export const title = {
