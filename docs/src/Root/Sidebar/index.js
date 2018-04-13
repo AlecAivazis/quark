@@ -10,16 +10,20 @@ import data from 'data.json'
 
 const Sidebar = () => (
     <FlexColumn style={styles.container}>
-        <PageLink title="Getting Started" />
-        <PageLink title="Design">
-            <ComponentLink>Color Pallete</ComponentLink>
-            <ComponentLink>Typography</ComponentLink>
-            <ComponentLink>Customizing Your Theme</ComponentLink>
+        <PageLink to="/getting-started" title="Getting Started" />
+        <PageLink to="/design" title="Design">
+            <ComponentLink to="/design/pallete">Color Pallete</ComponentLink>
+            <ComponentLink to="/design/typography">Typography</ComponentLink>
+            <ComponentLink to="/design/customize-theme">Customizing Your Theme</ComponentLink>
         </PageLink>
-        <PageLink title="Components">
+        <PageLink to="/components" title="Components">
             {data.map(({ section, components }) => (
-                <ComponentSection title={section}>
-                    {components.map(({ component }) => <ComponentLink>{component}</ComponentLink>)}
+                <ComponentSection title={section} key={section}>
+                    {components.map(({ component }) => (
+                        <ComponentLink to={`/components/${section}/${component}`} key={component}>
+                            {component}
+                        </ComponentLink>
+                    ))}
                 </ComponentSection>
             ))}
         </PageLink>

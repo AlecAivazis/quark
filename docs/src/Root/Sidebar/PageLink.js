@@ -1,11 +1,14 @@
 // external imports
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 // local imports
 import { H3, FlexColumn } from 'quark-web'
 
-const PageLink = ({ title, children }) => (
+const PageLink = ({ title, to, children }) => (
     <FlexColumn style={styles.container}>
-        <H3 style={children ? styles.header : styles.orphanHeader}>{title}</H3>
+        <NavLink to={to} style={children ? styles.header : styles.orphanHeader}>
+            <H3>{title}</H3>
+        </NavLink>
         <FlexColumn style={styles.content}>{children}</FlexColumn>
     </FlexColumn>
 )

@@ -1,9 +1,14 @@
 // external imports
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 // local imports
 import { Title } from 'quark-web'
 
-const PageLink = ({ children }) => <Title style={styles.container}>{children}</Title>
+const PageLink = ({ to, children }) => (
+    <NavLink to={to} style={styles.container}>
+        <Title>{children}</Title>
+    </NavLink>
+)
 
 const styles = {
     container: {

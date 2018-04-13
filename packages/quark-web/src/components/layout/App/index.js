@@ -8,12 +8,11 @@ import { FlexColumn, FlexViewProps } from 'quark-web'
 import type { FlexViewPropTypes } from 'quark-web'
 
 const App = ({ style, ...unused }: FlexViewPropTypes) => (
-    <FlexColumn style={{ ...styles.container, style }} {...unused} />
+    <FlexColumn style={{ ...styles.container, ...style }} {...unused} />
 )
 
 const styles = {
     container: {
-        flex: 1,
         overflow: 'auto',
         minHeight: '100vh'
     }
