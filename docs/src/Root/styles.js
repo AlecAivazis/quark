@@ -1,7 +1,7 @@
 export default {
     content: {
         backgroundColor: 'white',
-        paddingTop: 44,
+        paddingTop: 32,
         paddingLeft: 32,
         paddingRight: 32
     }
