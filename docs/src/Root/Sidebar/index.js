@@ -14,7 +14,7 @@ const Sidebar = () => (
         <PageLink to="/design" title="Design">
             <ComponentLink to="/design/pallete">Color Pallete</ComponentLink>
             <ComponentLink to="/design/typography">Typography</ComponentLink>
-            <ComponentLink to="/design/customize-theme">Customizing Your Theme</ComponentLink>
+            <ComponentLink to="/design/customize">Customizing Your Theme</ComponentLink>
         </PageLink>
         <PageLink to="/components" title="Components">
             {data.map(({ section, components }) => (
