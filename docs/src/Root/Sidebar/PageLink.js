@@ -3,12 +3,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 // local imports
 import { H3, FlexColumn } from 'quark-web'
+import { primaryColor } from 'src/colors'
 
 const PageLink = ({ title, to, children }) => (
     <FlexColumn style={styles.container}>
-        <NavLink to={to} style={children ? styles.header : styles.orphanHeader}>
-            <H3>{title}</H3>
-        </NavLink>
+        <H3 style={children ? styles.header : styles.orphanHeader}>
+            <NavLink exact style={styles.link} activeStyle={styles.activeLink} to={to}>
+                {title}
+            </NavLink>
+        </H3>
+
         <FlexColumn style={styles.content}>{children}</FlexColumn>
     </FlexColumn>
 )
@@ -25,6 +29,12 @@ const styles = {
     },
     content: {
         marginLeft: 12
+    },
+    link: {
+        color: 'inherit'
+    },
+    activeLink: {
+        color: primaryColor
     }
 }
 

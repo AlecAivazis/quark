@@ -21,7 +21,7 @@ const App = () => (
                 <Switch>
                     <Route path="/getting-started" component={GettingStarted} />
                     <Route path="/design" component={Design} />
-                    <Route path="/components/:section/:name" component={ComponentDetails} />
+                    <Route path="/components" component={ComponentDetails} />
                     <Redirect to="/getting-started" />
                 </Switch>
             </FlexColumn>
