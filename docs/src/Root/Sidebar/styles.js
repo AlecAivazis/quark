@@ -1,9 +1,15 @@
+import { grey2 } from 'quark-web/styles'
+
 export default {
     container: {
-        paddingTop: 32,
+        overflow: 'auto',
+        borderRightWidth: 2,
+        borderColor: grey2
+    },
+    content: {
+        paddingTop: 12,
         paddingBottom: 32,
         paddingLeft: 40,
-        paddingRight: 40,
-        overflow: 'auto'
+        paddingRight: 40
     }
 }

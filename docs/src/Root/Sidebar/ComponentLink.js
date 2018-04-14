@@ -15,7 +15,8 @@ const PageLink = ({ to, children }) => (
 
 const styles = {
     container: {
-        marginBottom: 8
+        marginBottom: 14,
+        fontWeight: '500'
     },
     link: {
         color: 'inherit'

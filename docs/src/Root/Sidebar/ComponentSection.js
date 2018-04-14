@@ -16,17 +16,18 @@ const PageLink = ({ title, children }) => (
 
 const styles = {
     container: {
-        marginBottom: 12
+        marginBottom: 18
     },
     header: {
         color: grey3,
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+        fontWeight: 400
     },
     headerContainer: {
-        marginBottom: 8
+        marginBottom: 12
     },
     divider: {
-        height: 1,
+        height: 2,
         display: 'flex',
         flexGrow: 1,
         backgroundColor: grey3,

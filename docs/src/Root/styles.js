@@ -3,7 +3,9 @@ const sidebarWidth = 292
 
 export default {
     container: {
-        position: 'relative'
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'row'
     },
     content: {
         backgroundColor: 'white',

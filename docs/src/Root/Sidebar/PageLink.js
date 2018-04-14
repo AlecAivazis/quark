@@ -22,10 +22,12 @@ const styles = {
         marginBottom: 20
     },
     header: {
-        marginBottom: 12
+        marginBottom: 16,
+        fontWeight: '600'
     },
     orphanHeader: {
-        marginBottom: 0
+        marginBottom: 0,
+        fontWeight: '600'
     },
     content: {
         marginLeft: 12
