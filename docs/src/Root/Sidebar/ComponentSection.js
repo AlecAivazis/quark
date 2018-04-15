@@ -16,7 +16,7 @@ const PageLink = ({ title, children }) => (
 
 const styles = {
     container: {
-        marginBottom: 18
+        marginTop: 12
     },
     header: {
         color: grey3,

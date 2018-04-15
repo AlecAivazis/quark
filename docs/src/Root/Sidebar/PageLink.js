@@ -7,14 +7,9 @@ import { grey5 } from 'quark-web/styles'
 import { primaryColor } from 'src/colors'
 
 const PageLink = ({ title, to, children }) => (
-    <FlexColumn style={children ? styles.container : styles.orphanContainer}>
-        <H3>
-            <NavLink
-                exact
-                to={to}
-                style={children ? styles.header : styles.orphanHeader}
-                activeStyle={styles.activeLink}
-            >
+    <FlexColumn style={styles.container}>
+        <H3 style={styles.headerContainer}>
+            <NavLink exact to={to} style={styles.header} activeStyle={styles.activeLink}>
                 {title}
             </NavLink>
         </H3>
@@ -23,24 +18,19 @@ const PageLink = ({ title, to, children }) => (
     </FlexColumn>
 )
 
-const header = {
-    fontWeight: '600',
-    display: 'flex',
-    width: '100%',
-    padding: 6,
-    color: grey5
-}
-
 const styles = {
     container: {
-        marginBottom: 10
+        marginTop: 12
     },
-    orphanContainer: {
+    headerContainer: {
         marginBottom: 0
     },
-    header,
-    orphanHeader: {
-        ...header,
+    header: {
+        fontWeight: '600',
+        display: 'flex',
+        width: '100%',
+        padding: 6,
+        color: grey5,
         marginBottom: 0
     },
     content: {
