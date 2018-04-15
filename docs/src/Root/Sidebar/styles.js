@@ -8,7 +8,10 @@ export default {
     },
     content: {
         paddingBottom: 32,
-        paddingLeft: 40,
-        paddingRight: 40
+        paddingLeft: 32,
+        paddingRight: 32
+    },
+    notSectioned: {
+        marginBottom: 4
     }
 }

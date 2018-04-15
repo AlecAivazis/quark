@@ -6,10 +6,15 @@ import { H3, FlexColumn } from 'quark-web'
 import { grey5 } from 'quark-web/styles'
 import { primaryColor } from 'src/colors'
 
-const PageLink = ({ title, to, children }) => (
+const PageLink = ({ title, to, children, style }) => (
     <FlexColumn style={styles.container}>
         <H3 style={styles.headerContainer}>
-            <NavLink exact to={to} style={styles.header} activeStyle={styles.activeLink}>
+            <NavLink
+                exact
+                to={to}
+                style={{ ...styles.header, ...style }}
+                activeStyle={styles.activeLink}
+            >
                 {title}
             </NavLink>
         </H3>
@@ -34,7 +39,7 @@ const styles = {
         marginBottom: 0
     },
     content: {
-        marginLeft: 12
+        marginLeft: 20
     },
     activeLink: {
         color: 'white',

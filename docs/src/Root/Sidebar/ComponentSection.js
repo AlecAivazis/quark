@@ -10,21 +10,26 @@ const PageLink = ({ title, children }) => (
             <Title style={styles.header}>{title}</Title>
             <div style={styles.divider} />
         </FlexRow>
-        {children}
+        <FlexColumn style={styles.content}>{children}</FlexColumn>
     </FlexColumn>
 )
 
 const styles = {
     container: {
-        marginTop: 12
+        marginTop: 6,
+        marginBottom: 4
     },
     header: {
         color: grey3,
         textTransform: 'capitalize',
-        fontWeight: 400
+        fontWeight: 400,
+        marginBottom: 4
     },
     headerContainer: {
-        marginBottom: 4
+        marginBottom: 6
+    },
+    content: {
+        marginLeft: 6
     },
     divider: {
         height: 2,

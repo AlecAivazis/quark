@@ -14,7 +14,7 @@ const Sidebar = ({ style }) => (
         <Header />
         <FlexColumn style={styles.content}>
             <PageLink to="/getting-started" title="Getting Started" />
-            <PageLink to="/design" title="Design">
+            <PageLink to="/design" title="Design" style={styles.notSectioned}>
                 <ComponentLink to="/design/pallete">Color Pallete</ComponentLink>
                 <ComponentLink to="/design/typography">Typography</ComponentLink>
                 <ComponentLink to="/design/customize">Custom Theme</ComponentLink>
