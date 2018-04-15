@@ -7,7 +7,6 @@ export default {
         borderColor: grey2
     },
     content: {
-        paddingTop: 12,
         paddingBottom: 32,
         paddingLeft: 40,
         paddingRight: 40

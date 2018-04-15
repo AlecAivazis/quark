@@ -24,13 +24,14 @@ const styles = {
         fontWeight: 400
     },
     headerContainer: {
-        marginBottom: 12
+        marginBottom: 4
     },
     divider: {
         height: 2,
         display: 'flex',
         flexGrow: 1,
         backgroundColor: grey3,
+        marginTop: 4,
         marginLeft: 12
     }
 }
