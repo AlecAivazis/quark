@@ -371,3 +371,38 @@ test('intersections', () => {
         }
     })
 })
+
+test('can incoporate module-scoped types', () => {
+    let input = `
+        const Input = ({onChange, value}: {
+            value: ?string
+        } & Foo) => 'hello'
+
+        export default Input
+    `
+
+    // grab the prop table from the parsed input
+    const { props } = generateDescription(input, {
+        Foo: {
+            key: {
+                value: 'string',
+                optional: false,
+                nullable: false
+            }
+        }
+    })
+
+    // make sure we got the right value
+    expect(props).toEqual({
+        value: {
+            value: 'string',
+            optional: false,
+            nullable: true
+        },
+        key: {
+            value: 'string',
+            optional: false,
+            nullable: false
+        }
+    })
+})

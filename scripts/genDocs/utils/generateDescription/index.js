@@ -3,7 +3,7 @@ import { parse } from 'babylon'
 // local imports
 import { getPropTable, parseText } from '..'
 
-export default input => {
+export default (input, moduleScopedTypes = {}) => {
     // parse the incoming content
     const content = parseText(input)
 
@@ -26,6 +26,6 @@ export default input => {
     )
 
     return {
-        props: getPropTable(content, declaration)
+        props: getPropTable(content, declaration, moduleScopedTypes)
     }
 }
