@@ -56,3 +56,31 @@ test('can extract intersection types', async () => {
         }
     })
 })
+
+test('can mix local types into a union', () => {
+    // the input
+    const input = parseText(`
+        type Bar = {
+            b: string
+        }
+
+        export type Foo = {
+            a: string
+        } & Bar
+    `)
+
+    expect(_extract(input)).toEqual({
+        Foo: {
+            a: {
+                value: 'string',
+                nullable: false,
+                optional: false
+            },
+            b: {
+                value: 'string',
+                nullable: false,
+                optional: false
+            }
+        }
+    })
+})

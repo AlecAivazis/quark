@@ -20,7 +20,8 @@ const getPropTable = (content, declaration) => {
         // if we couldn't find the type definition, it is an externally imported type
         if (!typeDef) {
             // we don't support, yell loudly
-            throw new Error(`Could not find definition for declaration: ${typeName}`)
+            // throw new Error(`Could not find definition for declaration: ${typeName}`)
+            return {}
         }
 
         // use the defined value as the typedef
@@ -30,9 +31,14 @@ const getPropTable = (content, declaration) => {
         typeDef = typeAnnotation
     }
 
-    // if we have a single list of properties
+    // if we have a single list of properties (an object)
     if (typeDef.properties) {
         return _generateTable(typeDef.properties)
+    }
+    // if its a standalone type (primitives and unions)
+    if (!typeDef.types) {
+        // generate the prop table like normal
+        return _generateTable[typeDef]
     }
 
     // otherwise we are most likely an intersection of other types so return a merge of all of the tables

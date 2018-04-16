@@ -21,15 +21,9 @@ export const _extract = ast => {
             node.declaration &&
             node.declaration.type === 'TypeAlias'
     )
-    console.log(
-        types.reduce(
-            (prev, type) => ({
-                ...prev,
-                [type.declaration.id.name]: getPropTable(ast, type.declaration.right)
-            }),
-            {}
-        )
-    )
+    if (types.length > 0) {
+        console.log(types[0].declaration.id.name)
+    }
 
     // join all of the exported types in a single object
     return types.reduce(

@@ -1,14 +1,11 @@
 // external imports
 import { parse } from 'babylon'
 // local imports
-import { getPropTable } from '..'
+import { getPropTable, parseText } from '..'
 
 export default input => {
     // parse the incoming content
-    const content = parse(input, {
-        sourceType: 'module',
-        plugins: ['jsx', 'flow']
-    }).program.body
+    const content = parseText(input)
 
     // find the default export of the file
     const defaultExport = content.find(node => node.type === 'ExportDefaultDeclaration')
