@@ -18,7 +18,7 @@
         "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
-        "docs:gen": "babel-node scripts/genDocs/index.js",
+        "docs:gen": "babel-node scripts/gen-docs.js",
         "docs:gen:watch": "npm run gen:docs -- --watch",
         "docs:build": "webpack --mode production --config docs/webpack.config.js",
         "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"
@@ -96,7 +96,7 @@
         "semver": "^5.5.0",
         "style-loader": "^0.20.3",
         "svgs": "^3.2.1",
-        "walk": "^2.3.9",
+        "walk": "^2.3.13",
         "webpack": "^4.5.0",
         "webpack-cli": "^2.0.14",
         "webpack-dev-server": "^3.1.3"
@@ -105,6 +105,7 @@
         "react": "^16.3.0"
     },
     "dependencies": {
+        "babylon": "^7.0.0-beta.44",
         "react-hot-loader": "^4.0.1",
         "react-router-dom": "^4.2.2"
     }
