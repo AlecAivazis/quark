@@ -3,10 +3,7 @@ import { parse } from 'babylon'
 // local imports
 import { getPropTable, parseText } from '..'
 
-export default (input, moduleScopedTypes = {}) => {
-    // parse the incoming content
-    const content = parseText(input)
-
+export default (content, moduleScopedTypes = {}) => {
     // find the default export of the file
     const defaultExport = content.find(node => node.type === 'ExportDefaultDeclaration')
 
@@ -33,7 +30,5 @@ export default (input, moduleScopedTypes = {}) => {
         ? fnDeclaration.declarations[0].init.params[0].typeAnnotation.typeAnnotation
         : classDeclaration.superTypeParameters.params[0]
 
-    return {
-        props: getPropTable(content, annotation, moduleScopedTypes)
-    }
+    return getPropTable(content, annotation, moduleScopedTypes)
 }

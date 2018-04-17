@@ -1,18 +1,45 @@
 // external imports
-import path from 'path'
-import fs from 'fs'
+import chokidar from 'chokidar'
 // local imports
-import { collectFiles, extractTypes } from './utils'
+import { packageDirs, examples } from '../filePath'
+import GenDocs from './GenDocs'
 
-// the current working directory
-const cwd = process.cwd()
+const enableWatchMode = process.argv.slice(2) == '--watch'
 
-export default async (...dirs) => {
-    // create a list of files we need to visit
-    const files = await collectFiles(dirs.map(dir => path.join(cwd, dir)))
+const genDocs = new GenDocs(packageDirs)
+genDocs.writeResult()
 
-    // create the mapping of exported typed
-    const exportedTypes = await extractTypes(files)
-
-    console.log(exportedTypes)
+if (enableWatchMode) {
+    // get list of dirs to keep an eye on
+    const componentsDirs = packageDirs.map(({ componentsDir }) => componentsDir)
+    // Regenerate component metadata when components or examples change
+    chokidar.watch([...componentsDirs, examples]).on('change', genDocs.writeResult)
 }
+
+process.on('unhandledRejection', err => {
+    console.error(err)
+})
+/**
+ * Generates metdata structured the following way:
+ *
+ * [
+ *     {
+ *         section: 'foo',
+ *         components: [
+ *             {
+ *                 component: 'asdf',
+ *                 packages: ['quark-core'],
+ *                 description: 'asdf is cool.',
+ *                 props: {
+ *                     ...
+ *                 },
+ *                 examples: [
+ *                     {...}
+ *                 ]
+ *
+ *             }
+ *         ]
+ *     },
+ *     ...
+ * ]
+ */

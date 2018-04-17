@@ -1,8 +1,9 @@
 // local imports
-import generateDescription from '.'
+import getProps from '.'
+import { parseText } from '..'
 
 test('can extract prop table', () => {
-    let input = `
+    let input = parseText(`
       type Props = {
         value: string,
         onClick: (string) => void
@@ -12,9 +13,10 @@ test('can extract prop table', () => {
       const Input = ({onChange, value}: Props) => 'hello'
 
       export default Input
-    `
+    `)
+
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -32,17 +34,17 @@ test('can extract prop table', () => {
 })
 
 test('inline type defs', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
           value: string,
           onClick: (string) => void
         }) => 'hello'
 
         export default Input
-      `
+      `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -60,16 +62,16 @@ test('inline type defs', () => {
 })
 
 test('generics', () => {
-    let input = `
-    const Input = ({onChange, value}: {
-      value: Array<any>
-    }) => 'hello'
+    let input = parseText(`
+        const Input = ({onChange, value}: {
+        value: Array<any>
+        }) => 'hello'
 
-    export default Input
-  `
+        export default Input
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -82,16 +84,16 @@ test('generics', () => {
 })
 
 test('qualified generics', () => {
-    let input = `
+    let input = parseText(`
       const Input = ({onChange, value}: {
         value: React.Element<any>
       }) => 'hello'
 
       export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -104,16 +106,16 @@ test('qualified generics', () => {
 })
 
 test('qualified types', () => {
-    let input = `
+    let input = parseText(`
       const Input = ({onChange, value}: {
         value: React.Node
       }) => 'hello'
 
       export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -126,16 +128,16 @@ test('qualified types', () => {
 })
 
 test('number', () => {
-    let input = `
+    let input = parseText(`
     const Input = ({onChange, value}: {
       value: number
     }) => 'hello'
 
     export default Input
-  `
+  `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -148,16 +150,16 @@ test('number', () => {
 })
 
 test('boolean', () => {
-    let input = `
+    let input = parseText(`
     const Input = ({onChange, value}: {
       value: boolean
     }) => 'hello'
 
     export default Input
-  `
+  `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -170,16 +172,16 @@ test('boolean', () => {
 })
 
 test('empty object', () => {
-    let input = `
+    let input = parseText(`
       const Input = ({onChange, value}: {
         value: {}
       }) => 'hello'
 
       export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -192,16 +194,16 @@ test('empty object', () => {
 })
 
 test('concrete object', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: { hello: string }
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -214,16 +216,16 @@ test('concrete object', () => {
 })
 
 test('generic object', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: { [k: string]: string }
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -236,14 +238,14 @@ test('generic object', () => {
 })
 
 test('optional types', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: { value?: string }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -256,16 +258,16 @@ test('optional types', () => {
 })
 
 test('nullable values', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: ?string
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -278,16 +280,16 @@ test('nullable values', () => {
 })
 
 test('string literals', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: 'hello'
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -300,16 +302,16 @@ test('string literals', () => {
 })
 
 test('number literals', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: 1
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -322,16 +324,16 @@ test('number literals', () => {
 })
 
 test('unions', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: 1 | 2
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -344,7 +346,7 @@ test('unions', () => {
 })
 
 test('intersections', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: ?string
         } & {
@@ -352,10 +354,10 @@ test('intersections', () => {
         }) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input)
+    const props = getProps(input)
 
     // make sure we got the right value
     expect(props).toEqual({
@@ -373,7 +375,7 @@ test('intersections', () => {
 })
 
 test('can get types of class component', () => {
-    let input = `
+    let input = parseText(`
         type Props = {
             value?: string
         }
@@ -385,8 +387,9 @@ test('can get types of class component', () => {
         }
 
         export default Foo
-    `
-    expect(generateDescription(input).props).toEqual({
+    `)
+
+    expect(getProps(input)).toEqual({
         value: {
             value: 'string',
             optional: true,
@@ -396,16 +399,16 @@ test('can get types of class component', () => {
 })
 
 test('can incoporate module-scoped types', () => {
-    let input = `
+    let input = parseText(`
         const Input = ({onChange, value}: {
             value: ?string
         } & Foo) => 'hello'
 
         export default Input
-    `
+    `)
 
     // grab the prop table from the parsed input
-    const { props } = generateDescription(input, {
+    const props = getProps(input, {
         Foo: {
             key: {
                 value: 'string',

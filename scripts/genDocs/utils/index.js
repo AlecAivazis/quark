@@ -1,5 +1,5 @@
 export extractTypes from './extractTypes'
 export collectFiles from './collectFiles'
 export * from './parseFile'
-export generateDescription from './generateDescription'
+export getProps from './getProps'
 export getPropTable from './getPropTable'

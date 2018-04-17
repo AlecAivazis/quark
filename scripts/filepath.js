@@ -2,10 +2,8 @@
 const path = require('path')
 // project root
 const root = path.join(__dirname, '..')
-// the directory within root with examples
-const examples = 'examples'
 // the directory within root with docs
-const docs = 'docs'
+const docsDir = 'docs'
 // the directory to build to inside of the packages
 const buildDir = 'build'
 // the package directory
@@ -14,11 +12,14 @@ const packageDir = 'packages'
 const src = 'src'
 // the directory within the package with the components
 const components = 'components'
+// the directory within docs that has the component examples
+const examplesDir = 'examples'
+
 // the list of packages
-const packages = ['quark-core', 'quark-web', 'quark-native']
+export const packages = ['quark-core', 'quark-web', 'quark-native']
 
 // the list of package directories
-const packageDirs = packages.map(pkg => {
+export const packageDirs = packages.map(pkg => {
     const dir = path.join(packageDir, pkg)
     return {
         sourceDir: path.join(dir, src),
@@ -29,9 +30,6 @@ const packageDirs = packages.map(pkg => {
     }
 })
 
-module.exports = {
-    examples: path.join(root, docs, examples),
-    docs: path.join(root, docs),
-    packages,
-    packageDirs
-}
+export const examples = path.join(root, docsDir, examplesDir)
+
+export const docs = path.join(root, docsDir)
