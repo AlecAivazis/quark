@@ -1,8 +1,22 @@
+// @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 // local imports
 import FreeState from '../Free'
+
+type Props = {
+    initial: any[],
+    children: RenderPropPayload => React.Node
+}
+
+type RenderPropPayload = {
+    state: any[],
+    append: any => void,
+    prepend: any => void,
+    slice: (number, ?number) => void,
+    update: (number, any) => void
+}
 
 export const updateList = (list, i, val) => {
     const copy = [...list]
@@ -10,7 +24,7 @@ export const updateList = (list, i, val) => {
     return copy
 }
 
-const ListState = ({ children, ...unused }) => (
+const ListState = ({ children, ...unused }: Props) => (
     <FreeState {...unused}>
         {({ state, set }) =>
             React.Children.only(

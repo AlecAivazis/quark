@@ -1,12 +1,22 @@
+// @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
 import TabBar from '../TabBar'
 
-class TabView extends React.Component {
+type Props = {
+    data: { [key: string]: any }[],
+    barStyle: { [key: string]: any },
+    tabStyle: { [key: string]: any },
+    style: { [key: string]: any },
+    children: ({ [key: string]: any }) => React.Node,
+    numTabs: number
+}
+
+class TabView extends React.Component<Props> {
     static propTypes = {
         data: PropTypes.array.isRequired
     }

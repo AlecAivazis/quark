@@ -1,3 +1,4 @@
+// @flow
 // external imports
 import React from 'react'
 import { ScrollView, View, StyleSheet, Text, FlatList } from 'react-native'
@@ -8,7 +9,15 @@ import { baseDim, grey5, primaryColor } from 'quark-core/styles'
 // the margin between tabs
 const tabMargin = 12
 
-class TabBar extends React.Component {
+type Props = {
+    numTabs: number,
+    selected: number,
+    selectTab: number => void,
+    tabStyle: { [key: string]: any },
+    children: { [key: string]: any }[]
+}
+
+class TabBar extends React.Component<Props> {
     state = {
         tabWidth: null
     }

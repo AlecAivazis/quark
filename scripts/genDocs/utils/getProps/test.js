@@ -83,6 +83,28 @@ test('generics', () => {
     })
 })
 
+test('array type', () => {
+    let input = parseText(`
+        const Input = ({onChange, value}: {
+        value: any[]
+        }) => 'hello'
+
+        export default Input
+    `)
+
+    // grab the prop table from the parsed input
+    const props = getProps(input)
+
+    // make sure we got the right value
+    expect(props).toEqual({
+        value: {
+            value: 'Array<any>',
+            optional: false,
+            nullable: false
+        }
+    })
+})
+
 test('qualified generics', () => {
     let input = parseText(`
       const Input = ({onChange, value}: {

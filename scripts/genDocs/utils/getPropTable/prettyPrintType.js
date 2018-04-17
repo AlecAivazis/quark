@@ -54,6 +54,10 @@ const prettyPrint = typeDefinition => {
     if (typeDefinition.type === 'UnionTypeAnnotation') {
         return _union(typeDefinition)
     }
+    // array types
+    if (typeDefinition.type === 'ArrayTypeAnnotation') {
+        return `Array<${prettyPrint(typeDefinition.elementType)}>`
+    }
 
     // otherwise its a type we don't know about, yell loudly
     throw new Error(`Unkown type: ${typeDefinition.type}`)

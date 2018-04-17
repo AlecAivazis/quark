@@ -1,19 +1,27 @@
 // external imports
-import PropTypes from 'prop-types'
-import React from 'react'
+import * as React from 'react'
 import lodash from 'lodash'
 
-class Form extends React.Component {
-    static propTypes = {
-        children: PropTypes.func.isRequired,
-        onChange: PropTypes.func,
-        validate: PropTypes.object,
-        transform: PropTypes.object,
-        value: PropTypes.object,
-        initialErrors: PropTypes.bool,
-        initialData: PropTypes.object
-    }
+type FormRenderProp = {
+    getValue: string => any,
+    setValue: ({ [key: string]: string }) => void,
+    getError: string => string,
+    data: { [key: string]: string },
+    hasErrors: boolean,
+    clear: () => void
+}
 
+type Props = {
+    children: FormRenderProp => React.Node,
+    onChange: ({ [key: string]: any }) => void,
+    validate: { [key: string]: (any) => ?Error },
+    transform: { [key: string]: (any) => any },
+    value: { [key: string]: any },
+    initialErrors: boolean,
+    initialData: { [key: string]: any }
+}
+
+class Form extends React.Component<Props> {
     static defaultProps = {
         validate: {},
         transform: {},
