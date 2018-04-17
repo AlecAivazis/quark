@@ -372,6 +372,29 @@ test('intersections', () => {
     })
 })
 
+test('can get types of class component', () => {
+    let input = `
+        type Props = {
+            value?: string
+        }
+
+        class Foo extends React.Component<Props> {
+            render() {
+                return 'hello'
+            }
+        }
+
+        export default Foo
+    `
+    expect(generateDescription(input).props).toEqual({
+        value: {
+            value: 'string',
+            optional: true,
+            nullable: false
+        }
+    })
+})
+
 test('can incoporate module-scoped types', () => {
     let input = `
         const Input = ({onChange, value}: {

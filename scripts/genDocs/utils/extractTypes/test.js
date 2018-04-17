@@ -85,7 +85,7 @@ test('can mix local types into an intersection', () => {
     })
 })
 
-test.only('can extract union type', () => {
+test('can extract union type', () => {
     // the input
     const input = parseText(`
         export type Bar = "a" | "b"

@@ -1,11 +1,7 @@
 // local imports
 import prettyPrintType from './prettyPrintType'
 
-const getPropTable = (content, declaration, moduleScopedTypes = {}) => {
-    // get the prop types for that declaration
-    const typeAnnotation = declaration.declarations
-        ? declaration.declarations[0].init.params[0].typeAnnotation.typeAnnotation
-        : declaration
+const getPropTable = (content, typeAnnotation, moduleScopedTypes = {}) => {
     // the definition of the type
     let typeDef
 

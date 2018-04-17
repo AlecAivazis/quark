@@ -18,7 +18,7 @@
         "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
-        "docs:gen": "babel-node scripts/gen-docs.js",
+        "docs:gen": "babel-node scripts/genDocs.js",
         "docs:gen:watch": "npm run gen:docs -- --watch",
         "docs:build": "webpack --mode production --config docs/webpack.config.js",
         "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"

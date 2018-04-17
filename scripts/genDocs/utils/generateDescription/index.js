@@ -20,12 +20,20 @@ export default (input, moduleScopedTypes = {}) => {
     const { name: componentName } = defaultExport.declaration
 
     // find the variable declaration corresponding to that identifier
-    const declaration = content.find(
+    const fnDeclaration = content.find(
         node =>
             node.type === 'VariableDeclaration' && node.declarations[0].id.name === componentName
     )
+    const classDeclaration = content.find(
+        node => node.type === 'ClassDeclaration' && node.id.name === componentName
+    )
+
+    // get the type annotation associated with the default export
+    const annotation = fnDeclaration
+        ? fnDeclaration.declarations[0].init.params[0].typeAnnotation.typeAnnotation
+        : classDeclaration.superTypeParameters.params[0]
 
     return {
-        props: getPropTable(content, declaration, moduleScopedTypes)
+        props: getPropTable(content, annotation, moduleScopedTypes)
     }
 }
