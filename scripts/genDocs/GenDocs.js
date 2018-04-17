@@ -150,7 +150,7 @@ class GenDocs extends FSUtils {
                             // if there are multilpe versions of in different packages
                         } else if (props.length === 2) {
                             // compare props if component exists in more than one package
-                            if (!_.isEqual(props[0], props[1])) {
+                            if (!_.isEqual(...props)) {
                                 console.log(props)
                                 console.log(
                                     chalk.red(
