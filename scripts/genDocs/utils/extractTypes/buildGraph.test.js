@@ -20,23 +20,23 @@ test('includes intersections', async () => {
         if (value === filepaths[2]) {
             // return contents that only depends on 1
             return parse.parseText(`
-            import type { Foo } from '1'
+              import type { Foo } from '1'
 
-            export type Bar = Foo & {
-              b: string
-            }
-          `)
+              export type Bar = Foo & {
+                b: string
+              }
+            `)
         }
         // if we passed in the second file
         if (value === filepaths[1]) {
             // return a file that depends on 1 and 3
             return parse.parseText(`
-              import type { Foo, Bar } from '1'
+                import type { Foo, Bar } from '1'
 
-              export type Baz = Foo & Bar &{
-                b: string
-              }
-          `)
+                export type Baz = Foo & Bar &{
+                  b: string
+                }
+            `)
         }
     })
 
@@ -100,10 +100,10 @@ test('includes aliases', async () => {
         if (value === filepaths[0]) {
             // return a file that does not depend on any
             return parse.parseText(`
-            export type Foo = {
-              a: string
-            }
-          `)
+              export type Foo = {
+                a: string
+              }
+            `)
         }
         // if we passed the fourth file
         if (value === filepaths[1]) {
@@ -138,30 +138,30 @@ test('includes unions', async () => {
         if (value === filepaths[0]) {
             // return a file that does not depend on any
             return parse.parseText(`
-            export type Foo = {
-              a: string
-            }
-          `)
+              export type Foo = {
+                a: string
+              }
+            `)
         }
         // if we passed in the third file
         if (value === filepaths[2]) {
             // return contents that only depends on 1
             return parse.parseText(`
-          import type { Foo } from '1'
+              import type { Foo } from '1'
 
-          export type Bar = Foo | {
-            b: string
-          }
-        `)
+              export type Bar = Foo | {
+                b: string
+              }
+            `)
         }
         // if we passed in the second file
         if (value === filepaths[1]) {
             // return a file that depends on 1 and 3
             return parse.parseText(`
-            import type { Foo, Bar } from 'asdf'
+                import type { Foo, Bar } from 'asdf'
 
-            export type Baz = Foo | Bar
-        `)
+                export type Baz = Foo | Bar
+            `)
         }
     })
 
@@ -191,10 +191,10 @@ test('only includes the initial declaration of a type', async () => {
         if (value === filepaths[0]) {
             // return a file that does not depend on any
             return parse.parseText(`
-            export type Foo = {
-              a: string
-            }
-          `)
+              export type Foo = {
+                a: string
+              }
+            `)
         }
         // if we passed the fourth file
         if (value === filepaths[1]) {
