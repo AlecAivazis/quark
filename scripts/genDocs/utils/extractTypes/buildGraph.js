@@ -21,9 +21,10 @@ export default async (paths: string[]): Promise<Node[]> => {
     const reverseGraph: any[] = (await Promise.all(
         paths.map(async path => {
             // the list of types that this file depends on
-            const dependsOn = []
+            let dependsOn = []
+            const content = [...(await parseFile(path))]
             // parse the contents of the path
-            const declarations = [...(await parseFile(path))].filter(
+            const exportedDeclarations = content.filter(
                 node =>
                     // if the node is a named export of a type
                     node.type === 'ExportNamedDeclaration' &&
@@ -31,13 +32,13 @@ export default async (paths: string[]): Promise<Node[]> => {
                     node.declaration.type === 'TypeAlias'
             )
             // if there are no exported types in this file
-            if (declarations.length === 0) {
+            if (exportedDeclarations.length === 0) {
                 // don't include this in the graph
                 return
             }
 
             // find any exported types
-            for (const { declaration } of declarations) {
+            for (const { declaration } of exportedDeclarations) {
                 // register the filepath as the place to get information about this type
                 typeMap[declaration.id.name] = path
 
@@ -54,6 +55,12 @@ export default async (paths: string[]): Promise<Node[]> => {
                     dependsOn.push(declaration.right.id.name)
                 }
             }
+
+            // make sure that the dependsOn declaration cannot be found locally
+            dependsOn = dependsOn.filter(
+                type => !content.find(node => node.type === 'TypeAlias' && node.id.name === type)
+            )
+
             return {
                 filepath: path,
                 dependsOn

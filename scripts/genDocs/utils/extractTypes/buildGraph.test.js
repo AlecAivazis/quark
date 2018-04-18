@@ -16,26 +16,22 @@ test('includes intersections', async () => {
               }
             `)
         }
-        // if we passed in the third file
-        if (value === filepaths[2]) {
-            // return contents that only depends on 1
-            return parse.parseText(`
-              import type { Foo } from '1'
-
-              export type Bar = Foo & {
-                b: string
-              }
-            `)
-        }
         // if we passed in the second file
         if (value === filepaths[1]) {
             // return a file that depends on 1 and 3
             return parse.parseText(`
-                import type { Foo, Bar } from '1'
-
                 export type Baz = Foo & Bar &{
                   b: string
                 }
+            `)
+        }
+        // if we passed in the third file
+        if (value === filepaths[2]) {
+            // return contents that only depends on 1
+            return parse.parseText(`
+              export type Bar = Foo & {
+                b: string
+              }
             `)
         }
     })
@@ -108,8 +104,6 @@ test('includes aliases', async () => {
         // if we passed the fourth file
         if (value === filepaths[1]) {
             return parse.parseText(`
-              import { Foo } from 'asdf'
-
               export type Bar = Foo
             `)
         }
@@ -147,8 +141,6 @@ test('includes unions', async () => {
         if (value === filepaths[2]) {
             // return contents that only depends on 1
             return parse.parseText(`
-              import type { Foo } from '1'
-
               export type Bar = Foo | {
                 b: string
               }
@@ -158,8 +150,6 @@ test('includes unions', async () => {
         if (value === filepaths[1]) {
             // return a file that depends on 1 and 3
             return parse.parseText(`
-                import type { Foo, Bar } from 'asdf'
-
                 export type Baz = Foo | Bar
             `)
         }
@@ -206,6 +196,48 @@ test('only includes the initial declaration of a type', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
+            dependents: []
+        }
+    ])
+})
+
+test('exclused locally defined types', async () => {
+    // some filepaths to test
+    const filepaths = ['1', '2']
+
+    parse.parseFile = jest.fn(value => {
+        // if we passed in the first file
+        if (value === filepaths[0]) {
+            // return a file that does not depend on any
+            return parse.parseText(`
+              export type Blah = {
+                a: string
+              }
+            `)
+        }
+        // if we passed in the third file
+        if (value === filepaths[1]) {
+            // return contents that only depends on 1
+            return parse.parseText(`
+              type Blah = {
+                b: string
+              }
+
+              export type Bar = Blah | {
+                c: string
+              }
+            `)
+        }
+    })
+
+    // get the graph of response
+    expect(await buildGraph(filepaths)).toEqual([
+        {
+            filepath: '1',
+            dependents: []
+        },
+        {
+            filepath: '2',
             dependents: []
         }
     ])
