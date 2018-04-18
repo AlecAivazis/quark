@@ -10,7 +10,7 @@ type Node = {
 
 // this function takes a list of files, looks for type depdencies and returns a graph
 // representing the type, and types it depends on
-export default async (paths: string[]): Node[] => {
+export default async (paths: string[]): Promise<Node[]> => {
     // a mapping of type name, to file that exports it
     const typeMap: { [filepath: string]: string } = {}
 
