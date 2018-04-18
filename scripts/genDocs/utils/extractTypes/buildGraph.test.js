@@ -20,7 +20,7 @@ test('includes intersections', async () => {
         if (value === filepaths[1]) {
             // return a file that depends on 1 and 3
             return parse.parseText(`
-                export type Baz = Foo & Bar &{
+                export type Baz = Foo & Bar & {
                   b: string
                 }
             `)
@@ -40,15 +40,18 @@ test('includes intersections', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: ['2', '3']
+            dependents: ['2', '3'],
+            dependsOn: []
         },
         {
             filepath: '2',
-            dependents: []
+            dependents: [],
+            dependsOn: ['1', '3']
         },
         {
             filepath: '3',
-            dependents: ['2']
+            dependents: ['2'],
+            dependsOn: ['1']
         }
     ])
 })
@@ -82,7 +85,8 @@ test('excludes paths without type definitions', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: []
+            dependents: [],
+            dependsOn: []
         }
     ])
 })
@@ -113,12 +117,14 @@ test('includes aliases', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: ['2']
+            dependents: ['2'],
+            dependsOn: []
         },
 
         {
             filepath: '2',
-            dependents: []
+            dependents: [],
+            dependsOn: ['1']
         }
     ])
 })
@@ -159,15 +165,18 @@ test('includes unions', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: ['2', '3']
+            dependents: ['2', '3'],
+            dependsOn: []
         },
         {
             filepath: '2',
-            dependents: []
+            dependents: [],
+            dependsOn: ['1', '3']
         },
         {
             filepath: '3',
-            dependents: ['2']
+            dependents: ['2'],
+            dependsOn: ['1']
         }
     ])
 })
@@ -196,7 +205,8 @@ test('only includes the initial declaration of a type', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: []
+            dependents: [],
+            dependsOn: []
         }
     ])
 })
@@ -234,11 +244,13 @@ test('exclused locally defined types', async () => {
     expect(await buildGraph(filepaths)).toEqual([
         {
             filepath: '1',
-            dependents: []
+            dependents: [],
+            dependsOn: []
         },
         {
             filepath: '2',
-            dependents: []
+            dependents: [],
+            dependsOn: []
         }
     ])
 })

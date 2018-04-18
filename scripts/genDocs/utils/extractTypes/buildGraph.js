@@ -3,22 +3,24 @@
 import { parseFile } from '../parseFile'
 
 // a node in the graph stores the `filepath`, and the paths that must be visited before
-type Node = {
+type GraphNode = {
     filepath: string,
-    dependents: string[]
+    dependents: string[],
+    dependsOn: string[]
 }
 
 // this function takes a list of files, looks for type depdencies and returns a graph
 // representing the type, and types it depends on
-export default async (paths: string[]): Promise<Node[]> => {
+export default async (paths: string[]): Promise<GraphNode[]> => {
     // a mapping of type name, to file that exports it
     const typeMap: { [filepath: string]: string } = {}
-
     // a mapping of filepath to what it depends on
     const dependentsMap: { [filepath: string]: string[] } = {}
+    // a mapping of filepaths to what it depends on
+    const dependsOnMap: { [filepath: string]: string[] } = {}
 
     // parse all of the contents in parrallel and compute what it depends on (the inverted graph)
-    const reverseGraph: any[] = (await Promise.all(
+    await Promise.all(
         paths.map(async path => {
             // the list of types that this file depends on
             let dependsOn = []
@@ -61,18 +63,16 @@ export default async (paths: string[]): Promise<Node[]> => {
                 type => !content.find(node => node.type === 'TypeAlias' && node.id.name === type)
             )
 
-            return {
-                filepath: path,
-                dependsOn
-            }
+            // add the appropriate entry to the depends on map
+            dependsOnMap[path] = dependsOn
         })
-    )).filter(Boolean)
+    )
 
     // reverse the graph and dereference file locations in parallel
     await Promise.all(
-        reverseGraph.map(async ({ filepath, dependsOn }) => {
+        Object.keys(dependsOnMap).map(async filepath => {
             // the filepath is a dependent of each of its entries in dependsOn
-            for (const path of dependsOn) {
+            for (const path of dependsOnMap[filepath]) {
                 // so add the filepath to the map
                 dependentsMap[path] = !dependentsMap[path]
                     ? [filepath]
@@ -82,8 +82,11 @@ export default async (paths: string[]): Promise<Node[]> => {
     )
 
     // invert the graph to get the dependency graph
-    return Object.keys(typeMap).map(type => ({
-        filepath: typeMap[type],
-        dependents: dependentsMap[type] || []
-    }))
+    return Object.keys(typeMap).map(type => {
+        return {
+            filepath: typeMap[type],
+            dependents: dependentsMap[type] || [],
+            dependsOn: dependsOnMap[typeMap[type]].map(foo => typeMap[foo])
+        }
+    })
 }
