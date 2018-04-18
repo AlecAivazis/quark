@@ -14,8 +14,6 @@ type GraphNode = {
 export default async (paths: string[]): Promise<GraphNode[]> => {
     // a mapping of type name, to file that exports it
     const typeMap: { [filepath: string]: string } = {}
-    // a mapping of filepath to what it depends on
-    const dependentsMap: { [filepath: string]: string[] } = {}
     // a mapping of filepaths to what it depends on
     const dependsOnMap: { [filepath: string]: string[] } = {}
 
@@ -68,24 +66,10 @@ export default async (paths: string[]): Promise<GraphNode[]> => {
         })
     )
 
-    // reverse the graph and dereference file locations in parallel
-    await Promise.all(
-        Object.keys(dependsOnMap).map(async filepath => {
-            // the filepath is a dependent of each of its entries in dependsOn
-            for (const path of dependsOnMap[filepath]) {
-                // so add the filepath to the map
-                dependentsMap[path] = !dependentsMap[path]
-                    ? [filepath]
-                    : [...dependentsMap[path], filepath]
-            }
-        })
-    )
-
     // invert the graph to get the dependency graph
     return Object.keys(typeMap).map(type => {
         return {
             filepath: typeMap[type],
-            dependents: dependentsMap[type] || [],
             dependsOn: dependsOnMap[typeMap[type]].map(foo => typeMap[foo])
         }
     })
