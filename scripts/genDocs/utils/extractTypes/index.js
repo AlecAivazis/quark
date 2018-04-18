@@ -1,19 +1,23 @@
 // local imports
-import { parseFile, getPropTable } from '..'
+import { getPropTable, parseFile } from '..'
+import buildGraph from './buildGraph'
+import sortGraph from './sortGraph'
 
 // extractTypes gets all exported typed in the list of directories
 // and returns a map of type to prop table
 export default async files => {
-    // make sure we look at each directory
-    const types = (await Promise.all(files.map(parseFile))).map(_extract)
+    // build the dependency graph for all files with exported types
+    // NOTE: we can identify missing prop definitions by looking at `dependsOn`, it would be
+    // [undefined] if it couldn't find the file containing the definition
+    const filepaths = (await sortGraph(await buildGraph(files))).map(({ filepath }) => filepath)
 
-    return types.reduce(
-        (prev, curr) => ({
+    // parse the files in parallel, but merge them in series, building up a list of type defintions
+    return (await Promise.all(filepaths.map(parseFile))).reduce((prev, curr) => {
+        return {
             ...prev,
-            ...curr
-        }),
-        {}
-    )
+            ..._extract(curr, prev)
+        }
+    }, {})
 }
 
 export const _extract = (ast, packageTypes) => {

@@ -260,7 +260,7 @@ class GenDocs extends FSUtils {
 
     writeResult = async () => {
         const data = await this.generateData()
-
+        console.log(JSON.stringify(data))
         // yell loudly if there are errors
         if (this._errors.length > 0) {
             console.log(chalk.red(this._errors.join('\n')))
