@@ -143,6 +143,13 @@ test('includes unions', async () => {
               }
             `)
         }
+        // if we passed in the second file
+        if (value === filepaths[1]) {
+            // return a file that depends on 1 and 3
+            return parse.parseText(`
+                export type Baz = Foo | Bar
+            `)
+        }
         // if we passed in the third file
         if (value === filepaths[2]) {
             // return contents that only depends on 1
@@ -150,13 +157,6 @@ test('includes unions', async () => {
               export type Bar = Foo | {
                 b: string
               }
-            `)
-        }
-        // if we passed in the second file
-        if (value === filepaths[1]) {
-            // return a file that depends on 1 and 3
-            return parse.parseText(`
-                export type Baz = Foo | Bar
             `)
         }
     })
