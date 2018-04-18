@@ -47,7 +47,7 @@ class GenDocs extends FSUtils {
     }
 
     addComponentsToSections = sections =>
-        sections.reduce((accComponents, currSection) => {
+        sections.map(currSection => {
             // collect components
             let components = []
             // check if the sections exists
@@ -62,42 +62,32 @@ class GenDocs extends FSUtils {
                     // swallow this exception
                 }
             })
+
             // dedupe and remove all directors that do not follow convention for components
             const filteredComponents = _.uniq(components).filter(
                 // must be uppercase and cannot started with underscore in order to ignore snapshots
                 dir => dir[0] === dir[0].toUpperCase() && dir[0] !== '_'
             )
-            // return accumulator if no components exist in the section
-            if (filteredComponents.length === 0) {
-                return accComponents
-            }
             // add to accumulator
-            return accComponents.concat({
-                section: currSection,
+            return {
+                name: currSection,
                 components: filteredComponents
-            })
-        }, [])
+            }
+        })
 
     addTagsToComponents = sectionsWithComponents =>
-        sectionsWithComponents.reduce((accSections, currSection) => {
-            const components = currSection.components.map(component => {
+        sectionsWithComponents.map(section => ({
+            ...section,
+            components: section.components.map(component => {
                 // the tags for a component
                 let tags = []
                 // check core
-                const pathToCore = path.join(
-                    this._quarkCore.componentsDir,
-                    currSection.section,
-                    component
-                )
+                const pathToCore = path.join(this._quarkCore.componentsDir, section.name, component)
                 if (this.pathExists(pathToCore)) {
                     tags.push(this._quarkCore.name)
                 }
                 // check web
-                const pathToWeb = path.join(
-                    this._quarkWeb.componentsDir,
-                    currSection.section,
-                    component
-                )
+                const pathToWeb = path.join(this._quarkWeb.componentsDir, section.name, component)
                 // check if sectionPath is valid in this pkg
                 if (this.pathExists(pathToWeb)) {
                     tags.push(this._quarkWeb.name)
@@ -105,22 +95,18 @@ class GenDocs extends FSUtils {
                 // check native
                 const pathToNative = path.join(
                     this._quarkNative.componentsDir,
-                    currSection.section,
+                    section.name,
                     component
                 )
                 if (this.pathExists(pathToNative)) {
                     tags.push(this._quarkNative.name)
                 }
                 return {
-                    component,
+                    name: component,
                     tags
                 }
             })
-            // update component field of current section
-            const updatedSection = { ...currSection, components }
-            // add components for section back to accumulator
-            return accSections.concat(updatedSection)
-        }, [])
+        }))
 
     addPropsToComponents = (componentsWithTags, packageTypes) =>
         Promise.all(
@@ -133,8 +119,8 @@ class GenDocs extends FSUtils {
                             component.tags.map(tag =>
                                 this.getProps({
                                     tag,
-                                    section: section.section,
-                                    component: component.component,
+                                    section: section.name,
+                                    component: component.name,
                                     packageTypes
                                 })
                             )
@@ -155,7 +141,7 @@ class GenDocs extends FSUtils {
                                 console.log(
                                     chalk.red(
                                         `Prop table is not equal across packages for ${
-                                            component.component
+                                            component.name
                                         }. Please reconcile.`
                                     )
                                 )
@@ -192,8 +178,8 @@ class GenDocs extends FSUtils {
         sections.map(section => ({
             ...section,
             components: section.components.filter(Boolean).map(component => {
-                const { section: sectionName } = section
-                const { component: componentName } = component
+                const { name: sectionName } = section
+                const { name: componentName } = component
                 const examplesPath = path.join(quarkPaths.examples, sectionName, componentName)
 
                 return {
