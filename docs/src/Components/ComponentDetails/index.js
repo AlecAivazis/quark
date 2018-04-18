@@ -14,13 +14,13 @@ const ComponentDetails = ({ match }) => {
     try {
         // find the information designated by the url
         var info = data
-            .find(({ section: sectionName }) => sectionName === section)
-            .components.find(({ component: componentName }) => componentName === component)
+            .find(({ name: sectionName }) => sectionName === section)
+            .components.find(({ name: componentName }) => componentName === component)
     } catch (err) {}
 
     return info ? (
         <FlexColumn>
-            <H1>{info.component}</H1>
+            <H1>{info.name}</H1>
             <Text>{info.description}</Text>
             <PropTable info={info} style={styles.section} />
             <Examples info={info} style={styles.section} />
