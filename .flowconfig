@@ -12,7 +12,6 @@ flow-typed/
 [lints]
 
 [options]
-unsafe.enable_getters_and_setters=true
 esproposal.export_star_as=enable
 
 module.name_mapper='^quark-core\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-core/src/\1'

@@ -16,7 +16,7 @@ export default async files => {
     )
 }
 
-export const _extract = ast => {
+export const _extract = (ast, packageTypes) => {
     // grab the exported type defs
     const types = ast.filter(
         node =>
@@ -29,7 +29,7 @@ export const _extract = ast => {
     return types.reduce(
         (prev, type) => ({
             ...prev,
-            [type.declaration.id.name]: getPropTable(ast, type.declaration.right)
+            [type.declaration.id.name]: getPropTable(ast, type.declaration.right, packageTypes)
         }),
         {}
     )
