@@ -31,9 +31,10 @@ export default (graph: GraphNode[]) => {
         // note: things that depend on target will come after in adjacent
         list.push(target)
 
-        // since we added `target` to our sorted list, we can decrement the inDegree of all nodes by 1
-        for (const node of allNodes) {
-            // decrement each inDegree
+        // since we added `target` to our sorted list, we can decrement the inDegree of all nodes that
+        // depend on target
+        for (const node of allNodes.filter(node => node.dependsOn.includes(target.filepath))) {
+            // decrement their inDegree since target was removed
             node.inDegree--
 
             // if we removed the last element it needed to be considered valid to put in
