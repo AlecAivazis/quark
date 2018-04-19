@@ -27,7 +27,7 @@ const ComponentDetails = ({ match }) => {
         </FlexColumn>
     ) : (
         <FlexColumn>
-            <Text>Could not find coponent designated by the url</Text>
+            <Text>Could not find component designated by the url</Text>
         </FlexColumn>
     )
 }
