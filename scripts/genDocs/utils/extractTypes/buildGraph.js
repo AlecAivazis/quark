@@ -3,9 +3,8 @@
 import { parseFile } from '../parseFile'
 
 // a node in the graph stores the `filepath`, and the paths that must be visited before
-type GraphNode = {
+export type GraphNode = {
     filepath: string,
-    dependents: string[],
     dependsOn: string[]
 }
 

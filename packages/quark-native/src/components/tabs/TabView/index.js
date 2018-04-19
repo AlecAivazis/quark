@@ -13,20 +13,26 @@ type Props = {
     tabStyle: { [key: string]: any },
     style: { [key: string]: any },
     children: ({ [key: string]: any }) => React.Node,
-    numTabs: number
+    numTabs?: number
 }
 
-class TabView extends React.Component<Props> {
+type State = {
+    selected: number
+}
+
+class TabView extends React.Component<Props, State> {
     static propTypes = {
         data: PropTypes.array.isRequired
     }
+
+    _keyCache: { [key: string]: number }
 
     state = {
         // the current selection
         selected: 0
     }
 
-    constructor(props, ...args) {
+    constructor(props: Props, ...args: any[]) {
         // instantiate this
         super(props, ...args)
         // we need to cache category key lookup
@@ -42,7 +48,7 @@ class TabView extends React.Component<Props> {
         }
     }
 
-    _selectTab(key) {
+    _selectTab(key: string) {
         // keep track of the new selection
         this.setState({ selected: this._keyCache[key] })
     }

@@ -13,12 +13,16 @@ type RenderPropPayload = {
     set: any => void
 }
 
-class FreeState extends React.Component<Props> {
+type State = {
+    val: any
+}
+
+class FreeState extends React.Component<Props, State> {
     static defaultProps = {
         initial: null
     }
 
-    constructor(props, ...args) {
+    constructor(props: Props, ...args: any[]) {
         // create this
         super(props, ...args)
         // base the state on the initial prop

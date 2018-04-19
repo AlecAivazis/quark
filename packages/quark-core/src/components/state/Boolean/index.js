@@ -11,7 +11,7 @@ type RenderPropCallback = {
 }
 
 type Props = {
-    initial: boolean,
+    initial?: boolean,
     children: RenderPropCallback => React.Node
 }
 

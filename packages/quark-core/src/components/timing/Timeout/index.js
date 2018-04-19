@@ -14,9 +14,7 @@ class Timeout extends React.Component<Props> {
         this._timeout = setTimeout(this.props.children, this.props.delay)
     }
 
-    componentWillUnmount() {
-        clearTimeout(this._timeout)
-    }
+    componentWillUnmount = () => this._timeout && clearTimeout(this._timeout)
 
     // don't render anything
     render = () => null

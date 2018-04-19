@@ -18,7 +18,7 @@ type RenderPropPayload = {
     update: (number, any) => void
 }
 
-export const updateList = (list, i, val) => {
+export const updateList = (list: any[], i: number, val: any) => {
     const copy = [...list]
     copy[i] = val
     return copy

@@ -4,7 +4,6 @@ import type { GraphNode } from './buildGraph'
 // a node has the form
 //   {
 //       filepath: string,
-//       dependents: string[],
 //       dependsOn: string[],
 //   }
 //

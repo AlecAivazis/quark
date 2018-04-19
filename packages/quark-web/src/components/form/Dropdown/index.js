@@ -70,6 +70,7 @@ class Dropdown extends React.Component<Props, State> {
 
     _keyDown = (event: Event) => {
         // if the user pressed ↑
+        // $FlowFixMe
         if (event.which === 38) {
             event.preventDefault()
             // increment the counter

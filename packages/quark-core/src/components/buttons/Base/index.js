@@ -18,7 +18,7 @@ export type ButtonProps = {
     onPress?: (...args: Array<any>) => void,
     onPressIn?: (...args: Array<any>) => void,
     onPressOut?: (...args: Array<any>) => void,
-    style?: {},
+    style?: { [key: string]: any } | any[],
     children?: React.Node
 }
 
