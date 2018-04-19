@@ -13,7 +13,7 @@ flow-typed/
 
 [options]
 esproposal.export_star_as=enable
-
+suppress_comment=\\(.\\|\n\\)*\\ disable-flow
 module.name_mapper='^quark-core\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-core/src/\1'
 module.name_mapper='^quark-web\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-web/src/\1'
 module.name_mapper='^quark-native\(\/?.*\)$' -> '<PROJECT_ROOT>/packages/quark-native/src/\1'

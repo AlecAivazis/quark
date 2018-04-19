@@ -72,7 +72,7 @@ class TabBar extends React.Component<Props, State> {
                 data={children}
                 extraData={selected}
                 renderItem={({ item: { key }, index }) => (
-                    // $FlowFixMe
+                    // disable-flow
                     <this._Tab index={index}>{key}</this._Tab>
                 )}
                 {...unused}
@@ -82,10 +82,10 @@ class TabBar extends React.Component<Props, State> {
 
     get _fixedBar() {
         return this.props.children.map(({ key }, i) => (
-            // $FlowFixMe
+            // disable-flow
             <this._Tab index={i} key={key}>
                 {key}
-                // $FlowFixMe
+                // disable-flow
             </this._Tab>
         ))
     }
