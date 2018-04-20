@@ -8,12 +8,12 @@ export type IntervalProps = {
 }
 
 type State = {
-    interval: number
+    interval: ?IntervalID
 }
 
 class Interval extends React.Component<IntervalProps, State> {
     state = {
-        interval: 0
+        interval: null
     }
 
     static defaultProps = {
@@ -23,7 +23,7 @@ class Interval extends React.Component<IntervalProps, State> {
     componentDidMount = () =>
         this.setState({ interval: setInterval(this.props.children, this.props.interval) })
 
-    componentWillUnmount = () => clearInterval(this.state.interval)
+    componentWillUnmount = () => this.state.interval && clearInterval(this.state.interval)
 
     render = () => null
 }

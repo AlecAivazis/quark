@@ -20,14 +20,14 @@ const Sidebar = ({ style }) => (
                 <ComponentLink to="/design/customize">Custom Theme</ComponentLink>
             </PageLink>
             <PageLink to="/components" title="Components">
-                {data.map(({ section, components }) => (
-                    <ComponentSection title={section} key={section}>
-                        {components.map(({ component }) => (
+                {data.map(({ name: sectionName, components }) => (
+                    <ComponentSection title={sectionName} key={sectionName}>
+                        {components.map(({ name: componentName }) => (
                             <ComponentLink
-                                to={`/components/${section}/${component}`}
-                                key={component}
+                                to={`/components/${sectionName}/${componentName}`}
+                                key={componentName}
                             >
-                                {component}
+                                {componentName}
                             </ComponentLink>
                         ))}
                     </ComponentSection>

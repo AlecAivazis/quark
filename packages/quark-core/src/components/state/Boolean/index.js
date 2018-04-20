@@ -1,10 +1,21 @@
+// @flow
 // external imports
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 // local imports
 import FreeState from '../Free'
 
-const BooleanState = ({ children, ...unused }) => (
+type RenderPropCallback = {
+    state: boolean,
+    set: boolean => void,
+    toggle: () => void
+}
+
+type Props = {
+    initial?: boolean,
+    children: RenderPropCallback => React.Node
+}
+
+const BooleanState = ({ children, ...unused }: Props) => (
     <FreeState {...unused}>
         {({ state, set }) =>
             React.Children.only(
@@ -13,12 +24,9 @@ const BooleanState = ({ children, ...unused }) => (
                     set: val => set(Boolean(val)),
                     toggle: () => set(!state)
                 })
-            )}
+            )
+        }
     </FreeState>
 )
-
-BooleanState.propTypes = {
-    children: PropTypes.func.isRequired
-}
 
 export default BooleanState

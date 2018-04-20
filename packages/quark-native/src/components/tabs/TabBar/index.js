@@ -1,22 +1,50 @@
+// @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { ScrollView, View, StyleSheet, Text, FlatList } from 'react-native'
+import type { ViewPropTypes } from 'react-native-web'
 // local imports
-import { Button } from 'quark-core'
+import { Button, GetTheme } from 'quark-core'
 import { baseDim, grey5, primaryColor } from 'quark-core/styles'
 
 // the margin between tabs
 const tabMargin = 12
 
-class TabBar extends React.Component {
+type Props = {
+    numTabs?: number,
+    selected: number,
+    selectTab: string => void,
+    tabStyle: { [key: string]: any },
+    children: { [key: string]: any }[]
+} & ViewPropTypes
+
+type State = {
+    tabWidth: ?number,
+    scroll: boolean
+}
+
+type LayoutEvent = {
+    nativeEvent: {
+        layout: {
+            width: number
+        }
+    }
+}
+
+class TabBar extends React.Component<Props, State> {
     state = {
-        tabWidth: null
+        tabWidth: null,
+        scroll: false
+    }
+
+    static defaultProps = {
+        numTabs: 5
     }
 
     // we wait a frame before showing the tab bar to calculate the layout
-    _onLayout({ nativeEvent: { layout } }) {
+    _onLayout = ({ nativeEvent: { layout } }: LayoutEvent) => {
         // the number of tabs to show
-        const n = this.props.numTabs
+        const n = this.props.numTabs || 0
         // the total width of the bar
         const w = layout.width
 
@@ -44,6 +72,7 @@ class TabBar extends React.Component {
                 data={children}
                 extraData={selected}
                 renderItem={({ item: { key }, index }) => (
+                    // disable-flow
                     <this._Tab index={index}>{key}</this._Tab>
                 )}
                 {...unused}
@@ -53,13 +82,15 @@ class TabBar extends React.Component {
 
     get _fixedBar() {
         return this.props.children.map(({ key }, i) => (
+            // disable-flow
             <this._Tab index={i} key={key}>
                 {key}
+                // disable-flow
             </this._Tab>
         ))
     }
 
-    _Tab = ({ index, children }) => {
+    _Tab = ({ index, children }: { index: number, children: string }) => {
         const { selected, selectTab, tabStyle } = this.props
 
         return (
@@ -92,11 +123,6 @@ class TabBar extends React.Component {
                 {this.state.tabWidth && bar}
             </View>
         )
-    }
-
-    constructor(...args) {
-        super(...args)
-        this._onLayout = this._onLayout.bind(this)
     }
 }
 

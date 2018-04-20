@@ -8,7 +8,7 @@ import styles from './styles'
 
 type Props = {
     value: string,
-    onChange: (string, Event) => void,
+    onChange: (string, ?Event) => void,
     icon: React.Node
 } & { [key: string]: string }
 

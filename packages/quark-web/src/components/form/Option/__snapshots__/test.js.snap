@@ -99,6 +99,7 @@ exports[`renders active style 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#F9F9F9",
+                    "color": "inherit",
                     "cursor": "pointer",
                     "display": "flex",
                     "padding": NaN,
@@ -153,6 +154,7 @@ exports[`renders default style 1`] = `
               <div
                 style={
                   Object {
+                    "color": "inherit",
                     "cursor": "pointer",
                     "display": "flex",
                     "padding": NaN,

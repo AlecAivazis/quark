@@ -1,22 +1,38 @@
+// @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
 import TabBar from '../TabBar'
 
-class TabView extends React.Component {
+type Props = {
+    data: { [key: string]: any }[],
+    barStyle: { [key: string]: any },
+    tabStyle: { [key: string]: any },
+    style: { [key: string]: any },
+    children: ({ [key: string]: any }) => React.Node,
+    numTabs?: number
+}
+
+type State = {
+    selected: number
+}
+
+class TabView extends React.Component<Props, State> {
     static propTypes = {
         data: PropTypes.array.isRequired
     }
+
+    _keyCache: { [key: string]: number }
 
     state = {
         // the current selection
         selected: 0
     }
 
-    constructor(props, ...args) {
+    constructor(props: Props, ...args: any[]) {
         // instantiate this
         super(props, ...args)
         // we need to cache category key lookup
@@ -32,7 +48,7 @@ class TabView extends React.Component {
         }
     }
 
-    _selectTab(key) {
+    _selectTab(key: string) {
         // keep track of the new selection
         this.setState({ selected: this._keyCache[key] })
     }

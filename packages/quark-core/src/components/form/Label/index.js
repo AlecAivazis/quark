@@ -15,14 +15,7 @@ type Props = ViewPropTypes & {
 // a context provider for the error state of the label
 // export const LabelErrorContext = React.createContext(false)
 
-export const Label = ({
-    children,
-    value,
-    textStyle,
-    description,
-    error = false,
-    ...unused
-}: Props) => (
+const Label = ({ children, value, textStyle, description, error = false, ...unused }: Props) => (
     <View {...unused}>
         <View style={styles.labelContainer}>
             <Text style={[styles.labelText, textStyle]}>{value}</Text>
@@ -44,3 +37,5 @@ const styles = StyleSheet.create({
         fontSize: 14
     }
 })
+
+export default Label

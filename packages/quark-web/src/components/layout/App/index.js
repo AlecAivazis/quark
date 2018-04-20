@@ -2,9 +2,8 @@
 // external imports
 import React from 'react'
 import { View } from 'react-native'
-import type { ViewPropTypes } from 'react-native-web'
 // local imports
-import { FlexColumn, FlexViewProps } from 'quark-web'
+import { FlexColumn } from 'quark-web'
 import type { FlexViewPropTypes } from 'quark-web'
 
 const App = ({ style, ...unused }: FlexViewPropTypes) => (

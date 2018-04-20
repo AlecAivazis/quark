@@ -1,2 +1,2 @@
 export Checkbox from './Checkbox'
-export * from './Label'
+export Label from './Label'

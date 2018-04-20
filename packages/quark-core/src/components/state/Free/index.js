@@ -1,18 +1,28 @@
+// @flow
 // external imports
-import React, { Component } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 
-class FreeState extends Component {
-    static propTypes = {
-        children: PropTypes.func.isRequired,
-        initial: PropTypes.any
-    }
+type Props = {
+    children: RenderPropPayload => React.Node,
+    initial: any
+}
 
+type RenderPropPayload = {
+    state: any,
+    set: any => void
+}
+
+type State = {
+    val: any
+}
+
+class FreeState extends React.Component<Props, State> {
     static defaultProps = {
         initial: null
     }
 
-    constructor(props, ...args) {
+    constructor(props: Props, ...args: any[]) {
         // create this
         super(props, ...args)
         // base the state on the initial prop

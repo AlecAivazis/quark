@@ -14,6 +14,7 @@ const PropTable = ({ info, style }) => (
                         <th>Name</th>
                         <th>Type</th>
                         <th>Required</th>
+                        <th>Nullable</th>
                         <th>Description</th>
                     </tr>
                 </thead>
@@ -22,11 +23,13 @@ const PropTable = ({ info, style }) => (
                         .sort()
                         .map(prop => {
                             const propInfo = info.props[prop]
+
                             return (
                                 <tr>
                                     <td>{prop}</td>
-                                    <td>{propInfo.flowType && propInfo.flowType.name}</td>
-                                    <td>{JSON.stringify(propInfo.required)}</td>
+                                    <td>{propInfo.value}</td>
+                                    <td>{JSON.stringify(!propInfo.optional)}</td>
+                                    <td>{JSON.stringify(propInfo.nullable)}</td>
                                     <td>{propInfo.description}</td>
                                 </tr>
                             )

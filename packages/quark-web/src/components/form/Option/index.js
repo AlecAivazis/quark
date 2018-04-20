@@ -19,16 +19,20 @@ const Option = ({ value, active, selected, style, ...unused }: Props) => (
     <GetTheme>
         {({ primaryColor, grey1 }) => {
             // the style to apply to the element
-            let elementStyle = { ...styles.container }
+            let elementStyle = { ...styles.container, color: 'inherit' }
             if (active) {
-                Object.assign(elementStyle, styles.active, {
+                elementStyle = {
+                    ...elementStyle,
+                    ...styles.active,
                     backgroundColor: grey1
-                })
+                }
             }
             if (selected) {
-                Object.assign(elementStyle, styles.selected, {
+                elementStyle = {
+                    ...elementStyle,
+                    ...styles.selected,
                     color: primaryColor
-                })
+                }
             }
 
             return (
