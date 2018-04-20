@@ -16,18 +16,22 @@ const ComponentDetails = ({ match }) => {
         var info = data
             .find(({ name: sectionName }) => sectionName === section)
             .components.find(({ name: componentName }) => componentName === component)
-    } catch (err) {}
+        // if something went wrong
+    } catch (err) {
+        // render the error state
+        return (
+            <FlexColumn>
+                <Text>Could not find component designated by the url</Text>
+            </FlexColumn>
+        )
+    }
 
-    return info ? (
+    return (
         <FlexColumn>
             <H1>{info.name}</H1>
             <Text>{info.description}</Text>
             <PropTable info={info} style={styles.section} />
             <Examples info={info} style={styles.section} />
-        </FlexColumn>
-    ) : (
-        <FlexColumn>
-            <Text>Could not find component designated by the url</Text>
         </FlexColumn>
     )
 }
