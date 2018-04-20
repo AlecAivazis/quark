@@ -1,6 +1,6 @@
 // local imports
 import * as parse from '../parse'
-import collectDeclarations, { DEFAULT_EXPORT } from '.'
+import collectExports, { DEFAULT_EXPORT } from '.'
 
 test('collects named arrow-function component exports', () => {
     // provide mocked content when parsing example file
@@ -16,11 +16,9 @@ test('collects named arrow-function component exports', () => {
         `)
     )
 
-    expect(collectDeclarations('root/quark-web/src/components/section/a.js').components).toEqual([
+    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
         {
             name: 'Foo',
-            package: 'quark-web',
-            section: 'section',
             props: {
                 a: {
                     value: 'string',
@@ -44,11 +42,9 @@ test('collects named class-based exports', () => {
         `)
     )
 
-    expect(collectDeclarations('root/quark-web/src/components/section/a.js').components).toEqual([
+    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
         {
             name: 'Foo',
-            package: 'quark-web',
-            section: 'section',
             props: {
                 a: {
                     value: 'string',
@@ -76,11 +72,9 @@ test('collects default component exports from arrow-function reference', () => {
         `)
     )
 
-    expect(collectDeclarations('root/quark-web/src/components/section/a.js').components).toEqual([
+    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
         {
             name: DEFAULT_EXPORT,
-            package: 'quark-web',
-            section: 'section',
             props: {
                 a: {
                     value: 'string',
@@ -109,11 +103,9 @@ test('collects default component exports from class reference', () => {
       `)
     )
 
-    expect(collectDeclarations('root/quark-web/src/components/section/a.js').components).toEqual([
+    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
         {
             name: DEFAULT_EXPORT,
-            package: 'quark-web',
-            section: 'section',
             props: {
                 a: {
                     value: 'string',
@@ -139,11 +131,9 @@ test('collects inline default component exports', () => {
       `)
     )
 
-    expect(collectDeclarations('root/quark-web/src/components/section/a.js').components).toEqual([
+    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
         {
             name: DEFAULT_EXPORT,
-            package: 'quark-web',
-            section: 'section',
             props: {
                 a: {
                     value: 'string',
@@ -155,10 +145,10 @@ test('collects inline default component exports', () => {
     ])
 })
 
-test('collects inline function default component exports', () => {})
+test('collects type exports', () => {})
+
+test('follows type imports')
 
 test('follows default export from')
 
 test('follows named export from')
-
-test('collects type exports')

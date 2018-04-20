@@ -1,10 +1,10 @@
 // local imports
-import { parseFile, getLocation, getPropTable } from '..'
+import { parseFile, getPropTable } from '..'
 import getPropDef from './getPropDef'
 
 export const DEFAULT_EXPORT = '_default'
 
-const collectDeclarations = filepath => {
+const collectExports = filepath => {
     // parse the content of the filepath
     const content = parseFile(filepath)
 
@@ -50,18 +50,13 @@ const collectDeclarations = filepath => {
             }
         })
 
-    // extract the location out of the filepath
-    const { package: pkg, section } = getLocation(filepath)
-
     //
     return {
         components: namedExports.concat(defaultExports).map(node => ({
             name: node.name,
-            section,
-            package: pkg,
             props: getPropTable(content, node.propDef, null)
         }))
     }
 }
 
-export default collectDeclarations
+export default collectExports
