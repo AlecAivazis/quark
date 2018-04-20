@@ -16,18 +16,15 @@ test('collects named arrow-function component exports', () => {
         `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
-        {
-            name: 'Foo',
-            props: {
-                a: {
-                    value: 'string',
-                    required: true,
-                    nullable: false
-                }
+    expect(collectExports('root/quark-web/src/components/section/a.js').components.Foo).toEqual({
+        props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
             }
         }
-    ])
+    })
 })
 
 test('collects named class-based exports', () => {
@@ -42,18 +39,15 @@ test('collects named class-based exports', () => {
         `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
-        {
-            name: 'Foo',
-            props: {
-                a: {
-                    value: 'string',
-                    required: true,
-                    nullable: false
-                }
+    expect(collectExports('root/quark-web/src/components/section/a.js').components.Foo).toEqual({
+        props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
             }
         }
-    ])
+    })
 })
 
 test('collects default component exports from arrow-function reference', () => {
@@ -72,18 +66,17 @@ test('collects default component exports from arrow-function reference', () => {
         `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
-        {
-            name: DEFAULT_EXPORT,
-            props: {
-                a: {
-                    value: 'string',
-                    required: true,
-                    nullable: false
-                }
+    expect(
+        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
+    ).toEqual({
+        props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
             }
         }
-    ])
+    })
 })
 
 test('collects default component exports from class reference', () => {
@@ -103,18 +96,17 @@ test('collects default component exports from class reference', () => {
       `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
-        {
-            name: DEFAULT_EXPORT,
-            props: {
-                a: {
-                    value: 'string',
-                    required: true,
-                    nullable: false
-                }
+    expect(
+        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
+    ).toEqual({
+        props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
             }
         }
-    ])
+    })
 })
 
 test('collects inline default component exports', () => {
@@ -131,18 +123,17 @@ test('collects inline default component exports', () => {
       `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components).toEqual([
-        {
-            name: DEFAULT_EXPORT,
-            props: {
-                a: {
-                    value: 'string',
-                    required: true,
-                    nullable: false
-                }
+    expect(
+        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
+    ).toEqual({
+        props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
             }
         }
-    ])
+    })
 })
 
 test('collects type exports', () => {})

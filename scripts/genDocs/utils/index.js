@@ -1,4 +1,4 @@
 export * from './parse'
-export collectDeclarations from './collectDeclarations'
+export collectExports from './collectExports'
 export getPropTable from './getPropTable'
 export getLocation from './getLocation'

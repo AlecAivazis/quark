@@ -52,10 +52,15 @@ const collectExports = filepath => {
 
     //
     return {
-        components: namedExports.concat(defaultExports).map(node => ({
-            name: node.name,
-            props: getPropTable(content, node.propDef, null)
-        }))
+        components: namedExports.concat(defaultExports).reduce(
+            (prev, node) => ({
+                ...prev,
+                [node.name]: {
+                    props: getPropTable(content, node.propDef, null)
+                }
+            }),
+            {}
+        )
     }
 }
 
