@@ -58,7 +58,7 @@ const _generateTable = properties => {
         // set the value to the prittified version
         props[prop.key.name] = {
             value: prettyPrintType(!isNullable ? prop.value : prop.value.typeAnnotation),
-            optional: prop.optional,
+            required: !prop.optional,
             nullable: isNullable
         }
     }
