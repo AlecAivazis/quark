@@ -45,8 +45,7 @@ test('collects named class-based exports', async () => {
           export class Foo extends React.Component<Props> {}
         `)
     )
-
-    expect((await collectExports('foo.js')).components.Foo).toEqual({
+    expect((await collectExports('foo.js')).components.Foo).toMatchObject({
         props: {
             a: {
                 value: 'string',
@@ -505,6 +504,23 @@ test('includes aliased package references', async () => {
                 nullable: false
             }
         }
+    })
+})
+
+test('includes filepath in component definition', async () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(() =>
+        parse.parseText(`
+          type Props = {
+            a: string
+          }
+
+          export class Foo extends React.Component<Props> {}
+        `)
+    )
+
+    expect((await collectExports('foo.js')).components.Foo).toMatchObject({
+        filepath: 'foo.js'
     })
 })
 

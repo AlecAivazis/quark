@@ -137,6 +137,7 @@ const collectExports = (filepath, opts = {}) => {
                 (prev, node) => ({
                     ...prev,
                     [node.name]: {
+                        filepath,
                         props: getPropTable(content, node.propDef, importedTypes)
                     }
                 }),
