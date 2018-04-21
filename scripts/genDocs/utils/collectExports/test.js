@@ -328,3 +328,60 @@ test('follows re-named export from', () => {
         }
     })
 })
+
+test('export all components from module', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export * from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export const Foo = (props : Props) => 'hello'
+                export const Bar = (props : Props) => 'hello'
+                export const Baz = (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').components).toMatchObject({
+        Foo: {
+            props: {
+                b: {
+                    value: 'string',
+                    required: true,
+                    nullable: false
+                }
+            }
+        },
+        Bar: {
+            props: {
+                b: {
+                    value: 'string',
+                    required: true,
+                    nullable: false
+                }
+            }
+        },
+        Baz: {
+            props: {
+                b: {
+                    value: 'string',
+                    required: true,
+                    nullable: false
+                }
+            }
+        }
+    })
+})

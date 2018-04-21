@@ -127,7 +127,6 @@ const collectExports = filepath => {
             }),
             {}
         )
-
     // look for values we've exported from a particular place
     const exportFromComponents = content
         .filter(
@@ -143,7 +142,6 @@ const collectExports = filepath => {
             return exportFrom.specifiers.reduce((prev, specifier) => {
                 // the name to look up the component in the imported file
                 let name
-
                 // if we are exporting the component as the default of the module
                 if (specifier.type === 'ExportDefaultSpecifier') {
                     name = DEFAULT_EXPORT
@@ -164,10 +162,36 @@ const collectExports = filepath => {
         })
         .reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
+    // look for any `export * from ...`
+    const exportAll = content
+        .filter(
+            ({ type, exportKind, source }) =>
+                type === 'ExportAllDeclaration' && exportKind === 'value' && source
+        )
+        .map(exportStatement => {
+            // the filepath we export from
+            const fp = path.join(path.dirname(filepath), exportStatement.source.value)
+            // parse the file we are importing from
+            const { components } = collectExports(fp)
+
+            // export all of the named exports (non-default)
+            return Object.keys(components)
+                .filter(key => key !== DEFAULT_EXPORT)
+                .reduce(
+                    (prev, key) => ({
+                        ...prev,
+                        [key]: components[key]
+                    }),
+                    {}
+                )
+        })
+        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+
     return {
         components: {
             ...exportFromComponents,
-            ...exportedComponents
+            ...exportedComponents,
+            ...exportAll
         },
         types: {
             ...exportedTypes,
