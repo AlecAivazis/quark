@@ -53,8 +53,6 @@ const collectExports = (filepath, opts = {}) => {
             // remove nodes we don't want to handle
             .filter(Boolean)
 
-        // console.log(content)
-
         // look for types we have to import
         const importedTypes = (await Promise.all(
             content
@@ -74,7 +72,6 @@ const collectExports = (filepath, opts = {}) => {
                     // const typeName =
                 })
         )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
-        // console.log(importedTypes)
 
         // if there are any named type export froms
         const namedTypeExports = (await Promise.all(
@@ -178,7 +175,6 @@ const collectExports = (filepath, opts = {}) => {
                     return exportFrom.specifiers
                         .filter(spec => spec.type !== 'ExportNamespaceSpecifier')
                         .reduce((prev, specifier) => {
-                            console.log(specifier)
                             // the name to look up the component in the imported file
                             let name
                             // if we are exporting the component as the default of the module
