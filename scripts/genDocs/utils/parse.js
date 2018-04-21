@@ -11,5 +11,11 @@ export const parseText = input =>
 
 export const parseFile = async filepath => {
     const data = await resolvePath(filepath)
-    return parseText(data.toString())
+    try {
+        return parseText(data.toString())
+    } catch (err) {
+        console.log('encountered error while parsing', filepath)
+
+        throw err
+    }
 }

@@ -1,7 +1,7 @@
 // external imports
 import path from 'path'
 // local imports
-import { parseFile, getPropTable } from '..'
+import { parseFile, getPropTable, isComponent, log, findDeclaration } from '..'
 import getPropDef from './getPropDef'
 
 export const DEFAULT_EXPORT = '_default'
@@ -9,17 +9,21 @@ export const DEFAULT_EXPORT = '_default'
 // an object to memoize the collection to prevent parsing filepaths too often
 export const _memoizeStore = {}
 
-const collectExports = (filepath, opts = {}) => {
+const collectExports = async (filepath, opts = {}) => {
     // check if we've parsed this path already
     if (_memoizeStore[filepath]) {
+        log('reusing imports from', filepath)
         return _memoizeStore[filepath]
     }
+    // tell the user what we're done
+    log('collecting exports from', filepath)
 
     // set the default arugments
     opts.alias = opts.alias || {}
 
     // parse the content  the filepath
-    const content = parseFile(filepath)
+
+    const content = (await parseFile(filepath))
         // add the fullPath to all statements that reference an external file
         .map(node => {
             // if there is no references to an external file
@@ -32,8 +36,11 @@ const collectExports = (filepath, opts = {}) => {
 
             // if the import path is relative
             if (referencedPath.startsWith('.')) {
-                // the full path to resolve
-                const importPath = path.join(path.dirname(filepath), node.source.value)
+                // if its targetting a file
+                const importPath = filepath.endsWith('.js')
+                    ? path.join(path.dirname(filepath), node.source.value)
+                    : path.join(filepath, node.source.value)
+                // console.log(importPath)
 
                 // add the full path to the node
                 return {
@@ -55,44 +62,46 @@ const collectExports = (filepath, opts = {}) => {
         .filter(Boolean)
 
     // look for types we have to import
-    const importedTypes = content
-        .filter(node => node.type === 'ImportDeclaration' && node.importKind === 'type')
-        .map(typeImport => {
-            // grab the types imported from the file
-            const { types } = collectExports(typeImport.importPath, opts)
-            // return the types that we needed
-            return typeImport.specifiers.reduce(
-                (prev, specifier) => ({
-                    ...prev,
-                    [specifier.imported.name]: types[specifier.imported.name]
-                }),
-                {}
-            )
-            // the name of the type we are looking for
-            // const typeName =
-        })
-        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+    const importedTypes = (await Promise.all(
+        content
+            .filter(node => node.type === 'ImportDeclaration' && node.importKind === 'type')
+            .map(async typeImport => {
+                // grab the types imported from the file
+                const { types } = await collectExports(typeImport.importPath, opts)
+                // return the types that we needed
+                return typeImport.specifiers.reduce(
+                    (prev, specifier) => ({
+                        ...prev,
+                        [specifier.imported.name]: types[specifier.imported.name]
+                    }),
+                    {}
+                )
+                // the name of the type we are looking for
+                // const typeName =
+            })
+    )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
     // if there are any named type export froms
-    const namedTypeExports = content
-        .filter(
-            ({ type, exportKind, source }) =>
-                type === 'ExportNamedDeclaration' && exportKind === 'type' && source
-        )
-        .map(typeExport => {
-            // parse the file we are importing from
-            const { types } = collectExports(typeExport.importPath, opts)
-
-            // join all of the exported types in a single object
-            return typeExport.specifiers.reduce(
-                (prev, specifier) => ({
-                    ...prev,
-                    [specifier.exported.name]: types[specifier.exported.name]
-                }),
-                {}
+    const namedTypeExports = (await Promise.all(
+        content
+            .filter(
+                ({ type, exportKind, source }) =>
+                    type === 'ExportNamedDeclaration' && exportKind === 'type' && source
             )
-        })
-        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+            .map(async typeExport => {
+                // parse the file we are importing from
+                const { types } = await collectExports(typeExport.importPath, opts)
+
+                // join all of the exported types in a single object
+                return typeExport.specifiers.reduce(
+                    (prev, specifier) => ({
+                        ...prev,
+                        [specifier.exported.name]: types[specifier.exported.name]
+                    }),
+                    {}
+                )
+            })
+    )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
     // if there are any named exported components
     const namedComponentExports = content
@@ -100,6 +109,7 @@ const collectExports = (filepath, opts = {}) => {
             ({ type, exportKind, source }) =>
                 type === 'ExportNamedDeclaration' && exportKind === 'value' && !source
         )
+        .filter(node => isComponent(node.declaration, content))
         // add their name
         .map(
             ({ declaration: node }) =>
@@ -117,6 +127,7 @@ const collectExports = (filepath, opts = {}) => {
     // look for a default exported component aswell
     const exportedComponents = content
         .filter(({ type }) => type === 'ExportDefaultDeclaration')
+        .filter(node => isComponent(node.declaration, content))
         .map(node => {
             return {
                 name: DEFAULT_EXPORT,
@@ -126,16 +137,7 @@ const collectExports = (filepath, opts = {}) => {
                         ? // return the prop table from the declaration
                           getPropDef(node.declaration)
                         : // otherwise we have to use the prop definition from a reference in the file
-                          getPropDef(
-                              content.find(
-                                  contentNode =>
-                                      (contentNode.type === 'VariableDeclaration' &&
-                                          contentNode.declarations[0].id.name ===
-                                              node.declaration.name) ||
-                                      (contentNode.type === 'ClassDeclaration' &&
-                                          contentNode.id.name === node.declaration.name)
-                              )
-                          )
+                          getPropDef(findDeclaration(node.declaration.name, content))
             }
         })
         .concat(namedComponentExports)
@@ -168,60 +170,62 @@ const collectExports = (filepath, opts = {}) => {
         )
 
     // look for values we've exported from a particular place
-    const exportFromComponents = content
-        .filter(
-            ({ type, exportKind, source }) =>
-                type === 'ExportNamedDeclaration' && exportKind === 'value' && source
-        )
-        .map(exportFrom => {
-            // parse the file we are importing from
-            const { components } = collectExports(exportFrom.importPath, opts)
+    const exportFromComponents = (await Promise.all(
+        content
+            .filter(
+                ({ type, exportKind, source }) =>
+                    type === 'ExportNamedDeclaration' && exportKind === 'value' && source
+            )
+            .map(async exportFrom => {
+                // parse the file we are importing from
+                const { components } = await collectExports(exportFrom.importPath, opts)
 
-            return exportFrom.specifiers.reduce((prev, specifier) => {
-                // the name to look up the component in the imported file
-                let name
-                // if we are exporting the component as the default of the module
-                if (specifier.type === 'ExportDefaultSpecifier') {
-                    name = DEFAULT_EXPORT
-                } else if (specifier.local.name === 'default') {
-                    // if we are renaming the default import in an export
-                    // ie export { default as Foo } from 'adf'
-                    name = DEFAULT_EXPORT
-                } else {
-                    name = specifier.exported.name
-                }
+                return exportFrom.specifiers.reduce((prev, specifier) => {
+                    // the name to look up the component in the imported file
+                    let name
+                    // if we are exporting the component as the default of the module
+                    if (specifier.type === 'ExportDefaultSpecifier') {
+                        name = DEFAULT_EXPORT
+                    } else if (specifier.local.name === 'default') {
+                        // if we are renaming the default import in an export
+                        // ie export { default as Foo } from 'adf'
+                        name = DEFAULT_EXPORT
+                    } else {
+                        name = specifier.exported.name
+                    }
 
-                // collect all the exported types in a single statement
-                return {
-                    ...prev,
-                    [specifier.exported.name]: components[name]
-                }
-            }, {})
-        })
-        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+                    // collect all the exported types in a single statement
+                    return {
+                        ...prev,
+                        [specifier.exported.name]: components[name]
+                    }
+                }, {})
+            })
+    )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
     // look for any `export * from ...`
-    const exportAll = content
-        .filter(
-            ({ type, exportKind, source }) =>
-                type === 'ExportAllDeclaration' && exportKind === 'value' && source
-        )
-        .map(exportStatement => {
-            // parse the file we are importing from
-            const { components } = collectExports(exportStatement.importPath, opts)
+    const exportAll = (await Promise.all(
+        content
+            .filter(
+                ({ type, exportKind, source }) =>
+                    type === 'ExportAllDeclaration' && exportKind === 'value' && source
+            )
+            .map(async exportStatement => {
+                // parse the file we are importing from
+                const { components } = await collectExports(exportStatement.importPath, opts)
 
-            // export all of the named exports (non-default)
-            return Object.keys(components)
-                .filter(key => key !== DEFAULT_EXPORT)
-                .reduce(
-                    (prev, key) => ({
-                        ...prev,
-                        [key]: components[key]
-                    }),
-                    {}
-                )
-        })
-        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+                // export all of the named exports (non-default)
+                return Object.keys(components)
+                    .filter(key => key !== DEFAULT_EXPORT)
+                    .reduce(
+                        (prev, key) => ({
+                            ...prev,
+                            [key]: components[key]
+                        }),
+                        {}
+                    )
+            })
+    )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
     // collect all of the exports into one summary
     const result = {

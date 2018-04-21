@@ -7,6 +7,8 @@ export default node => {
     if (node.type === 'VariableDeclaration') {
         return node.declarations[0].init.params[0].typeAnnotation.typeAnnotation
     }
+    if (node.params) {
+        return node.params[0].typeAnnotation.typeAnnotation
+    }
     // if we are looking at an inline function
-    return node.params[0].typeAnnotation.typeAnnotation
 }

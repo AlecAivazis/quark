@@ -3,7 +3,7 @@
 import React from 'react'
 import { Svg, Path, Circle } from 'svgs'
 // internal imports
-import type { IconProps } from '.'
+import type { IconProps } from './types'
 
 const Percent = (props: IconProps) => (
     <Svg

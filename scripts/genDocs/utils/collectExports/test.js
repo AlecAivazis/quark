@@ -9,7 +9,7 @@ afterEach(() => {
     }
 })
 
-test('collects named arrow-function component exports', () => {
+test('collects named arrow-function component exports', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -23,7 +23,7 @@ test('collects named arrow-function component exports', () => {
         `)
     )
 
-    expect(collectExports('foo.js').components.Foo).toEqual({
+    expect((await collectExports('foo.js')).components.Foo).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -34,7 +34,7 @@ test('collects named arrow-function component exports', () => {
     })
 })
 
-test('collects named class-based exports', () => {
+test('collects named class-based exports', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -46,7 +46,7 @@ test('collects named class-based exports', () => {
         `)
     )
 
-    expect(collectExports('foo.js').components.Foo).toEqual({
+    expect((await collectExports('foo.js')).components.Foo).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -57,7 +57,7 @@ test('collects named class-based exports', () => {
     })
 })
 
-test('collects default component exports from arrow-function reference', () => {
+test('collects default component exports from arrow-function reference', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -73,7 +73,7 @@ test('collects default component exports from arrow-function reference', () => {
         `)
     )
 
-    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
+    expect((await collectExports('foo.js')).components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -84,7 +84,7 @@ test('collects default component exports from arrow-function reference', () => {
     })
 })
 
-test('collects default component exports from class reference', () => {
+test('collects default component exports from class reference', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -101,7 +101,7 @@ test('collects default component exports from class reference', () => {
       `)
     )
 
-    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
+    expect((await collectExports('foo.js')).components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -112,7 +112,7 @@ test('collects default component exports from class reference', () => {
     })
 })
 
-test('collects inline default component exports', () => {
+test('collects inline default component exports', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -126,7 +126,7 @@ test('collects inline default component exports', () => {
       `)
     )
 
-    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
+    expect((await collectExports('foo.js')).components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -137,7 +137,7 @@ test('collects inline default component exports', () => {
     })
 })
 
-test('collects type exports', () => {
+test('collects type exports', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(() =>
         parse.parseText(`
@@ -147,7 +147,7 @@ test('collects type exports', () => {
       `)
     )
 
-    expect(collectExports('foo.js').types.Props).toMatchObject({
+    expect((await collectExports('foo.js')).types.Props).toMatchObject({
         a: {
             value: 'string',
             required: true,
@@ -156,7 +156,7 @@ test('collects type exports', () => {
     })
 })
 
-test('includes type imports from a file', () => {
+test('includes type imports from a file', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -182,7 +182,7 @@ test('includes type imports from a file', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').types).toMatchObject({
+    expect((await collectExports('1.js')).types).toMatchObject({
         Props: {
             a: {
                 value: 'string',
@@ -198,7 +198,7 @@ test('includes type imports from a file', () => {
     })
 })
 
-test('follows type exports from', () => {
+test('follows type exports from', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -220,7 +220,7 @@ test('follows type exports from', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').types).toMatchObject({
+    expect((await collectExports('1.js')).types).toMatchObject({
         Foo: {
             b: {
                 value: 'string',
@@ -231,7 +231,7 @@ test('follows type exports from', () => {
     })
 })
 
-test('follows default export from', () => {
+test('follows default export from', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -255,7 +255,7 @@ test('follows default export from', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').components.Foo).toMatchObject({
+    expect((await collectExports('1.js')).components.Foo).toMatchObject({
         props: {
             b: {
                 value: 'string',
@@ -266,7 +266,7 @@ test('follows default export from', () => {
     })
 })
 
-test('follows named export from', () => {
+test('follows named export from', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -290,7 +290,7 @@ test('follows named export from', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').components.Foo).toMatchObject({
+    expect((await collectExports('1.js')).components.Foo).toMatchObject({
         props: {
             b: {
                 value: 'string',
@@ -301,7 +301,7 @@ test('follows named export from', () => {
     })
 })
 
-test('follows re-named export from', () => {
+test('follows re-named export from', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -325,7 +325,7 @@ test('follows re-named export from', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').components.Foo).toMatchObject({
+    expect((await collectExports('1.js')).components.Foo).toMatchObject({
         props: {
             b: {
                 value: 'string',
@@ -336,7 +336,7 @@ test('follows re-named export from', () => {
     })
 })
 
-test('export all components from module', () => {
+test('export all components from module', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -362,7 +362,7 @@ test('export all components from module', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').components).toMatchObject({
+    expect((await collectExports('1.js')).components).toMatchObject({
         Foo: {
             props: {
                 b: {
@@ -393,7 +393,7 @@ test('export all components from module', () => {
     })
 })
 
-test('ignores non-aliased package references', () => {
+test('ignores non-aliased package references', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -406,10 +406,45 @@ test('ignores non-aliased package references', () => {
     })
 
     // make sure the exported type includes information from the imported type
-    expect(collectExports('1.js').components).toEqual({})
+    expect((await collectExports('1.js')).components).toEqual({})
 })
 
-test('includes aliased package references', () => {
+test('can find imports relative to non-file looking paths', async () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { default as Foo } from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export default (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect((await collectExports('1')).components.Foo).toMatchObject({
+        props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
+test('includes aliased package references', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -434,11 +469,11 @@ test('includes aliased package references', () => {
 
     // make sure the exported type includes information from the imported type
     expect(
-        collectExports('1.js', {
+        (await collectExports('1.js', {
             alias: {
                 'quark-web': 'foo/quark-web.js'
             }
-        }).components.Foo
+        })).components.Foo
     ).toMatchObject({
         props: {
             b: {
@@ -450,7 +485,7 @@ test('includes aliased package references', () => {
     })
 })
 
-test('memoizes input', () => {
+test('memoizes input', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
         // if we are parsing the first file
@@ -484,11 +519,11 @@ test('memoizes input', () => {
 
     // make sure the exported type includes information from the imported type
     expect(
-        collectExports('1.js', {
+        (await collectExports('1.js', {
             alias: {
                 'quark-web': 'foo/quark-web.js'
             }
-        }).components
+        })).components
     ).toMatchObject({
         Foo: {
             props: {
