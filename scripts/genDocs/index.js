@@ -4,23 +4,17 @@ import path from 'path'
 import { collectExports } from './utils'
 
 // the directory containing web components
-const quarkWeb = path.resolve(
-    'packages',
-    'quark-web',
-    'src',
-    'components',
-    'layout',
-    'App',
-    'index.js'
-)
+const quarkWeb = path.resolve('packages', 'quark-web', 'src', 'index.js')
 const quarkCore = path.resolve('packages', 'quark-core', 'src', 'components', 'index.js')
 
 const run = async () => {
-    const { components, types } = await collectExports(quarkCore, {
-        alias: {}
+    const { components } = await collectExports(quarkWeb, {
+        alias: {
+            'quark-core': quarkCore
+        }
     })
 
-    console.log(types.FlexViewPropTypes)
+    console.log(components.App)
 }
 
 run()
