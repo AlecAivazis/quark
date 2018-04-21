@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import { View } from 'react-native-web'
 // local imports
 import { Portal, ClickAway, Card, Measure, EventListener } from 'quark-web'
-import type { MeasurePayload } from 'quark-web'
+import type { MeasurePayload } from '../../layout'
 import styles from './styles'
 
 type DropdownPayload = {
