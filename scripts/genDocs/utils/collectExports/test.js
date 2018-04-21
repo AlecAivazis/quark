@@ -369,6 +369,31 @@ test.only('export * includes types', async () => {
     })
 })
 
+test('ignores export * as statements', async () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export * as Foo from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export const Foo = (props : Props) => 'hello'
+                export const Bar = (props : Props) => 'hello'
+                export const Baz = (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect((await collectExports('1.js')).components).toMatchObject({})
+})
+
 test('export all components from module', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {

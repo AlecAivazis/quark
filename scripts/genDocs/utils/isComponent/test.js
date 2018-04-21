@@ -12,6 +12,18 @@ test('ignores string exports', () => {
     expect(isComponent(input[0].declaration, input)).toBeFalsy()
 })
 
+test('ignores object exports', () => {
+    // parse some input with some exported text
+    const input = parseText(`
+      export const foo = {
+        a: "Bar"
+      }
+    `)
+
+    // make sure we don't mark it as a component
+    expect(isComponent(input[0].declaration, input)).toBeFalsy()
+})
+
 test('includes arrow function exports', () => {
     // parse some input with some exported text
     const input = parseText(`

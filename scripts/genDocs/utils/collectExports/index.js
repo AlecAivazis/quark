@@ -9,8 +9,8 @@ export const DEFAULT_EXPORT = 'default'
 // an object to memoize the collection to prevent parsing filepaths too often
 export const _memoizeStore = {}
 
-const collectExports = (fp, opt = {}) => {
-    const collect = async (filepath, opts) => {
+const collectExports = (filepath, opts = {}) => {
+    const collect = async () => {
         // set the default arugments
         opts.alias = opts.alias || {}
 
@@ -52,6 +52,8 @@ const collectExports = (fp, opt = {}) => {
             })
             // remove nodes we don't want to handle
             .filter(Boolean)
+
+        // console.log(content)
 
         // look for types we have to import
         const importedTypes = (await Promise.all(
@@ -173,26 +175,29 @@ const collectExports = (fp, opt = {}) => {
                     // parse the file we are importing from
                     const { components } = await collectExports(exportFrom.importPath, opts)
 
-                    return exportFrom.specifiers.reduce((prev, specifier) => {
-                        // the name to look up the component in the imported file
-                        let name
-                        // if we are exporting the component as the default of the module
-                        if (specifier.type === 'ExportDefaultSpecifier') {
-                            name = DEFAULT_EXPORT
-                        } else if (specifier.local.name === 'default') {
-                            // if we are renaming the default import in an export
-                            // ie export { default as Foo } from 'adf'
-                            name = DEFAULT_EXPORT
-                        } else {
-                            name = specifier.exported.name
-                        }
+                    return exportFrom.specifiers
+                        .filter(spec => spec.type !== 'ExportNamespaceSpecifier')
+                        .reduce((prev, specifier) => {
+                            console.log(specifier)
+                            // the name to look up the component in the imported file
+                            let name
+                            // if we are exporting the component as the default of the module
+                            if (specifier.type === 'ExportDefaultSpecifier') {
+                                name = DEFAULT_EXPORT
+                            } else if (specifier.local.name === 'default') {
+                                // if we are renaming the default import in an export
+                                // ie export { default as Foo } from 'adf'
+                                name = DEFAULT_EXPORT
+                            } else {
+                                name = specifier.exported.name
+                            }
 
-                        // collect all the exported types in a single statement
-                        return {
-                            ...prev,
-                            [specifier.exported.name]: components[name]
-                        }
-                    }, {})
+                            // collect all the exported types in a single statement
+                            return {
+                                ...prev,
+                                [specifier.exported.name]: components[name]
+                            }
+                        }, {})
                 })
         )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
@@ -252,16 +257,16 @@ const collectExports = (fp, opt = {}) => {
     }
 
     // if we already are looking up the result
-    if (_memoizeStore[fp]) {
-        log('waiting for previous parse of', fp)
-        return _memoizeStore[fp]
+    if (_memoizeStore[filepath]) {
+        log('waiting for previous parse of', filepath)
+        return _memoizeStore[filepath]
     }
 
-    log('computing exports of', fp)
+    log('computing exports of', filepath)
     // save it in the memoized store
-    _memoizeStore[fp] = collect(fp, opt)
+    _memoizeStore[filepath] = collect()
     // pass the result to the caller
-    return _memoizeStore[fp]
+    return _memoizeStore[filepath]
 }
 
 export default collectExports

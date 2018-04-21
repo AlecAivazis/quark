@@ -6,7 +6,14 @@ import { resolvePath } from '.'
 export const parseText = input =>
     parse(input, {
         sourceType: 'module',
-        plugins: ['jsx', 'flow', 'exportDefaultFrom', 'classProperties', 'objectRestSpread']
+        plugins: [
+            'jsx',
+            'flow',
+            'exportDefaultFrom',
+            'classProperties',
+            'objectRestSpread',
+            'exportNamespaceFrom'
+        ]
     }).program.body
 
 export const parseFile = async filepath => {
