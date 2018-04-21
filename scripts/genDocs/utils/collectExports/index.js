@@ -4,7 +4,7 @@ import path from 'path'
 import { parseFile, getPropTable, isComponent, log, findDeclaration } from '..'
 import getPropDef from './getPropDef'
 
-export const DEFAULT_EXPORT = '_default'
+export const DEFAULT_EXPORT = 'default'
 
 // an object to memoize the collection to prevent parsing filepaths too often
 export const _memoizeStore = {}
@@ -72,6 +72,7 @@ const collectExports = (fp, opt = {}) => {
                     // const typeName =
                 })
         )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
+        // console.log(importedTypes)
 
         // if there are any named type export froms
         const namedTypeExports = (await Promise.all(
@@ -196,7 +197,7 @@ const collectExports = (fp, opt = {}) => {
         )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
         // look for any `export * from ...`
-        const exportAll = (await Promise.all(
+        const exportAllComponents = (await Promise.all(
             content
                 .filter(
                     ({ type, exportKind, source }) =>
@@ -219,16 +220,33 @@ const collectExports = (fp, opt = {}) => {
                 })
         )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
+        // types capured by an export * statement
+        const exportAllTypes = (await Promise.all(
+            content
+                .filter(
+                    ({ type, exportKind, source }) =>
+                        type === 'ExportAllDeclaration' && exportKind === 'value' && source
+                )
+                .map(async exportStatement => {
+                    // parse the file we are importing from
+                    const { types } = await collectExports(exportStatement.importPath, opts)
+
+                    //return all types exported from the module
+                    return types
+                })
+        )).reduce((prev, curr) => ({ ...prev, ...curr }), {})
+
         // collect all of the exports into one summary
         return {
             components: {
                 ...exportFromComponents,
                 ...exportedComponents,
-                ...exportAll
+                ...exportAllComponents
             },
             types: {
                 ...exportedTypes,
-                ...namedTypeExports
+                ...namedTypeExports,
+                ...exportAllTypes
             }
         }
     }

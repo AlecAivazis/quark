@@ -28,6 +28,26 @@ test('can find references types', () => {
     })
 })
 
+test('referenced types can also be exported', () => {
+    const input = parseText(`
+      export type Props = {
+        value: string
+      }
+
+      type Foo = Props
+    `)
+
+    const props = getPropTable(input, input[1].right)
+
+    expect(props).toEqual({
+        value: {
+            value: 'string',
+            required: true,
+            nullable: false
+        }
+    })
+})
+
 test('can extract multiple props', () => {
     let props = _getTable(`
       type Props = {

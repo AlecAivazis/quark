@@ -10,8 +10,20 @@ const getPropTable = (content, typeAnnotation, moduleScopedTypes = {}) => {
         // get the name of the type
         const typeName = typeAnnotation.id.name
 
-        // find the type def of the corresponding name
-        typeDef = content.find(node => node.type === 'TypeAlias' && node.id.name === typeName)
+        // find the type def of the corresponding name as a locally accesible type
+        let localType = content.find(node => node.type === 'TypeAlias' && node.id.name === typeName)
+        // look for the matching type as an exported one
+        const exportedType = content.find(
+            node =>
+                node.type === 'ExportNamedDeclaration' &&
+                node.declaration.type === 'TypeAlias' &&
+                node.declaration.id.name === typeName
+        )
+        if (localType) {
+            typeDef = localType
+        } else if (exportedType) {
+            typeDef = exportedType.declaration
+        }
 
         // if we couldn't find the type definition, it is an externally imported type
         if (!typeDef) {

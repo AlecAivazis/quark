@@ -336,6 +336,39 @@ test('follows re-named export from', async () => {
     })
 })
 
+test.only('export * includes types', async () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export * from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export type Props = {
+                    b: string
+                }
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect((await collectExports('1.js')).types).toMatchObject({
+        Props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
 test('export all components from module', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {
