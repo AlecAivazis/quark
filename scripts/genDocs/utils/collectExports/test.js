@@ -1,6 +1,13 @@
 // local imports
 import * as parse from '../parse'
-import collectExports, { DEFAULT_EXPORT } from '.'
+import collectExports, { _memoizeStore, DEFAULT_EXPORT } from '.'
+
+// make sure to clear the memoization after each test
+afterEach(() => {
+    for (const memoKey of Object.keys(_memoizeStore)) {
+        Reflect.deleteProperty(_memoizeStore, memoKey)
+    }
+})
 
 test('collects named arrow-function component exports', () => {
     // provide mocked content when parsing example file
@@ -384,4 +391,127 @@ test('export all components from module', () => {
             }
         }
     })
+})
+
+test('ignores non-aliased package references', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { default as Foo } from 'quark-web'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').components).toEqual({})
+})
+
+test('includes aliased package references', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { default as Foo } from 'quark-web'
+            `)
+        }
+        // if we are parsing the first file
+        if (filepath === 'foo/quark-web.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export default (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(
+        collectExports('1.js', {
+            alias: {
+                'quark-web': 'foo/quark-web.js'
+            }
+        }).components.Foo
+    ).toMatchObject({
+        props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
+test('memoizes input', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { Foo } from 'quark-web'
+                export * from './2'
+            `)
+        }
+        // if we are parsing the first file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { Bar } from 'quark-web'
+            `)
+        }
+        // if we are parsing the first file
+        if (filepath === 'foo/quark-web.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export const Foo = (props : Props) => 'hello'
+                export const Bar = (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(
+        collectExports('1.js', {
+            alias: {
+                'quark-web': 'foo/quark-web.js'
+            }
+        }).components
+    ).toMatchObject({
+        Foo: {
+            props: {
+                b: {
+                    value: 'string',
+                    required: true,
+                    nullable: false
+                }
+            }
+        },
+        Bar: {
+            props: {
+                b: {
+                    value: 'string',
+                    required: true,
+                    nullable: false
+                }
+            }
+        }
+    })
+
+    // make sure we only looked up the value of `quark-web` once
+    expect(
+        parse.parseFile.mock.calls.filter(value => value[0] === 'foo/quark-web.js')
+    ).toHaveLength(1)
 })

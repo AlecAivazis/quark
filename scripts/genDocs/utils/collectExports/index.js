@@ -6,19 +6,60 @@ import getPropDef from './getPropDef'
 
 export const DEFAULT_EXPORT = '_default'
 
-const collectExports = filepath => {
-    // parse the content of the filepath
+// an object to memoize the collection to prevent parsing filepaths too often
+export const _memoizeStore = {}
+
+const collectExports = (filepath, opts = {}) => {
+    // check if we've parsed this path already
+    if (_memoizeStore[filepath]) {
+        return _memoizeStore[filepath]
+    }
+
+    // set the default arugments
+    opts.alias = opts.alias || {}
+
+    // parse the content  the filepath
     const content = parseFile(filepath)
+        // add the fullPath to all statements that reference an external file
+        .map(node => {
+            // if there is no references to an external file
+            if (!node.source) {
+                // dont' change anything
+                return node
+            }
+            // the path we are supposed to import
+            const referencedPath = node.source.value
+
+            // if the import path is relative
+            if (referencedPath.startsWith('.')) {
+                // the full path to resolve
+                const importPath = path.join(path.dirname(filepath), node.source.value)
+
+                // add the full path to the node
+                return {
+                    ...node,
+                    importPath
+                }
+            }
+
+            // if the filepath we are referencing is aliased
+            if (opts.alias[referencedPath]) {
+                // add the aliasd path to the node
+                return {
+                    ...node,
+                    importPath: opts.alias[referencedPath]
+                }
+            }
+        })
+        // remove nodes we don't want to handle
+        .filter(Boolean)
 
     // look for types we have to import
     const importedTypes = content
         .filter(node => node.type === 'ImportDeclaration' && node.importKind === 'type')
         .map(typeImport => {
-            // the filepath we import from
-            const fp = path.join(path.dirname(filepath), typeImport.source.value)
-
             // grab the types imported from the file
-            const { types } = collectExports(fp)
+            const { types } = collectExports(typeImport.importPath, opts)
             // return the types that we needed
             return typeImport.specifiers.reduce(
                 (prev, specifier) => ({
@@ -39,10 +80,8 @@ const collectExports = filepath => {
                 type === 'ExportNamedDeclaration' && exportKind === 'type' && source
         )
         .map(typeExport => {
-            // the filepath we export from
-            const fp = path.join(path.dirname(filepath), typeExport.source.value)
             // parse the file we are importing from
-            const { types } = collectExports(fp)
+            const { types } = collectExports(typeExport.importPath, opts)
 
             // join all of the exported types in a single object
             return typeExport.specifiers.reduce(
@@ -127,6 +166,7 @@ const collectExports = filepath => {
             }),
             {}
         )
+
     // look for values we've exported from a particular place
     const exportFromComponents = content
         .filter(
@@ -134,10 +174,8 @@ const collectExports = filepath => {
                 type === 'ExportNamedDeclaration' && exportKind === 'value' && source
         )
         .map(exportFrom => {
-            // the filepath we export from
-            const fp = path.join(path.dirname(filepath), exportFrom.source.value)
             // parse the file we are importing from
-            const { components } = collectExports(fp)
+            const { components } = collectExports(exportFrom.importPath, opts)
 
             return exportFrom.specifiers.reduce((prev, specifier) => {
                 // the name to look up the component in the imported file
@@ -169,10 +207,8 @@ const collectExports = filepath => {
                 type === 'ExportAllDeclaration' && exportKind === 'value' && source
         )
         .map(exportStatement => {
-            // the filepath we export from
-            const fp = path.join(path.dirname(filepath), exportStatement.source.value)
             // parse the file we are importing from
-            const { components } = collectExports(fp)
+            const { components } = collectExports(exportStatement.importPath, opts)
 
             // export all of the named exports (non-default)
             return Object.keys(components)
@@ -187,7 +223,8 @@ const collectExports = filepath => {
         })
         .reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
-    return {
+    // collect all of the exports into one summary
+    const result = {
         components: {
             ...exportFromComponents,
             ...exportedComponents,
@@ -198,6 +235,12 @@ const collectExports = filepath => {
             ...namedTypeExports
         }
     }
+
+    // save it in the memoized store
+    _memoizeStore[filepath] = result
+
+    // pass the result to the caller
+    return result
 }
 
 export default collectExports
