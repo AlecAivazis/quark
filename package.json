@@ -32,7 +32,8 @@
     "jest": {
         "testRegex": "test.js$",
         "setupFiles": [
-            "<rootDir>/scripts/initEnzyme.js"
+            "<rootDir>/scripts/initEnzyme.js",
+            "jest-canvas-mock"
         ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer",
@@ -106,6 +107,7 @@
     },
     "dependencies": {
         "babylon": "^7.0.0-beta.44",
+        "jest-canvas-mock": "^1.0.2",
         "react-hot-loader": "^4.0.1",
         "react-router-dom": "^4.2.2"
     }
