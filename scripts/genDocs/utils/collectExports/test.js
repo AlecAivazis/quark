@@ -409,41 +409,6 @@ test('ignores non-aliased package references', async () => {
     expect((await collectExports('1.js')).components).toEqual({})
 })
 
-test('can find imports relative to non-file looking paths', async () => {
-    // provide mocked content when parsing example file
-    parse.parseFile = jest.fn(filepath => {
-        // if we are parsing the first file
-        if (filepath === '1') {
-            // return contents that import a type from another file
-            return parse.parseText(`
-                export { default as Foo } from './2'
-            `)
-        }
-        // if we are parsing the second file
-        if (filepath === '2') {
-            // return contents that import a type from another file
-            return parse.parseText(`
-                type Props = {
-                    b: string
-                }
-
-                export default (props : Props) => 'hello'
-            `)
-        }
-    })
-
-    // make sure the exported type includes information from the imported type
-    expect((await collectExports('1')).components.Foo).toMatchObject({
-        props: {
-            b: {
-                value: 'string',
-                required: true,
-                nullable: false
-            }
-        }
-    })
-})
-
 test('includes aliased package references', async () => {
     // provide mocked content when parsing example file
     parse.parseFile = jest.fn(filepath => {

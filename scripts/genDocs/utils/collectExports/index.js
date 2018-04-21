@@ -40,7 +40,6 @@ const collectExports = async (filepath, opts = {}) => {
                 const importPath = filepath.endsWith('.js')
                     ? path.join(path.dirname(filepath), node.source.value)
                     : path.join(filepath, node.source.value)
-                // console.log(importPath)
 
                 // add the full path to the node
                 return {
