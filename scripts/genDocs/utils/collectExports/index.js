@@ -32,10 +32,34 @@ const collectExports = filepath => {
         })
         .reduce((prev, curr) => ({ ...prev, ...curr }), {})
 
-    // if there are any named exported components
-    const namedExports = content
+    // if there are any named type export froms
+    const namedTypeExports = content
         .filter(
-            ({ type, exportKind }) => type === 'ExportNamedDeclaration' && exportKind === 'value'
+            ({ type, exportKind, source }) =>
+                type === 'ExportNamedDeclaration' && exportKind === 'type' && source
+        )
+        .map(typeExport => {
+            // the filepath we export from
+            const fp = path.join(path.dirname(filepath), typeExport.source.value)
+            // parse the file we are importing from
+            const { types } = collectExports(fp)
+
+            // join all of the exported types in a single object
+            return typeExport.specifiers.reduce(
+                (prev, specifier) => ({
+                    ...prev,
+                    [specifier.exported.name]: types[specifier.exported.name]
+                }),
+                {}
+            )
+        })
+        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+
+    // if there are any named exported components
+    const namedComponentExports = content
+        .filter(
+            ({ type, exportKind, source }) =>
+                type === 'ExportNamedDeclaration' && exportKind === 'value' && !source
         )
         // add their name
         .map(
@@ -52,7 +76,7 @@ const collectExports = filepath => {
         )
 
     // look for a default exported component aswell
-    const defaultExports = content
+    const exportedComponents = content
         .filter(({ type }) => type === 'ExportDefaultDeclaration')
         .map(node => {
             return {
@@ -75,14 +99,8 @@ const collectExports = filepath => {
                           )
             }
         })
-
-    // find exported type declarations
-    const exportedTypes = content.filter(
-        ({ type, exportKind }) => type === 'ExportNamedDeclaration' && exportKind === 'type'
-    )
-
-    return {
-        components: namedExports.concat(defaultExports).reduce(
+        .concat(namedComponentExports)
+        .reduce(
             (prev, node) => ({
                 ...prev,
                 [node.name]: {
@@ -90,8 +108,15 @@ const collectExports = filepath => {
                 }
             }),
             {}
-        ),
-        types: exportedTypes.reduce(
+        )
+
+    // find exported type declarations
+    const exportedTypes = content
+        .filter(
+            ({ type, exportKind, source }) =>
+                type === 'ExportNamedDeclaration' && exportKind === 'type' && !source
+        )
+        .reduce(
             (prev, node) => ({
                 ...prev,
                 [node.declaration.id.name]: getPropTable(
@@ -102,6 +127,52 @@ const collectExports = filepath => {
             }),
             {}
         )
+
+    // look for values we've exported from a particular place
+    const exportFromComponents = content
+        .filter(
+            ({ type, exportKind, source }) =>
+                type === 'ExportNamedDeclaration' && exportKind === 'value' && source
+        )
+        .map(exportFrom => {
+            // the filepath we export from
+            const fp = path.join(path.dirname(filepath), exportFrom.source.value)
+            // parse the file we are importing from
+            const { components } = collectExports(fp)
+
+            return exportFrom.specifiers.reduce((prev, specifier) => {
+                // the name to look up the component in the imported file
+                let name
+
+                // if we are exporting the component as the default of the module
+                if (specifier.type === 'ExportDefaultSpecifier') {
+                    name = DEFAULT_EXPORT
+                } else if (specifier.local.name === 'default') {
+                    // if we are renaming the default import in an export
+                    // ie export { default as Foo } from 'adf'
+                    name = DEFAULT_EXPORT
+                } else {
+                    name = specifier.exported.name
+                }
+
+                // collect all the exported types in a single statement
+                return {
+                    ...prev,
+                    [specifier.exported.name]: components[name]
+                }
+            }, {})
+        })
+        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+
+    return {
+        components: {
+            ...exportFromComponents,
+            ...exportedComponents
+        },
+        types: {
+            ...exportedTypes,
+            ...namedTypeExports
+        }
     }
 }
 

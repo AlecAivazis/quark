@@ -191,8 +191,140 @@ test('includes type imports from a file', () => {
     })
 })
 
-test('follows type exports from')
+test('follows type exports from', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export type { Foo } from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export type Foo = {
+                    b: string
+                }
+            `)
+        }
+    })
 
-test('follows default export from')
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').types).toMatchObject({
+        Foo: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
 
-test('follows named export from')
+test('follows default export from', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export Foo from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export default ({props} : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').components.Foo).toMatchObject({
+        props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
+test('follows named export from', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { Foo } from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export const Foo = (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').components.Foo).toMatchObject({
+        props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
+test('follows re-named export from', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export { default as Foo } from './2'
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                type Props = {
+                    b: string
+                }
+
+                export default (props : Props) => 'hello'
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').components.Foo).toMatchObject({
+        props: {
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
