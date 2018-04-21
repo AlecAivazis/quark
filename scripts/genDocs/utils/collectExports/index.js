@@ -1,3 +1,5 @@
+// external imports
+import path from 'path'
 // local imports
 import { parseFile, getPropTable } from '..'
 import getPropDef from './getPropDef'
@@ -8,9 +10,33 @@ const collectExports = filepath => {
     // parse the content of the filepath
     const content = parseFile(filepath)
 
-    // if there are any named exports
+    // look for types we have to import
+    const importedTypes = content
+        .filter(node => node.type === 'ImportDeclaration' && node.importKind === 'type')
+        .map(typeImport => {
+            // the filepath we import from
+            const fp = path.join(path.dirname(filepath), typeImport.source.value)
+
+            // grab the types imported from the file
+            const { types } = collectExports(fp)
+            // return the types that we needed
+            return typeImport.specifiers.reduce(
+                (prev, specifier) => ({
+                    ...prev,
+                    [specifier.imported.name]: types[specifier.imported.name]
+                }),
+                {}
+            )
+            // the name of the type we are looking for
+            // const typeName =
+        })
+        .reduce((prev, curr) => ({ ...prev, ...curr }), {})
+
+    // if there are any named exported components
     const namedExports = content
-        .filter(({ type }) => type === 'ExportNamedDeclaration')
+        .filter(
+            ({ type, exportKind }) => type === 'ExportNamedDeclaration' && exportKind === 'value'
+        )
         // add their name
         .map(
             ({ declaration: node }) =>
@@ -25,7 +51,7 @@ const collectExports = filepath => {
                       }
         )
 
-    // look for a default export aswell
+    // look for a default exported component aswell
     const defaultExports = content
         .filter(({ type }) => type === 'ExportDefaultDeclaration')
         .map(node => {
@@ -50,14 +76,29 @@ const collectExports = filepath => {
             }
         })
 
-    //
+    // find exported type declarations
+    const exportedTypes = content.filter(
+        ({ type, exportKind }) => type === 'ExportNamedDeclaration' && exportKind === 'type'
+    )
+
     return {
         components: namedExports.concat(defaultExports).reduce(
             (prev, node) => ({
                 ...prev,
                 [node.name]: {
-                    props: getPropTable(content, node.propDef, null)
+                    props: getPropTable(content, node.propDef, importedTypes)
                 }
+            }),
+            {}
+        ),
+        types: exportedTypes.reduce(
+            (prev, node) => ({
+                ...prev,
+                [node.declaration.id.name]: getPropTable(
+                    content,
+                    node.declaration.right,
+                    importedTypes
+                )
             }),
             {}
         )

@@ -15,8 +15,7 @@ const getPropTable = (content, typeAnnotation, moduleScopedTypes = {}) => {
 
         // if we couldn't find the type definition, it is an externally imported type
         if (!typeDef) {
-            // we don't support
-            // throw new Error(`Could not find definition for declaration: ${typeName}`)
+            // if we have a definition for it in our global scope, use it, otherwise ignore the type
             return moduleScopedTypes[typeName] || {}
         }
 

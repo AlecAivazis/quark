@@ -1,25 +1,15 @@
+// external imports
 import { parse, parseExpression as parseExpr } from 'babylon'
-import { promisify } from 'util'
-import fs from 'fs'
-
-const _readFile = promisify(fs.readFile)
-
-// the plugins to pass to babylon
-const plugins = ['jsx', 'flow', 'exportDefaultFrom', 'classProperties', 'objectRestSpread']
+// local imports
+import { resolvePath } from '.'
 
 export const parseText = input =>
     parse(input, {
         sourceType: 'module',
-        plugins
+        plugins: ['jsx', 'flow', 'exportDefaultFrom', 'classProperties', 'objectRestSpread']
     }).program.body
 
-export const parseExpression = input =>
-    parseExpr(input, {
-        sourceType: 'module',
-        plugins
-    })
-
 export const parseFile = async filepath => {
-    const data = await _readFile(filepath)
+    const data = await resolvePath(filepath)
     return parseText(data.toString())
 }

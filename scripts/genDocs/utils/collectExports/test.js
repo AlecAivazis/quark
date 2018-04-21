@@ -16,7 +16,7 @@ test('collects named arrow-function component exports', () => {
         `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components.Foo).toEqual({
+    expect(collectExports('foo.js').components.Foo).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -39,7 +39,7 @@ test('collects named class-based exports', () => {
         `)
     )
 
-    expect(collectExports('root/quark-web/src/components/section/a.js').components.Foo).toEqual({
+    expect(collectExports('foo.js').components.Foo).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -66,9 +66,7 @@ test('collects default component exports from arrow-function reference', () => {
         `)
     )
 
-    expect(
-        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
-    ).toEqual({
+    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -96,9 +94,7 @@ test('collects default component exports from class reference', () => {
       `)
     )
 
-    expect(
-        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
-    ).toEqual({
+    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -123,9 +119,7 @@ test('collects inline default component exports', () => {
       `)
     )
 
-    expect(
-        collectExports('root/quark-web/src/components/section/a.js').components[DEFAULT_EXPORT]
-    ).toEqual({
+    expect(collectExports('foo.js').components[DEFAULT_EXPORT]).toEqual({
         props: {
             a: {
                 value: 'string',
@@ -136,9 +130,68 @@ test('collects inline default component exports', () => {
     })
 })
 
-test('collects type exports', () => {})
+test('collects type exports', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(() =>
+        parse.parseText(`
+          export type Props = {
+            a: string
+          }
+      `)
+    )
 
-test('follows type imports')
+    expect(collectExports('foo.js').types.Props).toMatchObject({
+        a: {
+            value: 'string',
+            required: true,
+            nullable: false
+        }
+    })
+})
+
+test('includes type imports from a file', () => {
+    // provide mocked content when parsing example file
+    parse.parseFile = jest.fn(filepath => {
+        // if we are parsing the first file
+        if (filepath === '1.js') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                import type { Foo } from './2'
+
+                export type Props = Foo & {
+                    a: string
+                }
+            `)
+        }
+        // if we are parsing the second file
+        if (filepath === '2') {
+            // return contents that import a type from another file
+            return parse.parseText(`
+                export type Foo = {
+                    b: string
+                }
+            `)
+        }
+    })
+
+    // make sure the exported type includes information from the imported type
+    expect(collectExports('1.js').types).toMatchObject({
+        Props: {
+            a: {
+                value: 'string',
+                required: true,
+                nullable: false
+            },
+            b: {
+                value: 'string',
+                required: true,
+                nullable: false
+            }
+        }
+    })
+})
+
+test('follows type exports from')
 
 test('follows default export from')
 

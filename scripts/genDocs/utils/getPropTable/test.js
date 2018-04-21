@@ -2,7 +2,7 @@
 import getPropTable from '.'
 import { parseText } from '..'
 
-const _getTypeDefinition = (input, extraTypes) => {
+const _getTable = (input, extraTypes) => {
     const ast = parseText(input)
 
     return getPropTable(ast, ast[0].right, extraTypes)
@@ -29,7 +29,7 @@ test('can find references types', () => {
 })
 
 test('can extract multiple props', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
       type Props = {
         value: string,
         onClick: (string) => void
@@ -52,7 +52,7 @@ test('can extract multiple props', () => {
 })
 
 test('generics', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
         value: Array<any>
         }
@@ -70,7 +70,7 @@ test('generics', () => {
 })
 
 test('array type', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
         value: any[]
         }
@@ -88,7 +88,7 @@ test('array type', () => {
 })
 
 test('qualified generics', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
       type Props = {
         value: React.Element<any>
       }
@@ -105,7 +105,7 @@ test('qualified generics', () => {
 })
 
 test('qualified types', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
       type Props = {
         value: React.Node
       }
@@ -122,7 +122,7 @@ test('qualified types', () => {
 })
 
 test('number', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
       type Props = {
         value: number
       }
@@ -139,7 +139,7 @@ test('number', () => {
 })
 
 test('boolean', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
     type Props = {
       value: boolean
     }
@@ -156,7 +156,7 @@ test('boolean', () => {
 })
 
 test('empty object', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
       type Props = {
         value: {}
       }
@@ -173,7 +173,7 @@ test('empty object', () => {
 })
 
 test('concrete object', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: { hello: string }
         }
@@ -191,7 +191,7 @@ test('concrete object', () => {
 })
 
 test('generic object', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: { [k: string]: string }
         }
@@ -209,7 +209,7 @@ test('generic object', () => {
 })
 
 test('optional types', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = { value?: string }
 
     `)
@@ -225,7 +225,7 @@ test('optional types', () => {
 })
 
 test('nullable values', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: ?string
         }
@@ -243,7 +243,7 @@ test('nullable values', () => {
 })
 
 test('string literals', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: 'hello'
         }
@@ -261,7 +261,7 @@ test('string literals', () => {
 })
 
 test('number literals', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: 1
         }
@@ -279,7 +279,7 @@ test('number literals', () => {
 })
 
 test('unions', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: 1 | 2
         }
@@ -297,7 +297,7 @@ test('unions', () => {
 })
 
 test('intersections', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value: ?string
         } & {
@@ -322,7 +322,7 @@ test('intersections', () => {
 })
 
 test('can get types of class component', () => {
-    let props = _getTypeDefinition(`
+    let props = _getTable(`
         type Props = {
             value?: string
         }
@@ -346,7 +346,7 @@ test('can get types of class component', () => {
 })
 
 test('can incoporate module-scoped types', () => {
-    let props = _getTypeDefinition(
+    let props = _getTable(
         `
         type Props = {
             value: ?string
