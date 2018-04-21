@@ -255,11 +255,9 @@ const collectExports = (filepath, opts = {}) => {
 
     // if we already are looking up the result
     if (_memoizeStore[filepath]) {
-        log('waiting for previous parse of', filepath)
         return _memoizeStore[filepath]
     }
 
-    log('computing exports of', filepath)
     // save it in the memoized store
     _memoizeStore[filepath] = collect()
     // pass the result to the caller
