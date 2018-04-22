@@ -95,6 +95,7 @@
         "react-docgen": "3.0.0-beta11",
         "react-dom": "^16.3.0",
         "react-native-web": "^0.5.4",
+        "recast": "^0.14.7",
         "semver": "^5.5.0",
         "style-loader": "^0.20.3",
         "svgs": "^3.2.1",
