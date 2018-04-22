@@ -11,7 +11,11 @@ export const examplesDir = path.resolve('docs', 'examples')
 export default async ({ section, component }) => {
     // get the list of files in the directory with the section/component examples
     const componentExampleDir = path.join(examplesDir, section, component)
-    const exampleDirContents = await readDir(componentExampleDir)
+    try {
+        var exampleDirContents = await readDir(componentExampleDir)
+    } catch {
+        throw new Error(`Could not find example for ${component}`)
+    }
 
     // look at the contents of the directory for the list of examples
     const examples = await Promise.all(
@@ -46,7 +50,7 @@ export default async ({ section, component }) => {
 
     // if there is a readme, use it as the description
     const description = exampleDirContents.includes('README.md')
-        ? await readFile(path.join(componentExampleDir, 'README.md'))
+        ? (await readFile(path.join(componentExampleDir, 'README.md'))).toString()
         : null
 
     return {
