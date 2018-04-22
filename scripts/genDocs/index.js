@@ -1,7 +1,7 @@
 // external imports
 import path from 'path'
 // local imports
-import { collectExports } from './utils'
+import { collectExports } from '@aaivazis/react-docs'
 
 // the directory containing web components
 const quarkWeb = path.resolve('packages', 'quark-web', 'src', 'index.js')
