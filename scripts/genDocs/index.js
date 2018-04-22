@@ -58,7 +58,7 @@ const quarkCore = path.resolve('packages', 'quark-core', 'src', 'index.js')
         console.log(chalk.red(errors.join('\n')))
     }
 
-    // write the result the ui directory
+    // write the result to the ui directory
     const file = 'data.json'
     await writeFile(path.join(quarkPaths.docs, file), JSON.stringify(uiData, null, ''))
 
