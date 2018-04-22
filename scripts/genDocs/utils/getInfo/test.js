@@ -129,7 +129,7 @@ test('includes the title of an example by parsing the magic comment', async () =
     ).toEqual('Awesome Title')
 })
 
-test.only('includes the body of an example', async () => {
+test('includes the body of an example', async () => {
     // the expected directory for component examples
     const componentExamples = path.resolve(examplesDir, 'section', 'component')
 
