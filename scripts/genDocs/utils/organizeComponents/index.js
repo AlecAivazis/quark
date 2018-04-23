@@ -32,7 +32,7 @@ export default async (args, { ignoreSections = [] } = {}) => {
             if (prev.data[section] && prev.data[section][component.name]) {
                 // make sure the props are the same
                 if (!_.isEqual(prev.data[section][component.name].props, component.props)) {
-                    newErrors.push(`Encountered discrepancy between for ${component.name}`)
+                    newErrors.push(`Encountered discrepancy in prop tables for ${component.name}`)
                 }
                 // add the previous tags to the list
                 tags.push(...prev.data[section][component.name].tags)
