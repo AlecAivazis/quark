@@ -71,7 +71,9 @@ const quarkCore = path.resolve('packages', 'quark-core', 'src', 'index.js')
     // log some basic stats
     const numOfSections = uiData.length
     const numOfComponents = uiData.reduce((acc, curr) => acc + curr.components.length, 0)
-    console.log(chalk.green(`${numOfSections} sections\n${numOfComponents} components`))
+    console.log(
+        chalk.green(`Found ${numOfSections} sections with ${numOfComponents} total components`)
+    )
 })()
 
 process.on('handledRejection', err => {

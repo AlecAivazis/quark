@@ -14,7 +14,7 @@ export default async ({ section, component }) => {
     try {
         var exampleDirContents = await readDir(componentExampleDir)
     } catch {
-        throw new Error(`Could not find example for ${component}`)
+        throw new Error(`Could not find example for ${section} - ${component}`)
     }
 
     // look at the contents of the directory for the list of examples
