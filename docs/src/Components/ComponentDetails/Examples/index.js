@@ -7,7 +7,11 @@ import styles from './styles'
 const Examples = ({ info, style }) => (
     <React.Fragment>
         <H3 style={{ ...styles.header, ...style }}>Examples</H3>
-        {info.examples.length === 0 ? <Text>No examples</Text> : <Text>All the examples</Text>}
+        {info.examples && info.examples.length === 0 ? (
+            <Text>No examples</Text>
+        ) : (
+            <Text>All the examples</Text>
+        )}
     </React.Fragment>
 )
 
