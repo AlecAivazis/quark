@@ -18,7 +18,6 @@ export const parseText = input =>
 
 export const parseFile = async filepath => {
     const data = await readFile(filepath)
-    console.log(data)
     try {
         return parseText(data.toString())
     } catch (err) {
