@@ -1,13 +1,42 @@
 // external imports
 import React from 'react'
-import { H3, FlexColumn, Text } from 'quark-web'
+import { H3, FlexColumn, Title } from 'quark-web'
 // local imports
 import styles from './styles'
 
-const PropTable = ({ info, style }) => (
-    <React.Fragment>
-        <H3 style={{ ...styles.header, ...style }}>Props</H3>
-        {info.props ? (
+// a map of string props, to a link with more information
+// const propLinks = {
+//     TextPropTypes: 'https://facebook.github.io/react-native/docs/text.html#props'
+// }
+
+const PropTable = ({ info, style }) => {
+    let content
+
+    // if there are is no prop information
+    if (!info.props || Object.keys(info.props).length === 0) {
+        content = 'No prop information'
+    } else if (info.props === 'TextPropTypes') {
+        // if the props are TextPropTypes
+        content = (
+            <Title style={{ fontWeight: 400 }}>
+                This component uses the same props as the{' '}
+                <a href="https://facebook.github.io/react-native/docs/text.html#props">
+                    native Text element.
+                </a>
+            </Title>
+        )
+    } else if (info.props === 'ViewPropTypes') {
+        // if the component uses the standard view props
+        content = (
+            <Title style={{ fontWeight: 400 }}>
+                This component uses the same props as the{' '}
+                <a href="https://facebook.github.io/react-native/docs/view.html#props">
+                    native View element.
+                </a>
+            </Title>
+        )
+    } else {
+        content = (
             <table>
                 <thead>
                     <tr>
@@ -28,7 +57,7 @@ const PropTable = ({ info, style }) => (
                                 <tr>
                                     <td>{prop}</td>
                                     <td>{propInfo.value}</td>
-                                    <td>{JSON.stringify(!propInfo.optional)}</td>
+                                    <td>{JSON.stringify(propInfo.required)}</td>
                                     <td>{JSON.stringify(propInfo.nullable)}</td>
                                     <td>{propInfo.description}</td>
                                 </tr>
@@ -36,10 +65,15 @@ const PropTable = ({ info, style }) => (
                         })}
                 </tbody>
             </table>
-        ) : (
-            <Text>No prop info available</Text>
-        )}
-    </React.Fragment>
-)
+        )
+    }
+
+    return (
+        <React.Fragment>
+            <H3 style={{ ...styles.header, ...style }}>Props</H3>
+            {content}
+        </React.Fragment>
+    )
+}
 
 export default PropTable

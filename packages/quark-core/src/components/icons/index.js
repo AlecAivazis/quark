@@ -1,9 +1,4 @@
 // @flow
-
-export type IconProps = {
-    style?: CSSStyleDeclaration
-}
-
 export { default as IconActivity } from './Activity'
 export { default as IconAirplay } from './Airplay'
 export { default as IconAlertCircle } from './AlertCircle'
