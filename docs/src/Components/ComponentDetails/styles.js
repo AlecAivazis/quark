@@ -11,8 +11,7 @@ export default {
         marginTop: 20
     },
     description: {
-        color: grey4,
-        fontSize: 18,
+        fontSize: '18',
         color: '#717172'
     }
 }

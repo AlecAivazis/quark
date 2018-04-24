@@ -5,5 +5,11 @@ export default {
     },
     table: {
         width: '100%'
+    },
+    headerText: {
+        fontSize: 16
+    },
+    tableText: {
+        fontSize: 16
     }
 }

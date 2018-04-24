@@ -52,19 +52,19 @@ const PropTable = ({ info, style }) => {
             <Table style={styles.table}>
                 <TableHeader>
                     <TableHeaderCell>
-                        <TableHeaderText>Name</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Name</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText>Type</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Type</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText>Required</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Required</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText>Nullable</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Nullable</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText>Description</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Description</TableHeaderText>
                     </TableHeaderCell>
                 </TableHeader>
                 <TableBody>
@@ -76,19 +76,27 @@ const PropTable = ({ info, style }) => {
                             return (
                                 <TableRow>
                                     <TableCell>
-                                        <TableText>{prop}</TableText>
+                                        <TableText style={styles.tableText}>{prop}</TableText>
                                     </TableCell>
                                     <TableCell>
-                                        <TableText>{propInfo.value}</TableText>
+                                        <TableText style={styles.tableText}>
+                                            {propInfo.value}
+                                        </TableText>
                                     </TableCell>
                                     <TableCell>
-                                        <TableText>{JSON.stringify(propInfo.required)}</TableText>
+                                        <TableText style={styles.tableText}>
+                                            {JSON.stringify(propInfo.required)}
+                                        </TableText>
                                     </TableCell>
                                     <TableCell>
-                                        <TableText>{JSON.stringify(propInfo.nullable)}</TableText>
+                                        <TableText style={styles.tableText}>
+                                            {JSON.stringify(propInfo.nullable)}
+                                        </TableText>
                                     </TableCell>
                                     <TableCell>
-                                        <TableText>{propInfo.description}</TableText>
+                                        <TableText style={styles.tableText}>
+                                            {propInfo.description}
+                                        </TableText>
                                     </TableCell>
                                 </TableRow>
                             )
