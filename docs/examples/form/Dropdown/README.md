@@ -1,1 +1,1 @@
-undefined
+This component provides the ability to show and hide some content by clicking on a particular element, the `toggle`. In order to facilitate keyboard interactions within the dropdown, the render callback provides a numerical index bound by the `min` and `max` props.

@@ -28,10 +28,12 @@ const quarkCore = path.resolve('packages', 'quark-core', 'src', 'index.js')
     // remove the components we want to hide
     for (const component of [
         'BaseButton',
-        'Button',
         'BaseButtonWithText',
         'updateList',
-        'triggerAlert'
+        'triggerAlert',
+        'ZoomViewTrigger',
+        'Option',
+        'TabBar'
     ]) {
         Reflect.deleteProperty(web.components, component)
         Reflect.deleteProperty(native.components, component)
