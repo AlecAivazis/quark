@@ -3,6 +3,9 @@ import { grey5, primaryColor } from './colors'
 
 export const primaryFont = {
     fontWeight: '300',
+    lineHeight: '1.3',
+    fontFamily:
+        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     color: grey5
 }
 
@@ -26,11 +29,13 @@ export const h3 = {
 
 export const title = {
     ...primaryFont,
+    fontWeight: '500',
     fontSize: 16
 }
 
 export const subtitle = {
     ...primaryFont,
+    fontWeight: '500',
     fontSize: 14
 }
 

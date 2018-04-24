@@ -4,11 +4,11 @@ import React from 'react'
 import { View, StyleSheet, ViewPropTypes } from 'react-native'
 
 const Table = ({ style, ...unused }: ViewPropTypes) => (
-    <View style={[styles.container, style]} {...unused} />
+    <tbody style={{ ...styles.container, ...style }} {...unused} />
 )
 
-const styles = StyleSheet.create({
+const styles = {
     container: {}
-})
+}
 
 export default Table

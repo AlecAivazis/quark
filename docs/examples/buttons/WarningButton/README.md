@@ -1,1 +1,1 @@
-A form component that should be used to indicate the primary action to be taken on a particular page. Used bbe used when the primary action is one that entails negative actions (such as removing an entity from your application). There should be only one WarningButton per page.
+A form component that should be used to indicate the primary action to be taken on a particular page. Used when the primary action is one that entails negative actions (such as removing an entity from your application). There should be only one WarningButton per view.

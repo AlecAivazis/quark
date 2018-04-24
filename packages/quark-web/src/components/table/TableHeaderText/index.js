@@ -7,7 +7,7 @@ import { GetTheme } from 'quark-core'
 
 const TableHeaderText = ({ style, ...unused }: ViewPropTypes) => (
     <GetTheme>
-        {({ grey4 }) => <Text style={[styles.container, { color: grey4 }, style]} {...unused} />}
+        {({ grey5 }) => <Text style={[styles.container, { color: grey5 }, style]} {...unused} />}
     </GetTheme>
 )
 

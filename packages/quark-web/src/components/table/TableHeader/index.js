@@ -9,14 +9,18 @@ import type { TableRowProps } from '../TableRow'
 
 const TableHeader = ({ style, ...unused }: TableRowProps) => (
     <GetTheme>
-        {({ grey3 }) => (
-            <TableRow style={[styles.container, { borderColor: grey3 }, style]} {...unused} />
+        {({ grey5 }) => (
+            <thead style={{ ...styles.container, borderColor: grey5, ...style }}>
+                <tr style={styles.tr} {...unused} />
+            </thead>
         )}
     </GetTheme>
 )
 
-const styles = StyleSheet.create({
-    container: {}
-})
+const styles = {
+    container: {
+        borderBottom: '3px solid'
+    }
+}
 
 export default TableHeader

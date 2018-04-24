@@ -6,7 +6,6 @@ import styles from './styles'
 
 const Examples = ({ info, style }) => (
     <React.Fragment>
-        {console.log(info.examples)}
         <H3 style={{ ...styles.header, ...style }}>Examples</H3>
         {!info.examples || (info.examples && info.examples.length === 0) ? (
             <Text>No examples</Text>

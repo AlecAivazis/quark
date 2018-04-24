@@ -22,7 +22,7 @@ const styles = {
     header: {
         color: grey3,
         textTransform: 'capitalize',
-        fontWeight: 400,
+        fontWeight: '400',
         marginBottom: 4
     },
     headerContainer: {
