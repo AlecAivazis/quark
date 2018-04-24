@@ -32,7 +32,6 @@ const quarkCore = path.resolve('packages', 'quark-core', 'src', 'index.js')
         'updateList',
         'triggerAlert',
         'ZoomViewTrigger',
-        'Option',
         'TabBar'
     ]) {
         Reflect.deleteProperty(web.components, component)
