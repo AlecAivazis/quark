@@ -18,8 +18,7 @@ export default {
         bottom: 0,
         right: 0,
         paddingBottom: 40,
-        overflowY: 'auto',
-        textWrap: 'none'
+        overflowY: 'auto'
     },
     sidebar: {
         width: sidebarWidth,

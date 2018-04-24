@@ -28,8 +28,8 @@ const ComponentDetails = ({ match }) => {
 
     return (
         <FlexColumn>
-            <H1>{info.name}</H1>
-            <Text>{info.description}</Text>
+            <H1 style={styles.title}>{info.name}</H1>
+            <Text style={styles.description}>{info.description}</Text>
             <PropTable info={info} style={styles.section} />
             <Examples info={info} style={styles.section} />
         </FlexColumn>

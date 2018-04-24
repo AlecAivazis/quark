@@ -1,19 +1,18 @@
 // @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet, Text, ViewPropTypes } from 'react-native'
+import { ViewPropTypes } from 'react-native'
 
 export type TableCellProps = ViewPropTypes
 
 const TableCell = ({ style, ...unused }: TableCellProps) => (
-    <View style={[styles.container, style]} {...unused} />
+    <td style={{ ...styles.container, ...style }} {...unused} />
 )
 
-const styles = StyleSheet.create({
+const styles = {
     container: {
-        flex: 1,
-        flexDirection: 'row'
+        verticalAlign: 'middle'
     }
-})
+}
 
 export default TableCell

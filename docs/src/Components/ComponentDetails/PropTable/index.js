@@ -1,6 +1,18 @@
 // external imports
 import React from 'react'
-import { H3, FlexColumn, Title } from 'quark-web'
+import {
+    H3,
+    FlexColumn,
+    Title,
+    Table,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+    TableBody,
+    TableCell,
+    TableText,
+    TableHeaderText
+} from 'quark-web'
 // local imports
 import styles from './styles'
 
@@ -18,7 +30,7 @@ const PropTable = ({ info, style }) => {
     } else if (info.props === 'TextPropTypes') {
         // if the props are TextPropTypes
         content = (
-            <Title style={{ fontWeight: 400 }}>
+            <Title style={{ fontWeight: '400' }}>
                 This component uses the same props as the{' '}
                 <a href="https://facebook.github.io/react-native/docs/text.html#props">
                     native Text element.
@@ -28,7 +40,7 @@ const PropTable = ({ info, style }) => {
     } else if (info.props === 'ViewPropTypes') {
         // if the component uses the standard view props
         content = (
-            <Title style={{ fontWeight: 400 }}>
+            <Title style={{ fontWeight: '400' }}>
                 This component uses the same props as the{' '}
                 <a href="https://facebook.github.io/react-native/docs/view.html#props">
                     native View element.
@@ -37,34 +49,52 @@ const PropTable = ({ info, style }) => {
         )
     } else {
         content = (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Required</th>
-                        <th>Nullable</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <Table style={styles.table}>
+                <TableHeader>
+                    <TableHeaderCell>
+                        <TableHeaderText>Name</TableHeaderText>
+                    </TableHeaderCell>
+                    <TableHeaderCell>
+                        <TableHeaderText>Type</TableHeaderText>
+                    </TableHeaderCell>
+                    <TableHeaderCell>
+                        <TableHeaderText>Required</TableHeaderText>
+                    </TableHeaderCell>
+                    <TableHeaderCell>
+                        <TableHeaderText>Nullable</TableHeaderText>
+                    </TableHeaderCell>
+                    <TableHeaderCell>
+                        <TableHeaderText>Description</TableHeaderText>
+                    </TableHeaderCell>
+                </TableHeader>
+                <TableBody>
                     {Object.keys(info.props)
                         .sort()
                         .map(prop => {
                             const propInfo = info.props[prop]
 
                             return (
-                                <tr>
-                                    <td>{prop}</td>
-                                    <td>{propInfo.value}</td>
-                                    <td>{JSON.stringify(propInfo.required)}</td>
-                                    <td>{JSON.stringify(propInfo.nullable)}</td>
-                                    <td>{propInfo.description}</td>
-                                </tr>
+                                <TableRow>
+                                    <TableCell>
+                                        <TableText>{prop}</TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableText>{propInfo.value}</TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableText>{JSON.stringify(propInfo.required)}</TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableText>{JSON.stringify(propInfo.nullable)}</TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableText>{propInfo.description}</TableText>
+                                    </TableCell>
+                                </TableRow>
                             )
                         })}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         )
     }
 
