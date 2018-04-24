@@ -6,7 +6,11 @@ import { TextInput } from 'react-native'
 import styles from './styles'
 import { GetTheme } from 'quark-core'
 
-type Props = { [key: string]: string }
+type Props = {
+    value: string,
+    onChange: (string, ?Event) => void,
+    icon: React.Node
+} & { [key: string]: string }
 
 const Input = ({ style, ...unused }: Props) => (
     <GetTheme>

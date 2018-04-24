@@ -1,1 +1,1 @@
-undefined
+This component is used to indicate to the user what information they should add to an input in a Form. The `description` field should provide a description for the user, as well as any sort of constraints.
