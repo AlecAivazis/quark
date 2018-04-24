@@ -20,7 +20,8 @@ const TableHeader = ({ style, ...unused }: TableRowProps) => (
 const styles = {
     container: {
         borderBottom: '3px solid'
-    }
+    },
+    tr: {}
 }
 
 export default TableHeader

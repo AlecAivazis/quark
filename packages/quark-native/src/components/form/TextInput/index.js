@@ -1,6 +1,6 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { TextInput } from 'react-native'
 // local imports
 import styles from './styles'
