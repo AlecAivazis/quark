@@ -21,13 +21,12 @@ const Sidebar = ({ style }) => (
             <PageLink title="Components">
                 {data.map(({ name: sectionName, components }) => (
                     <ComponentSection title={sectionName} key={sectionName}>
-                        {components.map(({ name: componentName }) => (
+                        {components.map(component => (
                             <ComponentLink
-                                to={`/components/${sectionName}/${componentName}`}
-                                key={componentName}
-                            >
-                                {componentName}
-                            </ComponentLink>
+                                to={`/components/${sectionName}/${component.name}`}
+                                key={component.name}
+                                component={component}
+                            />
                         ))}
                     </ComponentSection>
                 ))}

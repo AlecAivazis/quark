@@ -1,5 +1,5 @@
 // the width of the sidebar
-const sidebarWidth = 292
+const sidebarWidth = 325
 
 export default {
     container: {

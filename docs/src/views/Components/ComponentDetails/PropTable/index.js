@@ -74,7 +74,7 @@ const PropTable = ({ info, style }) => {
                             const propInfo = info.props[prop]
 
                             return (
-                                <TableRow>
+                                <TableRow key={prop}>
                                     <TableCell>
                                         <TableText style={styles.tableText}>{prop}</TableText>
                                     </TableCell>

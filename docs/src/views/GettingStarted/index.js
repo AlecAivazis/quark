@@ -19,8 +19,10 @@ const GettingStarted = () => (
         </Description>
         <Description>
             Please keep in mind that since quark is meant to work on both native and web, the rules
-            for available style values is slightly different. For example, you cannot pass text
-            styling to a non text-based component.
+            for available style values is slightly different than what you'd expect in a `React`
+            component. For example, you cannot pass text styling (e.g. `color`) to a non text-based
+            component, you need to pass them to a text component, like those mentioned in the
+            Typography section.
         </Description>
     </FlexColumn>
 )
