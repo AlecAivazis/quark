@@ -76,7 +76,7 @@ export const defaultTheme = {
 
 type Props = {
     children: React.Node,
-    theme: Theme
+    colors: Theme
 }
 
 class ThemeProvider extends React.Component<Props> {
@@ -88,7 +88,7 @@ class ThemeProvider extends React.Component<Props> {
         return {
             theme: {
                 ...defaultTheme,
-                ...this.props.theme
+                ...this.props.colors
             }
         }
     }

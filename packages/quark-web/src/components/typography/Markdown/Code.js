@@ -10,12 +10,14 @@ type Props = {
     style: CSSStyleDeclaration
 }
 
-const InlineCode = ({ style, ...unused }) => (
+const Code = ({ style, value, ...unused }) => (
     <GetTheme>
-        {({ grey2 }) => (
-            <code style={{ ...styles.inlineCode, backgroundColor: grey2, ...style }} {...unused} />
+        {({ grey1 }) => (
+            <pre style={{ ...styles.code, backgroundColor: grey1 }}>
+                <code style={style}>{value}</code>
+            </pre>
         )}
     </GetTheme>
 )
 
-export default InlineCode
+export default Code

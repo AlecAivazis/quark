@@ -7,6 +7,7 @@ import { Text, FlexColumn } from 'quark-core'
 import { Table, TableHeader } from '../../table'
 import TableCell from './TableCell'
 import InlineCode from './InlineCode'
+import Code from './Code'
 import styles from './styles'
 
 type Props = {
@@ -14,7 +15,7 @@ type Props = {
     textStyle: CSSStyleDeclaration
 }
 
-const Markdown = ({ children, textStyle }: Props) => (
+const Markdown = ({ children, textStyle, renderers, ...unused }: Props) => (
     <ReactMarkdown
         source={children}
         renderers={{
@@ -25,8 +26,11 @@ const Markdown = ({ children, textStyle }: Props) => (
                 <Text style={{ ...styles.p, ...textStyle }}>{children}</Text>
             ),
             tableCell: TableCell,
-            inlineCode: InlineCode
+            inlineCode: props => <InlineCode {...props} style={textStyle} />,
+            code: props => <Code {...props} style={textStyle} />,
+            ...renderers
         }}
+        {...unused}
     />
 )
 
