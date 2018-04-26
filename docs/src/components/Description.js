@@ -3,8 +3,11 @@ import React from 'react'
 // local imports
 import { Markdown } from 'quark-web'
 
-const Description = ({ children, style }) => (
-    <Markdown style={style} textStyle={styles.description}>
+const Description = ({ children, textStyle, style }) => (
+    <Markdown
+        style={{ ...styles.container, ...style }}
+        textStyle={{ ...styles.description, ...textStyle }}
+    >
         {children}
     </Markdown>
 )
@@ -15,7 +18,8 @@ const styles = {
         color: '#717172',
         marginBottom: 20,
         marginTop: 20
-    }
+    },
+    container: {}
 }
 
 export default Description
