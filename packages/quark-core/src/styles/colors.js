@@ -6,7 +6,7 @@ export const lightGreen = '#97ECA5'
 export const yellow = '#D06E02'
 export const lightYellow = '#FDE69D'
 
-export const lightRed = '#F1504E'
+export const lightRed = '#FFBFBE'
 export const darkRed = '#D23533'
 export const red = '#E04341'
 

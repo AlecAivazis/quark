@@ -13,20 +13,21 @@ const Pallete = () => (
             colors (default to `blue`). To customize the theme to match your application and
             branding, see the section on Cutomizing your Theme
         </Markdown>
-        <GetTheme>
-            {({ blue, green, yellow, red, lightBlue, lightGreen, lightYellow, lightRed }) => (
-                <div style={styles.paletteContainer}>
-                    <Swatch color={blue} name="blue" value="#4A90E2" />
-                    <Swatch color={green} name="green" value="#3EB642" />
-                    <Swatch color={yellow} name="yellow" value="#D06E02" />
-                    <Swatch color={red} name="red" value="#E04341" />
-                    <Swatch color={lightBlue} name="lightBlue" value="#B1D9FF" light={true} />
-                    <Swatch color={lightGreen} name="lightGreen" value="#97ECA5" light={true} />
-                    <Swatch color={lightYellow} name="lightYellow" value="#FDE69D" light={true} />
-                    <Swatch color={lightRed} name="lightRed" value="#F1504E" light={true} />
-                </div>
-            )}
-        </GetTheme>
+        <div style={styles.paletteContainer}>
+            <Swatch name="blue" />
+            <Swatch name="green" />
+            <Swatch name="yellow" />
+            <Swatch name="red" />
+            <Swatch name="lightBlue" />
+            <Swatch name="lightGreen" />
+            <Swatch name="lightYellow" />
+            <Swatch name="lightRed" />
+            <Swatch name="grey1" />
+            <Swatch name="grey2" />
+            <Swatch name="grey3" />
+            <Swatch name="grey4" />
+            <Swatch name="grey5" whiteFont={true} />
+        </div>
     </FlexColumn>
 )
 

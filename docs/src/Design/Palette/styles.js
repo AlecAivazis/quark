@@ -10,8 +10,8 @@ export default {
     paletteContainer: {
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gridTemplateRows: 'repeat(2, 1fr)',
-        height: 372,
+        gridTemplateRows: 'repeat(4, 1fr)',
+        height: 424,
         gridGap: 28,
         marginTop: 38
     },
