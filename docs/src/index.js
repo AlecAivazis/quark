@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 // local imports
-import Root from './Root'
+import { Root } from './views'
 
 ReactDOM.render(
     <BrowserRouter>

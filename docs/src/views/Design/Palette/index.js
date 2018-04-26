@@ -4,10 +4,11 @@ import React from 'react'
 import { GetTheme, H1, FlexColumn, Text, Markdown } from 'quark-web'
 import styles from './styles'
 import Swatch from './Swatch'
+import { Title } from '../../../components'
 
 const Pallete = () => (
     <FlexColumn>
-        <H1 style={styles.title}>Color Palette</H1>
+        <Title>Color Palette</Title>
         <Markdown textStyle={styles.description}>
             These colors are all available through the `Theme` component, along with the primary
             colors (default to `blue`). To customize the theme to match your application and

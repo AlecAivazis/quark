@@ -1,13 +1,13 @@
 // external imports
 import React from 'react'
-
 // local imports
 import { FlexColumn, H1, Markdown } from 'quark-web'
+import { Title } from '../../../components'
 import styles from './styles'
 
 const CustomTheme = () => (
     <FlexColumn>
-        <H1 style={styles.title}>Custom Theme</H1>
+        <Title style={styles.title}>Custom Theme</Title>
         <Markdown textStyle={styles.description}>
             All of the components in `quark` are themable. Along with the color palette values, a
             full theme can also specify different shades of a primary color (`primaryColor`,

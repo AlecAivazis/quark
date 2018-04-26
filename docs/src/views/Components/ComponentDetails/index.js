@@ -1,11 +1,12 @@
 // external imports
 import React from 'react'
-import { H1, H3, FlexColumn, Text, Markdown } from 'quark-web'
+import { H3, FlexColumn, Text, Markdown } from 'quark-web'
 // local imports
 import data from 'data.json'
 import styles from './styles'
 import PropTable from './PropTable'
 import Examples from './Examples'
+import { Title } from '../../../components'
 
 const ComponentDetails = ({ match }) => {
     // grab info out of the url
@@ -28,7 +29,7 @@ const ComponentDetails = ({ match }) => {
 
     return (
         <FlexColumn>
-            <H1 style={styles.title}>{info.name}</H1>
+            <Title>{info.name}</Title>
             <Markdown textStyle={styles.description}>{info.description}</Markdown>
             <PropTable info={info} style={styles.section} />
             <Examples info={info} style={styles.section} />

@@ -1,8 +1,4 @@
 export default {
-    title: {
-        fontSize: 34,
-        marginBottom: 8
-    },
     description: {
         fontSize: '18',
         color: '#717172'

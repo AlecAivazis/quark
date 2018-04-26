@@ -3,10 +3,6 @@ export default {
     table: {
         marginBottom: 12
     },
-    title: {
-        fontSize: 34,
-        marginBottom: 8
-    },
     section: {
         marginTop: 20
     },

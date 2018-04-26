@@ -1,6 +1,6 @@
 export default {
     title: {
-        fontSize: 34
+        marginBottom: 0
     },
     description: {
         fontSize: '18',
