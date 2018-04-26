@@ -88,9 +88,11 @@ exports[`shows when visible 1`] = `
                       Object {
                         "backgroundColor": undefined,
                         "borderColor": "#EAEAEE",
-                        "cursor": "inherit",
                         "flex": 0,
+                        "fontFamily": "System",
+                        "fontSize": "inherit",
                         "height": 600,
+                        "margin": 0,
                         "marginLeft": "auto",
                         "marginRight": "auto",
                         "marginTop": 50,

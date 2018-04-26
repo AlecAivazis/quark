@@ -11,15 +11,10 @@ exports[`renders 1`] = `
       style={
         Object {
           "borderTopColor": "#EAEAEE",
-          "bottom": 0,
-          "height": "70%",
-          "left": 0,
-          "margin": "auto",
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transitionDuration": "0.1s",
-          "width": "100%",
+          "height": 5,
+          "overflow": "hidden",
+          "userSelect": "none",
+          "zIndex": 0,
         }
       }
       textColor="#4A90E2"
@@ -32,15 +27,10 @@ exports[`renders 1`] = `
         style={
           Object {
             "borderTopColor": "#EAEAEE",
-            "bottom": 0,
-            "height": "70%",
-            "left": 0,
-            "margin": "auto",
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-            "transitionDuration": "0.1s",
-            "width": "100%",
+            "height": 5,
+            "overflow": "hidden",
+            "userSelect": "none",
+            "zIndex": 0,
           }
         }
       >
@@ -61,21 +51,38 @@ exports[`renders 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
+                "animationDuration": "0.75s",
+                "animationIterationCount": "infinite",
+                "animationName": Array [
+                  Object {
+                    "0%": Object {
+                      "transform": Array [
+                        Object {
+                          "rotate": "0deg",
+                        },
+                      ],
+                    },
+                    "100%": Object {
+                      "transform": Array [
+                        Object {
+                          "rotate": "360deg",
+                        },
+                      ],
+                    },
+                  },
+                ],
+                "animationTimingFunction": "linear",
                 "backgroundColor": "rgba(255, 255, 255, 1)",
+                "backgroundSize": "cover",
                 "borderTopColor": "#EAEAEE",
-                "bottom": 0,
-                "color": "#a1a1a1",
-                "cursor": "default",
-                "height": "70%",
-                "left": 0,
-                "margin": "auto",
+                "color": "#fff",
+                "fontWeight": "500",
+                "height": 5,
                 "overflow": "hidden",
-                "position": "absolute",
-                "right": 0,
-                "top": 0,
-                "transitionDuration": "0.1s",
+                "padding": 8,
+                "textAlign": "center",
+                "textTransform": "uppercase",
                 "userSelect": "none",
-                "width": "100%",
                 "zIndex": 0,
               }
             }
@@ -129,37 +136,20 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
-                      "bottom": 0,
                       "color": "#4A90E2",
-                      "height": "100%",
-                      "left": 0,
-                      "margin": 0,
-                      "opacity": 0,
-                      "padding": 0,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                      "width": "100%",
+                      "cursor": "pointer",
+                      "touchAction": "manipulation",
                     }
                   }
                 >
                   <InnerText
                     style={
                       Object {
-                        "bottom": 0,
-                        "color": "#4A90E2",
-                        "flexDirection": "row",
-                        "height": "100%",
-                        "left": 0,
-                        "margin": 0,
-                        "opacity": 0,
-                        "overflowX": "auto",
-                        "overflowY": "hidden",
-                        "padding": 0,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 0,
-                        "width": "100%",
+                        "0": 41,
+                        "1": Object {
+                          "color": "#4A90E2",
+                        },
+                        "2": undefined,
                       }
                     }
                   >
@@ -167,30 +157,25 @@ exports[`renders 1`] = `
                       <Text
                         style={
                           Object {
-                            "backgroundSize": "cover",
-                            "bottom": 0,
-                            "color": "#4A90E2",
-                            "flexDirection": "row",
-                            "height": "100%",
-                            "left": 0,
-                            "margin": 0,
-                            "opacity": 0,
-                            "overflowX": "auto",
-                            "overflowY": "hidden",
-                            "padding": 0,
-                            "position": "absolute",
-                            "right": 0,
-                            "top": 0,
-                            "width": "100%",
+                            "0": 41,
+                            "1": Object {
+                              "color": "#4A90E2",
+                            },
+                            "2": undefined,
+                            "color": "#48484D",
                           }
                         }
                       >
                         <div
-                          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-ubezar rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
                           dir="auto"
                           style={
                             Object {
-                              "color": "rgba(74,144,226,1)",
+                              "0": "41px",
+                              "1": Object {
+                                "color": "#4A90E2",
+                              },
+                              "color": "rgba(72,72,77,1)",
                             }
                           }
                         >

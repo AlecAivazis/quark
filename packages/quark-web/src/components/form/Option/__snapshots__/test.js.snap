@@ -8,23 +8,13 @@ exports[`mixes active and selected styles 1`] = `
   <GetTheme>
     <Text>
       <InnerText
-        style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
-        }
+        style={Object {}}
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
               }
             }
           >
@@ -66,23 +56,13 @@ exports[`renders active style 1`] = `
   <GetTheme>
     <Text>
       <InnerText
-        style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
-        }
+        style={Object {}}
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
               }
             }
           >
@@ -122,23 +102,13 @@ exports[`renders default style 1`] = `
   <GetTheme>
     <Text>
       <InnerText
-        style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
-        }
+        style={Object {}}
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
               }
             }
           >
@@ -179,23 +149,13 @@ exports[`renders selected style 1`] = `
   <GetTheme>
     <Text>
       <InnerText
-        style={
-          Object {
-            "flexDirection": "row",
-            "overflowX": "auto",
-            "overflowY": "hidden",
-          }
-        }
+        style={Object {}}
       >
         <GetTheme>
           <Text
             style={
               Object {
-                "backgroundSize": "cover",
                 "color": "#48484D",
-                "flexDirection": "row",
-                "overflowX": "auto",
-                "overflowY": "hidden",
               }
             }
           >

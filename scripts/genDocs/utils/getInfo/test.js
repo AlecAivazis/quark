@@ -54,6 +54,10 @@ test('skips readme', async () => {
             return 'export default "example1"'
         }
 
+        if (filepath === path.resolve(componentExamples, 'README.md')) {
+            return 'asfd'
+        }
+
         if (filepath === path.resolve(componentExamples, 'example2.js')) {
             return 'export default "example2"'
         }

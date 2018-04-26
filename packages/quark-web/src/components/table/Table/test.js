@@ -3,7 +3,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { mount } from 'enzyme'
 // local imports
-import { Table } from 'quark-core'
+import { Table } from 'quark-web'
 
 it('renders', () =>
     expect(
