@@ -10,7 +10,7 @@ type Props = {
     style: CSSStyleDeclaration
 }
 
-const InlineCode = ({ style, ...unused }) => (
+const InlineCode = ({ style, ...unused }: Props) => (
     <GetTheme>
         {({ grey2 }) => (
             <code style={{ ...styles.inlineCode, backgroundColor: grey2, ...style }} {...unused} />

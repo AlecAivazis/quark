@@ -12,7 +12,8 @@ import styles from './styles'
 
 type Props = {
     children: string,
-    textStyle: CSSStyleDeclaration
+    textStyle: CSSStyleDeclaration,
+    renderers: { [key: string]: (any) => React.Node }
 }
 
 const Markdown = ({ children, textStyle, renderers, ...unused }: Props) => (

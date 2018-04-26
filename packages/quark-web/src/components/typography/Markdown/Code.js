@@ -6,11 +6,11 @@ import { GetTheme } from 'quark-core'
 import styles from './styles'
 
 type Props = {
-    children: React.Node,
-    style: CSSStyleDeclaration
+    style: CSSStyleDeclaration,
+    value: React.Node
 }
 
-const Code = ({ style, value, ...unused }) => (
+const Code = ({ style, value, ...unused }: Props) => (
     <GetTheme>
         {({ grey1 }) => (
             <pre style={{ ...styles.code, backgroundColor: grey1 }}>
