@@ -47,7 +47,9 @@ export type Theme = {
     blue?: Color,
     lightBlue?: Color,
     green?: Color,
-    lightGreen?: Color
+    lightGreen?: Color,
+    yellow?: Color,
+    lightYellow?: Color
 }
 
 export const defaultTheme = {
@@ -67,7 +69,9 @@ export const defaultTheme = {
     blue,
     lightBlue: lightBlue,
     green,
-    lightGreen: lightGreen
+    lightGreen: lightGreen,
+    yellow,
+    lightYellow: lightYellow
 }
 
 type Props = {

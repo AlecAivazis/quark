@@ -80,7 +80,7 @@ const PropTable = ({ info, style }) => {
                                     </TableCell>
                                     <TableCell>
                                         <TableText style={styles.tableText}>
-                                            {propInfo.value}
+                                            {propInfo.value.replace('=>', '⇒')}
                                         </TableText>
                                     </TableCell>
                                     <TableCell>
