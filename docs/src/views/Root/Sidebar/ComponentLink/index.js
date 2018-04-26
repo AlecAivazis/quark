@@ -30,7 +30,8 @@ const PageLink = ({ to, children, component }) => (
 
 const styles = {
     container: {
-        fontWeight: '400'
+        fontWeight: '400',
+        cursor: 'pointer'
     },
     link: {
         padding: 8
