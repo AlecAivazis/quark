@@ -16,10 +16,10 @@ const Root = () => (
         <Sidebar style={styles.sidebar} />
         <FlexColumn style={styles.content} grow={1}>
             <Switch>
-                <Route path="/getting-started" component={GettingStarted} />
+                <Route exact path="/" component={GettingStarted} />
                 <Route path="/design" component={Design} />
                 <Route path="/components" component={Components} />
-                <Redirect to="/getting-started" />
+                <Redirect to="/" />
             </Switch>
         </FlexColumn>
     </App>

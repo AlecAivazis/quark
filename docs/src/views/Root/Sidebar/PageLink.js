@@ -9,14 +9,18 @@ import { primaryColor } from 'src/colors'
 const PageLink = ({ title, to, children, style }) => (
     <FlexColumn style={styles.container}>
         <H3 style={styles.headerContainer}>
-            <NavLink
-                exact
-                to={to}
-                style={{ ...styles.header, ...style }}
-                activeStyle={styles.activeLink}
-            >
-                {title}
-            </NavLink>
+            {to ? (
+                <NavLink
+                    exact
+                    to={to}
+                    style={{ ...styles.header, ...style }}
+                    activeStyle={styles.activeLink}
+                >
+                    {title}
+                </NavLink>
+            ) : (
+                <span style={{ ...styles.header, ...style }}> {title} </span>
+            )}
         </H3>
 
         <FlexColumn style={styles.content}>{children}</FlexColumn>
