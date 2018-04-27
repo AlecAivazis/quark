@@ -13,7 +13,8 @@ const Sidebar = ({ style }) => (
     <FlexColumn style={{ ...styles.container, ...style }}>
         <Header />
         <FlexColumn style={styles.content}>
-            <PageLink title="Design" style={styles.notSectioned}>
+            <PageLink exact to="/" title="Getting Started" />
+            <PageLink title="Design" top={true}>
                 <ComponentLink to="/design/palette">Color Palette</ComponentLink>
                 <ComponentLink to="/design/typography">Typography</ComponentLink>
                 <ComponentLink to="/design/customize">Custom Theme</ComponentLink>

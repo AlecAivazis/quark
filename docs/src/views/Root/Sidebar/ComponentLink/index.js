@@ -2,23 +2,38 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 // local imports
-import { Title, FlexRow, H2 } from 'quark-web'
+import { Title, FlexRow, Text } from 'quark-web'
 import { grey5 } from 'quark-web/styles'
 import { primaryColor } from 'src/colors'
 import TagList from './TagList'
 
-const PageLink = ({ to, children, component }) => (
+const PageLink = ({ exact, to, style, textStyle, children, component }) => (
     <Link to={to}>
-        <Route path={to}>
+        <Route exact={exact} path={to}>
             {({ match }) => (
-                <FlexRow alignItems="center" style={match ? styles.activeLink : styles.link}>
+                <FlexRow
+                    alignItems="center"
+                    style={{ ...(match ? styles.activeLink : styles.link), ...style }}
+                >
                     {children ? (
-                        <span style={match ? styles.activeText : styles.text}>{children}</span>
+                        <span
+                            style={{
+                                ...(match ? styles.activeText : styles.text),
+                                ...textStyle
+                            }}
+                        >
+                            {children}
+                        </span>
                     ) : (
                         <React.Fragment>
-                            <H2 style={match ? styles.activeText : styles.text}>
+                            <Text
+                                style={{
+                                    ...(match ? styles.activeText : styles.text),
+                                    ...textStyle
+                                }}
+                            >
                                 {component.name}
-                            </H2>
+                            </Text>
                             <TagList component={component} active={match} />
                         </React.Fragment>
                     )}
@@ -28,9 +43,14 @@ const PageLink = ({ to, children, component }) => (
     </Link>
 )
 
+const textStyle = {
+    fontWeight: '400',
+    marginRight: 8,
+    fontSize: 16
+}
+
 const styles = {
     container: {
-        fontWeight: '400',
         cursor: 'pointer'
     },
     link: {
@@ -41,14 +61,15 @@ const styles = {
         padding: 6,
         paddingLeft: 8,
         marginTop: 2,
-        marginBottom: 2
+        marginBottom: 2,
+        borderRadius: 3
     },
     activeText: {
-        color: 'white',
-        marginRight: 8
+        ...textStyle,
+        color: 'white'
     },
     text: {
-        marginRight: 8,
+        ...textStyle,
         color: grey5
     }
 }

@@ -50,5 +50,11 @@ export const link = {
 }
 
 export const linkActive = {
+    ...primaryFont,
     ...link
+}
+
+export const monospace = {
+    ...primaryFont,
+    fontFamily: 'monospace'
 }

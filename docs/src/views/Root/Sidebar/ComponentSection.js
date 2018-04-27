@@ -22,8 +22,7 @@ const styles = {
     header: {
         color: grey3,
         textTransform: 'capitalize',
-        fontWeight: '400',
-        marginBottom: 4
+        fontWeight: '400'
     },
     headerContainer: {
         marginBottom: 6
@@ -36,7 +35,6 @@ const styles = {
         display: 'flex',
         flexGrow: 1,
         backgroundColor: grey3,
-        marginTop: 4,
         marginLeft: 12
     }
 }

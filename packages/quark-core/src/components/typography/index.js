@@ -4,7 +4,7 @@ import * as React from 'react'
 import { Text as NativeText, TextPropTypes } from 'react-native'
 // local imports
 import { GetTheme } from 'quark-core'
-import { h1, h2, h3, title, subtitle, text, link } from 'quark-core/styles'
+import { h1, h2, h3, title, subtitle, text, link, monospace } from 'quark-core/styles'
 import styles from './styles'
 
 type TextProperties = TextPropTypes
@@ -47,5 +47,5 @@ export const Link = ({ style, ...unused }: TextProperties) => (
 )
 
 export const Monospace = ({ style, ...unused }: TextProperties) => (
-    <InnerText style={{ ...link, ...styles.link, ...style }} {...unused} />
+    <InnerText style={{ ...monospace, ...styles.monospace, ...style }} {...unused} />
 )

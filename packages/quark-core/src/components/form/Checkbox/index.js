@@ -30,7 +30,7 @@ const Checkbox = ({ style, children, content, onPress, ...unused }: CheckboxProp
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 2,
+        borderRadius: 3,
         borderWidth: 1,
         display: 'flex',
         alignItems: 'center',

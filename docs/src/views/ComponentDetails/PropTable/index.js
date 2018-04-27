@@ -11,15 +11,14 @@ import {
     TableBody,
     TableCell,
     TableText,
-    TableHeaderText
+    TableHeaderText,
+    IconCheck,
+    Monospace
 } from 'quark-web'
 // local imports
 import styles from './styles'
 
-// a map of string props, to a link with more information
-// const propLinks = {
-//     TextPropTypes: 'https://facebook.github.io/react-native/docs/text.html#props'
-// }
+console.log(IconCheck)
 
 const PropTable = ({ info, style }) => {
     let content
@@ -55,16 +54,13 @@ const PropTable = ({ info, style }) => {
                         <TableHeaderText style={styles.headerText}>Name</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText style={styles.headerText}>Type</TableHeaderText>
-                    </TableHeaderCell>
-                    <TableHeaderCell>
                         <TableHeaderText style={styles.headerText}>Required</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
                         <TableHeaderText style={styles.headerText}>Nullable</TableHeaderText>
                     </TableHeaderCell>
                     <TableHeaderCell>
-                        <TableHeaderText style={styles.headerText}>Description</TableHeaderText>
+                        <TableHeaderText style={styles.headerText}>Type</TableHeaderText>
                     </TableHeaderCell>
                 </TableHeader>
                 <TableBody>
@@ -79,24 +75,19 @@ const PropTable = ({ info, style }) => {
                                         <TableText style={styles.tableText}>{prop}</TableText>
                                     </TableCell>
                                     <TableCell>
-                                        <TableText style={styles.tableText}>
+                                        <TableText style={styles.iconTableText}>
+                                            {propInfo.required && <IconCheck style={styles.icon} />}
+                                        </TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <TableText style={styles.iconTableText}>
+                                            {propInfo.nullable && <IconCheck style={styles.icon} />}
+                                        </TableText>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Monospace style={styles.tableText}>
                                             {propInfo.value.replace('=>', '⇒')}
-                                        </TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TableText style={styles.tableText}>
-                                            {JSON.stringify(propInfo.required)}
-                                        </TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TableText style={styles.tableText}>
-                                            {JSON.stringify(propInfo.nullable)}
-                                        </TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TableText style={styles.tableText}>
-                                            {propInfo.description}
-                                        </TableText>
+                                        </Monospace>
                                     </TableCell>
                                 </TableRow>
                             )

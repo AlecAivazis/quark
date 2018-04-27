@@ -13,7 +13,7 @@ type Props = {
 const InlineCode = ({ style, ...unused }: Props) => (
     <GetTheme>
         {({ grey2 }) => (
-            <code style={{ ...styles.inlineCode, backgroundColor: grey2, ...style }} {...unused} />
+            <code style={{ backgroundColor: grey2, ...style, ...styles.inlineCode }} {...unused} />
         )}
     </GetTheme>
 )

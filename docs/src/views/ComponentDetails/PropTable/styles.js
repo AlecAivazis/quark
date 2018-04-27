@@ -11,5 +11,11 @@ export default {
     },
     tableText: {
         fontSize: 16
+    },
+    iconTableText: {
+        paddingLeft: 28
+    },
+    icon: {
+        fontSize: 16
     }
 }

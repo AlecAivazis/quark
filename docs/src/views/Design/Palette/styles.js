@@ -12,7 +12,8 @@ export default {
         marginTop: 38
     },
     swatch: {
-        padding: 10
+        padding: 10,
+        borderRadius: 3
     },
     swatchTitle: {
         marginBottom: 4

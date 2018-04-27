@@ -1,4 +1,4 @@
-import { grey2 } from 'quark-web/styles'
+import { grey2, grey5 } from 'quark-web/styles'
 
 export default {
     container: {
