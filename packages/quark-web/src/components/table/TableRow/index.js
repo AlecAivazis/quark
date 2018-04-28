@@ -16,7 +16,6 @@ const TableRow = ({ style, last, ...unused }: TableRowProps) => (
             <tr
                 style={{
                     ...styles.container,
-                    borderColor: grey2,
                     ...(last && styles.last),
                     ...style
                 }}
@@ -30,11 +29,11 @@ export const styles = {
     container: {
         paddingTop: 2 * baseDim,
         paddingBottom: 2 * baseDim,
-        borderBottomWidth: 1,
-        height: 32
+        borderBottom: `1px solid ${grey2}`,
+        height: 40
     },
     last: {
-        borderBottomWidth: 0
+        borderBottom: 0
     }
 }
 

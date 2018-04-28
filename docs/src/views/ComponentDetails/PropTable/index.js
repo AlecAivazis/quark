@@ -47,6 +47,9 @@ const PropTable = ({ info, style }) => {
             </Title>
         )
     } else {
+        // the props we care about
+        const props = Object.keys(info.props)
+
         content = (
             <Table style={styles.table}>
                 <TableHeader>
@@ -64,34 +67,32 @@ const PropTable = ({ info, style }) => {
                     </TableHeaderCell>
                 </TableHeader>
                 <TableBody>
-                    {Object.keys(info.props)
-                        .sort()
-                        .map(prop => {
-                            const propInfo = info.props[prop]
+                    {props.sort().map((prop, i) => {
+                        const propInfo = info.props[prop]
 
-                            return (
-                                <TableRow key={prop}>
-                                    <TableCell>
-                                        <TableText style={styles.tableText}>{prop}</TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TableText style={styles.iconTableText}>
-                                            {propInfo.required && <IconCheck style={styles.icon} />}
-                                        </TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <TableText style={styles.iconTableText}>
-                                            {propInfo.nullable && <IconCheck style={styles.icon} />}
-                                        </TableText>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Monospace style={styles.tableText}>
-                                            {propInfo.value.replace('=>', '⇒')}
-                                        </Monospace>
-                                    </TableCell>
-                                </TableRow>
-                            )
-                        })}
+                        return (
+                            <TableRow key={prop} last={i === props.length - 1}>
+                                <TableCell>
+                                    <TableText style={styles.tableText}>{prop}</TableText>
+                                </TableCell>
+                                <TableCell>
+                                    <TableText style={styles.iconTableText}>
+                                        {propInfo.required && <IconCheck style={styles.icon} />}
+                                    </TableText>
+                                </TableCell>
+                                <TableCell>
+                                    <TableText style={styles.iconTableText}>
+                                        {propInfo.nullable && <IconCheck style={styles.icon} />}
+                                    </TableText>
+                                </TableCell>
+                                <TableCell>
+                                    <Monospace style={styles.tableText}>
+                                        {propInfo.value.replace('=>', '⇒')}
+                                    </Monospace>
+                                </TableCell>
+                            </TableRow>
+                        )
+                    })}
                 </TableBody>
             </Table>
         )
