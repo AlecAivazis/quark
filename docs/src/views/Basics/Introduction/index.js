@@ -14,7 +14,9 @@ const GettingStarted = () => (
             building complex state in a composable manner.
         </Description>
         <Description textStyle={{ marginBottom: 0 }}>
-            To get started, please read the `Getting Started` guide on the left.
+            To get started, please read the `Getting Started` guide on the left. The components
+            under the `Components` section can be used in either `quark-native` or `quark-core`,
+            unless the component is specifically tagged for one or the either.
         </Description>
     </FlexColumn>
 )

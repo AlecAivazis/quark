@@ -16,9 +16,10 @@ const GettingStarted = () => (
             layouts, using the `FlexRow` and `FlexColumn` components.
         </Description>
         <Description textStyle={{ marginBottom: 0 }}>
-            Once you have your application wrapped in an App, and you have gotten used to using the
-            State containers to build your components, you should consider theming your application
-            using the Theme component described in the `Custom Theme` section on the left.
+            Once you have your application wrapped in an `App`, and you have gotten used to using
+            the State containers to build your components, you should consider theming your
+            application using the Theme component described in the `Custom Theme` section on the
+            left.
         </Description>
         <Description>
             Please keep in mind that since quark is meant to work on both native and web, the rules
