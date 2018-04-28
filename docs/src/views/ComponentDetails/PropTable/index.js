@@ -48,6 +48,22 @@ const PropTable = ({ info, style }) => {
     } else {
         // the props we care about
         const props = Object.keys(info.props)
+            // sort the props so required ones come first
+            .sort((propA, propB) => {
+                // if A is required and B isn't
+                if (info.props[propA].required && !info.props[propB].required) {
+                    // list A first
+                    return -1
+                }
+                // if B is required and A isn't
+                if (info.props[propB].required && !info.props[propA].required) {
+                    // list A first
+                    return 1
+                }
+
+                // otherwise sort in alphanumeric order
+                return propA > propB
+            })
 
         content = (
             <Table style={styles.table}>
@@ -66,7 +82,7 @@ const PropTable = ({ info, style }) => {
                     </TableHeaderCell>
                 </TableHeader>
                 <TableBody>
-                    {props.sort().map((prop, i) => {
+                    {props.map((prop, i) => {
                         const propInfo = info.props[prop]
 
                         return (
