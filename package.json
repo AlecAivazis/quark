@@ -20,7 +20,7 @@
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
         "docs:gen": "babel-node scripts/genDocs/index.js",
         "docs:gen:watch": "npm run gen:docs -- --watch",
-        "docs:build": "webpack --mode production --config docs/webpack.config.js",
+        "docs:build": "webpack --mode production --config docs/webpack.config.js && mv docs/_redirects docs/build",
         "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"
     },
     "prettier": {
