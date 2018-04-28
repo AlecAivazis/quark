@@ -8,6 +8,7 @@ const path = require('path')
 const { walk } = require('walk')
 const mkdirp = require('mkdirp')
 import { promisify } from 'util'
+import remove from 'remove'
 // local imports
 const { packageDirs } = require('./filepath')
 
@@ -22,6 +23,17 @@ Promise.all(packageDirs.map(buildPackage))
 
 async function buildPackage({ sourceDir, buildDir, packageDir }) {
     const mkdir = promisify(mkdirp)
+    const readDir = promisify(fs.readdir)
+    const rmDir = promisify(remove)
+    // if the build dir exists
+
+    // readdir throws an except if the path doesn't exist
+    try {
+        await readDir(buildDir)
+        // if we got here, the path does exist, so remove it
+        await rmDir(buildDir)
+        // the build path doesn't exist so let's move on
+    } catch (err) {}
 
     // make sure the build directory exists
     await mkdir(buildDir)
