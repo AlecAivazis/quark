@@ -8,7 +8,7 @@ import { primaryColor } from 'src/colors'
 
 const PageLink = ({ title, to, children, style, top }) => (
     <FlexColumn style={!top && styles.container}>
-        <h3 style={styles.header}>{title}</h3>
+        <H3 style={styles.header}>{title}</H3>
         <FlexColumn style={styles.content}>{children}</FlexColumn>
     </FlexColumn>
 )
