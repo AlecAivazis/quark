@@ -50,6 +50,7 @@ export default async (args, { ignoreSections = [] } = {}) => {
                     [section]: {
                         ...prev.data[section],
                         [component.name]: {
+                            ...component,
                             props: component.props,
                             tags
                         }

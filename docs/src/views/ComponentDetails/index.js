@@ -1,6 +1,6 @@
 // external imports
 import React from 'react'
-import { H3, FlexColumn, Text, Markdown } from 'quark-web'
+import { H3, FlexColumn, FlexRow, Text, Markdown, Link } from 'quark-web'
 // local imports
 import data from 'data.json'
 import styles from './styles'
@@ -27,9 +27,19 @@ const ComponentDetails = ({ match }) => {
         )
     }
 
+    // the package this component belongs to
+    // const pkg = info.tags[0] || 'quark-core'
+    const path = info.filepath.split('quark/packages/')[1]
+    const link = `https://github.com/AlecAivazis/quark/blob/master/packages/${path}/index.js`
+
     return (
         <FlexColumn>
-            <Title>{info.name}</Title>
+            <FlexRow alignItems="center" justifyContent="space-between">
+                <Title style={{ marginBottom: 0 }}>{info.name}</Title>
+                <a href={link} target="_blank">
+                    <Link style={{ fontWeight: '400' }}>View source on GitHub</Link>
+                </a>
+            </FlexRow>
             <Markdown textStyle={styles.description}>{info.description}</Markdown>
             <PropTable info={info} style={styles.section} />
             <Examples info={info} style={styles.section} />
