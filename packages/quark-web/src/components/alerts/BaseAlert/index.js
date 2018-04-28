@@ -21,7 +21,7 @@ export type AlertProps = {
 
 type State = {
     opacity: any,
-    timeout: ?number,
+    timeout: ?TimeoutID,
     marginTop: number
 }
 
@@ -62,7 +62,9 @@ class BaseAlert extends React.Component<AlertProps, State> {
 
     _dismiss = () => {
         // clear the dismiss timeout
-        clearTimeout(this.state.timeout)
+        if (this.state.timeout) {
+            clearTimeout(this.state.timeout)
+        }
 
         // start the animation
         Animated.parallel([
@@ -114,7 +116,9 @@ class BaseAlert extends React.Component<AlertProps, State> {
                     >
                         <div
                             onMouseEnter={() => {
-                                clearTimeout(this.state.timeout)
+                                if (this.state.timeout) {
+                                    clearTimeout(this.state.timeout)
+                                }
                                 this.setState({ timeout: null })
                             }}
                             onMouseLeave={() => {

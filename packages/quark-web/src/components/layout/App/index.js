@@ -1,18 +1,20 @@
 // @flow
 // external imports
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import type { ViewPropTypes } from 'react-native-web'
+import { View } from 'react-native'
+// local imports
+import { FlexColumn } from 'quark-web'
+import type { FlexViewPropTypes } from 'quark-core'
 
-const App = ({ style, ...unused }: ViewPropTypes) => (
-    <View style={[style, styles.container]} {...unused} />
+const App = ({ style, ...unused }: FlexViewPropTypes) => (
+    <FlexColumn style={{ ...styles.container, ...style }} {...unused} />
 )
 
-const styles = StyleSheet.create({
+const styles = {
     container: {
-        flex: 1,
-        overflow: 'auto'
+        overflow: 'auto',
+        minHeight: '100vh'
     }
-})
+}
 
 export default App

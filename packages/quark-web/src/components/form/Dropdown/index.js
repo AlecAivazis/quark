@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 import { View } from 'react-native-web'
 // local imports
 import { Portal, ClickAway, Card, Measure, EventListener } from 'quark-web'
-import type { MeasurePayload } from 'quark-web'
+import type { MeasurePayload } from '../../window'
 import styles from './styles'
 
 type DropdownPayload = {
@@ -70,6 +70,7 @@ class Dropdown extends React.Component<Props, State> {
 
     _keyDown = (event: Event) => {
         // if the user pressed ↑
+        // disable-flow
         if (event.which === 38) {
             event.preventDefault()
             // increment the counter

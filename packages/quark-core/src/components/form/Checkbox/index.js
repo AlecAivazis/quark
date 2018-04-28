@@ -1,11 +1,16 @@
 // @flow
 // external imports
-import React from 'react'
+import * as React from 'react'
 import { View, Text, StyleSheet, TouchableWithoutFeedback, ViewPropTypes } from 'react-native'
 // local imports
 import { primaryColor, secondaryColor, grey1, grey3, baseDim } from 'quark-core/styles'
 
-type CheckboxProperties = ViewPropTypes
+type CheckboxProperties = {
+    style: CSSStyleDeclaration,
+    children: boolean,
+    content: React.Node,
+    onPress: () => void
+} & ViewPropTypes
 
 const Checkbox = ({ style, children, content, onPress, ...unused }: CheckboxProperties) => (
     <TouchableWithoutFeedback onPress={onPress}>
@@ -25,7 +30,7 @@ const Checkbox = ({ style, children, content, onPress, ...unused }: CheckboxProp
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 2,
+        borderRadius: 3,
         borderWidth: 1,
         display: 'flex',
         alignItems: 'center',

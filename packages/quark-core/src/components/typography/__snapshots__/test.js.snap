@@ -3,23 +3,18 @@
 exports[`H1 renders 1`] = `
 <H1>
   <InnerText
-    style={
-      Object {
-        "backgroundSize": "auto",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundSize": "auto",
             "color": "#48484D",
           }
         }
       >
         <div
-          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-1kk9pjb rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
           dir="auto"
           style={
             Object {
@@ -38,25 +33,18 @@ exports[`H1 renders 1`] = `
 exports[`H2 renders 1`] = `
 <H2>
   <InnerText
-    style={
-      Object {
-        "backgroundRepeat": "repeat",
-        "backgroundSize": "auto",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundRepeat": "repeat",
-            "backgroundSize": "auto",
             "color": "#48484D",
           }
         }
       >
         <div
-          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-1kk9pjb rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
           dir="auto"
           style={
             Object {
@@ -75,23 +63,18 @@ exports[`H2 renders 1`] = `
 exports[`H3 renders 1`] = `
 <H3>
   <InnerText
-    style={
-      Object {
-        "backgroundSize": "100% 100%",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundSize": "100% 100%",
             "color": "#48484D",
           }
         }
       >
         <div
-          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-1kk9pjb rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+          className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
           dir="auto"
           style={
             Object {
@@ -110,19 +93,13 @@ exports[`H3 renders 1`] = `
 exports[`Link renders 1`] = `
 <Link>
   <InnerText
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundSize": "cover",
             "color": "#48484D",
-            "flexDirection": "row",
           }
         }
       >
@@ -146,19 +123,13 @@ exports[`Link renders 1`] = `
 exports[`Monospace renders 1`] = `
 <Monospace>
   <InnerText
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundSize": "cover",
             "color": "#48484D",
-            "flexDirection": "row",
           }
         }
       >
@@ -182,35 +153,13 @@ exports[`Monospace renders 1`] = `
 exports[`Subtitle renders 1`] = `
 <Subtitle>
   <InnerText
-    style={
-      Object {
-        "WebkitOverflowScrolling": "touch",
-        "flex": 1,
-        "overflowX": "hidden",
-        "overflowY": "auto",
-        "transform": Array [
-          Object {
-            "translateZ": 0,
-          },
-        ],
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "WebkitOverflowScrolling": "touch",
-            "backgroundSize": "cover",
             "color": "#48484D",
-            "flex": 1,
-            "overflowX": "hidden",
-            "overflowY": "auto",
-            "transform": Array [
-              Object {
-                "translateZ": 0,
-              },
-            ],
           }
         }
       >
@@ -234,19 +183,13 @@ exports[`Subtitle renders 1`] = `
 exports[`Title renders 1`] = `
 <Title>
   <InnerText
-    style={
-      Object {
-        "touchAction": "none",
-      }
-    }
+    style={Object {}}
   >
     <GetTheme>
       <Text
         style={
           Object {
-            "backgroundSize": "cover",
             "color": "#48484D",
-            "touchAction": "none",
           }
         }
       >

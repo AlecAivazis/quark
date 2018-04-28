@@ -3,7 +3,7 @@
 import React from 'react'
 import { Svg, Path } from 'svgs'
 // internal imports
-import type { IconProps } from '.'
+import type { IconProps } from './types'
 
 const Trash = (props: IconProps) => (
     <Svg

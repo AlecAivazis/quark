@@ -152,6 +152,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -216,6 +217,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -279,6 +281,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -358,6 +361,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -421,6 +425,7 @@ exports[`defaults to 3 columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -641,6 +646,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -704,6 +710,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -783,6 +790,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -846,6 +854,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }
@@ -924,6 +933,7 @@ exports[`supports specifying number of columns 1`] = `
                                 Object {
                                   "backgroundColor": "#ffffff",
                                   "borderColor": "#EAEAEE",
+                                  "cursor": "default",
                                   "shadowColor": "#EAEAEE",
                                 }
                               }

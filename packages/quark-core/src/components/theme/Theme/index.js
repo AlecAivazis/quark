@@ -47,7 +47,9 @@ export type Theme = {
     blue?: Color,
     lightBlue?: Color,
     green?: Color,
-    lightGreen?: Color
+    lightGreen?: Color,
+    yellow?: Color,
+    lightYellow?: Color
 }
 
 export const defaultTheme = {
@@ -67,12 +69,14 @@ export const defaultTheme = {
     blue,
     lightBlue: lightBlue,
     green,
-    lightGreen: lightGreen
+    lightGreen: lightGreen,
+    yellow,
+    lightYellow: lightYellow
 }
 
 type Props = {
     children: React.Node,
-    theme: Theme
+    colors: Theme
 }
 
 class ThemeProvider extends React.Component<Props> {
@@ -84,7 +88,7 @@ class ThemeProvider extends React.Component<Props> {
         return {
             theme: {
                 ...defaultTheme,
-                ...this.props.theme
+                ...this.props.colors
             }
         }
     }

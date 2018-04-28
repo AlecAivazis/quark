@@ -8,7 +8,9 @@ exports[`renders 1`] = `
         Object {
           "backgroundColor": "#ffffff",
           "borderColor": "#EAEAEE",
-          "cursor": "inherit",
+          "fontFamily": "System",
+          "fontSize": "inherit",
+          "margin": 0,
           "shadowColor": "#EAEAEE",
         }
       }

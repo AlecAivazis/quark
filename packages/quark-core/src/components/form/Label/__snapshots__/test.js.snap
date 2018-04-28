@@ -9,25 +9,27 @@ exports[`renders 1`] = `
       className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
     >
       <View
-        style={82}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
       >
         <div
           className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1pxmb3b rn-flexBasis-7vfszb rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-5oul0u rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-zIndex-1lgpqti"
         >
           <Text
             style={
-              Array [
-                83,
-                undefined,
-              ]
+              Object {
+                "userSelect": "none",
+              }
             }
           >
             <InnerText
               style={
                 Object {
-                  "flexDirection": "row",
-                  "overflowX": "auto",
-                  "overflowY": "hidden",
+                  "0": 70,
+                  "1": undefined,
                 }
               }
             >
@@ -35,19 +37,18 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
-                      "backgroundSize": "cover",
+                      "0": 70,
+                      "1": undefined,
                       "color": "#48484D",
-                      "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
                     }
                   }
                 >
                   <div
-                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-fontWeight-1kfrs79 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+                    className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-1471scf rn-font-1lw9tu2 rn-fontFamily-10u92zi rn-fontSize-1b43r93 rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
                     dir="auto"
                     style={
                       Object {
+                        "0": "70px",
                         "color": "rgba(72,72,77,1)",
                       }
                     }
@@ -88,9 +89,7 @@ exports[`renders 1`] = `
             <InnerText
               style={
                 Object {
-                  "flexDirection": "row",
-                  "overflowX": "auto",
-                  "overflowY": "hidden",
+                  "0": undefined,
                 }
               }
             >
@@ -98,11 +97,8 @@ exports[`renders 1`] = `
                 <Text
                   style={
                     Object {
-                      "backgroundSize": "cover",
+                      "0": undefined,
                       "color": "#48484D",
-                      "flexDirection": "row",
-                      "overflowX": "auto",
-                      "overflowY": "hidden",
                     }
                   }
                 >

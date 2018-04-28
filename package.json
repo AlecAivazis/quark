@@ -18,10 +18,10 @@
         "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
         "flow": "flow",
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook",
         "docs:gen": "babel-node scripts/genDocs/index.js",
-        "docs:gen:watch": "npm run gen:docs -- --watch"
+        "docs:gen:watch": "npm run gen:docs -- --watch",
+        "docs:build": "webpack --mode production --config docs/webpack.config.js && mv docs/_redirects docs/build",
+        "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"
     },
     "prettier": {
         "tabWidth": 4,
@@ -32,7 +32,8 @@
     "jest": {
         "testRegex": "test.js$",
         "setupFiles": [
-            "<rootDir>/scripts/initEnzyme.js"
+            "<rootDir>/scripts/initEnzyme.js",
+            "jest-canvas-mock"
         ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer",
@@ -73,13 +74,16 @@
         "chalk": "^2.3.2",
         "chokidar": "^2.0.3",
         "coveralls": "^3.0.0",
+        "css-loader": "^0.28.11",
         "enzyme": "^3.3.0",
         "enzyme-adapter-react-16": "^1.1.0",
         "enzyme-to-json": "^3.2.2",
-        "flow-bin": "^0.59.0",
+        "flow-bin": "^0.70.0",
         "flow-runtime": "^0.16.0",
         "fs-extra": "^4.0.2",
-        "jest": "^21.2.1",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "jest-canvas-mock": "^1.0.2",
         "jest-cli": "^22.4.3",
         "lerna": "^2.0.0",
         "mkdirp": "^0.5.1",
@@ -89,12 +93,23 @@
         "react": "^16.3.0",
         "react-docgen": "3.0.0-beta11",
         "react-dom": "^16.3.0",
-        "react-native-web": "0.3.4",
+        "react-native-web": "^0.5.4",
+        "recast": "^0.14.7",
         "semver": "^5.5.0",
+        "style-loader": "^0.20.3",
         "svgs": "^3.2.1",
-        "walk": "^2.3.9"
+        "walk": "^2.3.13",
+        "webpack": "^4.5.0",
+        "webpack-cli": "^2.0.14",
+        "webpack-dev-server": "^3.1.3"
     },
     "peerDependencies": {
         "react": "^16.3.0"
+    },
+    "dependencies": {
+        "babel-loader": "^8.0.0-beta.2",
+        "react-hot-loader": "^4.0.1",
+        "react-markdown": "^3.3.0",
+        "react-router-dom": "^4.2.2"
     }
 }

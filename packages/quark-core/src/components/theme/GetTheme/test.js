@@ -9,7 +9,7 @@ import { primaryColor } from '../../../styles'
 it('can retrieve the theme from context', () =>
     expect(
         mount(
-            <Theme theme={{ primaryColor: 'black' }}>
+            <Theme colors={{ primaryColor: 'black' }}>
                 <GetTheme>{({ primaryColor }) => primaryColor}</GetTheme>
             </Theme>
         ).text()

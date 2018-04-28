@@ -74,7 +74,7 @@ it('allows the theme to be customized', () => {
     // get the theme object
     expect(
         mount(
-            <Theme theme={{ primaryColor: 'black' }}>
+            <Theme colors={{ primaryColor: 'black' }}>
                 <Child />
             </Theme>
         ).text()
