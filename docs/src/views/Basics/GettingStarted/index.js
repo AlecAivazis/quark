@@ -2,7 +2,7 @@
 import React from 'react'
 // local imports
 import { FlexColumn } from 'quark-web'
-import { Title, Description } from '/docs/src/components'
+import { Title, Description } from 'src/components'
 
 const GettingStarted = () => (
     <FlexColumn>
