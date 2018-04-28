@@ -11,7 +11,7 @@ const Design = () => (
         <Route path="/design/typography" component={Typography} />
         <Route path="/design/palette" component={Palette} />
         <Route path="/design/customize" component={CustomTheme} />
-        <Route render={() => 'design'} />
+        <Route render={() => <Redirect to="/" />} />
     </Switch>
 )
 

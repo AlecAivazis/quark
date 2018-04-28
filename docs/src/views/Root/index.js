@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { App, FlexRow, FlexColumn } from 'quark-web'
 // local imports
-import { Design, GettingStarted, ComponentDetails } from '..'
+import { Design, Basics, ComponentDetails } from '..'
 import Sidebar from './Sidebar'
 import styles from './styles'
 import './reset.css'
@@ -14,9 +14,9 @@ const Root = () => (
         <Sidebar style={styles.sidebar} />
         <FlexColumn style={styles.content} grow={1}>
             <Switch>
-                <Route exact path="/" component={GettingStarted} />
                 <Route path="/design" component={Design} />
                 <Route path="/components/:section/:component" component={ComponentDetails} />
+                <Route path="/" component={Basics} />
                 <Redirect to="/" />
             </Switch>
         </FlexColumn>

@@ -1,4 +1,4 @@
 export Root from './Root'
-export GettingStarted from './GettingStarted'
+export Basics from './Basics'
 export Design from './Design'
 export ComponentDetails from './ComponentDetails'

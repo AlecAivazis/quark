@@ -2,7 +2,7 @@
 import React from 'react'
 // local imports
 import { FlexColumn } from 'quark-web'
-import { Title, Description } from '../../components'
+import { Title, Description } from '../../../components'
 
 const GettingStarted = () => (
     <FlexColumn>
@@ -14,15 +14,7 @@ const GettingStarted = () => (
             building complex state in a composable manner.
         </Description>
         <Description textStyle={{ marginBottom: 0 }}>
-            To get started, install the version of quark that matches your application by running
-            `npm i quark-web` or `npm i quark-native`.
-        </Description>
-        <Description>
-            Please keep in mind that since quark is meant to work on both native and web, the rules
-            for available style values is slightly different than what you'd expect in a `React`
-            component. For example, you cannot pass text styling (e.g. `color`) to a non text-based
-            component, you need to pass them to a text component, like those mentioned in the
-            Typography section.
+            To get started, please read the `Getting Started` guide on the left.
         </Description>
     </FlexColumn>
 )

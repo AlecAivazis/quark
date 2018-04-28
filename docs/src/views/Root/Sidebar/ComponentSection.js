@@ -1,13 +1,13 @@
 // external imports
 import React from 'react'
 // local imports
-import { Title, FlexColumn, FlexRow } from 'quark-web'
+import { Title, Text, FlexColumn, FlexRow } from 'quark-web'
 import { grey3 } from 'quark-web/styles'
 
 const PageLink = ({ title, children }) => (
     <FlexColumn style={styles.container}>
         <FlexRow justifyContent="space-between" alignItems="center" style={styles.headerContainer}>
-            <Title style={styles.header}>{title}</Title>
+            <Text style={styles.header}>{title}</Text>
             <div style={styles.divider} />
         </FlexRow>
         <FlexColumn style={styles.content}>{children}</FlexColumn>
@@ -22,7 +22,8 @@ const styles = {
     header: {
         color: grey3,
         textTransform: 'capitalize',
-        fontWeight: '400'
+        fontWeight: '400',
+        fontSize: 17
     },
     headerContainer: {
         marginBottom: 6
