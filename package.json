@@ -1,7 +1,7 @@
 {
     "name": "quark",
     "author": "Alec Aivazis",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "a react component library",
     "scripts": {
         "__internal__lerna": "lerna",
