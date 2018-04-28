@@ -1,7 +1,7 @@
 // external imports
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-console.log(path.resolve(__dirname))
+
 module.exports = {
     entry: './docs/src/index.js',
     output: {
