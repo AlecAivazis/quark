@@ -13,19 +13,18 @@ import {
     TableText,
     TableHeaderText,
     IconCheck,
-    Monospace
+    Monospace,
+    Text
 } from 'quark-web'
 // local imports
 import styles from './styles'
-
-console.log(IconCheck)
 
 const PropTable = ({ info, style }) => {
     let content
 
     // if there are is no prop information
     if (!info.props || Object.keys(info.props).length === 0) {
-        content = 'No prop information'
+        content = <Text>No prop information</Text>
     } else if (info.props === 'TextPropTypes') {
         // if the props are TextPropTypes
         content = (
