@@ -16,14 +16,14 @@ const PageLink = ({ exact, to, style, textStyle, children, component }) => (
                     style={{ ...(match ? styles.activeLink : styles.link), ...style }}
                 >
                     {children ? (
-                        <span
+                        <Text
                             style={{
                                 ...(match ? styles.activeText : styles.text),
                                 ...textStyle
                             }}
                         >
                             {children}
-                        </span>
+                        </Text>
                     ) : (
                         <React.Fragment>
                             <Text
