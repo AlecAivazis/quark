@@ -4,7 +4,7 @@ import React from 'react'
 import { GetTheme, H1, FlexColumn, Text, Markdown } from 'quark-web'
 import styles from './styles'
 import Swatch from './Swatch'
-import { Title } from '../../../components'
+import { Title } from 'src/components'
 
 const Pallete = () => (
     <FlexColumn>

@@ -6,7 +6,7 @@ import data from 'data.json'
 import styles from './styles'
 import PropTable from './PropTable'
 import Examples from './Examples'
-import { Title } from '../../components'
+import { Title } from 'src/components'
 
 const ComponentDetails = ({ match }) => {
     // grab info out of the url

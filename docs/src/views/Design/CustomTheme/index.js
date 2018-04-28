@@ -2,7 +2,7 @@
 import React from 'react'
 // local imports
 import { FlexColumn, H1, Markdown } from 'quark-web'
-import { Title, Description } from '../../../components'
+import { Title, Description } from 'src/components'
 import styles from './styles'
 
 const CustomTheme = () => (

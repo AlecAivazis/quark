@@ -2,7 +2,7 @@
 import React from 'react'
 // local imports
 import { FlexColumn, H2, H1, H3, Title, Subtitle, Text } from 'quark-web'
-import { Title as PageTitle, Description } from '../../../components'
+import { Title as PageTitle, Description } from 'src/components'
 import styles from './styles'
 
 const Typography = () => (

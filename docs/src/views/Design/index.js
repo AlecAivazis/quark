@@ -3,7 +3,7 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 // local imports
 import Typography from './Typography'
-import Palette from './palette'
+import Palette from './Palette'
 import CustomTheme from './CustomTheme'
 
 const Design = () => (
