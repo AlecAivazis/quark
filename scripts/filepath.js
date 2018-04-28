@@ -16,7 +16,7 @@ const components = 'components'
 const examplesDir = 'examples'
 
 // the list of packages
-export const packages = ['quark-web']
+export const packages = ['quark-web', 'quark-core', 'quark-native']
 
 // the list of package directories
 export const packageDirs = packages.map(pkg => {
