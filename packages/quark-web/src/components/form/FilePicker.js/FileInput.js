@@ -8,12 +8,6 @@ type Props = {
 }
 
 class FileInput extends React.Component<Props> {
-    static propTypes = {
-        style: PropTypes.object,
-        children: PropTypes.node.isRequired,
-        onChange: PropTypes.func.isRequired
-    }
-
     _handleUpload = evt => {
         const file = evt.target.files[0]
         this.props.onChange(file)

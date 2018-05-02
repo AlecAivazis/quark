@@ -2,7 +2,7 @@
 // external
 import React from 'react'
 // local
-import FileInput from '../FileInput'
+import FileInput from './FileInput'
 
 type Props = {
     children: React.Node,
