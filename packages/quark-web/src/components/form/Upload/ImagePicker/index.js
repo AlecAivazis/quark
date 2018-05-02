@@ -10,25 +10,32 @@ type Props = {
     children: React.Node,
     onChange: () => {},
     onError: () => string,
-    maxSize?: number,
-    extensions?: Array<string>,
     dims: {
         minWidth: number,
         maxWidth: number,
         minHeight: number,
         maxHeight: number
-    }
+    },
+    maxSize?: number,
+    extensions?: Array<string>
 }
 
 class UploadImage extends React.Component<Props> {
+    static defaultProps = {
+        base64: false
+    }
+
     _handleImg = async file => {
         // grab used props
-        const { onChange, onError, dims } = this.props
+        const { onChange, onError, dims, base64 } = this.props
 
         try {
             const dataUrl = await loadFile(file)
             await loadImage(dataUrl, dims)
-            onChange(dataUrl)
+            if (base64) {
+                return dataUrl
+            }
+            onChange(file)
         } catch (err) {
             // pass err message to onError handler
             onError(err.message)
