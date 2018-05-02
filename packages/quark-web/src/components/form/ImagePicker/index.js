@@ -16,6 +16,7 @@ type Props = {
         minHeight: number,
         maxHeight: number
     },
+    base64?: boolean,
     maxSize?: number,
     extensions?: Array<string>
 }
