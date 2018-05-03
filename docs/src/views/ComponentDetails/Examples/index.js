@@ -2,6 +2,7 @@
 import React from 'react'
 import { H3, Text } from 'quark-web'
 // local imports
+import Example from './Example'
 import styles from './styles'
 
 const Examples = ({ info, style }) => (
@@ -10,7 +11,7 @@ const Examples = ({ info, style }) => (
         {!info.examples || (info.examples && info.examples.length === 0) ? (
             <Text>No examples</Text>
         ) : (
-            <Text>All the examples</Text>
+            info.examples.map((example, i) => <Example key={i} info={info} />)
         )}
     </React.Fragment>
 )
