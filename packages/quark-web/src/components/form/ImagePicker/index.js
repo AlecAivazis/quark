@@ -8,8 +8,8 @@ import { FilePicker } from '..'
 
 type Props = {
     children: React.Node,
-    onChange: () => {},
-    onError: () => string,
+    onChange: File => File | string,
+    onError: string => void,
     dims: {
         minWidth: number,
         maxWidth: number,
@@ -18,7 +18,8 @@ type Props = {
     },
     base64?: boolean,
     maxSize?: number,
-    extensions?: Array<string>
+    extensions?: Array<string>,
+    style?: {}
 }
 
 class UploadImage extends React.Component<Props> {
@@ -26,7 +27,7 @@ class UploadImage extends React.Component<Props> {
         base64: false
     }
 
-    _handleImg = async file => {
+    _handleImg = async (file: File) => {
         // grab used props
         const { onChange, onError, dims, base64 } = this.props
 

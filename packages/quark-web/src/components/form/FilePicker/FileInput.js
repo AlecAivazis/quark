@@ -1,14 +1,18 @@
 // @flow
+// external
 import * as React from 'react'
+import { View } from 'react-native-web'
 
 type Props = {
     children: React.Node,
-    onChange: () => {},
+    onChange: File => void,
     style: {}
 }
 
 class FileInput extends React.Component<Props> {
-    _handleUpload = evt => {
+    fileInput: ?HTMLInputElement
+
+    _handleUpload = (evt: Event) => {
         const file = evt.target.files[0]
         this.props.onChange(file)
         // free up the fileInput again
@@ -17,7 +21,7 @@ class FileInput extends React.Component<Props> {
 
     render() {
         return (
-            <div style={this.props.style}>
+            <View style={this.props.style}>
                 <input
                     type="file"
                     style={{ display: 'none' }}
@@ -27,7 +31,7 @@ class FileInput extends React.Component<Props> {
                 {React.cloneElement(this.props.children, {
                     onClick: () => this.fileInput.click()
                 })}
-            </div>
+            </View>
         )
     }
 }

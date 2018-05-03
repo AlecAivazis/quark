@@ -1,14 +1,14 @@
 // @flow
 // external
-import React from 'react'
+import * as React from 'react'
 // local
 import FileInput from './FileInput'
 
 type Props = {
     children: React.Node,
-    onChange: () => {},
-    onError: () => string,
-    maxSize?: number,
+    onChange: File => void,
+    onError: string => void,
+    maxSize: number,
     extensions?: Array<string>,
     style?: {}
 }
@@ -18,7 +18,7 @@ class FilePicker extends React.Component<Props> {
         maxSize: 2
     }
 
-    _validate = file => {
+    _validate = (file: File) => {
         const { onError, onChange, maxSize, extensions } = this.props
 
         // make sure a file was provided in the first place
@@ -55,15 +55,11 @@ class FilePicker extends React.Component<Props> {
         onChange(file)
     }
 
-    render() {
-        const { children, style } = this.props
-
-        return (
-            <FileInput onChange={this._validate} style={style}>
-                {children}
-            </FileInput>
-        )
-    }
+    render = () => (
+        <FileInput onChange={this._validate} style={this.props.style}>
+            {this.props.children}
+        </FileInput>
+    )
 }
 
 export default FilePicker
