@@ -5,8 +5,8 @@ import * as React from 'react'
 import FileInput from './FileInput'
 
 type Props = {
-    children: React.Node,
-    onChange: File => void,
+    children: React.Element<*>,
+    onChange: (File[]) => void | Promise<any>,
     onError: string => void,
     maxSize: number,
     extensions?: Array<string>,
@@ -18,26 +18,34 @@ class FilePicker extends React.Component<Props> {
         maxSize: 2
     }
 
-    _validate = (file: File) => {
+    _validate = (files: File[]) => {
         const { onError, onChange, maxSize, extensions } = this.props
 
         // make sure a file was provided in the first place
-        if (!file) {
+        if (!files) {
             onError('Failed to upload a file.')
             return
         }
 
         // if we care about file extensions
         if (extensions) {
-            const uploadedFileExt = file.name
-                .split('.')
-                .pop()
-                .toLowerCase()
-            const isValidFileExt = extensions
-                .map(ext => ext.toLowerCase())
-                .includes(uploadedFileExt)
+            // the extensions we care about
+            const exts = extensions.map(ext => ext.toLowerCase())
 
-            if (!isValidFileExt) {
+            const isValid = files
+                // pull the extension out of each name of the file
+                .map(file =>
+                    file.name
+                        .split('.')
+                        .pop()
+                        .toLowerCase()
+                )
+                // make sure each extension satisfies the required list
+                .reduce((prev, extension) => prev && extensions.includes(extension), false)
+
+            // if one of the files are invalid
+            if (!isValid) {
+                // yell loudly
                 onError(`Must upload a file of type: ${extensions.join(' or ')}`)
                 return
             }
@@ -46,13 +54,15 @@ class FilePicker extends React.Component<Props> {
         // convert maxSize from megabytes to bytes
         const maxBytes = maxSize * 1000000
 
-        if (file.size > maxBytes) {
+        // look to see if any files are above the limit
+        const tooBig = files.reduce((prev, file) => prev || file.size > maxBytes, false)
+        if (tooBig) {
             onError(`File size must be less than ${maxSize} MB.`)
             return
         }
 
         // return native file object
-        onChange(file)
+        onChange(files)
     }
 
     render = () => (

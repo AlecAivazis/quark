@@ -4,19 +4,21 @@ import * as React from 'react'
 import { View } from 'react-native-web'
 
 type Props = {
-    children: React.Node,
-    onChange: File => void,
+    children: React.Element<*>,
+    onChange: (File[]) => void,
     style?: CSSStyleDeclaration
 }
 
 class FileInput extends React.Component<Props> {
     fileInput: ?HTMLInputElement
 
-    _handleUpload = (evt: Event) => {
-        const file = evt.target.files[0]
-        this.props.onChange(file)
+    _handleUpload = (evt: { target: { files: File[] } }) => {
+        // invoke the onChange callback
+        this.props.onChange(evt.target.files)
         // free up the fileInput again
-        this.fileInput.value = null
+        if (this.fileInput) {
+            this.fileInput.value = ''
+        }
     }
 
     render() {
@@ -29,7 +31,7 @@ class FileInput extends React.Component<Props> {
                     ref={ele => (this.fileInput = ele)}
                 />
                 {React.cloneElement(this.props.children, {
-                    onClick: () => this.fileInput.click()
+                    onClick: () => this.fileInput && this.fileInput.click()
                 })}
             </View>
         )

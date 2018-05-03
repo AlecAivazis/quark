@@ -7,8 +7,8 @@ import loadImage from './load-image'
 import { FilePicker } from '..'
 
 type Props = {
-    children: React.Node,
-    onChange: File => File | string,
+    children: React.Element<*>,
+    onChange: (File[] | string) => void | Promise<any>,
     onError: string => void,
     dims: {
         minWidth: number,
@@ -19,7 +19,7 @@ type Props = {
     base64?: boolean,
     maxSize?: number,
     extensions?: Array<string>,
-    style?: {}
+    style?: CSSStyleDeclaration
 }
 
 class UploadImage extends React.Component<Props> {
@@ -27,17 +27,17 @@ class UploadImage extends React.Component<Props> {
         base64: false
     }
 
-    _handleImg = async (file: File) => {
+    _handleImg = async (files: File[]) => {
         // grab used props
         const { onChange, onError, dims, base64 } = this.props
 
         try {
-            const dataUrl = await loadFile(file)
+            // convert the file into a base64 encoded string
+            const dataUrl = await loadFile(files[0])
+            // verify the file satisfies the dimension constraints
             await loadImage(dataUrl, dims)
-            if (base64) {
-                return dataUrl
-            }
-            onChange(file)
+            // pass the file onto the callback handler
+            onChange(base64 ? dataUrl : files)
         } catch (err) {
             // pass err message to onError handler
             onError(err.message)
