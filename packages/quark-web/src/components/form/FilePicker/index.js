@@ -10,7 +10,7 @@ type Props = {
     onError: string => void,
     maxSize: number,
     extensions?: Array<string>,
-    style?: {}
+    style?: CSSStyleDeclaration
 }
 
 class FilePicker extends React.Component<Props> {

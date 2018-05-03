@@ -6,7 +6,7 @@ import { View } from 'react-native-web'
 type Props = {
     children: React.Node,
     onChange: File => void,
-    style: {}
+    style?: CSSStyleDeclaration
 }
 
 class FileInput extends React.Component<Props> {
