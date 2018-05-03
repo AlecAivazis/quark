@@ -4,95 +4,100 @@ import { mount } from 'enzyme'
 // local
 import FilePicker from '.'
 
-describe('File Picker', () => {
-    let onChange
-    let onError
+test('returns a valid component with required props', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
 
-    beforeEach(() => {
-        onChange = jest.fn()
-        onError = jest.fn()
-    })
+    const ele = (
+        <FilePicker onChange={onChange} onError={onError}>
+            <button>Click to upload</button>
+        </FilePicker>
+    )
 
-    test('returns a valid component with required props', () => {
-        const ele = (
-            <FilePicker onChange={() => ({})} onError={() => ({})}>
-                <button>Click to upload</button>
-            </FilePicker>
-        )
+    expect(React.isValidElement(ele)).toBe(true)
+})
 
-        expect(React.isValidElement(ele)).toBe(true)
-    })
+test('call error handler when no file uploaded', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
 
-    test('call error handler when no file uploaded', () => {
-        // mount the select with a few options
-        const wrapper = mount(
-            <FilePicker onChange={onChange} onError={onError}>
-                <div>Click here</div>
-            </FilePicker>
-        )
+    // mount the select with a few options
+    const wrapper = mount(
+        <FilePicker onChange={onChange} onError={onError}>
+            <div>Click here</div>
+        </FilePicker>
+    )
 
-        // trigger the onChange callback on file input
-        wrapper.find('input').simulate('change', { target: { files: [] } })
+    // trigger the onChange callback on file input
+    wrapper.find('input').simulate('change', { target: { files: [] } })
 
-        expect(onError.mock.calls.length).toBe(1)
-        expect(onChange.mock.calls.length).toBe(0)
-    })
+    expect(onError).toBeCalled()
+    expect(onChange).not.toBeCalled()
+})
 
-    test('call error handler when a file with incorrect extension is uploaded', () => {
-        // mount the select with a few options
-        const wrapper = mount(
-            <FilePicker onChange={onChange} onError={onError} extensions={['md']}>
-                <div>Click here</div>
-            </FilePicker>
-        )
+test('call error handler when a file with incorrect extension is uploaded', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
 
-        const file = new Blob(['file contents'], { type: 'text/plain' })
-        file.name = 'file.txt'
+    // mount the select with a few options
+    const wrapper = mount(
+        <FilePicker onChange={onChange} onError={onError} extensions={['md']}>
+            <div>Click here</div>
+        </FilePicker>
+    )
 
-        // trigger the onChange callback on file input
-        wrapper.find('input').simulate('change', { target: { files: [file] } })
+    const file = new Blob(['file contents'], { type: 'text/plain' })
+    file.name = 'file.txt'
 
-        expect(onError.mock.calls.length).toBe(1)
-        expect(onChange.mock.calls.length).toBe(0)
-    })
+    // trigger the onChange callback on file input
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
 
-    test('call error handler when a file that is too large is uploaded', () => {
-        // mount the select with a few options
-        const wrapper = mount(
-            <FilePicker
-                onChange={onChange}
-                onError={onError}
-                // set unreasonably small max size so that our tiny blob is too big
-                maxSize={0.0000000001}
-            >
-                <div>Click here</div>
-            </FilePicker>
-        )
+    expect(onError).toBeCalled()
+    expect(onChange).not.toBeCalled()
+})
 
-        const file = new Blob(['file contents'], { type: 'text/plain' })
+test('call error handler when a file that is too large is uploaded', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
 
-        // trigger the onChange callback on file input
-        wrapper.find('input').simulate('change', { target: { files: [file] } })
+    // mount the select with a few options
+    const wrapper = mount(
+        <FilePicker
+            onChange={onChange}
+            onError={onError}
+            // set unreasonably small max size so that our tiny blob is too big
+            maxSize={0.0000000001}
+        >
+            <div>Click here</div>
+        </FilePicker>
+    )
 
-        expect(onError.mock.calls.length).toBe(1)
-        expect(onChange.mock.calls.length).toBe(0)
-    })
+    const file = new Blob(['file contents'], { type: 'text/plain' })
 
-    test('call change handler when a file with correct size and extension is uploaded', () => {
-        // mount the select with a few options
-        const wrapper = mount(
-            <FilePicker onChange={onChange} onError={onError} extensions={['txt']} maxSize={1}>
-                <div>Click here</div>
-            </FilePicker>
-        )
+    // trigger the onChange callback on file input
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
 
-        const file = new Blob(['file contents'], { type: 'text/plain' })
-        file.name = 'file.txt'
+    expect(onError).toBeCalled()
+    expect(onChange).not.toBeCalled()
+})
 
-        // trigger the onChange callback on file input
-        wrapper.find('input').simulate('change', { target: { files: [file] } })
+test('call change handler when a file with correct size and extension is uploaded', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
 
-        expect(onError.mock.calls.length).toBe(0)
-        expect(onChange.mock.calls.length).toBe(1)
-    })
+    // mount the select with a few options
+    const wrapper = mount(
+        <FilePicker onChange={onChange} onError={onError} extensions={['txt']} maxSize={1}>
+            <div>Click here</div>
+        </FilePicker>
+    )
+
+    const file = new Blob(['file contents'], { type: 'text/plain' })
+    file.name = 'file.txt'
+
+    // trigger the onChange callback on file input
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
+
+    expect(onError).not.toBeCalled()
+    expect(onChange).toBeCalled()
 })

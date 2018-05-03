@@ -22,7 +22,7 @@ class FilePicker extends React.Component<Props> {
         const { onError, onChange, maxSize, extensions } = this.props
 
         // make sure a file was provided in the first place
-        if (!files) {
+        if (!files || files.length === 0) {
             onError('Failed to upload a file.')
             return
         }
@@ -41,7 +41,7 @@ class FilePicker extends React.Component<Props> {
                         .toLowerCase()
                 )
                 // make sure each extension satisfies the required list
-                .reduce((prev, extension) => prev && extensions.includes(extension), false)
+                .reduce((prev, extension) => prev && exts.includes(extension), true)
 
             // if one of the files are invalid
             if (!isValid) {
