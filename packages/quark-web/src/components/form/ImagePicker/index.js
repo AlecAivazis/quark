@@ -8,8 +8,8 @@ import { FilePicker } from '..'
 
 type Props = {
     children: React.Element<*>,
-    onChange: (File[] | string) => void | Promise<any>,
-    onError: string => void,
+    onChange: (File[] | string) => void | Promise<void>,
+    onError: string => void | Promise<void>,
     dims: {
         minWidth: number,
         maxWidth: number,
