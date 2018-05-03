@@ -11,7 +11,7 @@ const Examples = ({ info, style }) => (
         {!info.examples || (info.examples && info.examples.length === 0) ? (
             <Text>No examples</Text>
         ) : (
-            info.examples.map((example, i) => <Example key={i} info={info} />)
+            info.examples.map((example, i) => <Example key={i} info={info} example={example} />)
         )}
     </React.Fragment>
 )
