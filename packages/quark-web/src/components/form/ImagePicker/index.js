@@ -32,12 +32,12 @@ class UploadImage extends React.Component<Props> {
         const { onChange, onError, dims, base64 } = this.props
 
         try {
-            // convert the file into a base64 encoded string
-            const dataUrl = await loadFile(files[0])
-            // verify the file satisfies the dimension constraints
-            await loadImage(dataUrl, dims)
+            // convert files into base64 encoded strings
+            const dataUrls = await Promise.all(files.map(file => loadFile(file)))
+            // verify that the files satisfy the dimension constraints
+            await Promise.all(dataUrls.map(dataUrl => loadImage(dataUrl, dims)))
             // pass the file onto the callback handler
-            onChange(base64 ? dataUrl : files)
+            onChange(base64 ? dataUrls : files)
         } catch (err) {
             // pass err message to onError handler
             onError(err.message)

@@ -4,16 +4,12 @@ import { mount } from 'enzyme'
 // local
 import ImagePicker from '.'
 
-let onChange
-let onError
 const dims = { minWidth: 0, maxWidth: 10, minHeight: 0, maxHeight: 10 }
 
-beforeEach(() => {
-    onChange = jest.fn()
-    onError = jest.fn()
-})
-
 test('returns a valid component with required props', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
+
     const ele = (
         <ImagePicker onChange={() => ({})} onError={() => ({})} dims={dims}>
             <button>Click to upload</button>
@@ -24,6 +20,9 @@ test('returns a valid component with required props', () => {
 })
 
 test('call the error handler when no image uploaded', () => {
+    const onChange = jest.fn()
+    const onError = jest.fn()
+
     // mount the select with a few options
     const wrapper = mount(
         <ImagePicker onChange={onChange} onError={onError} dims={dims}>
