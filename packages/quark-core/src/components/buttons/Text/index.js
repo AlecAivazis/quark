@@ -14,7 +14,7 @@ export type TextButtonProps = ButtonProps & {
 
 const ButtonWithText = ({ size, textColor, textStyle, children, ...unused }: TextButtonProps) => (
     <Base size={size} {...unused}>
-        <Text style={[textSizes[size], { color: textColor }, textStyle]}>{children}</Text>
+        <Text style={{ ...textSizes[size], color: textColor, textStyle }}>{children}</Text>
     </Base>
 )
 

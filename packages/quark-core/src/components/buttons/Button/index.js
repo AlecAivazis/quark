@@ -13,7 +13,7 @@ const Button = ({ style, ...unused }: TextButtonProps) => (
                 defaultColor={white}
                 activeColor={grey1}
                 textColor={grey5}
-                style={[style, { borderColor: grey5, borderWidth: 1 }]}
+                style={{ ...style, borderColor: grey5, borderWidth: 1 }}
                 {...unused}
             />
         )}
