@@ -1,10 +1,10 @@
 {
     "name": "quark-web",
-    "version": "1.0.3",
+    "version": "1.0.4-beta.0",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
-        "quark-core": "^1.0.2",
+        "quark-core": "^1.0.4-beta.0",
         "react-markdown": "^3.3.0"
     }
 }
