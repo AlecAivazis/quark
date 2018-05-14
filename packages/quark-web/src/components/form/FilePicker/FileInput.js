@@ -28,6 +28,7 @@ class FileInput extends React.Component<Props> {
                     type="file"
                     style={{ display: 'none' }}
                     onChange={this._handleUpload}
+                    multiple={true}
                     ref={ele => (this.fileInput = ele)}
                 />
                 {React.cloneElement(this.props.children, {
