@@ -1,6 +1,6 @@
 {
     "name": "quark-web",
-    "version": "1.0.5",
+    "version": "1.0.6-beta.0",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
