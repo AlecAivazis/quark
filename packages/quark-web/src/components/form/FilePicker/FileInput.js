@@ -4,7 +4,7 @@ import * as React from 'react'
 import { View } from 'react-native-web'
 
 type Props = {
-    children: React.Element<*>,
+    children: React.Element<any>,
     onChange: (File[]) => void,
     style?: CSSStyleDeclaration
 }
@@ -12,9 +12,11 @@ type Props = {
 class FileInput extends React.Component<Props> {
     fileInput: ?HTMLInputElement
 
-    _handleUpload = (evt: { target: { files: File[] } }) => {
+    _handleUpload = (evt: { target: { files: FileList } }) => {
+        const files = [...evt.target.files]
+
         // invoke the onChange callback
-        this.props.onChange(evt.target.files)
+        this.props.onChange(files)
         // free up the fileInput again
         if (this.fileInput) {
             this.fileInput.value = ''

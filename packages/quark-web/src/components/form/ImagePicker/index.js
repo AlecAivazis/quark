@@ -7,7 +7,7 @@ import loadImage from './load-image'
 import { FilePicker } from '..'
 
 type Props = {
-    children: React.Element<*>,
+    children: React.Element<any>,
     onChange: (File[] | string) => void | Promise<void>,
     onError: string => void | Promise<void>,
     dims: {

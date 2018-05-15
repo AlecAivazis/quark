@@ -17,7 +17,9 @@ const Example = ({ info, example }) => {
             <div style={styles.example}>
                 <Component />
             </div>
-            <Monospace>{example.contents}</Monospace>
+            <div style={styles.exampleSource}>
+                <Monospace>{example.contents}</Monospace>
+            </div>
         </FlexColumn>
     )
 }

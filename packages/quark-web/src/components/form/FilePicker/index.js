@@ -5,7 +5,7 @@ import * as React from 'react'
 import FileInput from './FileInput'
 
 type Props = {
-    children: React.Element<*>,
+    children: React.Element<any>,
     onChange: (File[]) => void | Promise<void>,
     onError: string => void | Promise<void>,
     maxSize: number,
