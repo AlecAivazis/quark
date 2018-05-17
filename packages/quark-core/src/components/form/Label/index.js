@@ -18,11 +18,11 @@ type Props = ViewPropTypes & {
 const Label = ({ children, value, textStyle, description, error = false, ...unused }: Props) => (
     <View {...unused}>
         <View style={styles.labelContainer}>
-            <Text style={[styles.labelText, textStyle]}>{value}</Text>
+            <Text style={{ ...styles.labelText, ...textStyle }}>{value}</Text>
         </View>
         {children}
         <View>
-            <Text style={[styles.descriptionText]}>{description}</Text>
+            <Text style={styles.descriptionText}>{description}</Text>
         </View>
     </View>
 )

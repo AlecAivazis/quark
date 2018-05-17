@@ -24,7 +24,8 @@ type Props = {
 
 class UploadImage extends React.Component<Props> {
     static defaultProps = {
-        base64: false
+        base64: false,
+        dims: {}
     }
 
     _handleImg = async (files: File[]) => {
@@ -33,7 +34,8 @@ class UploadImage extends React.Component<Props> {
 
         try {
             // convert files into base64 encoded strings
-            const dataUrls = await Promise.all(files.map(file => loadFile(file)))
+            const dataUrls = await Promise.all(files.map(loadFile))
+
             // verify that the files satisfy the dimension constraints
             await Promise.all(dataUrls.map(dataUrl => loadImage(dataUrl, dims)))
             // pass the file onto the callback handler
