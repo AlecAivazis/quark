@@ -1,7 +1,7 @@
 // external imports
 import path from 'path'
 import chalk from 'chalk'
-import { collectExports } from '@aaivazis/react-docs'
+import { collectExports } from 'react-docs'
 // local imports
 import { getLocation, getInfo, organizeComponents, writeFile } from './utils'
 import * as quarkPaths from '../filepath'
