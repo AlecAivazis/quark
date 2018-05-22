@@ -1,6 +1,6 @@
 export default {
     header: {
-        marginBottom: 8,
+        marginBottom: 20,
         fontSize: 22
     }
 }
