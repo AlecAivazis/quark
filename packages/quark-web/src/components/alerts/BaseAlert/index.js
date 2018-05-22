@@ -138,7 +138,12 @@ class BaseAlert extends React.Component<AlertProps, State> {
                             <div style={{ marginRight: 20 }}>
                                 {React.cloneElement(alertIcon, { style: styles.iconContainer })}
                             </div>
-                            <FlexRow alignItems="center" grow={1} style={styles.contentContainer}>
+                            <FlexRow
+                                alignItems="center"
+                                grow={1}
+                                shrink={1}
+                                style={styles.contentContainer}
+                            >
                                 <span ref={ele => (this._content = ele)}>
                                     {message ? (
                                         <Text style={{ ...styles.messageStyle, ...messageStyle }}>
