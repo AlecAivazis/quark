@@ -14,9 +14,7 @@ type Context = {
     theme: Theme
 }
 
-const GetTheme = (props: Props, { theme = defaultTheme }: Context) => (
-    <React.Fragment>{props.children(theme)}</React.Fragment>
-)
+const GetTheme = (props: Props, { theme = defaultTheme }: Context) => props.children(theme)
 
 GetTheme.contextTypes = {
     theme: PropTypes.object
