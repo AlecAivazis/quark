@@ -19,6 +19,10 @@ const Pallete = () => (
             <Swatch name="green" />
             <Swatch name="yellow" />
             <Swatch name="red" />
+            <Swatch name="darkBlue" whiteFont={true} />
+            <Swatch name="darkGreen" whiteFont={true} />
+            <Swatch name="darkYellow" whiteFont={true} />
+            <Swatch name="darkRed" whiteFont={true} />
             <Swatch name="lightBlue" />
             <Swatch name="lightGreen" />
             <Swatch name="lightYellow" />
