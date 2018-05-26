@@ -3,11 +3,12 @@
 import * as React from 'react'
 import { Text, StyleSheet, Animated, Easing, TouchableWithoutFeedback } from 'react-native'
 // local imports
+import { LoaderBubbles } from 'quark-core'
 import { baseDim } from 'quark-core/styles'
 import { styles, containerSizes, sizeConstraints } from '../styles'
 
 export type ButtonProps = {
-    size?: string,
+    size?: 'small' | 'medium' | 'large',
     constrainSize?: boolean,
     defaultColor?: string,
     activeColor?: string,
@@ -110,11 +111,14 @@ class BaseButton extends React.Component<ButtonProps, State> {
             ...unused
         } = this.props
 
+        // pull out the used state
+        const { loading } = this.state
+
         return (
             <TouchableWithoutFeedback
-                onPressIn={!disabled ? this._pressIn : null}
-                onPressOut={!disabled ? this._pressOut : null}
-                onPress={!disabled ? this._press : null}
+                onPressIn={disabled || loading ? null : this._pressIn}
+                onPressOut={disabled || loading ? null : this._pressOut}
+                onPress={disabled || loading ? null : this._press}
                 accessible={!disabled}
             >
                 <Animated.View
@@ -135,7 +139,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
                         style
                     ]}
                 >
-                    {this.state.loading ? <Text>loading</Text> : children}
+                    {this.state.loading ? <LoaderBubbles color="white" radius={5} /> : children}
                 </Animated.View>
             </TouchableWithoutFeedback>
         )

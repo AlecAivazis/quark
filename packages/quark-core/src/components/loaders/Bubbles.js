@@ -38,7 +38,7 @@ class LoaderBubbles extends React.Component<Props, State> {
     }
 
     get _gap() {
-        return this.props.radius
+        return 2 * this.props.radius
     }
 
     componentDidMount() {
