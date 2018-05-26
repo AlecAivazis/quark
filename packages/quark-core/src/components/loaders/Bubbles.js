@@ -2,12 +2,8 @@
 // external imports
 import React from 'react'
 import { Animated } from 'react-native'
-import { Svg, Circle } from 'svgs'
-
-const AnimatedCircle = Animated.createAnimatedComponent(Circle)
-
-// the space between circles
-const gap = 20
+// local imports
+import { FlexRow } from 'quark-core'
 
 type Props = {
     nBubbles?: number,
@@ -33,7 +29,9 @@ class LoaderBubbles extends React.Component<Props, State> {
 
         // create an animated value we will modify
         this.state = {
-            radii: [...new Array(props.nBubbles)].map(() => new Animated.Value(this.props.radius))
+            radii: [...new Array(props.nBubbles)].map(
+                () => new Animated.Value(2 * this.props.radius)
+            )
         }
     }
 
@@ -50,7 +48,7 @@ class LoaderBubbles extends React.Component<Props, State> {
                         duration: 500
                     }),
                     Animated.timing(animatedValue, {
-                        toValue: this.props.radius,
+                        toValue: 2 * this.props.radius,
                         duration: 500
                     })
                 ])
@@ -61,16 +59,25 @@ class LoaderBubbles extends React.Component<Props, State> {
     render() {
         const { radius: r, nBubbles } = this.props
         return (
-            <Svg height={2 * r} width={2 * nBubbles * r + (nBubbles - 1) * this._gap}>
-                {this.state.radii.map((animatedValue, i) => (
-                    <AnimatedCircle
-                        cx={r + i * (2 * r + this._gap)}
-                        cy={r}
-                        r={animatedValue}
-                        fill={this.props.color}
+            <FlexRow
+                alignItems="center"
+                justifyContent="space-around"
+                style={{
+                    height: 2 * r,
+                    width: 2 * nBubbles * r + (nBubbles - 1) * this._gap
+                }}
+            >
+                {this.state.radii.map(animatedValue => (
+                    <Animated.View
+                        style={{
+                            borderRadius: '50%',
+                            width: this.state.radii[0],
+                            height: this.state.radii[0],
+                            backgroundColor: this.props.color
+                        }}
                     />
                 ))}
-            </Svg>
+            </FlexRow>
         )
     }
 }
