@@ -1,5 +1,5 @@
 import React from 'react'
 import { PrimaryButton } from 'quark-core'
 
-/* title: "PrimaryButton - disabled" */
+/* title: "Disabled State" */
 export default () => <PrimaryButton disabled>Hello!</PrimaryButton>

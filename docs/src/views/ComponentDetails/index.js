@@ -33,7 +33,7 @@ const ComponentDetails = ({ match }) => {
     const link = `https://github.com/AlecAivazis/quark/blob/master/packages/${path}/index.js`
 
     return (
-        <FlexColumn>
+        <FlexColumn style={styles.container}>
             <FlexRow alignItems="center" justifyContent="space-between">
                 <Title style={{ marginBottom: 0 }}>{info.name}</Title>
                 <a href={link} target="_blank">

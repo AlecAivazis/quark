@@ -9,5 +9,8 @@ export default {
     description: {
         fontSize: '18',
         color: '#717172'
+    },
+    container: {
+        paddingBottom: 30
     }
 }

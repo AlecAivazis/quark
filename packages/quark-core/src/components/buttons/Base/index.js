@@ -15,9 +15,9 @@ export type ButtonProps = {
     hoverColor?: string,
     disabled?: boolean,
     disabledStyle?: {},
-    onPress?: (...args: Array<any>) => void,
-    onPressIn?: (...args: Array<any>) => void,
-    onPressOut?: (...args: Array<any>) => void,
+    onPress?: (...args: Array<any>) => void | Promise<void>,
+    onPressIn?: (...args: Array<any>) => void | Promise<void>,
+    onPressOut?: (...args: Array<any>) => void | Promise<void>,
     style?: { [key: string]: any },
     children: React.Node
 }
@@ -65,6 +65,27 @@ class BaseButton extends React.Component<ButtonProps, State> {
         }).start()
     }
 
+    _press = (...args: Array<any>) => {
+        // if there is a press handler to deal with
+        if (this.props.onPress) {
+            // call it
+            const pressPromise = this.props.onPress(...args)
+
+            // if the press callback returned a promise
+            if (pressPromise && pressPromise.then && pressPromise.catch) {
+                // set the loading state to true
+                this.setState({
+                    loading: true
+                })
+
+                // when the promise is resolved, set the loading state to false
+                pressPromise.then(() => this.setState({ loading: false }))
+                // if the promise rejected we should also hide the loading indicator
+                pressPromise.catch(() => this.setState({ loading: false }))
+            }
+        }
+    }
+
     constructor(...args: Array<any>) {
         super(...args)
 
@@ -93,7 +114,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
             <TouchableWithoutFeedback
                 onPressIn={!disabled ? this._pressIn : null}
                 onPressOut={!disabled ? this._pressOut : null}
-                onPress={!disabled ? onPress : null}
+                onPress={!disabled ? this._press : null}
                 accessible={!disabled}
             >
                 <Animated.View
@@ -114,7 +135,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
                         style
                     ]}
                 >
-                    {children}
+                    {this.state.loading ? <Text>loading</Text> : children}
                 </Animated.View>
             </TouchableWithoutFeedback>
         )
