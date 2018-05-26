@@ -15,7 +15,7 @@ type Props = ViewPropTypes & {
 
 const Label = ({ children, value, textStyle, description, error = false, ...unused }: Props) => (
     <GetTheme>
-        {({ red }) => (
+        {({ red, grey4 }) => (
             <View {...unused}>
                 <View style={styles.labelContainer}>
                     <Text
@@ -33,7 +33,7 @@ const Label = ({ children, value, textStyle, description, error = false, ...unus
                     <Text
                         style={{
                             ...styles.descriptionText,
-                            ...(error ? { color: red } : {})
+                            ...(error ? { color: red } : { color: grey4 })
                         }}
                     >
                         {description}
