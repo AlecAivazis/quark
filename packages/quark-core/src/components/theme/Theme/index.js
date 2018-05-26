@@ -17,11 +17,15 @@ import {
     black,
     red,
     lightRed,
+    darkRed,
     blue,
     lightBlue,
+    darkBlue,
     green,
+    darkGreen,
     lightGreen,
     yellow,
+    darkYellow,
     lightYellow
 } from '../../../styles'
 // the type that represents a color in the theme
@@ -44,12 +48,16 @@ export type Theme = {
     black?: Color,
     red?: Color,
     lightRed?: Color,
+    darkRed?: Color,
     blue?: Color,
     lightBlue?: Color,
+    darkBlue?: Color,
     green?: Color,
     lightGreen?: Color,
+    darkGreen?: Color,
     yellow?: Color,
-    lightYellow?: Color
+    lightYellow?: Color,
+    darkYellow?: Color
 }
 
 export const defaultTheme = {
@@ -65,13 +73,17 @@ export const defaultTheme = {
     grey5,
     black,
     red,
+    darkRed,
     lightRed,
     blue,
-    lightBlue: lightBlue,
+    darkBlue,
+    lightBlue,
     green,
-    lightGreen: lightGreen,
+    darkGreen,
+    lightGreen,
     yellow,
-    lightYellow: lightYellow
+    darkYellow,
+    lightYellow
 }
 
 type Props = {

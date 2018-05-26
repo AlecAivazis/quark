@@ -7,8 +7,14 @@ import type { TextButtonProps } from '../Text'
 
 const WarningButton = ({ ...unused }: TextButtonProps) => (
     <GetTheme>
-        {({ red, lightRed, white }) => (
-            <BaseWithText defaultColor={lightRed} activeColor={red} textColor={white} {...unused} />
+        {({ red, lightRed, darkRed, white }) => (
+            <BaseWithText
+                disabledColor={lightRed}
+                defaultColor={red}
+                activeColor={darkRed}
+                textColor={white}
+                {...unused}
+            />
         )}
     </GetTheme>
 )

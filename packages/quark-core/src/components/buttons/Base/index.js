@@ -14,6 +14,7 @@ export type ButtonProps = {
     activeColor?: string,
     disabledColor?: string,
     hoverColor?: string,
+    textColor?: string,
     disabled?: boolean,
     disabledStyle?: {},
     onPress?: (...args: Array<any>) => void | Promise<void>,
@@ -139,7 +140,11 @@ class BaseButton extends React.Component<ButtonProps, State> {
                         style
                     ]}
                 >
-                    {this.state.loading ? <LoaderBubbles color="white" radius={5} /> : children}
+                    {this.state.loading ? (
+                        <LoaderBubbles color={this.props.textColor} radius={5} />
+                    ) : (
+                        children
+                    )}
                 </Animated.View>
             </TouchableWithoutFeedback>
         )
