@@ -36,6 +36,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
     }
 
     _pressIn = (...args: Array<any>) => {
+        console.log(this._pressIn)
         // if there is a press handler to deal with
         if (this.props.onPressIn) {
             // call it
@@ -114,7 +115,9 @@ class BaseButton extends React.Component<ButtonProps, State> {
 
         // pull out the used state
         const { loading } = this.state
-
+        {
+            console.log(disabled || loading ? null : this._pressIn)
+        }
         return (
             <TouchableWithoutFeedback
                 onPressIn={disabled || loading ? null : this._pressIn}

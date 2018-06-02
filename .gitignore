@@ -6,3 +6,4 @@ lerna-debug.log
 .DS_Store
 coverage/
 docs/build/
+docs/data.json

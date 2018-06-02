@@ -20,7 +20,7 @@
         "flow:watch": "watchman-make -p 'packages/*/src/**/*.js' --make 'npm run' -t flow",
         "docs:gen": "babel-node scripts/genDocs/index.js",
         "docs:gen:watch": "npm run gen:docs -- --watch",
-        "docs:build": "webpack --mode production --config docs/webpack.config.js && mv docs/_redirects docs/build",
+        "docs:build": "npm run docs:gen && webpack --mode production --config docs/webpack.config.js && mv docs/_redirects docs/build",
         "docs:build:watch": "webpack-dev-server --hot --inline --mode development --config docs/webpack.config.js --open"
     },
     "prettier": {
@@ -65,8 +65,8 @@
         "@storybook/addon-links": "^3.2.18",
         "@storybook/react": "^3.2.18",
         "babel-core": "^7.0.0-bridge.0",
-        "babel-loader": "8.0.0-beta.2",
         "babel-jest": "^21.2.0",
+        "babel-loader": "8.0.0-beta.2",
         "babel-plugin-flow-runtime": "^0.15.0",
         "babel-plugin-react-native-web": "0.3.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
@@ -96,7 +96,7 @@
         "react-docgen": "3.0.0-beta11",
         "react-docs": "0.0.1",
         "react-dom": "^16.3.0",
-        "react-native-web": "0.3.4",
+        "react-native-web": "^0.7.3",
         "recast": "^0.14.7",
         "remove": "^0.1.5",
         "semver": "^5.5.0",
