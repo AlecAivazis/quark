@@ -36,7 +36,6 @@ class BaseButton extends React.Component<ButtonProps, State> {
     }
 
     _pressIn = (...args: Array<any>) => {
-        console.log(this._pressIn)
         // if there is a press handler to deal with
         if (this.props.onPressIn) {
             // call it
