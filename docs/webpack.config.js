@@ -36,8 +36,8 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            'quark-web': path.resolve(__dirname, '../packages/quark-web/build'),
-            'quark-core': path.resolve(__dirname, '../packages/quark-core/build')
+            'quark-web': path.resolve(__dirname, '../packages/quark-web/src'),
+            'quark-core': path.resolve(__dirname, '../packages/quark-core/src')
         },
         modules: [path.resolve(__dirname), 'node_modules']
     },

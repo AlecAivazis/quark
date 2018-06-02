@@ -114,7 +114,9 @@ class BaseButton extends React.Component<ButtonProps, State> {
 
         // pull out the used state
         const { loading } = this.state
-
+        {
+            console.log(disabled || loading ? null : this._pressIn)
+        }
         return (
             <TouchableWithoutFeedback
                 onPressIn={disabled || loading ? null : this._pressIn}
