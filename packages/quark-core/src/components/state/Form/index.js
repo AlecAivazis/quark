@@ -34,7 +34,7 @@ class Form extends React.Component<Props> {
             getValue: this._getValue,
             setValue: this._updateValue,
             getError: this._getErrors,
-            data: this.state.data,
+            data: { ...this.state.data },
             hasErrors: this._hasErrors,
             clear: this._clear
         })
