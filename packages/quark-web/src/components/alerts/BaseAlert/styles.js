@@ -18,7 +18,6 @@ export default {
         marginRight: 8
     },
     iconContainer: {
-        marginRight: 20,
         color: 'white',
         width: 24,
         height: 24

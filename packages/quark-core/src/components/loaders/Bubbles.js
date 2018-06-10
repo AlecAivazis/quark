@@ -40,7 +40,7 @@ class LoaderBubbles extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        this.state.radii.map((animatedValue, i) => {
+        this.state.radii.map(((_, i), i) => {
             Animated.loop(
                 Animated.sequence([
                     Animated.timing(animatedValue, {
@@ -67,8 +67,9 @@ class LoaderBubbles extends React.Component<Props, State> {
                     width: 2 * nBubbles * r + (nBubbles - 1) * this._gap
                 }}
             >
-                {this.state.radii.map(animatedValue => (
+                {this.state.radii.map((_, i) => (
                     <Animated.View
+                        key={i}
                         style={{
                             borderRadius: '50%',
                             width: this.state.radii[0],

@@ -109,6 +109,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
             onPress,
             disabled,
             disabledColor,
+            textColor,
             ...unused
         } = this.props
 
@@ -140,11 +141,7 @@ class BaseButton extends React.Component<ButtonProps, State> {
                         style
                     ]}
                 >
-                    {this.state.loading ? (
-                        <LoaderBubbles color={this.props.textColor} radius={5} />
-                    ) : (
-                        children
-                    )}
+                    {this.state.loading ? <LoaderBubbles color={textColor} radius={5} /> : children}
                 </Animated.View>
             </TouchableWithoutFeedback>
         )
