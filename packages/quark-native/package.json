@@ -1,9 +1,9 @@
 {
     "name": "quark-native",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
-        "quark-core": "^1.0.15"
+        "quark-core": "^1.0.16"
     }
 }
