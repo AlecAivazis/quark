@@ -40,7 +40,7 @@ class LoaderBubbles extends React.Component<Props, State> {
     }
 
     componentDidMount() {
-        this.state.radii.map(((_, i), i) => {
+        this.state.radii.map((animatedValue, i) => {
             Animated.loop(
                 Animated.sequence([
                     Animated.timing(animatedValue, {
