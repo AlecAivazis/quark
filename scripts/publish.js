@@ -40,7 +40,7 @@ async function publish({ sourceDir, buildDir, packageDir }) {
             (err, stdout, stderr) => {
                 // if there is some kind of error
                 if (err || stderr) {
-                    throw new Error(err || stderr)
+                    return console.log(err || stderr)
                 }
 
                 // otherwise tell the user what just happened
