@@ -1,11 +1,9 @@
 {
     "plugins": ["babel-plugin-react-native-web", "transform-class-properties"],
+    "presets": ["@babel/preset-stage-1", "@babel/preset-react", "@babel/preset-flow"],
     "env": {
         "production": {
             "presets": [
-                "@babel/preset-stage-1",
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -19,9 +17,6 @@
 
         "development": {
             "presets": [
-                "@babel/preset-stage-1",
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -37,9 +32,6 @@
 
         "test": {
             "presets": [
-                "@babel/preset-stage-1",
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {

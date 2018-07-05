@@ -16,7 +16,11 @@ const { packageDirs } = require('./filepath')
 const transformOptions = JSON.parse(
     fs.readFileSync(path.resolve(__dirname, '..', '.babelrc'), 'utf8')
 )
+
+// we're going to change some stuff, so make sure we don't use the babelrc
 transformOptions.babelrc = false
+// make sure we leave import statements alone
+transformOptions.env.production.presets[0][1].modules = false
 
 // build every package
 Promise.all(packageDirs.map(buildPackage))
@@ -25,7 +29,6 @@ async function buildPackage({ sourceDir, buildDir, packageDir }) {
     const mkdir = promisify(mkdirp)
     const readDir = promisify(fs.readdir)
     const rmDir = promisify(remove)
-    // if the build dir exists
 
     // readdir throws an except if the path doesn't exist
     try {
