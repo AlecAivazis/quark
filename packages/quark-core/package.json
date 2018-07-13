@@ -1,10 +1,10 @@
 {
     "name": "quark-core",
-    "version": "1.0.21-beta.0",
+    "version": "1.0.21-y.0",
     "module": "index.js",
     "main": "index.js",
     "dependencies": {
-        "react-native-web": "0.3.4",
+        "react-native-web": "^0.8.8",
         "svgs": "^3.1.1"
     },
     "peerDependencies": {
