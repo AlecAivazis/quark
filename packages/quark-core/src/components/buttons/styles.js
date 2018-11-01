@@ -1,9 +1,9 @@
 // external imports
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 // local imports
 import { baseDim } from '../../styles'
 
-export const containerSizes = StyleSheet.create({
+export const containerSizes = {
     small: {
         height: 7 * baseDim
     },
@@ -13,9 +13,9 @@ export const containerSizes = StyleSheet.create({
     large: {
         height: 14 * baseDim
     }
-})
+}
 
-export const sizeConstraints = StyleSheet.create({
+export const sizeConstraints = {
     small: {
         minWidth: 100,
         maxWidth: 210
@@ -28,9 +28,9 @@ export const sizeConstraints = StyleSheet.create({
         minWidth: 150,
         maxWidth: 260
     }
-})
+}
 
-export const textSizes = StyleSheet.create({
+export const textSizes = {
     small: {
         fontSize: 14
     },
@@ -40,16 +40,19 @@ export const textSizes = StyleSheet.create({
     large: {
         fontSize: 18
     }
-})
+}
 
-export const styles = StyleSheet.create({
+export const styles = {
     container: {
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 2,
         overflow: 'hidden'
     },
-    disabled: {
-        cursor: 'default'
-    }
-})
+    disabled:
+        Platform.OS === 'web'
+            ? {
+                  cursor: 'default'
+              }
+            : {}
+}

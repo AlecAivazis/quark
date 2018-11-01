@@ -1,8 +1,8 @@
 // @flow
 // external imports
 import * as React from 'react'
-import { View } from 'react-native-web'
-import type { ViewPropTypes } from 'react-native-web'
+import { View } from 'react-native'
+import type { ViewPropTypes } from 'react-native'
 
 export type FlexViewPropTypes = {
     direction?: 'row' | 'column',

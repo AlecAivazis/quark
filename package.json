@@ -51,7 +51,8 @@
         },
         "collectCoverageFrom": [
             "packages/*/src/**/*.{js,jsx}"
-        ]
+        ],
+        "transformIgnorePatterns": [ "<roodDir>/node_modules/(?!react-native-web)" ]
     },
     "devDependencies": {
         "@babel/core": "7.0.0-beta.34",

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 // local imports
 import { baseDim } from 'quark-core/styles'
 
-export default StyleSheet.create({
+export default {
     reset: {
         margin: 0
     },
@@ -21,4 +21,4 @@ export default StyleSheet.create({
     text: {},
     link: {},
     monospace: {}
-})
+}

@@ -1,60 +1,58 @@
+// external imports
+import { Platform } from 'react-native'
+// local imports
 import { baseDim } from './dims'
 import { grey5, primaryColor } from './colors'
 
-export const primaryFont = {
-    fontWeight: '300',
-    lineHeight: '1.3',
+export const primaryFont = fontSize => ({
+    fontWeight: '500',
+    fontSize,
+    lineHeight: Platform.OS === 'web' ? 1.3 : 1.3 * fontSize,
     fontFamily:
-        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+        Platform.OS === 'web'
+            ? '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+            : null,
     color: grey5
-}
+})
 
 export const h1 = {
-    ...primaryFont,
-    fontSize: 23,
-    fontWeight: '500'
+    ...primaryFont(23)
 }
 
 export const h2 = {
-    ...primaryFont,
-    fontSize: 20,
-    fontWeight: '500'
+    ...primaryFont(20)
 }
 
 export const h3 = {
-    ...primaryFont,
-    fontSize: 18,
-    fontWeight: '500'
+    ...primaryFont(18)
 }
 
 export const title = {
-    ...primaryFont,
-    fontWeight: '500',
-    fontSize: 16
+    ...primaryFont(16)
 }
 
 export const subtitle = {
-    ...primaryFont,
-    fontWeight: '500',
-    fontSize: 14
+    ...primaryFont(14)
 }
 
 export const text = {
-    ...primaryFont,
-    fontSize: 14
+    ...primaryFont(14),
+    fontWeight: '300'
 }
 
 export const link = {
-    ...primaryFont,
-    fontSize: 14
+    ...primaryFont(14),
+    fontWeight: '300'
 }
 
 export const linkActive = {
-    ...primaryFont,
-    ...link
+    ...primaryFont(14),
+    ...link,
+    fontWeight: '300'
 }
 
 export const monospace = {
-    ...primaryFont,
-    fontFamily: 'monospace'
+    ...primaryFont(14),
+    fontFamily: 'monospace',
+    fontWeight: '300'
 }
