@@ -1,9 +1,9 @@
 {
-    "plugins": [],
-    "presets": ["@babel/preset-react", "@babel/preset-flow"],
     "env": {
         "production": {
             "presets": [
+                "@babel/preset-react",
+                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -17,6 +17,8 @@
 
         "development": {
             "presets": [
+                "@babel/preset-react",
+                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -32,6 +34,8 @@
 
         "test": {
             "presets": [
+                "@babel/preset-react",
+                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
