@@ -1,9 +1,13 @@
 {
+    "plugins": [
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-proposal-export-namespace-from",
+        "@babel/plugin-proposal-class-properties"
+    ],
+    "presets": ["@babel/preset-react", "@babel/preset-flow"],
     "env": {
         "production": {
             "presets": [
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -17,8 +21,6 @@
 
         "development": {
             "presets": [
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
@@ -34,8 +36,6 @@
 
         "test": {
             "presets": [
-                "@babel/preset-react",
-                "@babel/preset-flow",
                 [
                     "@babel/preset-env",
                     {
