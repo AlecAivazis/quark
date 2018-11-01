@@ -14,7 +14,7 @@ after_install:
 
 jobs:
     include:
-        - stage: flow
-          script: npm run flow
         - stage: tests
           script: test:coverge:report
+        - stage: flow
+          script: npm run flow
