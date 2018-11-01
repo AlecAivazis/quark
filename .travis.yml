@@ -5,11 +5,16 @@ dist: trusty
 # language setup
 language: node_js
 node_js:
-  - "8"
+    - '8'
 
 # command to run tests
-script:
-  - npm i
-  - npm run bootstrap
-  - npm run flow
-  - npm run test:coverage:report
+
+after_install:
+    - npm run bootstrap
+
+jobs:
+    include:
+        - stage: flow
+          script: npm run flow
+        - stage: tests
+          script: test:coverge:report
