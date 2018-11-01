@@ -1,7 +1,7 @@
 {
     "name": "quark",
     "author": "Alec Aivazis",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "description": "a react component library",
     "scripts": {
         "__internal__lerna": "lerna",
@@ -87,7 +87,7 @@
         "ignore-loader": "^0.1.2",
         "jest-canvas-mock": "^1.0.2",
         "jest-cli": "^22.4.3",
-        "lerna": "^2.0.0",
+        "lerna": "^3.4.3",
         "mkdirp": "^0.5.1",
         "npm-query": "^1.1.0",
         "prettier": "^1.7.4",
