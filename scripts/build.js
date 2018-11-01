@@ -9,8 +9,12 @@ const { walk } = require('walk')
 const mkdirp = require('mkdirp')
 import { promisify } from 'util'
 import remove from 'remove'
+import _ from 'lodash'
 // local imports
 const { packageDirs } = require('./filepath')
+import { getLocation } from './genDocs/utils'
+
+const _transformFile = promisify(babel.transformFile)
 
 // open up the babel file and read its contents
 const transformOptions = JSON.parse(
@@ -46,7 +50,7 @@ async function buildPackage({ sourceDir, buildDir, packageDir }) {
 
     // walk over every file in the src directory
     walk(sourceDir, {})
-        .on('file', (root, { name }, next) => {
+        .on('file', async (root, { name }, next) => {
             // the full path of the source file
             const source = path.join(root, name)
             // the full path of the target file
@@ -57,23 +61,45 @@ async function buildPackage({ sourceDir, buildDir, packageDir }) {
                 next()
             }
 
-            // run babel on the source
-            babel.transformFile(source, transformOptions, async (err, result) => {
-                if (err) {
-                    errors.push({ path: source, error: err })
-                    throw new Error(err)
-                }
-                // we trasnformed the file so pull out the results
-                const { code } = result
+            try {
+                // the transform configuration to use for web
+                const webTransformOptions = _.cloneDeep(transformOptions)
+                // references to react-native need to refer to the native/web compat layer
+                webTransformOptions.plugins.push('babel-plugin-react-native-web')
 
-                // make sure the target directory exists
-                await mkdir(path.dirname(target))
+                // run babel on the source with the web configuration
+                var { code: webCode } = await _transformFile(source, webTransformOptions)
+            } catch (err) {
+                // collect the error that threw
+                errors.push({ path: source, error: err })
 
-                // ignore test files
-                if (path.basename(target).match(/test\.js/)) {
-                    return
-                }
+                // go onto the next file
+                return next()
+            }
 
+            // make sure the target directory exists
+            await mkdir(path.dirname(target))
+
+            // ignore test files
+            if (path.basename(target).match(/test\.js/)) {
+                return
+            }
+
+            // we always have to build the result of the transformation for web
+            const writes = [{ target, code: webCode }]
+
+            if (getLocation(source).package === 'quark-core') {
+                // compile the source for native code
+                const { code: nativeCode } = await _transformFile(source, transformOptions)
+
+                // build ios and android targets
+                writes.push(
+                    { target: target.replace('.js', '.ios.js'), code: nativeCode },
+                    { target: target.replace('.js', '.android.js'), code: nativeCode }
+                )
+            }
+
+            for (const { target, code } of writes) {
                 // write the resuting code to the file
                 fs.writeFile(target, code, (err, data) => {
                     // if something went wrong
@@ -85,7 +111,7 @@ async function buildPackage({ sourceDir, buildDir, packageDir }) {
                     // tell the user what we're building
                     console.log(`${source} -> ${target}`)
                 })
-            })
+            }
 
             // we're done with this file
             next()

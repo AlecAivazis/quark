@@ -1,5 +1,5 @@
 {
-    "plugins": ["babel-plugin-react-native-web", "transform-class-properties"],
+    "plugins": ["transform-class-properties"],
     "presets": ["@babel/preset-stage-1", "@babel/preset-react", "@babel/preset-flow"],
     "env": {
         "production": {
