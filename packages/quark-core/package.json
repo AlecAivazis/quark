@@ -5,7 +5,8 @@
     "main": "index.js",
     "dependencies": {
         "react-native-web": "0.9.5",
-        "svgs": "^3.1.1"
+        "svgs": "^3.1.1",
+        "lodash": ">=4.17.5"
     },
     "peerDependencies": {
         "react": "^16.3.0"
