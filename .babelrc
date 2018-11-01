@@ -1,6 +1,6 @@
 {
-    "plugins": ["transform-class-properties"],
-    "presets": ["@babel/preset-stage-1", "@babel/preset-react", "@babel/preset-flow"],
+    "plugins": [],
+    "presets": ["@babel/preset-react", "@babel/preset-flow"],
     "env": {
         "production": {
             "presets": [
